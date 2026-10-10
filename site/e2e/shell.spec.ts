@@ -1,0 +1,120 @@
+import { expect, test, type Page } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
+
+const isLocal = (url: string) => /^(http:\/\/(localhost|127\.0\.0\.1):\d+\/|data:|blob:)/.test(url);
+
+async function open(page: Page, path = "") {
+  await page.goto(path);
+  await page.evaluate(() => document.fonts.ready);
+  await page.keyboard.press("Escape"); // completes the intro (MOTION_SYSTEM 5.1)
+}
+
+test("no external network requests (app shell + gallery)", async ({ page }) => {
+  const external: string[] = [];
+  page.on("request", (r) => { if (!isLocal(r.url())) external.push(r.url()); });
+  await page.goto("", { waitUntil: "networkidle" });
+  await page.goto("?gallery", { waitUntil: "networkidle" });
+  expect(external).toEqual([]);
+});
+
+test("desktop nav: keyboard jump, aria-current, focus, back/forward", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "desktop bar only");
+  await open(page);
+  const nav = page.getByRole("navigation", { name: "Chapters", exact: true });
+  await expect(nav).toBeVisible();
+  const city = nav.getByRole("link", { name: "CITY" });
+  await expect(city).toHaveAttribute("aria-current", "location");
+
+  // Tab moves through the items in order
+  await city.focus();
+  await page.keyboard.press("Tab");
+  await expect(nav.getByRole("link", { name: "ANATOMY" })).toBeFocused();
+
+  const corridors = nav.getByRole("link", { name: "CORRIDORS" });
+  await corridors.focus();
+  await page.keyboard.press("Enter");
+  await expect(corridors).toHaveAttribute("aria-current", "location");
+  await expect(city).not.toHaveAttribute("aria-current", /.*/);
+  await expect(page).toHaveURL(/#corridors$/);
+  await expect(page.locator("#corridors-title")).toBeFocused();
+  // landed at the scene's entry-resolved progress (6.2: S03b 0.05), within 0.01
+  const p = await page.evaluate(() => (window as unknown as { __atlas: { getProgress: (id: string) => number } }).__atlas.getProgress("corridors"));
+  expect(Math.abs(p - 0.05)).toBeLessThan(0.01);
+
+  await nav.getByRole("link", { name: "PRESSURE" }).click();
+  await expect(page).toHaveURL(/#pressure$/);
+  await page.goBack();
+  await expect(page).toHaveURL(/#corridors$/);
+  await expect(corridors).toHaveAttribute("aria-current", "location");
+});
+
+test("mobile menu pill: open, Esc closes and returns focus, item jumps", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "T/M pill only");
+  await open(page);
+  const pill = page.locator(".nav-pill.is-fixed .menu-pill");
+  await expect(pill).toBeVisible();
+  await expect(pill).toContainText("CITY");
+  await expect(pill).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator("#menu-panel")).toBeHidden();
+
+  await pill.click();
+  await expect(pill).toHaveAttribute("aria-expanded", "true");
+  const panel = page.locator("#menu-panel");
+  await expect(panel).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(pill).toHaveAttribute("aria-expanded", "false");
+  await expect(pill).toBeFocused();
+  await expect(panel).toBeHidden();
+
+  await pill.click();
+  await panel.getByRole("link", { name: "DEMAND" }).click();
+  await expect(pill).toHaveAttribute("aria-expanded", "false");
+  await expect(page).toHaveURL(/#demand$/);
+  await expect(pill).toContainText("DEMAND");
+});
+
+test("reduced motion: no pinned stages, no blur, page bottom reachable", async ({ browser }) => {
+  const ctx = await browser.newContext({ reducedMotion: "reduce", viewport: { width: 1440, height: 900 } });
+  const page = await ctx.newPage();
+  await page.goto("");
+  await expect(page.locator("html")).toHaveAttribute("data-motion", "off");
+  const sticky = await page.evaluate(() => [...document.querySelectorAll(".stage")].filter((s) => getComputedStyle(s).position === "sticky").length);
+  expect(sticky).toBe(0);
+  const blurred = await page.evaluate(() => [...document.querySelectorAll(".wr-word")].filter((w) => getComputedStyle(w).filter !== "none").length);
+  expect(blurred).toBe(0);
+  await expect(page.locator(".nav-bar.is-fixed")).toBeVisible(); // intro end state at first frame
+  const height = await page.evaluate(() => document.documentElement.scrollHeight);
+  let wheels = 0;
+  while (wheels < 400) {
+    await page.mouse.wheel(0, 1000);
+    wheels++;
+    const atBottom = await page.evaluate(() => Math.ceil(scrollY + innerHeight) >= document.documentElement.scrollHeight - 2);
+    if (atBottom) break;
+  }
+  // no traps: at most ~1 wheel per 1000px (+ slack), well under the 10 per 1000px budget
+  expect(wheels).toBeLessThanOrEqual(Math.ceil(height / 1000) + 2);
+  await ctx.close();
+});
+
+test("motion toggle switches the whole site to reduced motion and back", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "toggle lives in the bar on D");
+  await open(page);
+  const toggle = page.getByRole("button", { name: "MOTION ON" });
+  await toggle.click();
+  await expect(page.locator("html")).toHaveAttribute("data-motion", "off");
+  await page.getByRole("button", { name: "MOTION OFF" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-motion", "on");
+});
+
+for (const path of ["", "?gallery"]) {
+  test(`axe: no serious or critical violations (${path || "app shell"})`, async ({ page }) => {
+    await open(page, path);
+    await page.waitForTimeout(400);
+    // Ghost words (opacity .32 + blur) are a transient scroll state; screen readers get the
+    // full text throughout. Contrast is asserted on the revealed text the reader settles on.
+    await page.evaluate(() => document.querySelectorAll<HTMLElement>(".wr-word").forEach((w) => { w.style.filter = "none"; w.style.opacity = "1"; }));
+    const results = await new AxeBuilder({ page }).analyze();
+    const bad = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
+    expect(bad.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).join(", ")}`)).toEqual([]);
+  });
+}

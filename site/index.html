@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-motion="on">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <title>Atlas of Human Mobility</title>
+    <meta name="description" content="A year of New York taxi and app-based rides, drawn as one living system: corridors, rush hours, concentration and pressure, from 2024 TLC trip records." />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/node_modules/@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2" />
+    <script>
+      // Before first paint: motion preference (OS or in-site session override) and gallery flag.
+      (function () {
+        var d = document.documentElement, o = null;
+        try { o = sessionStorage.getItem("atlas.motion"); } catch (e) {}
+        var rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        d.setAttribute("data-motion", o === "on" || o === "off" ? o : rm ? "off" : "on");
+        if (/[?&]gallery(=|&|$)/.test(location.search)) d.classList.add("is-gallery");
+      })();
+    </script>
+  </head>
+  <body>
+    <main id="main">
+      <!-- S01 is static HTML so the LCP headline paints before any JS (MOTION_SYSTEM 2). -->
+      <section id="city" class="track track--pinned scene-city" aria-labelledby="hero-title" style="--track-h: 200vh" data-static-track>
+        <div class="stage">
+          <div class="stage-content" data-stage-content>
+            <p class="wordmark">ATLAS OF HUMAN MOBILITY</p>
+            <h1 id="hero-title" class="hero-title wr" data-hero data-scene-heading tabindex="-1"><span class="wr-word">Millions</span> <span class="wr-word">of</span> <span class="wr-word">journeys.</span> <span class="wr-word">One</span> <span class="wr-word">living</span> <span class="wr-word">system.</span></h1>
+            <div id="city-portal"></div>
+          </div>
+        </div>
+      </section>
+      <div id="root"></div>
+    </main>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
