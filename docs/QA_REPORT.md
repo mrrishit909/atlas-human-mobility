@@ -1243,3 +1243,160 @@ Evidence paths are under `artifacts/evidence/qa-5/` unless marked otherwise.
   - `results-a.json`, `results-b.json` and `titleink.json`
   - `scripts/`
 - Gitignored: `artifacts/evidence/recordings/qa-5/`. No U+2014/U+2015 in this pass.
+
+# Pass 6: targeted final pass after FIX-005 (task P01-QA-007)
+
+Independent reviewer, qa-reviewer (Claude Opus 5.5). I wrote passes 4 and 5. I built none of the site.
+Date: 2026-10-11, 11:34 to about 13:05 EDT. Product code audited at HEAD 751371a (b578d0e changes only `docs/BUILD_STATUS.md`).
+Build: `npm run build`, served `index-s19MLEKL.js` (the same hash before and after the QA motion suite's rebuild) on :4301 by the restart-loop `vite preview`.
+Everything ran with `--workers 1` without waiting for load (1-minute load 8 to 32). Every frame and number is from my own captures.
+
+**Verdict: FAILED (1 major, pre-existing, newly found).** Everything FIX-005 targeted is closed in my measurements:
+- **D-060:** 72 dial states, 0 hits; the worst title glyph is 16.4:1.
+- **D-061, D-037 and D-044.**
+- **The CITY corner-label fix.**
+
+The full builder suite now runs green: e2e 236 passed and 0 failed; QA motion suite 21 of 21 run passed.
+
+My own DOM-generated sweep found one defect that every earlier pass missed, including mine:
+- **D-063.** At **1280x720** the fixed chapter nav permanently covers the S08 data credit and TLC disclaimer at the bottom of the page. That is the page's last resting state, so no scroll position shows the line clearly.
+- I rate it major for consistency with D-057: the same viewport, the same class (text overprinted at an L2 size), and here the covered text is an honesty element.
+- It is visible, with identical pixels, in my pass-4 and pass-5 frames (`recordings/qa-4|qa-5/probe/geom-1280x720-closing-0.9.png`). Those walkers only compared text inside each section and never against the fixed nav. The builder's `e2e/collide.ts` has the same limit: its boxes are scoped to a section root (`collisions(page, scope)`), so it cannot see the nav.
+
+## P6.1 Release gate (pass 6)
+
+Evidence paths are under `artifacts/evidence/qa-6/` unless marked otherwise.
+- `results-a.json`: sweep, tags (with L16 boxes), labels, chip, tickets, rm (with L14 and L15).
+- `results-b.json`: d047, errors4, remount, l12, l8, l17, l18, l9, nav, axe, keyboard, numbers.
+- `titleink.json`: per-glyph title ink.
+- `contact-sheets/`: 12 sheets built from the 11-state tag frames per variant.
+- Full frames are in the gitignored `recordings/qa-6/`.
+- Variants: the 7 required, plus 1024x768 and 768x1024 with forced 15 px scrollbars, plus 1280x720, 1366x768 and 1440x760.
+
+| Row | Result | Measured evidence |
+|---|---|---|
+| Visual design | PASS (with defects) | 12 contact sheets read (for example `contact-sheets/sheet-360x800.png`), plus about 20 full frames. D-060 is gone: `probe/ink-1024x768-0.88.png` shows "LaGuardia Airport" whole, under the text column and clear of both the band row and the ledger. The CITY corners step aside on tablet and phones (`probe/tags-768x1024-city-0.78.png`). Remaining: D-063 (major), D-062, D-064, polish. |
+| Motion UI (6 layers) | PASS | QA motion suite `--workers 1`: 21 passed, 17 skipped by design, 0 failed (12:35 to 12:38, load 11.5 to 15.3). 40 nav jumps with 0 half-revealed words and 0 axe violations after a jump. PLAY advances the hour at 1440, 768 and 390. Frame pacing not re-measured; pass 2: desktop p95 10.7 ms, 390 at 4x CPU p95 28.3 ms. |
+| UX | **FAIL** | Fails on D-063. Keyboard: Tab 1 SKIP INTRO, Tab 2 SKIP TO CHAPTERS, Enter lands on CITY, next Tab ANATOMY (`scripts/extra6.mjs`); the dial arrows, S06 roving radios, S05 slider, YOUR FUTURE enabling, and OBS search, Enter and Esc focus return all work (`keyboard`). L17: the OBS inspector (and the LAYERS sheet on phones) opened, then a jump to each of 9 scenes at 1440, 768 and 390: 27 of 27 have no panel left open and no destination control covered. |
+| Functionality and states | PASS | `errors4` (real pointer): 73 of 78 recover (hits +1, 0 lines after); the other 5 are the same non-defects as pass 5. `remount`: 66 of 66. `l12`: 214 real clicks and taps on every visible radio and tab, all reached and all act. `l9`: no covered control in any scene, at 4 points x 12 variants. `buttons.mjs` (real pointer): PLAY, EXPLORE/EXIT, LAYERS (17 radios), RESET VIEW, S05 RESET, MENU, motion toggle, REPLAY INTRO and the closing OBSERVATORY link act at 1440, 768 and 390 (at 768 the MOTION and REPLAY utilities are hit-tested only). D-061: cold arrival at S02 0.9 with meta.json blocked gives one live alert, in view, at 1440. |
+| AI / analytical honesty | PASS (D-063 hides the credit at 1280x720 only) | 23 of 23 facts values match on screen: 20 via `facts_check.py`, plus 48%, 21.3 mph and K = 3 via `extra6.mjs`. S01 "96% of rides begin and end in one of 263 known zones." No tag is `display:none` (132 rows). L16: 0 of 496 sampled boxes below 4.5:1; D-037's JFK label now has an opaque backing. |
+| Performance | PASS (cited) | `npm run build`: main JS 109.65 KB gz (pass 2: 108.3, +1.35), CSS 13.45 KB gz (pass 2: 13.0, +0.45), deckMap 203.43 (same), fonts unchanged. The total is **+1.80 KB gz**, under the 2 KB threshold, so Lighthouse was not rerun. Pass 2: mobile LCP 1804 to 1806 ms, perf 0.99; desktop LCP 404 to 406 ms; CLS 0. |
+| Responsiveness | **FAIL** | D-063 at 1280x720. The DOM-generated sweep (§P6.3) covers 768 states (12 variants x 64): its negative control is caught at all 12, and nothing new turns up beyond D-063 and D-062. `d047`: 72 states, 0 hits. Per-glyph title ink at every anchor x 12 variants: worst 16.4:1 (the final "t" at 1280x720); no glyph in a band box. Tickets: 126 states, 0 defects. Labels: 36 states, one 1 px margin note at 375. Chip: 24 states, 0 bad. |
+| Professional quality | PASS | `typecheck` exit 0, `lint` clean, `npm test` 70/70. Full e2e `--workers 1` (11:35 to 12:09, load 8.7 to 15.5): **236 passed, 210 skipped, 0 failed, 0 flaky**. This is the full rerun after the final fix that you asked for; the builder's 5 earlier load failures do not recur. axe: 160 scans (10 scenes x normal and reduced x 1440, 1024, 1024-classic and 390, plus whole page), 0 violations. All 8 docs present. |
+| GitHub | BLOCKED | Out of scope for this task. |
+| Deployment | BLOCKED | Out of scope for this task. |
+| Portfolio | BLOCKED | Out of scope for this task. |
+
+## P6.2 Register
+
+### Major (open)
+
+**P01-D-063: 1280x720, S08 at the page bottom: the fixed chapter nav covers the data credit and the TLC disclaimer** (major; L2 viewport, honesty element, pre-existing)
+- **Files:** `.end-foot` in `site/src/scenes/S08Closing.tsx` and `scenes.css` (it sits at a fixed offset near the stage bottom) against the fixed `.nav-bar`.
+- **Viewports:**
+  - 1280x720, at S08 p 0.8 and 0.95 and at the true page bottom (`scrollTo(scrollHeight)`): the footer spans y 669..702 and the nav 676..708, a 26 px overlap across the nav's x span 174..1106.
+  - 1366x768, 1440x760 and 1024x768: clear by 14 to 22 px.
+  - Under reduced motion at 1280x720 the footer flows clear (622..656).
+- **Actual:**
+  - "DATA: NYC TAXI AND LIMOUSINE COMMISSION TRIP RECORDS, 2024 · NOAA GHCN-DAILY, CENTRAL PARK · TLC MAKES NO REPRESENTATION AS TO THE ACCURACY OF THESE DATA · GENERATED 2026-10-10 · RISHIT MATHUR" is legible only to the left of the nav (x 96..174).
+  - The nav's background (median luminance 41) paints over the rest, and no further scroll reveals it.
+  - Pixels are identical in my pass-4 and pass-5 frames.
+- **Evidence:** `probe/s08-bottom-1280x720.png`, `probe/sweep-1280x720-closing-0.95.png`; controls `probe/s08-bottom-1366x768.png` and `probe/s08-bottom-1280x720-rm.png`; `scripts/settle.mjs`, `scripts/s08rm.mjs`; `results-a.json` `sweep` (1280x720 closing 0.8 and 0.95).
+- **Expected:** the attribution and disclaimer are readable at every L2 size (honesty hard rejections). No text sits under a control.
+- **Verification test:**
+  - Make the collision helper include fixed elements (the nav, the pill and the corner buttons) against every scene, rather than only boxes inside the scene root.
+  - Assert the `.end-foot` box is disjoint from `.nav-bar` at the page bottom at 1280x720 and 1366x768.
+
+### Minor (open)
+
+- **P01-D-062: 768x1024-classic, S03b LaGuardia step: the title enters 3 px into the band row for about 1.1 s, then jumps 13 px down.**
+  - `scripts/settle.mjs`: after the jump the title's glyph top is 373 against the band row's bottom at 376 from 0 to 1.2 s, then 386 to the end.
+  - The placement effect corrects one render late, so a visible relayout jump happens at a required viewport (`probe/sweep-768x1024-classic-corridors-0.8.png`, `probe/settle-768c-0.8-from0.55-1500.png`).
+  - The settled state is clean (`titleink`).
+- **P01-D-064: S04 metric switch, L18.** For 1 frame (2 frames in one case), the legend already names the new basis while the three labels at full opacity still show the old basis's zones and values.
+  - Measured on every rAF after a real click, with a per-run token so earlier loops stop: 1 mismatched frame of about 80 per switch at 1440 and 390, at 2 to 27 ms after the click (`scripts/l18b.mjs`).
+  - Below perception, but it fails the "every frame" rule.
+- **P01-D-016 (unchanged):** scene data 887 KB gz vs the 400 KB budget.
+
+### Polish (open)
+
+- **D-022:** S02 card-1 grid over the body, 3 to 5 px, at desktop.
+- **D-023:** ledger ranges wrap mid-range.
+- **D-024:** the OBS LAYERS button over the map on phones; it works.
+- **D-027:** at 1024 the S08 echo chord crosses the footer.
+- **D-040:** under reduced motion the wordmark crosses CITY card 1's head, 177x14 px at 390, 375 and 360.
+
+### Closed this pass
+
+| Id | Evidence |
+|---|---|
+| D-060 | `d047` 72 states, 0 hits; `titleink.py`: worst glyph 16.4:1 across 12 variants x 6 anchors; no glyph in any band box; `probe/ink-1024x768-0.88.png`, `ink-1024x768-classic-0.88.png` |
+| D-061 | meta.json blocked, cold `jumpTo('anatomy', 0.9)` at 1440: one `role=alert`, in view (`titleink.mjs` output, `probe/meta-cold-anatomy-0.9-1440.png`). At 390 card 3 is off-screen, so nothing visible goes unannounced. |
+| D-037 | `l16.py`: 0 of 496 boxes below 4.5:1; the JFK label sits on a black backing (`probe/tags-1440x900-demand-0.89.png`) |
+| D-044 | e2e 236 passed and 0 failed (l12 spec included); QA motion 21/21 run passed; no serial reruns needed |
+| CITY corner labels (builder-found) | `sweep`: 0 CITY hits at 768, 768-classic, 390, 375 and 360; `probe/tags-768x1024-city-0.78.png` |
+
+### Checked and dismissed
+
+- **`sweep` hits that are not text-on-text:**
+  - D-022 (above).
+  - The S03a readout's day line under its digits: line-box only.
+  - The OBS horizon scrub wrapper (`div.obs-scrub-wrap`) and the S03b dial hit area: both are stage-wide input regions whose boxes span the scene; their affordances are the handle and the arc.
+  - S03b ledger ellipsis rects.
+- **`errors4` non-OK cases:** the same 5 as pass 5. S05 does not consume zone_hour_week; S04 at p 0.89 is not the cluster step; the S02 deck at p 0.65 on phones is between cards.
+
+## P6.3 My DOM-generated collision sweep (L19)
+
+`scripts/probe6.mjs sweep`. For each of 12 variants, 10 scenes, and 7 progress points (OBS 1), I build the box list from the whole document, not from a selector list. It contains:
+- every painted text run: the Range client rects of every text node, aria-hidden visual text included, after dropping nodes at opacity < 0.15 and runs clipped away by an overflow ancestor;
+- every visible control: button, link, input, radio, tab, slider, combobox;
+- every chip.
+
+Hits are counted three ways:
+- text vs text, between different block owners, overlapping more than 2 px both ways;
+- a control or chip vs text it does not contain (segments in the same radio group exempt);
+- control vs control.
+
+**Negative control:** a fixed element with a never-seen class name placed on the first heading. It was caught at 12 of 12 variants (`negativeControlCaught` 1 or 2).
+
+**Result:** 768 states. Beyond the dismissals above, there are 2 distinct findings:
+- S08 footer x nav at 1280x720 (D-063);
+- S03b title x band row at 768-classic p 0.8, a transient (D-062).
+
+The sweep also confirms the FIX-005 claim about the CITY corners: no CITY collision at any variant.
+
+## P6.4 QA_LESSONS L1 to L19
+
+| L | Result | Evidence |
+|---|---|---|
+| L1 | PASS | JS = CSS class at all 12 variants |
+| L2 | **FAIL** | D-063 at 1280x720; 1024 and 1366/1440 laptops clean |
+| L3 | PASS | 132 tag rows; no hidden chip |
+| L4 | PASS | 73/78 real-pointer recoveries, the rest dismissed; remount 66/66; D-061 closed |
+| L5 / L14 | PASS | reduced motion: scrollWidth ≤ the configured width at all 12 variants; negative control (2000 px at 390, `isMobile`) is reported |
+| L6 | PASS (cited) | +1.80 KB gz; pass-2 mobile LCP 1.8 s |
+| L7 | PASS | `geom` not rerun; the sweep and pass 5 show no sub-11 px node; no new text was added |
+| L8 | PASS | `l8` clearance at least 18 px at 360 |
+| L9 / L12 | PASS | 214 real clicks and taps act; RETRY real-pointer recoveries; `l9` clean |
+| L10 | PASS | copy unchanged since pass 5 |
+| L11 | PASS (polish D-040) | phones: 0 collisions in normal motion; under reduced motion only D-040 |
+| L13 | PASS | no canvas text in `src` |
+| L15 | PASS | lit pixels per figure at least 1,205 (of 40,000) in every scene at all 12 variants |
+| L16 | PASS | 0 of 496 boxes below 4.5:1; dial title at least 16.4:1 |
+| L17 | PASS | 27 of 27 panel-then-jump cases clean |
+| L18 | **FAIL (minor)** | D-064 (one-frame label lag) |
+| L19 | **FAIL** | the builder's `collide.ts` is scoped to a scene root and cannot see the fixed nav, so it missed D-063; my document-wide sweep finds it |
+
+## P6.5 Commands run (uptime recorded)
+
+| Command | Result | Load (1-min) |
+|---|---|---|
+| `npx tsc --noEmit`, `npm run lint`, `npm test`, `npm run build` | 0, clean, 70/70, OK | 14 |
+| `RES=results-a.json scripts/run6.sh sweep tags,labels,chip tickets rm` | `scripts/run-a.log` | 8.7 to 32 |
+| `RES=results-b.json scripts/run6.sh d047 errors4 remount l12 l8 l17 l18 l9 nav axe keyboard,numbers` | `scripts/run-b.log` | 8.4 to 31.9 |
+| `npx playwright test --workers 1` | 236 passed, 210 skipped, 0 failed, 0 flaky, 34.3 min; `scripts/e2e-run1.log` | 8.7 to 15.5 |
+| `npx playwright test -c playwright.qa.config.ts --workers 1` | 21 passed, 17 skipped, 0 failed; `scripts/qa-motion-run1.log` | 11.5 to 15.3 |
+| `scripts/titleink.mjs` + `titleink.py`, `settle.mjs`, `s08rm.mjs`, `l18b.mjs`, `l15.py`, `l16.py`, `buttons.mjs`, `extra6.mjs` | see above | 12 to 16 |
+| Lighthouse, frame pacing | not run: +1.80 KB gz vs pass 2 (threshold 2 KB) | |
+
+Committed evidence is about 3 MB: `artifacts/evidence/qa-6/`. No U+2014/U+2015 in this pass.
