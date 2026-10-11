@@ -1,0 +1,4 @@
+36c36
+< const ARTIFACTS = join(ROOT, "artifacts", "evidence");
+---
+> const ARTIFACTS = join(ROOT, "artifacts", "evidence", "recordings", "qa-3", "harness");

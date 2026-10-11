@@ -699,7 +699,16 @@ Build: `npm run build` (served `index-BYRpRiWI.js`), served by `vite preview --p
 (`sh -c 'while true; do node node_modules/vite/bin/vite.js preview --port 4301 --strictPort; sleep 1; done'`, cwd `site/`).
 The dev server was never used. All frames cited below were taken by me in this pass.
 
-**Status: IN PROGRESS (skeleton committed early so the work is durable; the final verdict and gate table follow below).**
+**Verdict: FAILED.** FIX-002 closed every pass-2 major as reported: D-001/D-033, D-030, D-031, D-035, D-039 and D-041, plus D-032, D-038 and D-043.
+The release gate still fails on **one new major, D-047**, at the S03b LaGuardia dial step (p 0.8 to 0.95, the last anchor):
+- On phones (375x812, 360x800) the serif dial title "LaGuardia Airport" is drawn over the DERIVED · PULSES SAMPLED chip.
+  This is the honesty chip that D-031 un-hid, so both the title and the tag are illegible while pulses travel the chords
+  (hard rejections #3 and #15 in legibility, not in presence).
+- At 768x1024 with a classic scrollbar (clientWidth 753) the same title is drawn over the band selector (MIDDAY, PM PEAK,
+  EVENING). This is a D-033 residual: plain 768 and 800-classic are clean.
+
+Everything else measured passes or is a minor or polish item. The machine was loaded by other agents for the whole session
+(1-minute load 2.4 to 80), and the uptime is recorded next to every result.
 
 ## P3.0 Environment check for D-033 (classic scrollbars)
 
@@ -714,3 +723,148 @@ without `--hide-scrollbars`, plus an injected `html { overflow-y: scroll } ::-we
 | 768x1024 classic | 753 | T | T |
 
 JS and CSS now agree under a classic scrollbar (pass 2: JS said T at 1024 and M at 768).
+
+## P3.1 Release gate (pass 3)
+
+All evidence paths are under `artifacts/evidence/qa-3/` unless marked otherwise. Bulk frames (333 geometry frames, all probe frames)
+are in the gitignored `artifacts/evidence/recordings/qa-3/`.
+
+| Row | Result | Measured evidence |
+|---|---|---|
+| Visual design | PASS (with defects) | I read all 9 contact sheets (`contact-sheets/sheet-*.png`, 7 viewports plus 1024x768 and 768x1024 classic) and about 40 full-size frames. Each scene keeps its own composition at every width: ring, dial, extruded map, lab chart, split ring, card stack, observatory and Spectral horizon. The 1024 and 768 classic compositions now match their plain counterparts (`screens/1024x768-classic/*`, `screens/768x1024-classic/*`). The remaining layout defects are D-047 (major) and the minors below. |
+| Motion UI (6 layers) | PASS | Nav: 40 real nav clicks (1440, 1024, 1024-classic and 390 via the MENU pill), 0 half-revealed words, 0 axe violations after any jump (`probe/probe-results.json` `nav`). Scroll storytelling: QA motion suite `scroll.spec` 1 and 2a pass (serial rerun). Dial steps, lab tweens, futures and pulses are all present in the frames. Frame pacing was **not re-measured** (load 24 to 35 when attempted; see Performance). |
+| UX | **FAIL** | Keyboard: Tab 1 is SKIP INTRO, Tab 2 is SKIP TO CHAPTERS, Enter lands on the CITY nav link, and the next Tab goes to ANATOMY (`scripts/extra.mjs`). The S03b dial ArrowRight changes the dial. S06 has 1 tab stop for 4 radios, and arrows wrap. The S05 slider changes the result (8.8 to 8.3 mph). YOUR FUTURE then enables. OBS search JFK, Enter, opens the inspector, and Esc returns focus to the combobox (`probe-results.json` `keyboard`). It fails on D-047 (title over the band selector at 768 classic and over the chip on phones). |
+| Functionality and states | PASS (with minor defects) | I blocked 24 artifact and scene cases (`probe-results.json` `errors`). facts.json was blocked in all 8 consuming scenes (city, anatomy, rush-hour, corridors, demand, pressure, evidence, closing; 1440, plus 390 for city, corridors, demand and pressure). In every case that scene shows its own in-view error line, exactly one `role=alert` exists, and RETRY re-fetches once (hits 1 to 2) and recovers (no alerts after). The same holds for zones_index, zone_month, daily, zone_hour_week, od_top, zones.geojson, bpr_fit (S05 and S06), reconciliation, weather_model and clusters. Silent failures remain: od_ring_top (D-042), meta.json (D-042) and network.json, which blanks the OBS NETWORK map under a DERIVED chip (D-052). |
+| AI / analytical honesty | **FAIL** | 23 of 23 facts.json values match on screen (§P3.4). No honesty tag is `display:none` at any viewport: a CSS grep finds no rule hiding a `.chip`, and `tags` covers 11 scene states x 9 variants (99 rows). Every "hidden" entry is an off-screen stacked card, or a capture before the fade-in that the frame then shows (`probe/tags-1920x1080-observatory-0.png`, `probe/tags-360x800-demand-0.89.png`). But at 375 and 360 the DERIVED pulses chip is overprinted by the dial title at the LaGuardia step (D-047), so the tag is present but not legible. |
+| Performance | PASS (cited from pass 2; bundle unchanged within 0.6 KB) | `npm run build` this pass: main JS 321.55 KB raw / 108.79 KB gzip (pass 2: 320.6 / 108.3), deckMap 720.17 / 203.43 KB (same), CSS 61.61 / 13.12 KB (pass 2: 61.2 / 13.0), fonts 34.25 + 4.86 KB (same). The change is +0.5 KB gzip JS and +0.1 KB CSS. Lighthouse was therefore not rerun. Pass 2 (load 6.4 to 7.6): mobile LCP 1804/1806/1806 ms, perf 0.99 x3; desktop LCP 404 to 406 ms, perf 1.00 x3; CLS 0. Frame pacing: not re-measured because load stayed 24 to 35 for 10 min (04:40 to 04:49). Pass 2: desktop p95 10.7 ms; 390x844 at 4x CPU p95 28.3 ms. No new recording exists from this pass. |
+| Responsiveness (3 compositions plus 7 viewports plus classic) | **FAIL** | D-033 root cause fixed: JS and CSS classes agree at 1009 and 753 px (§P3.0). Tickets: 126 states (7 progress points x 3 bands plus ALL x 1920/1440/1024/768/1024-classic/768-classic), 110 with tickets, 0 defects. S04 labels: 3 of 3 placed in every metric at all 9 variants, 0 overlaps. S05 chip fits at all 9 variants. Reduced motion: 0 horizontal overflow at all 9 variants (max scrollWidth = clientWidth), 0 sticky, 0 blurred, 0 S04 label leaks, 0 console errors. It fails on D-047. |
+| Professional quality | PASS (with the D-044 test-reliability note) | `npm run typecheck` clean; `npm run lint` clean; `npm test` 9 files 70/70 (02:48, load 12.9). e2e: 92 passed, 66 skipped, 0 failed, 0 flaky in 6.7 min (start 02:49, load 11.21; end 02:55, load 14.89). QA motion suite: 18 passed, 3 failed, 17 skipped (start 03:13, load 2.64; end 03:17, load 32.19, a spike from other agents). Those 3 failures (`scroll.spec:8` and `:26` desktop, `mouse.wheel` 30 s timeouts; `nav.spec:4` mobile, a 4 s predicate timeout) all pass in a serial `--workers 1` rerun (start 03:23, load 10.11): 4 passed, 2 skipped by design. I classify them as load, not product. axe: 160 scans (10 scenes x normal and reduced motion x 1440, 1024, 1024-classic and 390, plus whole page), **0 violations of any impact**, and the D-038 `skip-link` moderate is gone. All 8 required docs present (unchanged since pass 2). |
+| GitHub | BLOCKED | Out of scope for this task. |
+| Deployment | BLOCKED | Out of scope for this task (not deployed). |
+| Portfolio | BLOCKED | Out of scope for this task. |
+
+## P3.2 Previous register re-verified (ids kept)
+
+| Id | Status | Evidence (this pass) | Notes |
+|---|---|---|---|
+| D-001 1024x768 collisions | CLOSED (as reported) | `screens/1024x768-classic/rush-hour-0.35.png`, `futures-0.35.png`, `corridors-0.35.png`, `demand-0.9.png`; geometry `probe-results.json` `geom` (37 states per variant, no text-on-text hit above line-box noise in S01, S03a, S03b, S04 or S06 at 1024 or 1024-classic) | S03a ring sits right of the column. S06 bars sit under their names with readable minutes. S03b arc clears the ledger. S04 map clears the body copy. Residual at 768-classic S03b p 0.8+: D-047. |
+| D-033 JS/CSS class mismatch | CLOSED | §P3.0 (cw 1009 gives D/D; cw 753 gives T/T); `screens/768x1024-classic/rush-hour-0.35.png`, `futures-0.35.png`, `demand-0.9.png` | The builder's `fix001.spec.ts` D-033 test runs S03b at p 0.88 but does not include `.cor-bands` in its boxes, so it cannot see D-047. |
+| D-030 S03a tag on phones | CLOSED | `probe/tags-390x844-rush-hour-0.35.png`; `tags` rows for 390/375/360 | OBSERVED · MEAN TRIPS PER HOUR is visible under the statement. |
+| D-031 pulse sampling tag on phones | CLOSED for presence; legibility broken at one step (D-047) | `screens/390x844/corridors-0.35.png`, `probe/tags-360x800-observatory-0.png` | Both DERIVED chips are visible in S03b and OBS at all phone widths. At 375/360, p 0.8 to 0.95, the title overprints the S03b chip (D-047). |
+| D-032 S06 OBSERVED half on phones | CLOSED | `probe/tags-390x844-futures-0.5.png` ("OBSERVED · TOP HALF") | Worded for the rotated split. |
+| D-035 S02 card 3 on phones | CLOSED | `probe/card3-390x844-0.5.png`, `card3-375x812-0.5.png`, `card3-360x800-0.5.png`; `scripts/card3.mjs`: 0 box intersections at 390/375/360 | At 768 the check line and title touch (D-049, polish). |
+| D-038 skip link target | CLOSED | `#chapters` exists; Enter on SKIP TO CHAPTERS focuses the CITY nav link; axe 0 `skip-link` in 160 scans | |
+| D-039 S04 NET labels | CLOSED | `probe/labels-1440x900-NET.png`, `labels-390x844-NET.png`, `labels-360x800-NET.png`; `labels`: 27 states, 3 labels each, 0 overlaps | The collision pass did not drop any label, so "RANKED 1, 10 AND 50" stays true. 375 PICKUPS: Washington Heights South ends at 360, 1 px inside the 16 px margin (negligible). |
+| D-041 facts.json error on CITY | CLOSED | `probe/error-facts.json-city-1440.png`, `error-facts.json-city-1440-retry.png`, `error-facts.json-city-390.png`, `error-facts.json-closing-1440.png`; `errors` | Each of the 8 consuming scenes shows its own line in view; one live region at a time; RETRY 1 to 2 hits and recovers. |
+| D-043 S06 callout dead UI | CLOSED | `scripts/extra.mjs` output; `probe/s06-quieter-1440.png` | Replaced with "At WED 08:00: Queens +2.0 min a trip, the most; Staten Island +0.6, the least." BUSIER, LANE LOST and QUIETER each match the minutes list (+2.0/+0.6, +1.4/+0.5, -1.7/-0.6). |
+| D-016 budgets | OPEN (minor) | `dist/data` gzip -9: zone_hour_week.json 496,397 B; all scene data 887,146 B (budget 400 KB); no `.map` files in `dist/assets` | Unchanged. |
+| D-022 S02 card copy and spacing | OPEN (polish) | `geom`: DISTANCE_MI / DURATION_S grid overlaps the card-1 body by 3 to 5 px at 1920, 1440, 1024 and 1024-classic | Unchanged. |
+| D-023 ledger ranges wrap mid-range | OPEN (polish) | `screens/1024x768/corridors-0.35.png` ("(P10-P90 26-" / "64)"), `screens/1440x900/corridors-0.65.png` | |
+| D-024 OBS LAYERS button on phones | OPEN (polish) | `screens/390x844/observatory-0.png` | Transparent button over white extrusions. |
+| D-027 S08 footer over the rim at 1024 | OPEN (polish) | `screens/1024x768/closing-0.9.png` (echo chord crosses "MAKES NO") | |
+| D-034 S07 holdout triplets wrap | OPEN (minor) | `screens/360x800/evidence-0.65.png` (one number per line), `screens/768x1024/evidence-0.65.png` (now also at T: "0.18 / 0.31 /" then "0.63", and the Manhattan bar runs into "1.23") | Wider than reported. |
+| D-036 S03b at 1440: arc crosses the chip and ledger row 5 | OPEN (minor) | `screens/1440x900/corridors-0.65.png` (arc nodes cross the DERIVED chip and the band selector; arc through "175,162 ... 18)") | |
+| D-037 S04 labels over white extrusions | OPEN (polish) | `screens/1024x768-classic/demand-0.9.png`, `screens/390x844/demand-0.9.png` ("JFK AIRPORT" over the white JFK block) | Seen at every width. |
+| D-040 reduced motion: fixed corner over content | OPEN (polish) | `probe/rm-768x1024-city.png`, `probe/rm-390x844-city.png`; `rm` rows (wordmark x hero 84x17 at 1024/768; wordmark x card 1 at phones) | Now also on phones. |
+| D-042 silent artifact failures | OPEN (minor) | `probe/error-od_ring_top.json-city-1440.png`, `error-od_ring_top.json-corridors-1440.png` (no alert, no RETRY, hits 1 to 1); `probe/error-meta.json-anatomy-1440.png` (the "PIPELINE V1.0.0 · GENERATED" provenance line just disappears) | Wider than reported: meta.json is also silent. |
+| D-044 test reliability under load | OPEN (minor) | `scripts/qa-motion-run1.log` (3 timeouts at a load spike to 32), `scripts/qa-motion-rerun.log` (all pass serially) | The e2e suite was 0 failed and 0 flaky this pass. |
+| D-045 console error under reduced motion | Not reproduced (closed) | `rm`: 0 console errors at all 9 variants, including 375x812 | |
+| D-046 S03b band row clips on phones | OPEN (polish) | `screens/390x844/corridors-0.35.png` ("EV" cut), `screens/360x800/corridors-0.65.png` (EVENING off-screen) | No scroll affordance. |
+| Builder note: OBS at 1024/768 overlays its search and rail on the map | Classified as D-048 (minor) | `screens/1024x768-classic/observatory-0.png`, `screens/768x1024/observatory-0.png`, `screens/768x1024-classic/observatory-0.png`, `probe/obs-768x1024-after-focus.png` | See D-048. |
+
+## P3.3 New defects
+
+### Major
+
+**P01-D-047: S03b LaGuardia step: the dial title overprints the DERIVED pulse chip on phones and the band selector at 768 classic** (major, honesty legibility and responsiveness)
+- **Files:** the dial title placement in `site/src/scenes/S03bCorridors.tsx` (`.dial-title` at a fixed top) against `.cor-text .cor-chips` and `.cor-bands` in `site/src/styles/scenes.css`. The third chip (DERIVED · WEIGHTED BETWEENNESS) appears only at the LaGuardia anchor, so the chip column grows by one row, and the title does not move.
+- **Viewports and conditions:**
+  - 375x812 and 360x800 (390x844 clears by about 2 px).
+  - 768x1024 with a classic scrollbar (clientWidth 753): the chips wrap to 3 rows, which pushes the band selector into the title. Plain 768, 790 and 800-classic are clean.
+- **Repro:** `__atlas.jumpTo('corridors', 0.88)` (also 0.8 and 0.95).
+- **Expected:** the honesty chip that labels the moving pulses is legible whenever pulses run (hard rejections #3 and #15), and no text overprints a control.
+- **Actual:**
+  - 375: title 294..323 over the DERIVED · PULSES chip, 28 px vertical overlap; 360: title 288..316, 27 px.
+  - 768 classic: title 343..378 over the band selector 345..376, crossing MIDDAY, PM PEAK and EVENING.
+  - The bands stay clickable: `elementFromPoint` returns the band button and a click checks it (`scripts/d047c.mjs`). This is a visual collision only.
+- **Evidence:** `screens/375x812/corridors-0.9.png`, `screens/360x800/corridors-0.9.png`, `screens/768x1024-classic/corridors-0.9.png` (control: `screens/768x1024/corridors-0.9.png`, `screens/390x844/corridors-0.9.png`); `probe/d047-375x812-corridors-0.8.png`, `d047-360x800-corridors-0.9.png`, `d047-768x1024-classic-corridors-0.88.png`. Measurements are from `scripts/d047.mjs` and `scripts/d047b.mjs`.
+- **History:** new in FIX-002 for phones (pass 2 hid this chip on phones). The 768-classic case is a residual of D-033.
+- **Verification test:**
+  - At 390/375/360 and at 768x1024 with the classic-scrollbar launch, for p in {0.8, 0.88, 0.95}, assert that the `.dial-title` rect is disjoint from every visible `.cor-text .chip` and from `.cor-bands`.
+  - Add `.cor-bands` to the `d001Scenes` S03b box list.
+
+### Minor
+
+- **P01-D-048: OBS at tablet width hides half its rail off-screen; the search and region selector float over the map.**
+  - At 768x1024, plain and classic, the rail is a horizontal scroller. OBSERVED, YOUR FUTURE, CITY, BOROUGH, ZONE and RESET VIEW sit at x 763 to 1267, with no scroll affordance; FLOWS OFF is cut at the edge.
+  - They are reachable: focusing each scrolls the rail (RESET VIEW to 643..752), and ZONE clicks. Two Playwright clicks (RESET VIEW, OFF) timed out at load 27, so that part is inconclusive.
+  - At 1024 and 768 the search box and the borough selector sit over Queens and Brooklyn, with the region labels cut at "SI".
+  - Same class as D-020 and D-046.
+  - Evidence: `screens/768x1024/observatory-0.png`, `screens/768x1024-classic/observatory-0.png`, `screens/1024x768-classic/observatory-0.png`, `probe/obs-768x1024-after-focus.png`; `scripts/obs768.mjs`.
+- **P01-D-050: S04 morph: the scrubbed ring crosses the statement, body and controls** at p about 0.2 to 0.5 at D and T.
+  - It is a scroll transient, not a landing state, and it was already present in pass-1 `qa/screenshots/1440x900/seq-demand-01.png` without being logged.
+  - Evidence: `screens/1440x900/demand-0.35.png`, `screens/768x1024-classic/demand-0.35.png`.
+- **P01-D-052: network.json failure blanks the OBS NETWORK view silently.** Choosing NETWORK with network.json blocked leaves an empty stage.
+  - The view still shows "DERIVED · PAGERANK ON THE 2024 OD GRAPH" over no data, with no error line and no RETRY (hits 1 to 1).
+  - This is the D-015 pattern: a model chip with no model.
+  - Evidence: `probe/error-network.json-observatory-NETWORK-1440.png`; `scripts/extra.mjs`.
+
+### Polish
+
+- **P01-D-049: S02 card 3 at 768 is cramped.** The title descenders touch the first ledger row (2 px), and "RAW = KEPT + EXCLUDED ✓" sits on the first body line (4 px).
+  - Evidence: `screens/768x1024-classic/anatomy-0.65.png`, `probe/card3-768x1024-0.5.png`.
+- **P01-D-051: S07 at 768: the card stack covers the "How we know." heading.** Only its top half shows in the plain layout, and only the "H" in classic.
+  - Evidence: `screens/768x1024/evidence-0.65.png`, `screens/768x1024-classic/evidence-0.65.png`.
+
+### Checked and dismissed
+
+- **Phone ledger "collisions" in S03b** (`.cor-ledger__od` x `.cor-ledger__short`, 54x16 px in `geom`). These are an artifact of `text-overflow: ellipsis`: the Range rects span the untruncated text. The frames show clean, ellipsized rows (`screens/390x844/corridors-0.35.png`, `screens/360x800/corridors-0.65.png`).
+- **Line-box overlaps of 3 to 5 px** between `wr-word` spans of one statement, and the S03a readout day line under the time digits. These are tight line heights, and every frame is legible.
+- **OBS `td` hits.** These are the closed "DATA TABLE FOR THIS VIEW" details, which do not render (`probe/rm-1440x900-observatory.png`).
+- **"Hidden" chips in `tags`** at city 0.78 (the faded intro note), anatomy and evidence (off-screen stacked cards), and OBS and S04 at some widths (measured before the fade-in, then visible in the same capture's frame).
+- **S06 QUIETER CITY wording** "Queens -1.7 min a trip, the most". This is correct by magnitude and matches the list.
+
+## P3.4 Review B: analytical honesty
+
+`scripts/facts_check.py` reads the on-screen text (`probe-results.json` `numbersText`, 22 states at 1440) and looks for each value formatted from `site/public/data/facts.json`. Three values were outside those states, so I read them from S05 and S07 directly (`scripts/extra.mjs`). All 23 match:
+
+| facts.json field | Value | On screen |
+|---|---|---|
+| busiest_zone_how | 1,806; East Village; Sun 1 AM | CITY cards |
+| trips_per_minute_mean | 532 | CITY card 2 |
+| trips_kept_total | 280,236,580 | CITY card 2 |
+| raw_rows_total | 281,300,386 | S07 answer 02 |
+| excluded_total | 1,063,806 | S02 card 3 |
+| share_pct | 85.4% / 14.3% / 0.2% | S02 card 2 |
+| top_od_pair | 387,897; Upper East Side South | S03b ledger, S08 |
+| zones_for_half_pickups | 50 | S04 statement |
+| borough_am_peak_speed_ratio Manhattan | 48% (47.65); free-flow 21.3 mph (21.325) | S05 statement and note |
+| mn_internal_share_pct | 79% | S03b |
+| weather_prcp_effect_10mm | +2.0%, 95% CI +1.1% to +2.9% | S07 answer 04, with "ASSOCIATION, NOT CAUSE" |
+| clusters | K = 3, silhouette 0.33 | S07 answer 06 |
+| am_peak_hour / pm_peak_hour | 8 AM / 6 PM | S03a statement |
+
+The S06 deltas (+2.0/+1.3/+1.0/+0.7/+0.6, citywide +1.2) and the S05 lab readout (8.8 mph) are unchanged from pass 2, which recomputed them from `bpr_fit.json`.
+
+## P3.5 Commands run (uptime recorded at start and end)
+
+| Command | Result | Load (1-min) |
+|---|---|---|
+| `npm run typecheck`, `npm run lint`, `npm test` | clean, clean, 70/70 | 12.9 |
+| `npm run build` | OK; sizes in the Performance row | 11.7 |
+| `npx playwright test` (reused the :4301 preview) | 92 passed, 66 skipped, 0 failed, 0 flaky, 6.7 min; `scripts/e2e-run1.log` | 11.21 to 14.89 |
+| `npx playwright test -c playwright.qa.config.ts` | 18 passed, 3 failed (timeouts), 17 skipped; `scripts/qa-motion-run1.log` | 2.64 to 32.19 |
+| the same, failed specs only, `--workers 1` | 4 passed, 2 skipped; `scripts/qa-motion-rerun.log` | 10.11 to 14.51 |
+| `scripts/probe3.mjs geom` (adapted from qa-2 `probe2.mjs`, adds the two classic variants) | 9 variants x 37 states; `scripts/runall.log` | 11.30 to 32.25 |
+| `probe3.mjs tags,labels,chip` | 99 tag rows, 27 label states, 18 chip states | 10.95 to 18.21 |
+| `probe3.mjs keyboard,errors,numbers`, `tickets`, `rm`, `nav`, `axe` | `scripts/runrest.log`. These ran without waiting for load under 12: it stayed 13 to 30 for 20 min, and each probe is a single serial browser. | 13.64 / 12.45 / 8.07 / 9.51 / 15.44 to 24.28 |
+| `scripts/d047.mjs`, `d047b.mjs`, `d047c.mjs`, `card3.mjs`, `obs768.mjs`, `extra.mjs`, `facts_check.py` | see the defects above | 13 to 27 |
+| Lighthouse, evidence-harness frame pacing | not run: the bundle is unchanged within 0.6 KB, and load was 24 to 35 at 04:40 to 04:49 | |
+
+**Evidence layout.**
+- Committed (about 12 MB): `artifacts/evidence/qa-3/`, holding:
+  - `contact-sheets/` (9 sheets, 1600 px, quantized)
+  - `screens/<variant>/` (the cited frames)
+  - `probe/` (the cited probe frames and `probe-results.json`)
+  - `scripts/` (probes and logs)
+- Gitignored: `artifacts/evidence/recordings/qa-3/`, holding all 333 geometry frames, full-size sheets and every probe frame. The `file` fields in `probe-results.json` name frames there. No dash characters U+2014/U+2015 in this pass.

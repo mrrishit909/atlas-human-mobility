@@ -1,0 +1,19 @@
+== keyboard,errors,numbers start  4:13  up 2 days,  6:43, 4 users, load averages: 13.64 19.47 24.78
+done keyboard,errors,numbers
+== keyboard,errors,numbers end  4:19  up 2 days,  6:49, 4 users, load averages: 12.45 16.83 22.07
+== tickets start  4:19  up 2 days,  6:49, 4 users, load averages: 12.45 16.83 22.07
+done tickets
+== tickets end  4:25  up 2 days,  6:55, 4 users, load averages: 8.07 11.01 17.44
+== rm start  4:25  up 2 days,  6:55, 4 users, load averages: 8.07 11.01 17.44
+rm 375x812
+rm 360x800
+rm 1024x768-classic
+rm 768x1024-classic
+done rm
+== rm end  4:30  up 2 days, 7 hrs, 4 users, load averages: 9.51 11.67 16.06
+== nav start  4:30  up 2 days, 7 hrs, 4 users, load averages: 9.51 11.67 16.06
+done nav
+== nav end  4:32  up 2 days,  7:03, 4 users, load averages: 15.44 14.46 16.45
+== axe start  4:32  up 2 days,  7:03, 4 users, load averages: 15.44 14.46 16.45
+done axe
+== axe end  4:40  up 2 days,  7:10, 4 users, load averages: 24.28 16.26 15.87

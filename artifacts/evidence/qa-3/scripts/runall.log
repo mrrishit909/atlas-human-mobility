@@ -1,0 +1,10 @@
+== geom start  3:26  up 2 days,  5:56, 4 users, load averages: 11.30 14.17 14.30
+geom 375x812
+geom 360x800
+geom 1024x768-classic
+geom 768x1024-classic
+done geom
+== geom end  3:37  up 2 days,  6:07, 4 users, load averages: 32.25 21.00 16.66
+== tags,labels,chip start  3:53  up 2 days,  6:23, 4 users, load averages: 10.95 35.24 31.50
+done tags,labels,chip
+== tags,labels,chip end  4:02  up 2 days,  6:32, 4 users, load averages: 18.21 29.06 31.01

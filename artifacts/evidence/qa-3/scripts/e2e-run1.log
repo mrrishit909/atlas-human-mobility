@@ -1,0 +1,166 @@
+ 2:49  up 2 days,  5:19, 4 users, load averages: 11.21 23.21 31.83
+
+Running 158 tests using 2 workers
+
+  ✓    2 [desktop] › e2e/b2.spec.ts:45:1 › S06: YOUR FUTURE is disabled until the lab changes, then enabled (2.8s)
+  ✓    3 [desktop] › e2e/b2.spec.ts:61:1 › nav jumps to each B2 section with aria-current, hash and focus (3.0s)
+  ✓    1 [desktop] › e2e/b2.spec.ts:12:1 › S05: the lab output in the DOM equals the Python BPR vector (Manhattan, WED 23:00, demand x1.20) (6.5s)
+  ✓    4 [desktop] › e2e/b2.spec.ts:73:1 › reverse and rapid scroll through S05-S08 never traps (15.1s)
+  ✓    5 [desktop] › e2e/b2.spec.ts:95:1 › OBS: search a zone -> inspector (sorted destinations) -> Esc closes and returns focus; EXPLORE locks scroll and Esc restores (18.3s)
+  ✓    6 [desktop] › e2e/b2.spec.ts:126:1 › OBS readout equals the sum of the region's zone values (QUEENS, WED 08:00, GREEN) (5.9s)
+  ✓    7 [desktop] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (pressure lab) (3.4s)
+  ✓    9 [desktop] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (evidence stack) (2.0s)
+  ✓    8 [desktop] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (observatory with inspector) (5.5s)
+  ✓   10 [desktop] › e2e/b2.spec.ts:158:1 › fix 5: deck's render loop is paused offscreen and idle frames never redraw (10.4s)
+  -   12 [desktop] › e2e/b2.spec.ts:195:1 › EXPLORE on touch: tap EXPLORE, tap EXIT, scroll is released (M)
+  ✓   13 [desktop] › e2e/b2.spec.ts:211:1 › S06: the split ring never intersects a text block (bbox) (4.2s)
+  ✓   11 [desktop] › e2e/b2.spec.ts:181:1 › EXPLORE: the rail stays clickable and EXIT restores scroll (D) (15.7s)
+  -   15 [desktop] › e2e/b2.spec.ts:243:1 › M OBS inspector clears the MENU pill
+  ✓   14 [desktop] › e2e/b2.spec.ts:227:1 › S05: chart labels never overlap each other or the stage header (bbox) (4.5s)
+  ✓   16 [desktop] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1920x1080) (23.2s)
+  ✓   17 [desktop] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1440x900) (23.3s)
+  ✓   18 [desktop] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1024x768) (23.8s)
+  ✓   19 [desktop] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (768x1024) (30.7s)
+  ✓   20 [desktop] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (390x844) (19.5s)
+  ✓   21 [desktop] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (375x812) (18.1s)
+  ✓   22 [desktop] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (360x800) (19.6s)
+  ✓   23 [desktop] › e2e/fix001.spec.ts:109:1 › D-001: the S06 split ring never intersects a text block (all 7 viewports) (18.2s)
+  ✓   24 [desktop] › e2e/fix001.spec.ts:118:59 › D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (1024x768) (37.8s)
+  ✓   26 [desktop] › e2e/fix001.spec.ts:144:1 › D-002: every S01 number card shows its honesty tag on phones (5.8s)
+  ✓   25 [desktop] › e2e/fix001.spec.ts:118:59 › D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (768x1024) (39.4s)
+  ✓   27 [desktop] › e2e/fix001.spec.ts:158:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1920x1080) (22.4s)
+  ✓   28 [desktop] › e2e/fix001.spec.ts:158:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1440x900) (22.4s)
+  ✓   29 [desktop] › e2e/fix001.spec.ts:158:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1024x768) (22.2s)
+  ✓   30 [desktop] › e2e/fix001.spec.ts:158:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (768x1024) (22.1s)
+  ✓   31 [desktop] › e2e/fix001.spec.ts:183:1 › D-004: S04 direct labels stay inside the viewport on phones (13.2s)
+  ✓   32 [desktop] › e2e/fix001.spec.ts:201:3 › D-005: no sideways scroll in any scene at 360/375/390 (normal motion) (27.8s)
+  ✓   33 [desktop] › e2e/fix001.spec.ts:201:3 › D-005: no sideways scroll in any scene at 360/375/390 (reduced motion) (33.4s)
+  ✓   34 [desktop] › e2e/fix001.spec.ts:224:1 › D-006: every nav jump lands fully resolved, and axe passes after each jump (26.5s)
+  ✓   35 [desktop] › e2e/fix001.spec.ts:247:1 › D-008: the S05 SIMULATED chip fits inside the viewport at all 7 viewports (19.8s)
+  ✓   37 [desktop] › e2e/fix001.spec.ts:275:1 › D-010: the S05 statement's 48% and the lab's Manhattan speed are both named (3.6s)
+  ✓   38 [desktop] › e2e/fix001.spec.ts:287:1 › D-012: the S06 futures radiogroup uses arrows and a single Tab stop (2.3s)
+  ✓   39 [desktop] › e2e/fix001.spec.ts:298:1 › D-013: the first Tab during the intro lands on SKIP INTRO (181ms)
+  ✓   40 [desktop] › e2e/fix001.spec.ts:307:1 › D-014 + D-015: one live region per failed artifact; no model chip without a model (2.9s)
+  ✓   41 [desktop] › e2e/fix001.spec.ts:316:1 › D-017: a favicon is served and nothing 404s (1.0s)
+  ✓   42 [desktop] › e2e/fix001.spec.ts:326:1 › phones: the layout viewport never widens during load, so an early jump lands at its progress (104ms)
+  ✓   36 [desktop] › e2e/fix001.spec.ts:260:1 › D-009: the S04 stage is never blank across the handoff (p 0.60 to 0.70) (28.1s)
+  ✓   43 [desktop] › e2e/fix001.spec.ts:353:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (390x844) (8.8s)
+  ✓   44 [desktop] › e2e/fix001.spec.ts:353:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (375x812) (8.0s)
+  ✓   45 [desktop] › e2e/fix001.spec.ts:353:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (360x800) (8.2s)
+  ✓   46 [desktop] › e2e/fix001.spec.ts:371:30 › D-035: S02 card 3 text blocks never overprint each other (390x844) (2.9s)
+  ✓   47 [desktop] › e2e/fix001.spec.ts:371:30 › D-035: S02 card 3 text blocks never overprint each other (375x812) (2.9s)
+  ✓   48 [desktop] › e2e/fix001.spec.ts:371:30 › D-035: S02 card 3 text blocks never overprint each other (360x800) (2.6s)
+  ✓   49 [desktop] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1920x1080) (10.1s)
+  ✓   50 [desktop] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1440x900) (9.7s)
+  ✓   51 [desktop] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1024x768) (9.6s)
+  ✓   52 [desktop] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (768x1024) (9.5s)
+  ✓   54 [desktop] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (375x812) (9.9s)
+  ✓   53 [desktop] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (390x844) (10.0s)
+  ✓   56 [desktop] › e2e/fix001.spec.ts:417:58 › D-041: a facts.json failure is announced and recoverable on CITY (1440x900) (2.4s)
+  ✓   57 [desktop] › e2e/fix001.spec.ts:417:58 › D-041: a facts.json failure is announced and recoverable on CITY (390x844) (2.3s)
+  ✓   58 [desktop] › e2e/fix001.spec.ts:432:1 › D-038: the skip link has a target (1.0s)
+  ✓   59 [desktop] › e2e/fix001.spec.ts:437:1 › D-043: S06 states the borough moved most and least, bound to the minutes list (2.5s)
+  ✓   60 [desktop] › e2e/scenes.spec.ts:12:1 › rendered copy equals facts.json (S01 cards, S02 ledger title, S03b Manhattan) (239ms)
+  ✓   61 [desktop] › e2e/scenes.spec.ts:23:1 › S03b dial: p 0.6 is Brooklyn forward and backward; a rapid jump lands on the hinge (339ms)
+  ✓   55 [desktop] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (360x800) (9.7s)
+  ✓   63 [desktop] › e2e/scenes.spec.ts:58:1 › S03a states: a failed zone_hour_week fetch shows the error, RETRY re-fetches and recovers (366ms)
+  ✓   62 [desktop] › e2e/scenes.spec.ts:44:1 › S04 handoff: Canvas2D node positions match deck.gl's projection within 1px for 263/263 zones (1.3s)
+  ✓   64 [desktop] › e2e/scenes.spec.ts:70:1 › S03a controls: GREEN changes the readout; 263 zones stay in the a11y table (336ms)
+  ✓   65 [desktop] › e2e/scenes.spec.ts:82:1 › deep link to #demand loads zone shapes and lands on the map without visiting S03 (1.2s)
+  ✓   66 [desktop] › e2e/scenes.spec.ts:100:3 › state: bpr_fit.json fails -> error line -> RETRY re-fetches exactly once and recovers (1.9s)
+  ✓   67 [desktop] › e2e/scenes.spec.ts:100:3 › state: daily.json fails -> error line -> RETRY re-fetches exactly once and recovers (1.2s)
+  ✓   68 [desktop] › e2e/scenes.spec.ts:100:3 › state: weather_model.json fails -> error line -> RETRY re-fetches exactly once and recovers (304ms)
+  ✓   69 [desktop] › e2e/scenes.spec.ts:100:3 › state: facts.json fails -> error line -> RETRY re-fetches exactly once and recovers (340ms)
+  ✓   70 [desktop] › e2e/scenes.spec.ts:100:3 › state: reconciliation.json fails -> error line -> RETRY re-fetches exactly once and recovers (368ms)
+  ✓   71 [desktop] › e2e/scenes.spec.ts:100:3 › state: od_top.json fails -> error line -> RETRY re-fetches exactly once and recovers (325ms)
+  ✓   72 [desktop] › e2e/scenes.spec.ts:100:3 › state: zones.geojson fails -> error line -> RETRY re-fetches exactly once and recovers (279ms)
+  ✓   74 [desktop] › e2e/shell.spec.ts:26:1 › desktop nav: keyboard jump, aria-current, focus, back/forward (754ms)
+  -   75 [desktop] › e2e/shell.spec.ts:57:1 › mobile menu pill: open, Esc closes and returns focus, item jumps
+  ✓   73 [desktop] › e2e/shell.spec.ts:12:1 › no external network requests, including the lazy deck.gl chunk (luma.gl / loaders.gl) (5.5s)
+  ✓   76 [desktop] › e2e/shell.spec.ts:82:1 › reduced motion: no pinned stages, no blur, page bottom reachable (5.3s)
+  ✓   77 [desktop] › e2e/shell.spec.ts:106:1 › motion toggle switches the whole site to reduced motion and back (1.3s)
+  ✓   78 [desktop] › e2e/shell.spec.ts:116:1 › resize D -> M keeps the scene and its progress, without errors (1.2s)
+  -   80 [mobile] › e2e/b2.spec.ts:12:1 › S05: the lab output in the DOM equals the Python BPR vector (Manhattan, WED 23:00, demand x1.20)
+  -   81 [mobile] › e2e/b2.spec.ts:45:1 › S06: YOUR FUTURE is disabled until the lab changes, then enabled
+  -   82 [mobile] › e2e/b2.spec.ts:61:1 › nav jumps to each B2 section with aria-current, hash and focus
+  -   83 [mobile] › e2e/b2.spec.ts:73:1 › reverse and rapid scroll through S05-S08 never traps
+  -   84 [mobile] › e2e/b2.spec.ts:95:1 › OBS: search a zone -> inspector (sorted destinations) -> Esc closes and returns focus; EXPLORE locks scroll and Esc restores
+  -   85 [mobile] › e2e/b2.spec.ts:126:1 › OBS readout equals the sum of the region's zone values (QUEENS, WED 08:00, GREEN)
+  ✓   79 [desktop] › e2e/shell.spec.ts:134:3 › axe: no serious or critical violations (app shell) (1.4s)
+  ✓   86 [mobile] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (pressure lab) (1.8s)
+  ✓   88 [mobile] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (evidence stack) (1.8s)
+  -   89 [mobile] › e2e/b2.spec.ts:158:1 › fix 5: deck's render loop is paused offscreen and idle frames never redraw
+  -   90 [mobile] › e2e/b2.spec.ts:181:1 › EXPLORE: the rail stays clickable and EXIT restores scroll (D)
+  ✓   87 [mobile] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (observatory with inspector) (5.0s)
+  ✓   92 [mobile] › e2e/b2.spec.ts:211:1 › S06: the split ring never intersects a text block (bbox) (4.2s)
+  ✓   93 [mobile] › e2e/b2.spec.ts:227:1 › S05: chart labels never overlap each other or the stage header (bbox) (2.7s)
+  ✓   91 [mobile] › e2e/b2.spec.ts:195:1 › EXPLORE on touch: tap EXPLORE, tap EXIT, scroll is released (M) (13.7s)
+  -   95 [mobile] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1920x1080)
+  -   96 [mobile] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1440x900)
+  -   97 [mobile] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1024x768)
+  -   98 [mobile] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (768x1024)
+  -   99 [mobile] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (390x844)
+  -  100 [mobile] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (375x812)
+  -  101 [mobile] › e2e/fix001.spec.ts:104:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (360x800)
+  -  102 [mobile] › e2e/fix001.spec.ts:109:1 › D-001: the S06 split ring never intersects a text block (all 7 viewports)
+  -  103 [mobile] › e2e/fix001.spec.ts:118:59 › D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (1024x768)
+  -  104 [mobile] › e2e/fix001.spec.ts:118:59 › D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (768x1024)
+  -  105 [mobile] › e2e/fix001.spec.ts:144:1 › D-002: every S01 number card shows its honesty tag on phones
+  -  106 [mobile] › e2e/fix001.spec.ts:158:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1920x1080)
+  -  107 [mobile] › e2e/fix001.spec.ts:158:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1440x900)
+  -  108 [mobile] › e2e/fix001.spec.ts:158:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1024x768)
+  -  109 [mobile] › e2e/fix001.spec.ts:158:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (768x1024)
+  -  110 [mobile] › e2e/fix001.spec.ts:183:1 › D-004: S04 direct labels stay inside the viewport on phones
+  -  111 [mobile] › e2e/fix001.spec.ts:201:3 › D-005: no sideways scroll in any scene at 360/375/390 (normal motion)
+  -  112 [mobile] › e2e/fix001.spec.ts:201:3 › D-005: no sideways scroll in any scene at 360/375/390 (reduced motion)
+  -  113 [mobile] › e2e/fix001.spec.ts:224:1 › D-006: every nav jump lands fully resolved, and axe passes after each jump
+  -  114 [mobile] › e2e/fix001.spec.ts:247:1 › D-008: the S05 SIMULATED chip fits inside the viewport at all 7 viewports
+  -  115 [mobile] › e2e/fix001.spec.ts:260:1 › D-009: the S04 stage is never blank across the handoff (p 0.60 to 0.70)
+  -  116 [mobile] › e2e/fix001.spec.ts:275:1 › D-010: the S05 statement's 48% and the lab's Manhattan speed are both named
+  -  117 [mobile] › e2e/fix001.spec.ts:287:1 › D-012: the S06 futures radiogroup uses arrows and a single Tab stop
+  -  118 [mobile] › e2e/fix001.spec.ts:298:1 › D-013: the first Tab during the intro lands on SKIP INTRO
+  -  119 [mobile] › e2e/fix001.spec.ts:307:1 › D-014 + D-015: one live region per failed artifact; no model chip without a model
+  -  120 [mobile] › e2e/fix001.spec.ts:316:1 › D-017: a favicon is served and nothing 404s
+  -  121 [mobile] › e2e/fix001.spec.ts:326:1 › phones: the layout viewport never widens during load, so an early jump lands at its progress
+  -  122 [mobile] › e2e/fix001.spec.ts:353:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (390x844)
+  -  123 [mobile] › e2e/fix001.spec.ts:353:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (375x812)
+  -  124 [mobile] › e2e/fix001.spec.ts:353:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (360x800)
+  -  125 [mobile] › e2e/fix001.spec.ts:371:30 › D-035: S02 card 3 text blocks never overprint each other (390x844)
+  -  126 [mobile] › e2e/fix001.spec.ts:371:30 › D-035: S02 card 3 text blocks never overprint each other (375x812)
+  -  127 [mobile] › e2e/fix001.spec.ts:371:30 › D-035: S02 card 3 text blocks never overprint each other (360x800)
+  -  128 [mobile] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1920x1080)
+  -  129 [mobile] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1440x900)
+  -  130 [mobile] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1024x768)
+  -  131 [mobile] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (768x1024)
+  -  132 [mobile] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (390x844)
+  -  133 [mobile] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (375x812)
+  -  134 [mobile] › e2e/fix001.spec.ts:402:27 › D-039: S04 direct labels are pairwise disjoint in every metric (360x800)
+  -  135 [mobile] › e2e/fix001.spec.ts:417:58 › D-041: a facts.json failure is announced and recoverable on CITY (1440x900)
+  -  136 [mobile] › e2e/fix001.spec.ts:417:58 › D-041: a facts.json failure is announced and recoverable on CITY (390x844)
+  -  137 [mobile] › e2e/fix001.spec.ts:432:1 › D-038: the skip link has a target
+  -  138 [mobile] › e2e/fix001.spec.ts:437:1 › D-043: S06 states the borough moved most and least, bound to the minutes list
+  ✓  139 [mobile] › e2e/scenes.spec.ts:12:1 › rendered copy equals facts.json (S01 cards, S02 ledger title, S03b Manhattan) (379ms)
+  ✓  140 [mobile] › e2e/scenes.spec.ts:23:1 › S03b dial: p 0.6 is Brooklyn forward and backward; a rapid jump lands on the hinge (343ms)
+  ✓  141 [mobile] › e2e/scenes.spec.ts:44:1 › S04 handoff: Canvas2D node positions match deck.gl's projection within 1px for 263/263 zones (1.2s)
+  ✓   94 [mobile] › e2e/b2.spec.ts:243:1 › M OBS inspector clears the MENU pill (7.5s)
+  -  143 [mobile] › e2e/scenes.spec.ts:70:1 › S03a controls: GREEN changes the readout; 263 zones stay in the a11y table
+  ✓  142 [mobile] › e2e/scenes.spec.ts:58:1 › S03a states: a failed zone_hour_week fetch shows the error, RETRY re-fetches and recovers (385ms)
+  -  145 [mobile] › e2e/scenes.spec.ts:100:3 › state: bpr_fit.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  146 [mobile] › e2e/scenes.spec.ts:100:3 › state: daily.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  147 [mobile] › e2e/scenes.spec.ts:100:3 › state: weather_model.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  148 [mobile] › e2e/scenes.spec.ts:100:3 › state: facts.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  149 [mobile] › e2e/scenes.spec.ts:100:3 › state: reconciliation.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  150 [mobile] › e2e/scenes.spec.ts:100:3 › state: od_top.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  151 [mobile] › e2e/scenes.spec.ts:100:3 › state: zones.geojson fails -> error line -> RETRY re-fetches exactly once and recovers
+  ✓  144 [mobile] › e2e/scenes.spec.ts:82:1 › deep link to #demand loads zone shapes and lands on the map without visiting S03 (2.2s)
+  -  153 [mobile] › e2e/shell.spec.ts:26:1 › desktop nav: keyboard jump, aria-current, focus, back/forward
+  ✓  154 [mobile] › e2e/shell.spec.ts:57:1 › mobile menu pill: open, Esc closes and returns focus, item jumps (2.0s)
+  ✓  152 [mobile] › e2e/shell.spec.ts:12:1 › no external network requests, including the lazy deck.gl chunk (luma.gl / loaders.gl) (5.0s)
+  -  156 [mobile] › e2e/shell.spec.ts:106:1 › motion toggle switches the whole site to reduced motion and back
+  -  157 [mobile] › e2e/shell.spec.ts:116:1 › resize D -> M keeps the scene and its progress, without errors
+  ✓  158 [mobile] › e2e/shell.spec.ts:134:3 › axe: no serious or critical violations (app shell) (1.3s)
+  ✓  155 [mobile] › e2e/shell.spec.ts:82:1 › reduced motion: no pinned stages, no blur, page bottom reachable (4.6s)
+
+  66 skipped
+  92 passed (6.7m)
+ 2:55  up 2 days,  5:26, 4 users, load averages: 14.89 17.48 25.92
