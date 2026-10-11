@@ -1,0 +1,881 @@
+{
+ "d047extra": [
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 538,
+       "t": 231,
+       "r": 742,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1280x720-corridors-0.1.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 527,
+       "t": 231,
+       "r": 753,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1280x720-corridors-0.3.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 555,
+       "t": 231,
+       "r": 725,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1280x720-corridors-0.55.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 472,
+       "t": 585,
+       "r": 808,
+       "b": 628
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x → TIMES SQ/THEATRE DISTRICT ·  (308x13)",
+    "LaGuardia Airport x BOX ticket → TIMES SQ/THEATRE D (320x16)",
+    "LaGuardia Airport x BOX ticket → MIDTOWN SOUTH · 15 (8x16)"
+   ],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1280x720-corridors-0.8.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 472,
+       "t": 585,
+       "r": 808,
+       "b": 628
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x → TIMES SQ/THEATRE DISTRICT ·  (308x13)",
+    "LaGuardia Airport x BOX ticket → TIMES SQ/THEATRE D (320x16)",
+    "LaGuardia Airport x BOX ticket → MIDTOWN SOUTH · 15 (8x16)"
+   ],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1280x720-corridors-0.88.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 472,
+       "t": 585,
+       "r": 808,
+       "b": 628
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x → TIMES SQ/THEATRE DISTRICT ·  (308x13)",
+    "LaGuardia Airport x BOX ticket → TIMES SQ/THEATRE D (320x16)",
+    "LaGuardia Airport x BOX ticket → MIDTOWN SOUTH · 15 (8x16)"
+   ],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1280x720-corridors-0.95.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x800",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 538,
+       "t": 271,
+       "r": 742,
+       "b": 314
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1280x800-corridors-0.1.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x800",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 527,
+       "t": 271,
+       "r": 753,
+       "b": 314
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1280x800-corridors-0.3.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x800",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 555,
+       "t": 271,
+       "r": 725,
+       "b": 314
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1280x800-corridors-0.55.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x800",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 472,
+       "t": 585,
+       "r": 808,
+       "b": 628
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1280x800-corridors-0.8.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x800",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 472,
+       "t": 585,
+       "r": 808,
+       "b": 628
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1280x800-corridors-0.88.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x800",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 472,
+       "t": 585,
+       "r": 808,
+       "b": 628
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1280x800-corridors-0.95.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 578,
+       "t": 256,
+       "r": 788,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1366x768-corridors-0.1.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 567,
+       "t": 256,
+       "r": 799,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1366x768-corridors-0.3.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 596,
+       "t": 256,
+       "r": 770,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1366x768-corridors-0.55.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 510,
+       "t": 585,
+       "r": 856,
+       "b": 629
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1366x768-corridors-0.8.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 510,
+       "t": 585,
+       "r": 856,
+       "b": 629
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1366x768-corridors-0.88.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 510,
+       "t": 585,
+       "r": 856,
+       "b": 629
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1366x768-corridors-0.95.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 615,
+       "t": 252,
+       "r": 825,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1440x760-corridors-0.1.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 604,
+       "t": 252,
+       "r": 836,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1440x760-corridors-0.3.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 633,
+       "t": 252,
+       "r": 807,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1440x760-corridors-0.55.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 252,
+       "r": 893,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1440x760-corridors-0.8.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 252,
+       "r": 893,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1440x760-corridors-0.88.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 252,
+       "r": 893,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1440x760-corridors-0.95.png"
+  },
+  {
+   "cw": 1536,
+   "vp": "1536x864",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 663,
+       "t": 304,
+       "r": 873,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1536x864-corridors-0.1.png"
+  },
+  {
+   "cw": 1536,
+   "vp": "1536x864",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 652,
+       "t": 304,
+       "r": 884,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1536x864-corridors-0.3.png"
+  },
+  {
+   "cw": 1536,
+   "vp": "1536x864",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 681,
+       "t": 304,
+       "r": 855,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1536x864-corridors-0.55.png"
+  },
+  {
+   "cw": 1536,
+   "vp": "1536x864",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 595,
+       "t": 304,
+       "r": 941,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1536x864-corridors-0.8.png"
+  },
+  {
+   "cw": 1536,
+   "vp": "1536x864",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 595,
+       "t": 304,
+       "r": 941,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1536x864-corridors-0.88.png"
+  },
+  {
+   "cw": 1536,
+   "vp": "1536x864",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 595,
+       "t": 304,
+       "r": 941,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1536x864-corridors-0.95.png"
+  },
+  {
+   "cw": 1180,
+   "vp": "1180x820",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 492,
+       "t": 439,
+       "r": 688,
+       "b": 480
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1180x820-corridors-0.1.png"
+  },
+  {
+   "cw": 1180,
+   "vp": "1180x820",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 482,
+       "t": 439,
+       "r": 698,
+       "b": 480
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1180x820-corridors-0.3.png"
+  },
+  {
+   "cw": 1180,
+   "vp": "1180x820",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 508,
+       "t": 439,
+       "r": 672,
+       "b": 480
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1180x820-corridors-0.55.png"
+  },
+  {
+   "cw": 1180,
+   "vp": "1180x820",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 429,
+       "t": 439,
+       "r": 752,
+       "b": 480
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1180x820-corridors-0.8.png"
+  },
+  {
+   "cw": 1180,
+   "vp": "1180x820",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 429,
+       "t": 439,
+       "r": 752,
+       "b": 480
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1180x820-corridors-0.88.png"
+  },
+  {
+   "cw": 1180,
+   "vp": "1180x820",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 429,
+       "t": 439,
+       "r": 752,
+       "b": 480
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1180x820-corridors-0.95.png"
+  }
+ ],
+ "load_d047": "8.27 15.27 19.02"
+}

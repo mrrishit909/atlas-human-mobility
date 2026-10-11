@@ -868,3 +868,222 @@ The S06 deltas (+2.0/+1.3/+1.0/+0.7/+0.6, citywide +1.2) and the S05 lab readout
   - `probe/` (the cited probe frames and `probe-results.json`)
   - `scripts/` (probes and logs)
 - Gitignored: `artifacts/evidence/recordings/qa-3/`, holding all 333 geometry frames, full-size sheets and every probe frame. The `file` fields in `probe-results.json` name frames there. No dash characters U+2014/U+2015 in this pass.
+
+# Pass 4: re-verification after FIX-003 (task P01-QA-005)
+
+Independent reviewer, qa-reviewer (Claude Opus 5.5). I did not build the site and I did not review passes 1 to 3.
+Date: 2026-10-11, 05:45 to about 08:20 EDT. Product code audited at HEAD 0c10c85 (5ec4f75 changes only `docs/BUILD_STATUS.md`).
+Build: `npm run build` (served `index-Bd8hkcIU.js`, confirmed with curl). It was served by `vite preview --port 4301 --strictPort` in a restart loop
+(`sh -c 'while true; do node node_modules/vite/bin/vite.js preview --port 4301 --strictPort; sleep 1; done'`, cwd `site/`). The dev server was never used.
+Every frame and number below comes from my own captures in this pass.
+The machine was loaded by other agents the whole time, with a 1-minute load of 6 to 33.
+The load guard (wait up to 25 min for a load under 12) was used for d047, errors4, geom, tags/labels/chip and l8. One wait ran the full 25 min, and the load was 23.5 at that start.
+After the coordinator's instruction at about 07:25, the remaining probes and both Playwright suites ran with `--workers 1` without waiting. Uptime is logged next to every result.
+
+**Verdict: FAILED.** FIX-003 closes what it set out to close:
+- **D-047** at all 9 required variants and all 6 dial anchors.
+- **D-042** (od_ring_top in CITY, S03a and S03b; meta in S02, S07 and S08).
+- **D-052** (network.json, and clusters.json, in OBS).
+- The builder's remount caveat does not reproduce: no visible error line is ever left without its alert.
+
+The gate still fails on **two new majors**:
+- **D-055: RETRY cannot be reached by pointer or touch in S07 and on phone S05.**
+  - An invisible card or the skeleton stage sits on top of the button.
+  - A tap re-fetches nothing: measured 0 re-fetches, and the error line stays.
+  - Keyboard Enter still recovers.
+- **D-057: at 1280x720 the pushed-down "LaGuardia Airport" dial title is struck through by the destination ticket row** at p 0.8, 0.88 and 0.95.
+  - QA_LESSONS L2 names this viewport.
+  - The task's 7 viewports do not include it, and the D-047 fix moved the title into the ticket row there.
+
+The L-checklist also fails on minors L4 (D-056), L7 (D-059), L8 (D-058) and L10 (D-053). These are not blockers.
+
+## P4.0 Environment check (L1, classic scrollbars)
+
+Two browsers, as in pass 3:
+- **plain:** default headless Chromium, scrollbars hidden.
+- **classic:** headed Chromium without `--hide-scrollbars`, plus an injected `html { overflow-y: scroll } ::-webkit-scrollbar { width: 15px }`.
+
+`probe-results.json` `geom.*.env`:
+
+| Variant | clientWidth | JS `__atlas.vpClass()` | CSS media class |
+|---|---|---|---|
+| 1024x768 plain / classic | 1024 / 1009 | D / D | D / D |
+| 768x1024 plain / classic | 768 / 753 | T / T | T / T |
+| 1920, 1440, 1280x720 | = innerWidth | D | D |
+| 390, 375, 360 | = innerWidth | M | M |
+
+L1 holds at all 10 geometry variants.
+
+## P4.1 Release gate (pass 4)
+
+Evidence paths are under `artifacts/evidence/qa-4/` unless marked otherwise.
+- `probe-results.json` holds all probe results; `probe-x-results.json` holds the extra desktop viewports.
+- Bulk frames (370 geometry frames, about 600 probe frames) are in the gitignored `artifacts/evidence/recordings/qa-4/`.
+
+| Row | Result | Measured evidence |
+|---|---|---|
+| Visual design | PASS (with defects) | I read all 10 contact sheets (`contact-sheets/sheet-*.png`: 7 viewports, both classic variants, and 1280x720) and about 45 full-size frames. Every scene keeps its own composition at each width: ring, card deck, dial, extruded map, lab chart, split ring, card stack, observatory and closing horizon. Phone, tablet and desktop are deliberate compositions, not reflows (`sheet-390x844.png`, `sheet-768x1024.png`, `sheet-1440x900.png`). Remaining layout defects: D-057 (major), D-051 (now minor), and the minors below. |
+| Motion UI (6 layers) | PASS | QA motion suite 21/21 run passed (scroll release, reverse scroll, wheel bursts, nav, deep links, resize, intro skip and replay, focus rings). Nav: 40 real nav clicks (1440, 1024, 1024-classic, and 390 via the MENU pill), 0 half-revealed words, 0 axe violations after any jump (`probe-results.json` `nav`). Dial steps, tickets, lab, futures and pulses all appear in the frames. QA motion suite: see Professional quality. Frame pacing: not re-measured (load 24 to 33). Pass 2: desktop p95 10.7 ms; 390x844 at 4x CPU p95 28.3 ms. |
+| UX | **FAIL** | Keyboard (`keyboard`, `scripts/extra4.mjs`): Tab 1 is SKIP INTRO and Tab 2 is SKIP TO CHAPTERS. Enter on SKIP TO CHAPTERS lands on the CITY nav link, and the next Tab goes to ANATOMY. The S03b dial ArrowRight changes the dial. S06 has 1 tab stop for 4 radios, and arrows wrap. The S05 slider changes the result (8.8 to 8.3 mph), and YOUR FUTURE then enables. OBS search JFK, Enter, opens the inspector, and Esc returns focus to the combobox. (The probe's second cold load hit Tab before the intro mounted at load 28, so it is replaced by `extra4.mjs` with a 2.5 s wait.) Fails on D-057 (title struck through at 1280x720) and D-055 (RETRY unreachable by pointer). |
+| Functionality and states | **FAIL** | `errors4`: 70 route-blocked cases (35 artifact x scene pairs x 1440 and 390). 52 pass every assertion: exactly one `role=alert` naming the file, it sits in the active scene and in view, RETRY re-fetches exactly once, and 0 alerts and 0 lines remain after. That includes every D-042/D-052 case (od_ring_top x 3 scenes, meta x 3, network and clusters in OBS) at both widths. `remount`: 66 transition steps (scene hops and OBS layer flips with the file blocked), and every visible line is the single in-view alert. It fails on **D-055** (11 of the 18 failures: a covered RETRY) and D-056 (silent od_top, network and clusters failures, minor). |
+| AI / analytical honesty | PASS (with minors) | 23 of 23 facts.json values match on screen (§P4.4). No honesty tag is `display:none`: the CSS grep finds no rule hiding a chip, and `tags` has 99 rows. The 28 "hidden" rows are stacked off-screen cards, the faded intro note, and OBS chips captured before their fade-in, the same set as pass 3. The D-047 legibility failure is gone: 0 title-over-chip hits in 54 states (§P4.2). Minors: D-053 (copy overclaims "every ride ... ends in another"), and D-056 (a K-MEANS chip over a map with no clusters when network.json fails). |
+| Performance | PASS (cited from pass 2; bundle within 2 KB gz) | `npm run build` this pass: main JS 322.62 KB raw / 109.13 KB gz (pass 2: 108.3, +0.83), deckMap 203.43 KB gz (same), CSS 13.21 KB gz (pass 2: 13.0, +0.21), fonts 34.25 + 4.86 KB (same). The total is +1.04 KB gz, under the 2 KB threshold, so Lighthouse was not rerun. Pass 2 (load 6.4 to 7.6): mobile LCP 1804/1806/1806 ms, perf 0.99 x3; desktop LCP 404 to 406 ms; CLS 0. Data (D-016): gzip -9 of `dist/data` is 887,413 B, of which zone_hour_week.json is 496,397 B. |
+| Responsiveness | **FAIL** | D-047: 54 states (9 variants x 6 anchors), with glyph rects of `.dial-title` checked against every text rect and control box in `#corridors` and the viewport: **0 hits**. Extra desktop sizes (1280x800, 1366x768, 1440x760, 1536x864, 1180x820): 0 hits. **1280x720: 3 hits (D-057).** Tickets: 126 states at 1920, 1440, 1024, 768 and both classic variants, 109 with tickets, 0 defects. S04 labels: 27 states, 0 overlaps (one 1 px margin note at 375). S05 chip: 18 states, 0 bad. Reduced motion: max scrollWidth = clientWidth at all 9 variants, 0 sticky, 0 blurred, 0 S04 label leaks, 0 console errors. |
+| Professional quality | PASS (D-044 note) | `npm run typecheck` clean; `npm run lint` clean; `npm test` 9 files 70/70 (05:46, load 14.3). e2e `--workers 1` (07:26 to 07:43, load 12.8 to 33.1): 96 passed, 71 skipped, 1 failed. The failure, `b2.spec.ts:195` EXPLORE on touch (M), was a 30 s test timeout; it passed on a serial rerun in 11 s at load 32.8 (`scripts/e2e-rerun.log`). I classify it as load (D-044), not product. QA motion suite `--workers 1` (07:53 to 07:57, load 30.1 to 29.7): 21 passed, 17 skipped (by design), 0 failed (`scripts/qa-motion-run1.log`). axe: 160 scans (10 scenes x normal and reduced motion x 1440, 1024, 1024-classic and 390, plus whole page), **0 violations** (`axe`). All 8 required docs present. |
+| GitHub | BLOCKED | Out of scope for this task. |
+| Deployment | BLOCKED | Out of scope for this task (not deployed). |
+| Portfolio | BLOCKED | Out of scope for this task. |
+
+## P4.2 Pass-3 targets re-verified
+
+| Id | Status | Evidence (this pass) |
+|---|---|---|
+| D-047 dial title over the chip (phones) and band selector (768 classic) | **CLOSED at all 9 required variants** | `d047`: 54 states, 0 hits, title glyph rects recorded. Example at p 0.88: 375 title 332..361 below the PULSES chip; 360 title 332..360; 768-classic title 386..421 under the band row (ends 376). Frames I read: `probe/d047-375x812-corridors-0.88.png`, `d047-360x800-corridors-0.8.png`, `d047-768x1024-classic-corridors-0.95.png`. All three chips and the band row are legible. **Residual at 1280x720: D-057.** |
+| D-042 od_ring_top and meta silent | CLOSED | `errors4` OK at 1440 and 390 for od_ring_top x city/rush-hour/corridors and meta x anatomy/evidence/closing (one in-view alert, RETRY 1 to 2 hits, 0 after); `probe/err4-od_ring_top.json-city-1440.png`, `err4-meta.json-anatomy-390.png`, `err4-meta.json-closing-390.png` |
+| D-052 network.json silent in OBS | CLOSED | `errors4` OK at both widths with the NETWORK layer set; no DERIVED PageRank chip while the file is missing; RETRY recovers (`probe/err4-network.json-observatory-network-1440.png`, `-retry.png`). clusters.json with the CLUSTERS layer behaves the same way. |
+| Builder caveat: a remounted error line without role=alert | Not reproduced | `remount`: 5 files x 1440/390 x 5 to 9 transitions each. In every step where the file's line is visible in the scene, there is exactly one alert, in that scene and in view. One nuance is D-054 (polish): in S02 the meta.json alert lives on card 3, so it is announced while cards 1 and 2 (and card 4 on phones) are the ones in view. |
+
+## P4.3 Register (ids kept; new ids from D-053)
+
+### Major (open)
+
+**P01-D-055: RETRY is covered and cannot be clicked or tapped in S07 at every width, and in S05 on phones** (major, functionality and error state; L4 and L9)
+- **Files:** `site/src/styles/scenes.css` `.ev-stack` (absolute, `height: calc(100% - 200px)`; on phones `left: 16px; right: 16px`), the stacked `.ev-ex` cards in `S07Evidence.tsx`, and `.bpr-stage--skeleton` in `S05Pressure.tsx`. All are hit-testable boxes over the text column's error line.
+- **Repro:** route-block the file, `__atlas.jumpTo(scene, p)`, then a real pointer click or tap at the RETRY centre (`scripts/d055b.mjs`, `scripts/probe4.mjs errors4`):
+
+| File, scene, viewport | Element at the RETRY centre | Re-fetches after the tap |
+|---|---|---|
+| facts.json, S07 evidence, 390 and 768 | `DIV.ev-stack` | 0 |
+| meta, bpr_fit, weather_model, clusters, S07, 390 | `DIV.ev-stack` | 0 |
+| daily.json, S07 answer 04, **1440** and 390 | `P.ev-a` of a stacked card | 0 |
+| facts.json and bpr_fit.json, S05 pressure, 390 | `DIV.bpr-stage--skeleton` | 0 |
+| reconciliation.json, S02 card 3, 390 (deck between cards at p 0.65) | the button is off-screen at x = -79 | 0 |
+
+- **Controls:** at 1440 and 1024, facts.json, bpr_fit.json and weather_model.json in S07 (RETRY at 96,225) receive the click and recover. Keyboard focus plus Enter recovers in every case (`errors4` `alertsAfter` 0).
+- **Expected:** every visible control works, and the error state's RETRY recovers with one click or tap (L4).
+- **Actual:**
+  - The button looks available, but the tap goes to an empty stage, so a phone user in S05 or S07 cannot recover from a failed fetch.
+  - Separately, in the daily.json case the error line sits inside the cyan answer card as red text on cyan (`probe/d055-daily.json-evidence-1440-after-pointer.png`). It is barely legible; axe did not scan it because no error state is present in the axe pass.
+- **Evidence:** `probe/err4-facts.json-evidence-390.png`, `err4-facts.json-pressure-390.png`, `err4-bpr_fit.json-pressure-390.png`, `d055-daily.json-evidence-1440-after-pointer.png`, `d055-facts.json-evidence-390-after-pointer.png`.
+- **History:** S05 and S07 layout code is unchanged by FIX-003, so this is pre-existing and not a regression. Pass 3 tested S05 at 390 with `locator.click()` and passed, which I attribute to timing (the skeleton stage was not yet mounted). Pass 3 never tested S07 at 390. In this pass `locator.click()` timed out on "`<div class="ev-stack">` intercepts pointer events" (the first errors4 run, `scripts/run-a.log`).
+- **Verification test:** for every route-blocked case in `ERR_CASES`, assert `document.elementFromPoint(center of RETRY)` is the button, then use `page.mouse.click` or `touchscreen.tap` (not `locator.click`) and assert hits + 1 and 0 lines after.
+
+**P01-D-057: 1280x720, S03b LaGuardia step: the dial title is struck through by the destination ticket row** (major, responsiveness and legibility; L2)
+- **Files:** the D-047 fix in `site/src/scenes/S03bCorridors.tsx` (`useLayoutEffect` pushes `.dial-title` to `textBottom + 10`) against the `.ticket` row.
+- **Viewport:** 1280x720 only. 1280x800, 1366x768, 1440x760, 1536x864, 1180x820 and the 9 required variants are clean (`probe-x-results.json`).
+- **Repro:** `__atlas.jumpTo('corridors', 0.8 | 0.88 | 0.95)`.
+- **Actual:**
+  - The column (3 chips plus the band row) ends at about 575 px, so the title is pushed to about 583..620.
+  - The ticket row sits at about 615..631 and crosses the lower half of "LaGuardia Airport": 308x13 px glyph overlap with "→ TIMES SQ/THEATRE DISTRICT · 259,490", plus 8x16 with "→ MIDTOWN SOUTH".
+  - The DERIVED chips are also crossed by the arc and a node (the D-036 class).
+- **Expected:** no text on text at any L2 size (L2 names 1280x720).
+- **Evidence:** `probe/geom-1280x720-corridors-0.9.png`, `probe/d047-1280x720-corridors-0.8.png`, `-0.88.png`, `-0.95.png`; control `probe/d047-1366x768-corridors-0.88.png`.
+- **History:** first measured in this pass (pass 3 never ran 1280x720). The fix moved the title down past the column into the ticket band, so this is likely a FIX-003 side effect. I did not verify it against the pre-fix build.
+- **Verification test:** add 1280x720 to the S03b box check, and include `.ticket` in the boxes the title must clear.
+
+### Minor (open)
+
+- **P01-D-056: silent failures remain for od_top, network and clusters outside OBS layers** (L4, the D-015 pattern):
+  - **od_top.json blocked:**
+    - S03a's readout ends "CHORDS: ALL DAYS · ALL SERVICES ·" with the band missing (`probe/err4-od_top.json-rush-hour-1440.png`).
+    - OBS shows FLOWS ON selected with no flows, no FLOWS chip and no error line (`err4-od_top.json-observatory-1440.png`). The only od_top line is in S03b.
+  - **network.json blocked:** S04's cluster step still reads "3 kinds of neighborhood ..." under DERIVED · K-MEANS, K=3, over an uncoloured map whose labels revert to the rank-1/10/50 zones (`probe/d056-demand-0.99-network.json-1440.png`). Membership comes from network.json (`clusterOf` in `state/atlas.ts`).
+  - **clusters.json blocked:** the colours stay, but the cluster names are replaced, without a legend, by the rank labels (`d056-demand-0.99-clusters.json-1440.png`; control `d056-demand-0.99-control-1440.png` shows EVENING-LEANING CORE, WEEKDAY COMMUTER and LATE-NIGHT WEEKEND).
+  - No error line or RETRY in any of these cases (hits 1 to 1).
+  - (zone_hour_week blocked at S05 is dismissed: S05 does not draw from it, and the lab works.)
+- **P01-D-053: S01 statement overclaims** (L10): "Every ride begins in one of 263 zones and ends in another."
+  - `reconciliation.json`: 10,398,363 of 280,236,580 kept trips (3.71%) have an unknown pickup or dropoff zone ("unknown-zone rows stay in kept").
+  - `facts.json` `top_od_pair_incl_intrazone` is zone 76 to 76, with 778,346 trips that end in the same zone.
+  - `site/src/data/copy.ts:25`.
+- **P01-D-058: corner button boxes overlap the mobile pill** (L8):
+  - REPLAY INTRO / SKIP INTRO box vs the pill: clearance 3 px at 390, -5 px at 375, -12 px at 360 (`l8`).
+  - The visible text gap is about 26 px (`probe/l8-360x800-9000.png`), so this is a hit-area overlap rather than a visual one.
+  - 768: clear.
+- **P01-D-059: the CITY card dagger "†" renders at 10.4 px (desktop, tablet) and 8.8 px (phones)**, below the 11 px floor (L7).
+  - It is the only sub-11 px visible text node in 370 geometry states.
+  - Each state was walked at 4 progress points per scene, including aria-hidden text, with SVG text scaled by its CTM.
+  - Canvas-drawn text cannot be measured this way.
+  - `geom.*.rows[].small`.
+- **P01-D-051 (raised from polish): S07's card stack covers "How we know."** at 768, 768-classic (80x17 px over the heading), 375 and 360 at p 0.65.
+  - At 360 the heading is fully hidden under ANSWER 05 (`probe/geom-360x800-evidence-0.65.png`, `geom-768x1024-classic-evidence-0.65.png`).
+
+### Polish (new)
+
+- **P01-D-054:** the S02 meta.json live region sits on card 3, so it is announced while card 1 or 2 is in view (`remount` steps 0 and 1, alert `inView: false`). It is announced exactly once.
+
+### Previous minors and polish, classified
+
+| Id | Status | Evidence |
+|---|---|---|
+| D-016 data budget | OPEN (minor) | 887,413 B gz scene data (budget 400 KB); zone_hour_week.json 496,397 B; no `.map` in `dist/assets` |
+| D-022 S02 card 1 grid over body | OPEN (polish) | `geom`: DISTANCE_MI / DURATION_S x body, 3 to 5 px at every D variant and 1280x720 |
+| D-023 ledger ranges wrap mid-range | OPEN (polish) | `probe/geom-1440x900-corridors-0.65.png` ("(P10-P90 5-" / "13)"), and the same at 1280x720 |
+| D-024 OBS LAYERS button on phones | OPEN (polish) | `contact-sheets/sheet-390x844.png` observatory; code unchanged |
+| D-027 S08 footer over the rim at 1024 | OPEN (polish) | `probe/geom-1024x768-closing-0.9.png` (the echo chord crosses "MAKES NO") |
+| D-034 S07 holdout triplets wrap | OPEN (minor) | `probe/geom-360x800-evidence-0.65.png` (one number per line), `geom-768x1024-classic-evidence-0.65.png` ("0.18 / 0.31 /" then "0.63"; the Manhattan bar runs into "1.23") |
+| D-036 S03b arc crosses chip and ledger at 1440 | OPEN (minor) | `probe/geom-1440x900-corridors-0.65.png` (arc through the PULSES chip and "175,162 ... 18)") |
+| D-037 S04 labels over white extrusions | OPEN (polish) | `probe/d056-demand-0.99-control-1440.png`, the JFK label over the white block |
+| D-040 reduced motion: fixed wordmark over content | OPEN (polish) | `rm`: wordmark x CITY card line, 177x14 px at 390/375/360 (`probe/rm-390x844-city.png`) |
+| D-044 test reliability under load | OPEN (minor) | e2e `b2.spec.ts:195` timed out at load 24 to 33 and passed serially (`scripts/e2e-run1.log`, `e2e-rerun.log`); QA motion suite 0 failures this pass |
+| D-046 S03b band row clipped on phones | OPEN (polish) | `geom` offscreen: EVENING 349..407 at 390/375/360; at the clipped edge `elementFromPoint` returns `.cor-hit` (`l9`) |
+| D-048 OBS tablet rail off-screen | OPEN (minor) | `geom` 768 and 768-classic: OBSERVED 773..839, YOUR FUTURE 859..951, CITY 977..1010; `l9`: OBSERVED's centre is under `.obs-hit` (`probe/geom-768x1024-observatory-0.png`) |
+| D-049 S02 card 3 cramped at 768 | CLOSED | `geom` at 768 and 768-classic: 0 text collisions in S02 at 4 progress points (`probe/geom-768x1024-anatomy-0.65.png`); the taller tablet card from FIX-003 |
+| D-050 S04 morph ring over the text (transient) | OPEN (minor) | `probe/geom-1440x900-demand-0.35.png`; code unchanged |
+| D-051 | Raised to minor | see above |
+
+### Checked and dismissed
+
+- **Phone S03b ledger "collisions" and off-screen ledger spans at 360.** The Range rects span the untruncated text, while the frames show clean ellipsized rows. This is the same as pass 3.
+- **The S03a readout day line under the digits, and `wr-word` line boxes.** Tight line heights, legible in every frame.
+- **OBS `td` and horizon `<text>` hits in the reduced-motion and geometry walks.** These are the closed DATA TABLE details and the static horizon labels, and none are visible in `probe/rm-1440x900-observatory.png`.
+- **`l9` S03b `.cor-hit` centre under the ledger at 768.** The dial hit area spans the stage, and its centre is not its affordance. The dial works by drag and by arrows (`keyboard`).
+- **"hidden" chips in `tags`.** These are stacked off-screen cards, the faded intro note, and OBS chips measured before their fade-in. The S07 "occluded" DERIVED chip is the answer card under the next card in the stack, by design.
+
+## P4.4 Review B: analytical honesty
+
+- `qa-3/scripts/facts_check.py` over this pass's `numbersText` finds 20 of 23 values.
+- The other 3 (Manhattan 48%, free-flow 21.3 mph, K = 3) are outside those states. I read them from S05 at p 0.1 ("At 8 AM, Manhattan moves at 48% of its overnight speed ... 41% OF 21.3 MPH") and S07 at p 0.95 ("K = 3 WAS CHOSEN BY SILHOUETTE ...") (`scripts/extra4.mjs`). **23 of 23 match.**
+- The S06 most and least lines match the minutes list for all three futures (+2.0/+0.6, +1.4/+0.5, -1.7/-0.6).
+- The S05 lab readout is 8.8 mph at the default and 8.3 after 3 slider steps.
+- The new honesty issues are D-053 (copy) and D-056 (the K-MEANS chip over a missing model).
+
+## P4.5 QA_LESSONS L1 to L10
+
+| L | Result | Evidence |
+|---|---|---|
+| L1 class source | PASS | §P4.0: JS = CSS at 1009 and 753 classic and at all plain widths |
+| L2 1024-1279 compact | **FAIL** | 1024x768 and 1024-classic: 0 new collisions; **1280x720: D-057** |
+| L3 tags never hidden | PASS | no `display:none` on any chip class; 99 tag rows; every hidden row explained |
+| L4 silent artifact failure | **FAIL** | 52/70 `errors4` cases pass; D-055 (RETRY does not recover by pointer), D-056 (silent od_top, network and clusters) |
+| L5 reduced-motion overflow | PASS | `rm`: scrollWidth = clientWidth at 360/375/390/768 (and all 9) |
+| L6 fonts and LCP | PASS (cited) | fonts unchanged 34.25 + 4.86 KB; pass-2 mobile LCP 1.8 s |
+| L7 11 px floor | **FAIL (minor)** | D-059 (dagger at 10.4 and 8.8 px) |
+| L8 corner buttons vs pill | **FAIL (minor)** | D-058 (3 / -5 / -12 px at 390/375/360) |
+| L9 controls not covered | **FAIL** | D-055 (RETRY under `.ev-stack`, `.ev-a` and `.bpr-stage--skeleton`); D-046/D-048 at clipped edges |
+| L10 overclaiming copy | **FAIL (minor)** | D-053 |
+
+## P4.6 Commands run (uptime recorded)
+
+| Command | Result | Load (1-min) |
+|---|---|---|
+| `npm run typecheck`, `lint`, `test` | clean, clean, 70/70 | 14.25 to 16.73 |
+| `npm run build` | OK; sizes in the Performance row | 16.73 |
+| `scripts/runall4.sh d047 errors4 remount` (load-guarded) | d047 54 states 0 hits; errors4 crashed at S07 on the intercepted RETRY (the D-055 discovery); remount 66 steps OK; `scripts/run-a.log` | 10.4 to 26.7 |
+| `scripts/runall4.sh errors4 geom tags,labels,chip l8 ...` | errors4 70 cases (52 OK); geom 10 variants x 37 states; tags/labels/chip; l8; `scripts/run-b.log` | 23.5 (25-min wait expired) to 8.99 |
+| `scripts/runrest4.sh l9 tickets rm nav axe keyboard,numbers` (no guard, per the coordinator) | `scripts/run-c.log` | 9.65 to 30.0 |
+| `VPS=1280x720,... node scripts/p4x.mjs d047` | 1280x720: 3 hits; 5 other sizes clean | 12.6 |
+| `scripts/d055b.mjs` (and `d055.mjs`, which crashed under load after 5 cases), `scripts/d056.mjs`, `scripts/extra4.mjs` | see D-055 and D-056 and §P4.4 | 13 to 30 |
+| `npx playwright test --workers 1` | 96 passed, 71 skipped, 1 failed (load timeout); `scripts/e2e-run1.log` | 12.84 to 33.10 |
+| the failed spec, serial | passed in 11 s; `scripts/e2e-rerun.log` | 32.77 |
+| `npx playwright test -c playwright.qa.config.ts --workers 1` | 21 passed, 17 skipped, 0 failed, 3.6 min; `scripts/qa-motion-run1.log`; the bundle hash served on :4301 after its rebuild is still `index-Bd8hkcIU.js` | 30.08 to 29.72 |
+| Lighthouse, frame pacing | not run: +1.04 KB gz vs pass 2 (under 2 KB); load 24 to 33 | |
+
+**Evidence layout.**
+- Committed (about 5 MB): `artifacts/evidence/qa-4/`, holding:
+  - `contact-sheets/` (10 sheets, 1600 px, 128-colour)
+  - `probe/` (the cited frames, quantized)
+  - `probe-results.json` and `probe-x-results.json`
+  - `scripts/` (probes, runners, logs, `pack.py`)
+- Gitignored: `artifacts/evidence/recordings/qa-4/` (every frame at full resolution). The `file` and `png` fields in the results name frames there.
+
+No dash characters U+2014/U+2015 in this pass.

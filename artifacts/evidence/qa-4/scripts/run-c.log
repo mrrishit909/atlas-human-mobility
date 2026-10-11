@@ -1,0 +1,25 @@
+== l9 start  7:26  up 2 days,  9:56, 4 users, load averages: 12.84 15.64 17.72
+l9 768x1024 corridors 0.3 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[384,728],"hit":"P.cor-ledger__head mono-label \"TOP CORRIDORS · ALL HOURS\""}]
+l9 768x1024 corridors 0.6 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[384,728],"hit":"P.cor-ledger__head mono-label \"TOP CORRIDORS · ALL HOURS\""}]
+l9 768x1024 corridors 0.9 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[384,728],"hit":"LI. \"LAGUARDIA AIRPORT → TIMES\""}]
+l9 768x1024 observatory 0 [{"ctl":"BUTTON.seg-ctl__item \"OBSERVED\"","at":[767,713],"hit":"DIV.obs-hit \"\""}]
+l9 390x844 corridors 0.3 [{"ctl":"BUTTON.seg-ctl__item \"EVENING\"","at":[378,746],"hit":"DIV.cor-hit \"\""}]
+l9 390x844 corridors 0.6 [{"ctl":"BUTTON.seg-ctl__item \"EVENING\"","at":[378,746],"hit":"DIV.cor-hit \"\""}]
+l9 390x844 corridors 0.9 [{"ctl":"BUTTON.seg-ctl__item \"EVENING\"","at":[378,746],"hit":"DIV.cor-hit \"\""}]
+done l9
+== l9 end  7:29  up 2 days, 10 hrs, 4 users, load averages: 9.79 13.26 16.33
+== tickets start  7:29  up 2 days, 10 hrs, 4 users, load averages: 9.65 13.18 16.28
+done tickets
+== tickets end  7:35  up 2 days, 10:06, 4 users, load averages: 20.14 17.95 17.44
+== rm start  7:35  up 2 days, 10:06, 4 users, load averages: 20.14 17.95 17.44
+done rm
+== rm end  7:40  up 2 days, 10:11, 4 users, load averages: 27.09 22.88 19.58
+== nav start  7:40  up 2 days, 10:11, 4 users, load averages: 27.09 22.88 19.58
+done nav
+== nav end  7:44  up 2 days, 10:14, 4 users, load averages: 25.62 26.40 21.92
+== axe start  7:44  up 2 days, 10:14, 4 users, load averages: 25.62 26.40 21.92
+done axe
+== axe end  7:52  up 2 days, 10:22, 4 users, load averages: 27.70 28.31 24.84
+== keyboard,numbers start  7:52  up 2 days, 10:22, 4 users, load averages: 27.70 28.31 24.84
+done keyboard,numbers
+== keyboard,numbers end  7:53  up 2 days, 10:24, 4 users, load averages: 30.00 28.95 25.44

@@ -1,0 +1,10 @@
+start  7:44  up 2 days, 10:14, 4 users, load averages: 32.77 27.65 22.21
+
+Running 2 tests using 1 worker
+
+  -  1 [desktop] › e2e/b2.spec.ts:195:1 › EXPLORE on touch: tap EXPLORE, tap EXIT, scroll is released (M)
+  ✓  2 [mobile] › e2e/b2.spec.ts:195:1 › EXPLORE on touch: tap EXPLORE, tap EXIT, scroll is released (M) (11.0s)
+
+  1 skipped
+  1 passed (12.0s)
+end  7:44  up 2 days, 10:14, 4 users, load averages: 29.10 27.08 22.10

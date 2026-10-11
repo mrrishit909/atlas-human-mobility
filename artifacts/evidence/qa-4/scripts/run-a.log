@@ -1,0 +1,203 @@
+== d047 start (waited 6 min)  5:56  up 2 days,  8:27, 4 users, load averages: 10.43 18.96 20.59
+d047 1920x1080 0.1 MN Manhattan clean
+d047 1920x1080 0.3 AIR The airports clean
+d047 1920x1080 0.55 BK Brooklyn clean
+d047 1920x1080 0.8 HINGE LaGuardia Airport clean
+d047 1920x1080 0.88 HINGE LaGuardia Airport clean
+d047 1920x1080 0.95 HINGE LaGuardia Airport clean
+d047 1440x900 0.1 MN Manhattan clean
+d047 1440x900 0.3 AIR The airports clean
+d047 1440x900 0.55 BK Brooklyn clean
+d047 1440x900 0.8 HINGE LaGuardia Airport clean
+d047 1440x900 0.88 HINGE LaGuardia Airport clean
+d047 1440x900 0.95 HINGE LaGuardia Airport clean
+d047 1024x768 0.1 MN Manhattan clean
+d047 1024x768 0.3 AIR The airports clean
+d047 1024x768 0.55 BK Brooklyn clean
+d047 1024x768 0.8 HINGE LaGuardia Airport clean
+d047 1024x768 0.88 HINGE LaGuardia Airport clean
+d047 1024x768 0.95 HINGE LaGuardia Airport clean
+d047 768x1024 0.1 MN Manhattan clean
+d047 768x1024 0.3 AIR The airports clean
+d047 768x1024 0.55 BK Brooklyn clean
+d047 768x1024 0.8 HINGE LaGuardia Airport clean
+d047 768x1024 0.88 HINGE LaGuardia Airport clean
+d047 768x1024 0.95 HINGE LaGuardia Airport clean
+d047 390x844 0.1 MN Manhattan clean
+d047 390x844 0.3 AIR The airports clean
+d047 390x844 0.55 BK Brooklyn clean
+d047 390x844 0.8 HINGE LaGuardia Airport clean
+d047 390x844 0.88 HINGE LaGuardia Airport clean
+d047 390x844 0.95 HINGE LaGuardia Airport clean
+d047 375x812 0.1 MN Manhattan clean
+d047 375x812 0.3 AIR The airports clean
+d047 375x812 0.55 BK Brooklyn clean
+d047 375x812 0.8 HINGE LaGuardia Airport clean
+d047 375x812 0.88 HINGE LaGuardia Airport clean
+d047 375x812 0.95 HINGE LaGuardia Airport clean
+d047 360x800 0.1 MN Manhattan clean
+d047 360x800 0.3 AIR The airports clean
+d047 360x800 0.55 BK Brooklyn clean
+d047 360x800 0.8 HINGE LaGuardia Airport clean
+d047 360x800 0.88 HINGE LaGuardia Airport clean
+d047 360x800 0.95 HINGE LaGuardia Airport clean
+d047 1024x768-classic 0.1 MN Manhattan clean
+d047 1024x768-classic 0.3 AIR The airports clean
+d047 1024x768-classic 0.55 BK Brooklyn clean
+d047 1024x768-classic 0.8 HINGE LaGuardia Airport clean
+d047 1024x768-classic 0.88 HINGE LaGuardia Airport clean
+d047 1024x768-classic 0.95 HINGE LaGuardia Airport clean
+d047 768x1024-classic 0.1 MN Manhattan clean
+d047 768x1024-classic 0.3 AIR The airports clean
+d047 768x1024-classic 0.55 BK Brooklyn clean
+d047 768x1024-classic 0.8 HINGE LaGuardia Airport clean
+d047 768x1024-classic 0.88 HINGE LaGuardia Airport clean
+d047 768x1024-classic 0.95 HINGE LaGuardia Airport clean
+done d047
+== d047 end  5:59  up 2 days,  8:30, 4 users, load averages: 24.70 19.76 20.47
+== errors4 start (waited 2 min)  6:01  up 2 days,  8:32, 4 users, load averages: 9.14 15.98 18.91
+err4 OK   facts.json city  1440x900 alerts=1 sec=city inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json city  390x844 alerts=1 sec=city inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json anatomy  1440x900 alerts=1 sec=anatomy inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json anatomy  390x844 alerts=1 sec=anatomy inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json rush-hour  1440x900 alerts=1 sec=rush-hour inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json rush-hour  390x844 alerts=1 sec=rush-hour inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json corridors  1440x900 alerts=1 sec=corridors inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json corridors  390x844 alerts=1 sec=corridors inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json demand  1440x900 alerts=1 sec=demand inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json demand  390x844 alerts=1 sec=demand inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json pressure  1440x900 alerts=1 sec=pressure inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json pressure  390x844 alerts=1 sec=pressure inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json evidence  1440x900 alerts=1 sec=evidence inView=true lines=8 retry=true hits 1->2 after=0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#evidence .state-error').filter({ hasText: 'FACTS.JSON' }).getByRole('button', { name: /RETRY/ }).first()[22m
+[2m    - locator resolved to <button type="button" class="btn-square">RETRY</button>[22m
+[2m  - attempting click action[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is visible, enabled and stable[22m
+[2m      - scrolling into view if needed[22m
+[2m      - done scrolling[22m
+[2m      - <div class="ev-stack " aria-live="polite"></div> intercepts pointer events[22m
+[2m    - retrying click action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is visible, enabled and stable[22m
+[2m      - scrolling into view if needed[22m
+[2m      - done scrolling[22m
+[2m      - <div class="ev-stack " aria-live="polite"></div> intercepts pointer events[22m
+[2m    - retrying click action[22m
+[2m      - waiting 100ms[22m
+[2m    56 × waiting for element to be visible, enabled and stable[22m
+[2m       - element is visible, enabled and stable[22m
+[2m       - scrolling into view if needed[22m
+[2m       - done scrolling[22m
+[2m       - <div class="ev-stack " aria-live="polite"></div> intercepts pointer events[22m
+[2m     - retrying click action[22m
+[2m       - waiting 500ms[22m
+
+    at /Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/artifacts/evidence/qa-4/scripts/probe4.mjs:477:48 {
+  log: [
+    "  - waiting for locator('#evidence .state-error').filter({ hasText: 'FACTS.JSON' }).getByRole('button', { name: /RETRY/ }).first()",
+    '    - locator resolved to <button type="button" class="btn-square">RETRY</button>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <div class="ev-stack " aria-live="polite"></div> intercepts pointer events',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <div class="ev-stack " aria-live="polite"></div> intercepts pointer events',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    56 × waiting for element to be visible, enabled and stable',
+    '       - element is visible, enabled and stable',
+    '       - scrolling into view if needed',
+    '       - done scrolling',
+    '       - <div class="ev-stack " aria-live="polite"></div> intercepts pointer events',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.21.0
+== errors4 end  6:04  up 2 days,  8:34, 4 users, load averages: 11.59 15.23 18.20
+== remount start (waited 0 min)  6:04  up 2 days,  8:34, 4 users, load averages: 11.59 15.23 18.20
+remount OK   od_ring_top.json 1440x900 0 city 0.5  visible=1 alerts=["city+"]
+remount OK   od_ring_top.json 1440x900 1 rush-hour 0.35  visible=1 alerts=["rush-hour+"]
+remount OK   od_ring_top.json 1440x900 2 corridors 0.3  visible=1 alerts=["corridors+"]
+remount OK   od_ring_top.json 1440x900 3 city 0.5  visible=1 alerts=["city+"]
+remount OK   od_ring_top.json 1440x900 4 corridors 0.8  visible=1 alerts=["corridors+"]
+remount OK   od_ring_top.json 1440x900 5 rush-hour 0.6  visible=1 alerts=["rush-hour+"]
+remount OK   od_ring_top.json 1440x900 6 city 0.3  visible=1 alerts=["city+"]
+remount OK   meta.json 1440x900 0 anatomy 0.15  visible=0 alerts=["anatomy-"]
+remount OK   meta.json 1440x900 1 anatomy 0.4  visible=0 alerts=["anatomy-"]
+remount OK   meta.json 1440x900 2 anatomy 0.65  visible=1 alerts=["anatomy+"]
+remount OK   meta.json 1440x900 3 anatomy 0.9  visible=1 alerts=["anatomy+"]
+remount OK   meta.json 1440x900 4 anatomy 0.65  visible=1 alerts=["anatomy+"]
+remount OK   meta.json 1440x900 5 evidence 0.15  visible=1 alerts=["evidence+"]
+remount OK   meta.json 1440x900 6 closing 0.95  visible=1 alerts=["closing+"]
+remount OK   meta.json 1440x900 7 anatomy 0.65  visible=1 alerts=["anatomy+"]
+remount OK   meta.json 1440x900 8 evidence 0.5  visible=1 alerts=["evidence+"]
+remount OK   network.json 1440x900 0 observatory 0 network visible=1 alerts=["observatory+"]
+remount OK   network.json 1440x900 1 observatory 0 demand visible=0 alerts=[]
+remount OK   network.json 1440x900 2 observatory 0 network visible=1 alerts=["observatory+"]
+remount OK   network.json 1440x900 3 closing 0.9  visible=0 alerts=[]
+remount OK   network.json 1440x900 4 observatory 0 network visible=1 alerts=["observatory+"]
+remount OK   clusters.json 1440x900 0 observatory 0 clusters visible=1 alerts=["observatory+"]
+remount OK   clusters.json 1440x900 1 observatory 0 speed visible=0 alerts=[]
+remount OK   clusters.json 1440x900 2 observatory 0 clusters visible=1 alerts=["observatory+"]
+remount OK   clusters.json 1440x900 3 evidence 0.75  visible=1 alerts=["evidence+"]
+remount OK   clusters.json 1440x900 4 demand 0.89  visible=0 alerts=[]
+remount OK   clusters.json 1440x900 5 observatory 0 clusters visible=1 alerts=["observatory+"]
+remount OK   facts.json 1440x900 0 city 0.78  visible=1 alerts=["city+"]
+remount OK   facts.json 1440x900 1 anatomy 0.5  visible=1 alerts=["anatomy+"]
+remount OK   facts.json 1440x900 2 city 0.78  visible=1 alerts=["city+"]
+remount OK   facts.json 1440x900 3 closing 0.9  visible=1 alerts=["closing+"]
+remount OK   facts.json 1440x900 4 corridors 0.3  visible=1 alerts=["corridors+"]
+remount OK   facts.json 1440x900 5 city 0.78  visible=1 alerts=["city+"]
+remount OK   od_ring_top.json 390x844 0 city 0.5  visible=1 alerts=["city+"]
+remount OK   od_ring_top.json 390x844 1 rush-hour 0.35  visible=1 alerts=["rush-hour+"]
+remount OK   od_ring_top.json 390x844 2 corridors 0.3  visible=1 alerts=["corridors+"]
+remount OK   od_ring_top.json 390x844 3 city 0.5  visible=1 alerts=["city+"]
+remount OK   od_ring_top.json 390x844 4 corridors 0.8  visible=1 alerts=["corridors+"]
+remount OK   od_ring_top.json 390x844 5 rush-hour 0.6  visible=1 alerts=["rush-hour+"]
+remount OK   od_ring_top.json 390x844 6 city 0.3  visible=1 alerts=["city+"]
+remount OK   meta.json 390x844 0 anatomy 0.15  visible=0 alerts=["anatomy-"]
+remount OK   meta.json 390x844 1 anatomy 0.4  visible=0 alerts=["anatomy-"]
+remount OK   meta.json 390x844 2 anatomy 0.65  visible=1 alerts=["anatomy+"]
+remount OK   meta.json 390x844 3 anatomy 0.9  visible=0 alerts=["anatomy-"]
+remount OK   meta.json 390x844 4 anatomy 0.65  visible=1 alerts=["anatomy+"]
+remount OK   meta.json 390x844 5 evidence 0.15  visible=1 alerts=["evidence+"]
+remount OK   meta.json 390x844 6 closing 0.95  visible=1 alerts=["closing+"]
+remount OK   meta.json 390x844 7 anatomy 0.65  visible=1 alerts=["anatomy+"]
+remount OK   meta.json 390x844 8 evidence 0.5  visible=1 alerts=["evidence+"]
+remount OK   network.json 390x844 0 observatory 0 network visible=1 alerts=["observatory+"]
+remount OK   network.json 390x844 1 observatory 0 demand visible=0 alerts=[]
+remount OK   network.json 390x844 2 observatory 0 network visible=1 alerts=["observatory+"]
+remount OK   network.json 390x844 3 closing 0.9  visible=0 alerts=[]
+remount OK   network.json 390x844 4 observatory 0 network visible=1 alerts=["observatory+"]
+remount OK   clusters.json 390x844 0 observatory 0 clusters visible=1 alerts=["observatory+"]
+remount OK   clusters.json 390x844 1 observatory 0 speed visible=0 alerts=[]
+remount OK   clusters.json 390x844 2 observatory 0 clusters visible=1 alerts=["observatory+"]
+remount OK   clusters.json 390x844 3 evidence 0.75  visible=1 alerts=["evidence+"]
+remount OK   clusters.json 390x844 4 demand 0.89  visible=0 alerts=[]
+remount OK   clusters.json 390x844 5 observatory 0 clusters visible=1 alerts=["observatory+"]
+remount OK   facts.json 390x844 0 city 0.78  visible=1 alerts=["city+"]
+remount OK   facts.json 390x844 1 anatomy 0.5  visible=1 alerts=["anatomy+"]
+remount OK   facts.json 390x844 2 city 0.78  visible=1 alerts=["city+"]
+remount OK   facts.json 390x844 3 closing 0.9  visible=1 alerts=["closing+"]
+remount OK   facts.json 390x844 4 corridors 0.3  visible=1 alerts=["corridors+"]
+remount OK   facts.json 390x844 5 city 0.78  visible=1 alerts=["city+"]
+done remount
+== remount end  6:08  up 2 days,  8:39, 4 users, load averages: 26.67 20.06 19.43

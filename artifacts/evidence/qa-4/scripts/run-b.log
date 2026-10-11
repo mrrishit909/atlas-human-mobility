@@ -1,0 +1,95 @@
+== errors4 start (waited 25 min)  6:33  up 2 days,  9:04, 4 users, load averages: 23.51 27.41 26.25
+err4 OK   facts.json city  1440x900 intercepted=null alerts=1 sec=city inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json city  390x844 intercepted=null alerts=1 sec=city inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json anatomy  1440x900 intercepted=null alerts=1 sec=anatomy inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json anatomy  390x844 intercepted=null alerts=1 sec=anatomy inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json rush-hour  1440x900 intercepted=null alerts=1 sec=rush-hour inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json rush-hour  390x844 intercepted=null alerts=1 sec=rush-hour inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json corridors  1440x900 intercepted=null alerts=1 sec=corridors inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json corridors  390x844 intercepted=null alerts=1 sec=corridors inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json demand  1440x900 intercepted=null alerts=1 sec=demand inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json demand  390x844 intercepted=null alerts=1 sec=demand inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json pressure  1440x900 intercepted=null alerts=1 sec=pressure inView=true lines=8 retry=true hits 1->2 after=0
+err4 FAIL facts.json pressure  390x844 intercepted=DIV.bpr-stage bpr-stage--skeleton alerts=1 sec=pressure inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json evidence  1440x900 intercepted=null alerts=1 sec=evidence inView=true lines=8 retry=true hits 1->2 after=0
+err4 FAIL facts.json evidence  390x844 intercepted=DIV.ev-stack  alerts=1 sec=evidence inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json closing  1440x900 intercepted=null alerts=1 sec=closing inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   facts.json closing  390x844 intercepted=null alerts=1 sec=closing inView=true lines=8 retry=true hits 1->2 after=0
+err4 OK   zones_index.json city  1440x900 intercepted=null alerts=1 sec=city inView=true lines=1 retry=true hits 1->2 after=0
+err4 OK   zones_index.json city  390x844 intercepted=null alerts=1 sec=city inView=true lines=1 retry=true hits 1->2 after=0
+err4 OK   od_ring_top.json city  1440x900 intercepted=null alerts=1 sec=city inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   od_ring_top.json city  390x844 intercepted=null alerts=1 sec=city inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   od_ring_top.json rush-hour  1440x900 intercepted=null alerts=1 sec=rush-hour inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   od_ring_top.json rush-hour  390x844 intercepted=null alerts=1 sec=rush-hour inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   od_ring_top.json corridors  1440x900 intercepted=null alerts=1 sec=corridors inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   od_ring_top.json corridors  390x844 intercepted=null alerts=1 sec=corridors inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   meta.json anatomy  1440x900 intercepted=null alerts=1 sec=anatomy inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   meta.json anatomy  390x844 intercepted=null alerts=1 sec=anatomy inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   meta.json evidence  1440x900 intercepted=null alerts=1 sec=evidence inView=true lines=3 retry=true hits 1->2 after=0
+err4 FAIL meta.json evidence  390x844 intercepted=DIV.ev-stack  alerts=1 sec=evidence inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   meta.json closing  1440x900 intercepted=null alerts=1 sec=closing inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   meta.json closing  390x844 intercepted=null alerts=1 sec=closing inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   zone_hour_week.json rush-hour  1440x900 intercepted=null alerts=1 sec=rush-hour inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   zone_hour_week.json rush-hour  390x844 intercepted=null alerts=1 sec=rush-hour inView=true lines=3 retry=true hits 1->2 after=0
+err4 FAIL zone_hour_week.json pressure  1440x900 intercepted=null alerts=0 sec=undefined inView=undefined lines=3 retry=false hits 1->1 after=null
+err4 FAIL zone_hour_week.json pressure  390x844 intercepted=null alerts=0 sec=undefined inView=undefined lines=3 retry=false hits 1->1 after=null
+err4 OK   zone_hour_week.json futures  1440x900 intercepted=null alerts=1 sec=futures inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   zone_hour_week.json futures  390x844 intercepted=null alerts=1 sec=futures inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   zone_hour_week.json observatory  1440x900 intercepted=null alerts=1 sec=observatory inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   zone_hour_week.json observatory  390x844 intercepted=null alerts=1 sec=observatory inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   zone_month.json demand  1440x900 intercepted=null alerts=1 sec=demand inView=true lines=1 retry=true hits 1->2 after=0
+err4 OK   zone_month.json demand  390x844 intercepted=null alerts=1 sec=demand inView=true lines=1 retry=true hits 1->2 after=0
+err4 OK   od_top.json corridors  1440x900 intercepted=null alerts=1 sec=corridors inView=true lines=1 retry=true hits 1->2 after=0
+err4 OK   od_top.json corridors  390x844 intercepted=null alerts=1 sec=corridors inView=true lines=1 retry=true hits 1->2 after=0
+err4 FAIL od_top.json rush-hour  1440x900 intercepted=null alerts=0 sec=undefined inView=undefined lines=1 retry=false hits 1->1 after=null
+err4 FAIL od_top.json rush-hour  390x844 intercepted=null alerts=0 sec=undefined inView=undefined lines=1 retry=false hits 1->1 after=null
+err4 FAIL od_top.json observatory  1440x900 intercepted=null alerts=0 sec=undefined inView=undefined lines=1 retry=false hits 1->1 after=null
+err4 FAIL od_top.json observatory  390x844 intercepted=null alerts=0 sec=undefined inView=undefined lines=1 retry=false hits 1->1 after=null
+err4 OK   zones.geojson demand  1440x900 intercepted=null alerts=1 sec=demand inView=true lines=2 retry=true hits 1->2 after=0
+err4 OK   zones.geojson demand  390x844 intercepted=null alerts=1 sec=demand inView=true lines=2 retry=true hits 1->2 after=0
+err4 OK   zones.geojson observatory  1440x900 intercepted=null alerts=1 sec=observatory inView=true lines=2 retry=true hits 1->2 after=0
+err4 OK   zones.geojson observatory  390x844 intercepted=null alerts=1 sec=observatory inView=true lines=2 retry=true hits 1->2 after=0
+err4 OK   bpr_fit.json pressure  1440x900 intercepted=null alerts=1 sec=pressure inView=true lines=3 retry=true hits 1->2 after=0
+err4 FAIL bpr_fit.json pressure  390x844 intercepted=DIV.bpr-stage bpr-stage--skeleton alerts=1 sec=pressure inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   bpr_fit.json futures  1440x900 intercepted=null alerts=1 sec=futures inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   bpr_fit.json futures  390x844 intercepted=null alerts=1 sec=futures inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   bpr_fit.json evidence  1440x900 intercepted=null alerts=1 sec=evidence inView=true lines=3 retry=true hits 1->2 after=0
+err4 FAIL bpr_fit.json evidence  390x844 intercepted=DIV.ev-stack  alerts=1 sec=evidence inView=true lines=3 retry=true hits 1->2 after=0
+err4 OK   reconciliation.json anatomy  1440x900 intercepted=null alerts=1 sec=anatomy inView=true lines=1 retry=true hits 1->2 after=0
+err4 FAIL reconciliation.json anatomy  390x844 intercepted=undefined.undefined alerts=1 sec=anatomy inView=true lines=1 retry=true hits 1->2 after=0
+err4 OK   weather_model.json evidence  1440x900 intercepted=null alerts=1 sec=evidence inView=true lines=1 retry=true hits 1->2 after=0
+err4 FAIL weather_model.json evidence  390x844 intercepted=DIV.ev-stack  alerts=1 sec=evidence inView=true lines=1 retry=true hits 1->2 after=0
+err4 FAIL daily.json evidence  1440x900 intercepted=P.ev-a alerts=1 sec=evidence inView=true lines=1 retry=true hits 1->2 after=0
+err4 FAIL daily.json evidence  390x844 intercepted=P.ev-a alerts=1 sec=evidence inView=true lines=1 retry=true hits 1->2 after=0
+err4 OK   clusters.json evidence  1440x900 intercepted=null alerts=1 sec=evidence inView=true lines=1 retry=true hits 1->2 after=0
+err4 FAIL clusters.json evidence  390x844 intercepted=DIV.ev-stack  alerts=1 sec=evidence inView=true lines=1 retry=true hits 1->2 after=0
+err4 FAIL clusters.json demand  1440x900 intercepted=null alerts=0 sec=undefined inView=undefined lines=1 retry=false hits 1->1 after=null
+err4 FAIL clusters.json demand  390x844 intercepted=null alerts=0 sec=undefined inView=undefined lines=1 retry=false hits 1->1 after=null
+err4 OK   clusters.json observatory clusters 1440x900 intercepted=null alerts=1 sec=observatory inView=true lines=2 retry=true hits 1->2 after=0
+err4 OK   clusters.json observatory clusters 390x844 intercepted=null alerts=1 sec=observatory inView=true lines=2 retry=true hits 1->2 after=0
+err4 OK   network.json observatory network 1440x900 intercepted=null alerts=1 sec=observatory inView=true lines=1 retry=true hits 1->2 after=0
+err4 OK   network.json observatory network 390x844 intercepted=null alerts=1 sec=observatory inView=true lines=1 retry=true hits 1->2 after=0
+done errors4
+== errors4 end  6:44  up 2 days,  9:14, 4 users, load averages: 15.09 20.85 23.57
+== geom start (waited 2 min)  6:46  up 2 days,  9:16, 4 users, load averages: 11.70 17.84 22.01
+done geom
+== geom end  6:58  up 2 days,  9:28, 4 users, load averages: 16.35 19.59 20.97
+== tags,labels,chip start (waited 2 min)  7:00  up 2 days,  9:30, 4 users, load averages: 8.99 15.89 19.33
+done tags,labels,chip
+== tags,labels,chip end  7:07  up 2 days,  9:38, 4 users, load averages: 12.90 12.30 16.07
+== l8 start (waited 17 min)  7:24  up 2 days,  9:55, 4 users, load averages: 7.12 16.80 18.36
+done l8
+== l8 end  7:25  up 2 days,  9:55, 4 users, load averages: 6.28 15.52 17.83
+== l9 start (waited 0 min)  7:25  up 2 days,  9:55, 4 users, load averages: 6.28 15.52 17.83
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForTimeout: Target page, context or browser has been closed
+    at settle (/Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/artifacts/evidence/qa-4/scripts/probe4.mjs:40:35)
+    at jump (/Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/artifacts/evidence/qa-4/scripts/probe4.mjs:41:127)
+    at async file:///Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/artifacts/evidence/qa-4/scripts/probe4.mjs:556:7 {
+  log: []
+}
+
+Node.js v24.21.0
