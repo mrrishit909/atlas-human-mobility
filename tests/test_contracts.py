@@ -34,7 +34,7 @@ def test_size_budget():
 def test_no_dash_characters():
     for p in PUBLIC.glob("*"):
         t = p.read_text()
-        assert "—" not in t and "―" not in t, p.name
+        assert chr(0x2014) not in t and chr(0x2015) not in t, p.name
 
 
 def test_meta_records_tolerance_and_bands(art):
