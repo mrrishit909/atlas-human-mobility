@@ -21,4 +21,6 @@
 | 20 Chapters S00-S04 (Stage B1) | PASSED with fixes (orchestrator reread tests: tsc, lint, 59 Vitest green; reviewed B1 contact sheets 2026-10-10; fixes queued into B2: landed-map ramp, mobile landed dimming, S00 network scale, deck.gl pause offscreen) | commits 44ac969, ba97746; artifacts/evidence/stage-b1/ (D/T/M + sheets); 25 Playwright incl. 263/263 zone 1px handoff, RETRY recovery, zero external requests, axe |
 | 21-22 Chapters S05-S08, OBS, Zone Inspector (Stage B2) | PASSED with fixes (orchestrator reran tsc, lint, 65 Vitest; reviewed B2 sheets 2026-10-10; B3 fixes queued: S06 ring/text collision, S05 header overlap + busyness, chip wrap, M inspector clearance, rain wording, BPR full-precision parity) | commits e8d1f40, 8505582; artifacts/evidence/stage-b2/; agent e2e 43 passed 0 failed |
 | Docs, CI, deploy script (release prep) | PASSED (TESTING.md TBD rows pending QA) | b6d59a5 |
-| 23-30 | NOT_STARTED | |
+| B3 fixes | PASSED (orchestrator: pytest 50, Vitest 65, B3 sheets read; agent e2e 48 passed 0 failed) | cb2e1eb, 0175811; artifacts/evidence/stage-b3/ |
+| 23-28 Independent QA (motion, responsive, a11y, perf, tests, creative audit) | RUNNING (P01-QA-002) | |
+| 29-30 | NOT_STARTED | |
