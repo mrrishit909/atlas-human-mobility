@@ -1,0 +1,159 @@
+
+Running 153 tests using 1 worker
+
+  -    1 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 1440x900 is reachable and recovers with a real click
+  -    2 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 1440x900 is reachable and recovers with a real click
+  -    3 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 1440x900 is reachable and recovers with a real click
+  -    4 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 1440x900 is reachable and recovers with a real click
+  -    5 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 1440x900 is reachable and recovers with a real click
+  -    6 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 1440x900 is reachable and recovers with a real click
+  -    7 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 1440x900 is reachable and recovers with a real click
+  -    8 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 1440x900 is reachable and recovers with a real click
+  -    9 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 1440x900 is reachable and recovers with a real click
+  -   10 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 1440x900 is reachable and recovers with a real click
+  -   11 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 1440x900 is reachable and recovers with a real click
+  -   12 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 1440x900 is reachable and recovers with a real click
+  -   13 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 1440x900 is reachable and recovers with a real click
+  -   14 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 1440x900 is reachable and recovers with a real click
+  -   15 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 1440x900 is reachable and recovers with a real click
+  -   16 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 1440x900 is reachable and recovers with a real click
+  -   17 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 1440x900 is reachable and recovers with a real click
+  -   18 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 1440x900 is reachable and recovers with a real click
+  -   19 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 1440x900 is reachable and recovers with a real click
+  -   20 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 1440x900 is reachable and recovers with a real click
+  -   21 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 1440x900 is reachable and recovers with a real click
+  -   22 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 1440x900 is reachable and recovers with a real click
+  -   23 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 1440x900 is reachable and recovers with a real click
+  -   24 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 1440x900 is reachable and recovers with a real click
+  -   25 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 1440x900 is reachable and recovers with a real click
+  -   26 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 1440x900 is reachable and recovers with a real click
+  -   27 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 1440x900 is reachable and recovers with a real click
+  -   28 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 1440x900 is reachable and recovers with a real click
+  -   29 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 1440x900 is reachable and recovers with a real click
+  -   30 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 1440x900 is reachable and recovers with a real click
+  -   31 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 1440x900 is reachable and recovers with a real click
+  -   32 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 1440x900 is reachable and recovers with a real click
+  -   33 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 1440x900 is reachable and recovers with a real click
+  -   34 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 1440x900 is reachable and recovers with a real click
+  -   35 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 1440x900 is reachable and recovers with a real click
+  -   36 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 768x1024 is reachable and recovers with a real click
+  -   37 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 768x1024 is reachable and recovers with a real click
+  -   38 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 768x1024 is reachable and recovers with a real click
+  -   39 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 768x1024 is reachable and recovers with a real click
+  -   40 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 768x1024 is reachable and recovers with a real click
+  -   41 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 768x1024 is reachable and recovers with a real click
+  -   42 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 768x1024 is reachable and recovers with a real click
+  -   43 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 768x1024 is reachable and recovers with a real click
+  -   44 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 768x1024 is reachable and recovers with a real click
+  -   45 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 768x1024 is reachable and recovers with a real click
+  -   46 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 768x1024 is reachable and recovers with a real click
+  -   47 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 768x1024 is reachable and recovers with a real click
+  -   48 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 768x1024 is reachable and recovers with a real click
+  -   49 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 768x1024 is reachable and recovers with a real click
+  -   50 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 768x1024 is reachable and recovers with a real click
+  -   51 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 768x1024 is reachable and recovers with a real click
+  -   52 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 768x1024 is reachable and recovers with a real click
+  -   53 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 768x1024 is reachable and recovers with a real click
+  -   54 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 768x1024 is reachable and recovers with a real click
+  -   55 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 768x1024 is reachable and recovers with a real click
+  -   56 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 768x1024 is reachable and recovers with a real click
+  -   57 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 768x1024 is reachable and recovers with a real click
+  -   58 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 768x1024 is reachable and recovers with a real click
+  -   59 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 768x1024 is reachable and recovers with a real click
+  -   60 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 768x1024 is reachable and recovers with a real click
+  -   61 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 768x1024 is reachable and recovers with a real click
+  -   62 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 768x1024 is reachable and recovers with a real click
+  -   63 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 768x1024 is reachable and recovers with a real click
+  -   64 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 768x1024 is reachable and recovers with a real click
+  -   65 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 768x1024 is reachable and recovers with a real click
+  -   66 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 768x1024 is reachable and recovers with a real click
+  -   67 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 768x1024 is reachable and recovers with a real click
+  -   68 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 768x1024 is reachable and recovers with a real click
+  -   69 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 768x1024 is reachable and recovers with a real click
+  -   70 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 768x1024 is reachable and recovers with a real click
+  -   71 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 390x844 is reachable and recovers with a real tap
+  -   72 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 390x844 is reachable and recovers with a real tap
+  -   73 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 390x844 is reachable and recovers with a real tap
+  -   74 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 390x844 is reachable and recovers with a real tap
+  -   75 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 390x844 is reachable and recovers with a real tap
+  -   76 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 390x844 is reachable and recovers with a real tap
+  -   77 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 390x844 is reachable and recovers with a real tap
+  -   78 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 390x844 is reachable and recovers with a real tap
+  -   79 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 390x844 is reachable and recovers with a real tap
+  -   80 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 390x844 is reachable and recovers with a real tap
+  -   81 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 390x844 is reachable and recovers with a real tap
+  -   82 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 390x844 is reachable and recovers with a real tap
+  -   83 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 390x844 is reachable and recovers with a real tap
+  -   84 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 390x844 is reachable and recovers with a real tap
+  -   85 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 390x844 is reachable and recovers with a real tap
+  -   86 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 390x844 is reachable and recovers with a real tap
+  -   87 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 390x844 is reachable and recovers with a real tap
+  -   88 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 390x844 is reachable and recovers with a real tap
+  -   89 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 390x844 is reachable and recovers with a real tap
+  -   90 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 390x844 is reachable and recovers with a real tap
+  -   91 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 390x844 is reachable and recovers with a real tap
+  -   92 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 390x844 is reachable and recovers with a real tap
+  -   93 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 390x844 is reachable and recovers with a real tap
+  -   94 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 390x844 is reachable and recovers with a real tap
+  -   95 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 390x844 is reachable and recovers with a real tap
+  -   96 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 390x844 is reachable and recovers with a real tap
+  -   97 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 390x844 is reachable and recovers with a real tap
+  -   98 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 390x844 is reachable and recovers with a real tap
+  -   99 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  100 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  101 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  102 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 390x844 is reachable and recovers with a real tap
+  -  103 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 390x844 is reachable and recovers with a real tap
+  -  104 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 390x844 is reachable and recovers with a real tap
+  -  105 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 390x844 is reachable and recovers with a real tap
+  -  106 [mobile] › e2e/l12.spec.ts:88:27 › L12 every control: the topmost element at each visible control's centre is that control (1440x900)
+  -  107 [mobile] › e2e/l12.spec.ts:88:27 › L12 every control: the topmost element at each visible control's centre is that control (768x1024)
+  -  108 [mobile] › e2e/l12.spec.ts:88:27 › L12 every control: the topmost element at each visible control's centre is that control (390x844)
+  -  109 [mobile] › e2e/l12.spec.ts:125:1 › L12 a real click acts: S06 futures and S03a service radios respond to page.mouse at their centres
+  ✓  110 [mobile] › e2e/scenes.spec.ts:12:1 › rendered copy equals facts.json (S01 cards, S02 ledger title, S03b Manhattan) (267ms)
+  ✓  111 [mobile] › e2e/scenes.spec.ts:23:1 › S03b dial: p 0.6 is Brooklyn forward and backward; a rapid jump lands on the hinge (299ms)
+  ✓  112 [mobile] › e2e/scenes.spec.ts:44:1 › S04 handoff: Canvas2D node positions match deck.gl's projection within 1px for 263/263 zones (1.2s)
+  ✓  113 [mobile] › e2e/scenes.spec.ts:58:1 › S03a states: a failed zone_hour_week fetch shows the error, RETRY re-fetches and recovers (354ms)
+  -  114 [mobile] › e2e/scenes.spec.ts:70:1 › S03a controls: GREEN changes the readout; 263 zones stay in the a11y table
+  ✓  115 [mobile] › e2e/scenes.spec.ts:82:1 › deep link to #demand loads zone shapes and lands on the map without visiting S03 (1.9s)
+  -  116 [mobile] › e2e/scenes.spec.ts:100:3 › state: bpr_fit.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  117 [mobile] › e2e/scenes.spec.ts:100:3 › state: daily.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  118 [mobile] › e2e/scenes.spec.ts:100:3 › state: weather_model.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  119 [mobile] › e2e/scenes.spec.ts:100:3 › state: facts.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  120 [mobile] › e2e/scenes.spec.ts:100:3 › state: reconciliation.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  121 [mobile] › e2e/scenes.spec.ts:100:3 › state: od_top.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  122 [mobile] › e2e/scenes.spec.ts:100:3 › state: zones.geojson fails -> error line -> RETRY re-fetches exactly once and recovers
+  ✓  123 [mobile] › e2e/shell.spec.ts:12:1 › no external network requests, including the lazy deck.gl chunk (luma.gl / loaders.gl) (4.8s)
+  -  124 [mobile] › e2e/shell.spec.ts:26:1 › desktop nav: keyboard jump, aria-current, focus, back/forward
+  ✓  125 [mobile] › e2e/shell.spec.ts:57:1 › mobile menu pill: open, Esc closes and returns focus, item jumps (1.9s)
+  ✓  126 [mobile] › e2e/shell.spec.ts:82:1 › reduced motion: no pinned stages, no blur, page bottom reachable (3.5s)
+  -  127 [mobile] › e2e/shell.spec.ts:106:1 › motion toggle switches the whole site to reduced motion and back
+  -  128 [mobile] › e2e/shell.spec.ts:116:1 › resize D -> M keeps the scene and its progress, without errors
+  ✓  129 [mobile] › e2e/shell.spec.ts:134:3 › axe: no serious or critical violations (app shell) (1.3s)
+  -  130 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (1920x1080)
+  -  131 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (1440x900)
+  -  132 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (1024x768)
+  -  133 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (768x1024)
+  -  134 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (390x844)
+  -  135 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (375x812)
+  -  136 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (360x800)
+  -  137 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (1024x768-classic)
+  -  138 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (768x1024-classic)
+  -  139 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (1280x720)
+  -  140 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (1366x768)
+  -  141 [mobile] › e2e/sweep.spec.ts:41:3 › L19 sweep: no generated text, control or chip box overlaps another in any scene (1440x760)
+  -  142 [mobile] › e2e/sweep.spec.ts:58:1 › L19 negative control: an overlapping element with a brand-new class name is caught
+  -  143 [mobile] › e2e/sweep.spec.ts:78:101 › D-060: dial title ink is at least 4.5:1 per glyph at 1024x768
+  -  144 [mobile] › e2e/sweep.spec.ts:78:101 › D-060: dial title ink is at least 4.5:1 per glyph at 1024x768 (classic scrollbar)
+  -  145 [mobile] › e2e/sweep.spec.ts:78:101 › D-060: dial title ink is at least 4.5:1 per glyph at 1280x720
+  -  146 [mobile] › e2e/sweep.spec.ts:114:60 › D-037: S04 label ink is at least 4.5:1 (1920x1080)
+  -  147 [mobile] › e2e/sweep.spec.ts:114:60 › D-037: S04 label ink is at least 4.5:1 (1440x900)
+  -  148 [mobile] › e2e/sweep.spec.ts:142:1 › L19 whole document: an unlisted-class element overlapping the fixed chapter nav is caught from another scene's scope
+  -  149 [mobile] › e2e/sweep.spec.ts:163:3 › D-063: S08 .end-foot is fully visible and clear of the fixed nav at the page bottom (1280x720)
+  -  150 [mobile] › e2e/sweep.spec.ts:163:3 › D-063: S08 .end-foot is fully visible and clear of the fixed nav at the page bottom (1366x768)
+  -  151 [mobile] › e2e/sweep.spec.ts:163:3 › D-063: S08 .end-foot is fully visible and clear of the fixed nav at the page bottom (1024x768)
+  -  152 [mobile] › e2e/sweep.spec.ts:163:3 › D-063: S08 .end-foot is fully visible and clear of the fixed nav at the page bottom (1440x900)
+  -  153 [mobile] › e2e/sweep.spec.ts:163:3 › D-063: S08 .end-foot is fully visible and clear of the fixed nav at the page bottom (390x844)
+
+  144 skipped
+  9 passed (17.0s)

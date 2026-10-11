@@ -1,6 +1,7 @@
 /**
  * QA L19: collision boxes are generated from the DOM, never from a hand-written selector list.
- * Inside a scope, every painted text run (one box per line of each text node) and every visible control and
+ * Inside a scope, plus every position:fixed element anywhere in the document (chapter nav, pill, corner buttons),
+ * every painted text run (one box per line of each text node) and every visible control and
  * honesty chip is a box. Two boxes collide when they intersect and neither element contains the other.
  * Only containers that are hidden behind an opaque card by design are skipped (stacked story / evidence cards
  * that are not the shown one), screen-reader-only text, and the body of a closed <details>.
@@ -10,6 +11,7 @@ import type { Page } from "@playwright/test";
 export type Ring = { cx: number; cy: number; r: number } | null;
 export interface CollisionReport { boxes: number; hits: string[] }
 
+/** scope "body" gives the whole document. */
 export function collisions(page: Page, scope: string, ring: Ring = null): Promise<CollisionReport> {
   return page.evaluate(([scope, ring]) => {
     const root = document.querySelector<HTMLElement>(scope as string);
@@ -43,11 +45,13 @@ export function collisions(page: Page, scope: string, ring: Ring = null): Promis
     };
     const onScreen = (r: DOMRect) => r.width > 1 && r.height > 1 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth;
     // text runs: each non-empty text node, one box per rendered line, trimmed to the em box (line-height 1 lines touch, not overlap)
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const inFixed = (el: Element) => { for (let o: Element | null = el; o; o = o.parentElement) if (getComputedStyle(o).position === "fixed") return true; return false; };
+    const inScope = (el: Element) => root.contains(el) || inFixed(el);
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     for (let n = walker.nextNode(); n; n = walker.nextNode()) {
       if (!n.textContent?.trim()) continue;
       const el = n.parentElement!;
-      if (!shown(el)) continue;
+      if (!inScope(el) || !shown(el)) continue;
       const fs = parseFloat(getComputedStyle(el).fontSize);
       const rg = document.createRange();
       rg.selectNodeContents(n);
@@ -59,8 +63,8 @@ export function collisions(page: Page, scope: string, ring: Ring = null): Promis
       }
     }
     // controls and chips: their whole box
-    for (const el of root.querySelectorAll("button, a[href], input, select, [role=radio], [role=tab], [role=combobox], .chip")) {
-      if (!shown(el)) continue;
+    for (const el of document.querySelectorAll("button, a[href], input, select, [role=radio], [role=tab], [role=combobox], .chip")) {
+      if (!inScope(el) || !shown(el)) continue;
       const r = el.getBoundingClientRect();
       if (onScreen(r)) boxes.push({ el, name: nameOf(el), l: r.left, t: r.top, r: r.right, b: r.bottom });
     }

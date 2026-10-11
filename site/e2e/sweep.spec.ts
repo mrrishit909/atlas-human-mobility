@@ -138,3 +138,51 @@ for (const [w, h] of [[1920, 1080], [1440, 900]] as const) test(`D-037: S04 labe
   for (const r of res) expect(r.ratio, r.t).toBeGreaterThanOrEqual(4.5);
   await v.close();
 });
+
+test("L19 whole document: an unlisted-class element overlapping the fixed chapter nav is caught from another scene's scope", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("", { waitUntil: "networkidle" });
+  await page.keyboard.press("Escape");
+  await jump(page, "corridors", 0.3);
+  expect((await collisions(page, "#corridors")).hits).toEqual([]);
+  const cls = `zz-nav-probe-${Date.now().toString(36)}`;
+  await page.evaluate((cls) => {
+    const n = document.querySelector(".nav-bar.is-fixed")!.getBoundingClientRect();
+    const el = document.createElement("p");
+    el.className = cls;
+    el.textContent = "NAV OVERLAP PROBE";
+    el.style.cssText = `position:fixed; left:${n.left + 20}px; top:${n.top + 8}px; margin:0; font:400 14px monospace; color:#fff; z-index:5`;
+    document.body.appendChild(el);
+  }, cls);
+  const r = await collisions(page, "#corridors");
+  expect(r.hits.some((x) => x.includes(cls)), r.hits.join("\n")).toBe(true);
+});
+
+// D-063: the S08 data credit and TLC disclaimer must stay clear of the fixed chapter nav, including at the true page bottom
+for (const [w, h] of [[1280, 720], [1366, 768], [1024, 768], [1440, 900], [390, 844]] as const) {
+  test(`D-063: S08 .end-foot is fully visible and clear of the fixed nav at the page bottom (${w}x${h})`, async ({ page }) => {
+    test.setTimeout(90_000);
+    await page.setViewportSize({ width: w, height: h });
+    await page.goto("", { waitUntil: "networkidle" });
+    await page.evaluate(() => document.fonts.ready);
+    await page.keyboard.press("Escape");
+    await jump(page, "closing", 0.95);
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await page.waitForTimeout(800);
+    const g = await page.evaluate(() => {
+      const f = document.querySelector<HTMLElement>(".end-foot")!.getBoundingClientRect();
+      const nb = document.querySelector<HTMLElement>(".nav-bar.is-fixed, .nav-pill.is-fixed");
+      const n = nb && getComputedStyle(nb).display !== "none" ? nb.getBoundingClientRect() : null;
+      return { f: { t: f.top, b: f.bottom, l: f.left, r: f.right }, n: n && { t: n.top, b: n.bottom, l: n.left, r: n.right }, h: innerHeight, w: innerWidth, fs: parseFloat(getComputedStyle(document.querySelector(".end-foot")!).fontSize) };
+    });
+    expect(g.f.t, "footer top in view").toBeGreaterThanOrEqual(0);
+    expect(g.f.b, "footer bottom in view").toBeLessThanOrEqual(g.h);
+    expect(g.fs).toBeGreaterThanOrEqual(11);
+    if (g.n) {
+      const clear = g.f.b <= g.n.t - 4 || g.f.r <= g.n.l || g.f.l >= g.n.r;
+      expect(clear, `footer ${JSON.stringify(g.f)} vs nav ${JSON.stringify(g.n)}`).toBe(true);
+    }
+    const r = await collisions(page, "#closing");
+    expect(r.hits, `${w}x${h} S08 at page bottom`).toEqual([]);
+  });
+}
