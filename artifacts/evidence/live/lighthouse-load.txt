@@ -1,0 +1,6 @@
+run 1 load 11.71 8.56 11.81
+after run 1 load 11.00 8.69 11.74
+run 2 load 11.00 8.69 11.74
+after run 2 load 11.49 9.08 11.80
+run 3 load 11.49 9.08 11.80
+after run 3 load 11.58 9.28 11.79

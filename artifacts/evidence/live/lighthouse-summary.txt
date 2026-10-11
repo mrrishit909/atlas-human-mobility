@@ -1,0 +1,6 @@
+desktop {"perf":1,"a11y":1,"bp":1,"lcp_ms":450.646,"cls":0,"tbt_ms":0}
+mobile {"perf":0.99,"a11y":1,"bp":1,"lcp_ms":1659.435,"cls":0,"tbt_ms":9.5}
+desktop {"perf":1,"a11y":1,"bp":1,"lcp_ms":413.048,"cls":0,"tbt_ms":0}
+mobile {"perf":0.99,"a11y":1,"bp":1,"lcp_ms":1672.633,"cls":0,"tbt_ms":37}
+desktop {"perf":1,"a11y":1,"bp":1,"lcp_ms":384.185,"cls":0,"tbt_ms":0}
+mobile {"perf":0.98,"a11y":1,"bp":1,"lcp_ms":2181.5735,"cls":0,"tbt_ms":5}

@@ -1,0 +1,54 @@
+{
+  "task_id": "P01-REL-001",
+  "agent": "release-engineer",
+  "status": "PASSED",
+  "owned_paths": [
+    "docs/",
+    "artifacts/evidence/live/",
+    "~/data-frontier/portfolio/01-atlas-human-mobility/project.json",
+    "~/projects-site (branch add-atlas-human-mobility)"
+  ],
+  "files_changed": [
+    "docs/TESTING.md",
+    "docs/LIMITATIONS.md",
+    "docs/DEPLOYMENT.md",
+    "docs/BUILD_STATUS.md",
+    "artifacts/evidence/live/",
+    "~/data-frontier/portfolio/01-atlas-human-mobility/project.json",
+    "~/projects-site/atlas-human-mobility/",
+    "~/projects-site/motion/scenes/atlas-human-mobility.js"
+  ],
+  "commits": [
+    "project repo: see git log (release docs, live evidence)",
+    "projects-site branch add-atlas-human-mobility: d942b60"
+  ],
+  "tests_executed": [
+    {
+      "command": "tsc, eslint, vitest, vite build, pytest -m 'not slow'",
+      "result": "clean; 70/70; build ok; 49 passed 1 deselected"
+    },
+    {
+      "command": "curl every file of site/dist on the live URL",
+      "result": "26/26 HTTP 200"
+    },
+    {
+      "command": "Playwright live 1440x900 and 390x844 (scroll through page)",
+      "result": "0 failed requests, 0 console errors, 0 external requests"
+    },
+    {
+      "command": "run-lighthouse.sh live x3",
+      "result": "desktop perf 1.0 x3 LCP 384-451 ms; mobile perf 0.98-0.99 LCP 1659/1673/2182 ms CLS 0 a11y 1.0 BP 1.0; load about 11"
+    },
+    {
+      "command": "python3 build.py in projects-site; browser check 1440 and 390",
+      "result": "built, no contrast or atlas warnings; no overflow, 0 console errors"
+    }
+  ],
+  "evidence_paths": [
+    "artifacts/evidence/live/",
+    "~/projects-site/atlas-human-mobility/cover.jpg",
+    "~/projects-site/atlas-human-mobility/loop.mp4"
+  ],
+  "blocking_issues": [],
+  "next_action": "Orchestrator: verify branch add-atlas-human-mobility in ~/projects-site (d942b60), merge to main and push, then curl https://mrrishit909.github.io/projects/atlas-human-mobility/ and verify links. Code licence file still pending owner decision."
+}
