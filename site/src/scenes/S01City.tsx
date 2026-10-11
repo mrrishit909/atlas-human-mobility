@@ -1,6 +1,8 @@
 import { stageW } from "../graphics/canvas";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { SceneContext } from "../scroll/Track";
+import { FactsState } from "./FactsState";
 import { WordReveal } from "../components/WordReveal";
 import { HonestyChip } from "../components/HonestyChip";
 import { ErrorLine } from "../components/StateUI";
@@ -90,10 +92,14 @@ export function S01City() {
   const c0 = copyS00();
   const c1 = f.status === "ready" ? copyS01(f.data) : null;
   return createPortal(
-    <>
+    <SceneContext.Provider value="city">
       <p className="sr-only">{c0.alt}</p>
-      {zi.status === "error" && (
-        <div className="city-error"><ErrorLine file="zones_index.json" reason={zi.reason} attempt={zi.attempt} onRetry={retryZi} /></div>
+      {(zi.status === "error" || f.status === "error") && (
+        <div className="city-error">
+          {zi.status === "error" && <ErrorLine file="zones_index.json" reason={zi.reason} attempt={zi.attempt} onRetry={retryZi} />}
+          {/* the cards are bound to facts.json: say so where they are missing (QA D-041) */}
+          <FactsState />
+        </div>
       )}
       <div className="city-note" ref={noteRef}>
         <HonestyChip tag="DERIVED" />
@@ -118,7 +124,7 @@ export function S01City() {
       )}
       {/* reveal windows end by p 0.76 so the nav landing (0.78) is fully resolved (QA D-006) */}
       {c1 && <p className="city-foot" ref={footRef}>† {c1.card1Foot}</p>}
-    </>,
+    </SceneContext.Provider>,
     portal,
   );
 }

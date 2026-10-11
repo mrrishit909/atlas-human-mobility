@@ -1,4 +1,6 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useContext, useEffect, useState, type ReactNode } from "react";
+import { SceneContext } from "../scroll/Track";
+import { useActiveScene } from "../scroll/hooks";
 import { percent, type LoadState } from "../data/loader";
 
 const upper = (f: string) => f.toUpperCase();
@@ -26,17 +28,25 @@ export function RetryButton({ onClick, busy, children = "RETRY" }: { onClick: ()
  * (role="alert"); the other scenes show the same line and RETRY without re-announcing it.
  */
 const announcers = new Map<string, symbol>();
+/**
+ * Every scene that lost an artifact shows its own line + RETRY; only the line in the scene in view
+ * is the live region, so each failed file has one alert at a time (QA D-014, D-041).
+ */
 export function ErrorLine({ file, reason, attempt, onRetry }: { file: string; reason: string; attempt: number; onRetry: () => void }) {
-  const [me] = useState(() => Symbol(file));
-  // claim the announcer slot once, at first render; released on unmount
+  const scene = useContext(SceneContext);
+  const active = useActiveScene() ?? "city";
+  const slot = `${file}@${scene ?? ""}`;
+  const [me] = useState(() => Symbol(slot));
+  // claim the per-scene slot once, at first render; released on unmount
   const [owner] = useState(() => {
-    if (announcers.has(file)) return false;
-    announcers.set(file, me);
+    if (announcers.has(slot)) return false;
+    announcers.set(slot, me);
     return true;
   });
-  useEffect(() => () => { if (announcers.get(file) === me) announcers.delete(file); }, [file, me]);
+  useEffect(() => () => { if (announcers.get(slot) === me) announcers.delete(slot); }, [slot, me]);
+  const live = owner && (scene === null || scene === active);
   return (
-    <div className="state-error" role={owner ? "alert" : undefined}>
+    <div className="state-error" role={live ? "alert" : undefined}>
       <p className="state-line state-line--error">
         COULD NOT LOAD {upper(file)} ({reason}){attempt > 1 ? ` (ATTEMPT ${attempt})` : ""}
       </p>

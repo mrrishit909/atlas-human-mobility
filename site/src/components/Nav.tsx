@@ -77,7 +77,8 @@ export function Nav({ items, active, onJump, introPlaying, onReplay, specimen, d
   const fixed = !specimen;
 
   return (
-    <>
+    // the SKIP TO CHAPTERS target (QA D-038); display: contents keeps the fixed layout untouched
+    <div id={fixed ? "chapters" : undefined} style={{ display: "contents" }}>
       {(fixed || specimen === "bar") && (
         <nav className={`nav-bar ${fixed ? "is-fixed" : "is-specimen"} ${introPlaying && fixed ? "is-hidden" : ""}`} aria-label={fixed ? "Chapters" : "Chapters, desktop specimen"}>
           <div ref={barRef} className="nav-bar__track">
@@ -131,6 +132,6 @@ export function Nav({ items, active, onJump, introPlaying, onReplay, specimen, d
       {fixed && !introPlaying && (
         <button type="button" className="corner-btn corner-btn--compact" onClick={onReplay}>REPLAY INTRO</button>
       )}
-    </>
+    </div>
   );
 }

@@ -6,8 +6,18 @@
 export type ViewportClass = "D" | "T" | "M";
 export interface RingGeom { cx: number; cy: number; r: number }
 
-/** Same cutoffs as the CSS: < 768 M, 768..1023 T, >= 1024 D. */
-export const viewportClass = (vw: number): ViewportClass => (vw < 768 ? "M" : vw < 1024 ? "T" : "D");
+/**
+ * CSS media queries measure the viewport including a classic scrollbar; the drawing box (clientWidth)
+ * excludes it. Classes are decided on the media-query width so JS and CSS always agree (QA D-033).
+ * ponytail: assumes the width passed is the page-wide drawing box (every caller passes stageW() or its canvas).
+ */
+const scrollbar = () => {
+  if (typeof document === "undefined") return 0;
+  const g = innerWidth - document.documentElement.clientWidth;
+  return g > 0 && g < 40 ? g : 0;
+};
+/** Same cutoffs as the CSS: < 768 M, 768..1023 T, >= 1024 D (on the media-query width). */
+export const viewportClass = (vw: number): ViewportClass => { const m = vw + scrollbar(); return m < 768 ? "M" : m < 1024 ? "T" : "D"; };
 
 /**
  * R0 orbit. The design gives exact px for the three reference viewports only
@@ -25,7 +35,7 @@ export function ringR0(vw: number, vh: number, cls = viewportClass(vw)): RingGeo
  * Compact desktop (1024-1279 px wide, e.g. 1024x768): a deliberate composition of its own, not
  * the 1440 layout squeezed. The horizon sits lower and the rush orbit is fitted right of the text.
  */
-export const isCompact = (vw: number) => vw >= 1024 && vw < 1280;
+export const isCompact = (vw: number) => { const m = vw + scrollbar(); return m >= 1024 && m < 1280; };
 
 export function ringR1(vw: number, vh: number, cls = viewportClass(vw)): RingGeom {
   const r = (cls === "M" ? 1.3 : 0.82) * vw;
@@ -42,7 +52,8 @@ export function ringR0c(vw: number, vh: number, cls = viewportClass(vw)): RingGe
     return { cx: (x0 + x1) / 2, cy: vh * (470 / 900), r };
   }
   if (cls === "D") return { cx: vw * (860 / 1440), cy: vh * (470 / 900), r: vh * (380 / 900) };
-  if (cls === "T") return { cx: vw / 2, cy: vh * (600 / 1024), r: vw * (300 / 768) };
+  // T: the orbit starts below the text column's chip row (y ~ 330 at 768x1024)
+  if (cls === "T") return { cx: vw / 2, cy: vh * (650 / 1024), r: vw * (300 / 768) };
   return { cx: vw / 2, cy: vh * (470 / 844), r: vw * (168 / 390) };
 }
 

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, type CSSProperties, type ReactNode } from "react";
+import { createContext, useLayoutEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { registerTrack } from "./engine";
 
 interface Props {
@@ -10,6 +10,9 @@ interface Props {
   className?: string;
   children: ReactNode;
 }
+
+/** The scene a component renders in (state lines use it to pick the one live region, QA D-041). */
+export const SceneContext = createContext<string | null>(null);
 
 /** A scene track: tall <section> with a sticky 100dvh stage (MOTION_SYSTEM 4). */
 export function Track({ id, height, landing = 0, label, className = "", children }: Props) {
@@ -26,7 +29,7 @@ export function Track({ id, height, landing = 0, label, className = "", children
     >
       <div className="stage">
         <div className="stage-content" data-stage-content>
-          {children}
+          <SceneContext.Provider value={id}>{children}</SceneContext.Provider>
         </div>
       </div>
     </section>

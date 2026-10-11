@@ -71,35 +71,73 @@ function expectNoCollisions(boxes: R[], ring: { cx: number; cy: number; r: numbe
  * ambient S01 ring deliberately runs behind the display type at low alpha (approved in B1);
  * text-vs-text and text-vs-card are asserted at every viewport.
  */
-const ringGeom = (page: Page, w: number, h: number) => (w === 1024 && h === 768 ? page.evaluate(() => window.__atlasRing?.geom ?? null) : Promise.resolve(null));
+const RING_CHECKED = (w: number, h: number) => (w === 1024 && h === 768) || (w === 768 && h === 1024);
+const ringGeom = (page: Page, w: number, h: number) => (RING_CHECKED(w, h) ? page.evaluate(() => window.__atlasRing?.geom ?? null) : Promise.resolve(null));
 
-for (const [w, h] of ALL) test(`D-001: no text collides with text or cards, or the ring at 1024x768, in S01, S03a, S03b (${w}x${h})`, async ({ page }) => {
-  test.setTimeout(120_000);
-  {
-    await open(page, w, h);
-    await jump(page, "city", 0.78);
-    const city = await textBoxes(page, [".city-statement h2", ".city-cards .note", ".city-foot"]);
-    expectNoCollisions(city, await ringGeom(page, w, h), [".city-statement", ".city-cards"], `${w}x${h} S01`);
-    await jump(page, "rush-hour", 0.35, 1200);
-    const rush = await textBoxes(page, [".rush-text h2", ".rush-text .scene-body", ".rush-controls", ".rush-tags", ".rush-readout"]);
-    expectNoCollisions(rush, await ringGeom(page, w, h), [".rush-text", ".rush-controls", ".rush-tags"], `${w}x${h} S03a`);
-    for (const p of [0.1, 0.3, 0.55, 0.88]) {
-      await jump(page, "corridors", p, 2400);
-      const cor = await textBoxes(page, ["#corridors .cor-text h2", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-ledger", "#corridors .dial-title", "#corridors .ticket"]);
-      expectNoCollisions(cor, await ringGeom(page, w, h), ["#corridors .cor-text", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-ledger", "#corridors .dial-title"], `${w}x${h} S03b p${p}`);
-    }
+async function d001Scenes(page: Page, w: number, h: number, tag = "") {
+  await open(page, w, h);
+  await jump(page, "city", 0.78);
+  const city = await textBoxes(page, [".city-statement h2", ".city-cards .note", ".city-foot"]);
+  expectNoCollisions(city, await ringGeom(page, w, h), [".city-statement", ".city-cards"], `${w}x${h}${tag} S01`);
+  await jump(page, "rush-hour", 0.35, 1200);
+  const rush = await textBoxes(page, [".rush-text h2", ".rush-text .scene-body", ".rush-controls", ".rush-tags", ".rush-readout"]);
+  expectNoCollisions(rush, await ringGeom(page, w, h), [".rush-text", ".rush-controls", ".rush-tags"], `${w}x${h}${tag} S03a`);
+  for (const p of [0.1, 0.3, 0.55, 0.88]) {
+    await jump(page, "corridors", p, 2400);
+    const cor = await textBoxes(page, ["#corridors .cor-text h2", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-ledger", "#corridors .dial-title", "#corridors .ticket"]);
+    expectNoCollisions(cor, await ringGeom(page, w, h), ["#corridors .cor-text", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-ledger", "#corridors .dial-title"], `${w}x${h}${tag} S03b p${p}`);
   }
+}
+
+async function d001Futures(page: Page, w: number, h: number, tag = "") {
+  await open(page, w, h);
+  await jump(page, "futures", 0.5, 1500);
+  const bb = JSON.parse((await page.locator(".fut-canvas").getAttribute("data-bbox"))!) as number[];
+  const ring = { left: bb[0]!, top: bb[1]!, right: bb[2]!, bottom: bb[3]! };
+  const blocks = await textBoxes(page, ["#futures .fut-text h2", "#futures .fut-callout", "#futures .fut-text .cor-chips", "#futures .fut-caption", "#futures .fut-deltas", "#futures .fut-select"]);
+  for (const b of blocks) expect(overlap(ring, b), `${w}x${h}${tag}: ring vs ${b.name}`).toBe(false);
+  // T and D: the minute bars are real bars, not 1px ticks (QA D-033 at 768)
+  const bars = await page.locator("#futures .fut-bar").evaluateAll((els) => els.filter((e) => getComputedStyle(e).display !== "none").map((e) => (e as HTMLElement).offsetWidth));
+  for (const bw of bars) expect(bw, `${w}x${h}${tag}: fut-bar track width`).toBeGreaterThan(80);
+}
+
+for (const [w, h] of ALL) test(`D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (${w}x${h})`, async ({ page }) => {
+  test.setTimeout(120_000);
+  await d001Scenes(page, w, h);
 });
 
 test("D-001: the S06 split ring never intersects a text block (all 7 viewports)", async ({ page }) => {
   test.setTimeout(180_000);
-  for (const [w, h] of ALL) {
+  for (const [w, h] of ALL) await d001Futures(page, w, h);
+});
+
+/**
+ * D-033: the same collision checks with classic (layout) scrollbars, as on Windows Chrome/Edge.
+ * Headless Chromium hides scrollbars by default; this browser keeps them, and the page gets a 15px gutter.
+ */
+for (const [w, h] of [[1024, 768], [768, 1024]] as const) test(`D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (${w}x${h})`, async ({ playwright }, info) => {
+  test.setTimeout(240_000);
+  const b = await playwright.chromium.launch({ ignoreDefaultArgs: ["--hide-scrollbars"] });
+  try {
+    const ctx = await b.newContext({ baseURL: info.project.use.baseURL, viewport: { width: w, height: h } });
+    await ctx.addInitScript(() => document.addEventListener("DOMContentLoaded", () => {
+      const st = document.createElement("style");
+      st.textContent = "html { overflow-y: scroll; } ::-webkit-scrollbar { width: 15px; } ::-webkit-scrollbar-thumb { background: #555; }";
+      document.head.appendChild(st);
+    }));
+    const page = await ctx.newPage();
     await open(page, w, h);
-    await jump(page, "futures", 0.5, 1500);
-    const bb = JSON.parse((await page.locator(".fut-canvas").getAttribute("data-bbox"))!) as number[];
-    const ring = { left: bb[0]!, top: bb[1]!, right: bb[2]!, bottom: bb[3]! };
-    const blocks = await textBoxes(page, ["#futures .fut-text h2", "#futures .fut-callout", "#futures .fut-text .cor-chips", "#futures .fut-caption", "#futures .fut-deltas", "#futures .fut-select"]);
-    for (const b of blocks) expect(overlap(ring, b), `${w}x${h}: ring vs ${b.name}`).toBe(false);
+    const m = await page.evaluate(() => ({
+      cw: document.documentElement.clientWidth,
+      js: (window as unknown as { __atlas: { vpClass: () => string } }).__atlas.vpClass(),
+      css: matchMedia("(min-width: 1024px)").matches ? "D" : matchMedia("(min-width: 768px)").matches ? "T" : "M",
+    }));
+    expect(m.cw, "a classic scrollbar takes layout width").toBeLessThan(w);
+    expect(m.js, "JS viewport class equals the CSS media-query class").toBe(m.css);
+    await d001Scenes(page, w, h, " classic");
+    await d001Futures(page, w, h, " classic");
+  } finally {
+    await b.close();
   }
 });
 
@@ -149,7 +187,7 @@ test("D-004: S04 direct labels stay inside the viewport on phones", async ({ pag
     await jump(page, "demand", 0.6);
     await page.waitForFunction(() => !!(window as unknown as Atlas).__atlas.mapApi?.(), null, { timeout: 20000 });
     await jump(page, "demand", 0.89, 2500);
-    const labels = await page.locator(".dem-label").evaluateAll((els) => els.map((e) => { const r = e.getBoundingClientRect(); return { left: r.left, right: r.right, text: e.textContent }; }));
+    const labels = await page.locator(".dem-label").evaluateAll((els) => els.filter((e) => getComputedStyle(e).display !== "none").map((e) => { const r = e.getBoundingClientRect(); return { left: r.left, right: r.right, text: e.textContent }; }));
     expect(labels.length).toBeGreaterThan(0);
     for (const l of labels) {
       expect(l.left, `${w}: ${l.text}`).toBeGreaterThanOrEqual(15.5);
@@ -300,4 +338,110 @@ test("phones: the layout viewport never widens during load, so an early jump lan
   expect(r.iw).toBe(390);
   expect(r.p).toBeCloseTo(0.5, 2);
   await ctx.close();
+});
+
+/* ---------------- P01-FIX-002 (QA pass 2) ---------------- */
+
+/** Visible chips (non-zero box, inside the viewport, not display:none) in a scene. */
+const visibleChips = (page: Page, id: string) => page.evaluate((id) => [...document.querySelectorAll<HTMLElement>(`#${id} .chip`)].filter((c) => {
+  const r = c.getBoundingClientRect();
+  let o: HTMLElement | null = c; let op = 1;
+  while (o) { op *= Number(getComputedStyle(o).opacity); o = o.parentElement; }
+  return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.left >= 0 && r.right <= innerWidth && op > 0.5;
+}).map((c) => (c.textContent ?? "").trim()), id);
+
+for (const [w, h] of PHONES) test(`D-030/D-031/D-032: every data visual keeps its honesty tag on phones (${w}x${h})`, async ({ page }) => {
+  test.setTimeout(120_000);
+  await open(page, w, h);
+  await jump(page, "rush-hour", 0.35, 1200);
+  expect((await visibleChips(page, "rush-hour")).join(" | "), "S03a ring").toContain("OBSERVED");
+  await jump(page, "corridors", 0.3, 2400);
+  const cor = (await visibleChips(page, "corridors")).join(" | ");
+  expect(cor, "S03b chords").toContain("OBSERVED");
+  expect(cor, "S03b pulses").toContain("PULSES");
+  await jump(page, "futures", 0.5, 1500);
+  const fut = (await visibleChips(page, "futures")).join(" | ");
+  expect(fut, "S06 observed half, worded for the rotated split").toContain("OBSERVED · TOP HALF");
+  expect(fut).toContain("SIMULATED");
+  await jump(page, "observatory", 0, 1000);
+  // the observatory's title block waits for its data (zone_hour_week.json, about 500 KB)
+  await expect.poll(async () => (await visibleChips(page, "observatory")).join(" | "), { message: "OBS heights and flows", timeout: 20000 }).toMatch(/OBSERVED.*FLOWS|FLOWS.*OBSERVED/);
+});
+
+for (const [w, h] of PHONES) test(`D-035: S02 card 3 text blocks never overprint each other (${w}x${h})`, async ({ page }) => {
+  await open(page, w, h);
+  await jump(page, "anatomy", 0.5, 1500);
+  const card = page.locator("#anatomy .story-card").filter({ hasText: "WHAT WE REMOVED" });
+  const boxes = await card.evaluate((c) => {
+    const out: { name: string; left: number; top: number; right: number; bottom: number }[] = [];
+    const add = (name: string, el: Element | null) => {
+      if (!el) return;
+      const rg = document.createRange(); rg.selectNodeContents(el);
+      for (const r of Array.from(rg.getClientRects())) if (r.width > 1 && r.height > 1) out.push({ name, left: r.left, top: r.top, right: r.right, bottom: r.bottom });
+    };
+    add("title", c.querySelector(".story-card__title"));
+    c.querySelectorAll(".a-ledger tr").forEach((tr, i) => add(`row${i}`, tr));
+    add("check", c.querySelector(".a-ledger__check"));
+    add("body", c.querySelector(".story-card__body"));
+    add("tag", c.querySelector(".story-card__tag"));
+    const cr = c.getBoundingClientRect();
+    return { out, card: { top: cr.top, bottom: cr.bottom } };
+  });
+  expect(boxes.out.length).toBeGreaterThan(6);
+  for (let i = 0; i < boxes.out.length; i++) {
+    const a = boxes.out[i]!;
+    expect(a.bottom, `${a.name} inside the card`).toBeLessThanOrEqual(boxes.card.bottom + 0.5);
+    for (let j = i + 1; j < boxes.out.length; j++) {
+      const b = boxes.out[j]!;
+      if (a.name === b.name) continue;
+      expect(overlap(a, b, 1), `${a.name} vs ${b.name}`).toBe(false);
+    }
+  }
+});
+
+for (const [w, h] of ALL) test(`D-039: S04 direct labels are pairwise disjoint in every metric (${w}x${h})`, async ({ page }) => {
+  test.setTimeout(120_000);
+  await open(page, w, h);
+  await jump(page, "demand", 0.6);
+  await page.waitForFunction(() => !!(window as unknown as Atlas).__atlas.mapApi?.(), null, { timeout: 20000 });
+  await jump(page, "demand", 0.89, 2500);
+  for (const metric of ["PICKUPS", "DROPOFFS", "NET"]) {
+    await page.locator("#demand button", { hasText: new RegExp(`^${metric}$`) }).first().click();
+    await page.waitForTimeout(1500);
+    const r = await page.locator(".dem-label").evaluateAll((els) => els.filter((e) => getComputedStyle(e).display !== "none").map((e) => { const b = e.getBoundingClientRect(); return { name: e.textContent ?? "", left: b.left, top: b.top, right: b.right, bottom: b.bottom }; }));
+    expect(r.length, `${metric}: at least the rank-1 label`).toBeGreaterThan(0);
+    for (let i = 0; i < r.length; i++) for (let j = i + 1; j < r.length; j++) expect(overlap(r[i]!, r[j]!), `${metric}: ${r[i]!.name} vs ${r[j]!.name}`).toBe(false);
+  }
+});
+
+for (const [w, h] of [[1440, 900], [390, 844]] as const) test(`D-041: a facts.json failure is announced and recoverable on CITY (${w}x${h})`, async ({ page }) => {
+  let block = true;
+  await page.route("**/data/facts.json", (r) => (block ? r.fulfill({ status: 500, body: "" }) : r.continue()));
+  await open(page, w, h);
+  await jump(page, "city", 0.78, 1200);
+  const alert = page.locator("[role=alert]", { hasText: "COULD NOT LOAD FACTS.JSON" });
+  await expect(alert).toHaveCount(1);
+  await expect(alert).toBeInViewport();
+  expect(await alert.evaluate((e) => e.closest("section")?.id)).toBe("city");
+  block = false;
+  await alert.getByRole("button", { name: /RETRY/ }).click();
+  await expect(page.locator(".city-cards .note")).toHaveCount(2, { timeout: 10000 });
+  await expect(page.locator("[role=alert]", { hasText: "FACTS.JSON" })).toHaveCount(0);
+});
+
+test("D-038: the skip link has a target", async ({ page }) => {
+  await open(page, 1440, 900);
+  expect(await page.locator("#chapters").count()).toBe(1);
+});
+
+test("D-043: S06 states the borough moved most and least, bound to the minutes list", async ({ page }) => {
+  await open(page, 1440, 900);
+  await jump(page, "futures", 0.5, 1500);
+  const rows = await page.locator("#futures .fut-deltas li").evaluateAll((els) => els.map((e) => (e.textContent ?? "").replace(/\s+/g, " ").trim()));
+  const line = (await page.getByTestId("fut-line").textContent()) ?? "";
+  const parsed = rows.map((r) => r.match(/^(.*?) ?([+-]\d+\.\d) MIN/)!).map((m) => ({ b: m[1]!.trim(), d: m[2]! }));
+  expect(parsed).toHaveLength(5);
+  parsed.sort((a, b) => Math.abs(Number(b.d)) - Math.abs(Number(a.d)));
+  expect(line.toUpperCase()).toContain(`${parsed[0]!.b} ${parsed[0]!.d} MIN A TRIP, THE MOST`);
+  expect(line.toUpperCase()).toContain(`${parsed[4]!.b} ${parsed[4]!.d}, THE LEAST`);
 });

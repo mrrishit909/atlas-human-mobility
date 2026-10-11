@@ -6,7 +6,7 @@ import { Tooltip } from "../components/Tooltip";
 import { ErrorLine, LoadingLine } from "../components/StateUI";
 import { useArtifact } from "../data/useArtifact";
 import { bprFit, zoneHourWeek } from "../data/types";
-import { FUTURES, asymmetryCallout, copyS06, mph, signed } from "../data/copy";
+import { FUTURES, copyS06, futureLine, mph, signed } from "../data/copy";
 import { howLabel, labResult, type BoroughFit } from "../data/bpr";
 import { lab, labChanged, labHow } from "../state/lab";
 import { model, useAtlas, zhwIndex, getZhw } from "../state/atlas";
@@ -116,6 +116,8 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
   const [future, setFuture] = useState<FutureId>("busier");
   const [tip, setTip] = useState<{ x: number; y: number; i: number }>({ x: 0, y: 0, i: -1 });
   const [hourOpen, setHourOpen] = useState(false);
+  // M rotates the split: the observed half is on top (QA D-032)
+  const [phone, setPhone] = useState(() => viewportClass(stageW()) === "M");
   const canvas = useRef<HTMLCanvasElement>(null);
   const prog = useRef(0);
   const blend = useRef({ from: [] as number[], to: [] as number[], at: -1e9 });
@@ -127,11 +129,7 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
   const active: FutureId = future === "yours" && !yoursOk ? "busier" : future;
   const { dm, cm } = futureParams(active);
   const deltas = fits ? boroughDeltas(fits, how, dm, cm) : null;
-  const callout = useMemo(() => {
-    if (!fits) return null;
-    const up = boroughDeltas(fits, how, 1.15, 1).city, down = boroughDeltas(fits, how, 0.85, 1).city;
-    return asymmetryCallout(up, down, howLabel(how));
-  }, [fits, how]);
+  const line = deltas ? futureLine(deltas.rows, howLabel(how)) : null;
   const zones = useMemo(() => (m && deltas ? zoneDeltas(m, how, (b) => deltas.rows.find((r) => r.borough === b)?.ratio ?? 1) : []), [m, deltas, how]);
   const excluded = zones.filter((z) => z === null).length;
   const clipped = zones.filter((z) => z !== null && z.delta * 40 > SWELL).length;
@@ -151,7 +149,7 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
   useProgress(id, (p) => { prog.current = p; dirty.current = true; });
   // the ring is fitted around the text, so any layout change re-fits it
   useEffect(() => {
-    const mark = () => { dirty.current = true; };
+    const mark = () => { dirty.current = true; setPhone(viewportClass(stageW()) === "M"); };
     addEventListener("resize", mark);
     void document.fonts?.ready.then(mark);
     return () => removeEventListener("resize", mark);
@@ -259,9 +257,9 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
         <p className="scene-kicker">07 · ALTERNATIVE FUTURES</p>
         <WordReveal as="h2" id={`${id}-title`} tabIndex={-1} data-scene-heading className="scene-statement" text={copy.statement}
           mode={motion ? { kind: "scrub", track: id, from: 0, to: 0.08 } : { kind: "value", t: 1 }} /* ends before the 0.10 landing */ />
-        {callout && <p className="fut-callout">{callout}</p>}
+        {line && <p className="fut-callout" data-testid="fut-line">{line}</p>}
         <div className="cor-chips">
-          <HonestyChip tag="OBSERVED" detail="LEFT HALF" />
+          <HonestyChip tag="OBSERVED" detail={phone ? "TOP HALF" : "LEFT HALF"} />
           <HonestyChip tag="SIMULATED" detail={copy.chip} />
         </div>
         <p className="mono-label fut-caption">{copy.caption}</p>

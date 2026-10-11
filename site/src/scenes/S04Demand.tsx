@@ -45,14 +45,28 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
   const [zm, retryZm] = useArtifact(zoneMonth, false);
   const [labels, setLabels] = useState<{ key: string; list: Label[] }>({ key: "", list: [] });
   const labelsRef = useRef<HTMLDivElement>(null);
-  // keep every direct label inside the viewport with a 16px margin; a cut number reads as another number (QA D-004)
+  // keep every direct label inside the viewport with a 16px margin; a cut number reads as another number (QA D-004).
+  // Labels are placed in rank order; a lower-ranked label that would overprint a placed one moves above it,
+  // else below it, else is dropped (QA D-039).
   useLayoutEffect(() => {
-    const w = stageW();
+    const w = stageW(), h = stageH();
+    const placed: DOMRect[] = [];
+    const hitAny = (r: DOMRect) => placed.find((q) => r.left < q.right + 4 && q.left < r.right + 4 && r.top < q.bottom + 4 && q.top < r.bottom + 4);
     labelsRef.current?.querySelectorAll<HTMLElement>(".dem-label").forEach((el) => {
-      el.style.marginLeft = "0px";
-      const r = el.getBoundingClientRect();
+      el.style.marginLeft = el.style.marginTop = "0px";
+      el.style.display = "";
+      let r = el.getBoundingClientRect();
       const shift = r.right > w - 16 ? w - 16 - r.right : r.left < 16 ? 16 - r.left : 0;
       if (shift) el.style.marginLeft = `${Math.round(shift)}px`;
+      r = el.getBoundingClientRect();
+      for (let k = 0, q = hitAny(r); q && k < 3; k++, q = hitAny(r)) {
+        const up = q.top - 6 - r.bottom;
+        const dy = r.top + up >= 16 ? up : q.bottom + 6 - r.top;
+        el.style.marginTop = `${parseFloat(el.style.marginTop) + dy}px`;
+        r = el.getBoundingClientRect();
+      }
+      if (hitAny(r) || r.top < 16 || r.bottom > h - 16) el.style.display = "none";
+      else placed.push(r);
     });
   });
 

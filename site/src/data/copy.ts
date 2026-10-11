@@ -155,16 +155,15 @@ export function copyS08(f: Facts) {
   };
 }
 
-/** Minimum citywide margin (minutes) before the asymmetry is worth a headline: 15 seconds. */
-export const ASYM_MIN_MARGIN = 0.25;
 /**
- * S06 asymmetry callout (QA D-011): scoped to what was computed (citywide, trip-weighted, at the
- * selected hour) and shown only when the margin clears ASYM_MIN_MARGIN. Otherwise null.
+ * S06 data line (QA D-043 replaced the asymmetry callout, whose threshold the data never met):
+ * the borough the selected future moves most and least, in minutes per median trip, at the lab hour.
  */
-export function asymmetryCallout(up: number, down: number, when: string): string | null {
-  const margin = Math.abs(up) - Math.abs(down);
-  if (margin < ASYM_MIN_MARGIN) return null;
-  return `Citywide at ${when}, adding 15% costs more than removing 15% saves.`;
+export function futureLine(rows: readonly { borough: string; delta: number }[], when: string): string | null {
+  if (!rows.length) return null;
+  const by = [...rows].sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
+  const most = by[0]!, least = by[by.length - 1]!;
+  return `At ${when}: ${most.borough} ${signed(most.delta)} min a trip, the most; ${least.borough} ${signed(least.delta)}, the least.`;
 }
 
 /** D-010: the S05 statement's ratio and the lab's speed are different quantities; name both. */

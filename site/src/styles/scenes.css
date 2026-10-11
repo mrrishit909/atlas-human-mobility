@@ -34,13 +34,15 @@ html[data-motion="off"] .ring-stage, html.is-gallery .ring-stage { display: none
 .city-note, .city-error, .city-statement, .city-cards, .city-foot { position: absolute; z-index: 2; }
 .city-note { left: var(--gutter); bottom: calc(var(--nav-clear) + 12px); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; max-width: calc(100vw - 2 * var(--gutter));
   font: 400 13px / 1.3 var(--font-mono); letter-spacing: var(--tracking-label); color: var(--text-muted); }
-.city-error { left: var(--gutter); right: var(--gutter); bottom: calc(var(--nav-clear) + 64px); }
+.city-error { left: var(--gutter); right: var(--gutter); bottom: calc(var(--nav-clear) + 64px); z-index: 3; } /* above the faded intro note, which still hit-tests */
 .city-statement { left: var(--margin); top: 270px; width: min(840px, calc(100vw - 2 * var(--margin))); margin: 0;
   font-family: var(--font-display); font-weight: 400; font-optical-sizing: auto; font-size: 64px; line-height: 1.02; letter-spacing: -0.012em; text-wrap: balance; }
 .city-statement__h { margin: 0; font: inherit; letter-spacing: inherit; line-height: inherit; }
 html[data-motion="off"] .city-statement { opacity: 1 !important; }
 .city-cards { right: var(--gutter); top: 96px; width: 360px; display: flex; flex-direction: column; gap: 24px; opacity: 0; }
 .city-cards .note { width: 100%; padding: 20px 24px; gap: 12px; }
+/* D: the error line sits where the facts-bound cards would be, clear of the horizon (QA D-041) */
+@media (min-width: 1024px) { .city-error { left: auto; right: var(--gutter); top: 96px; bottom: auto; width: 360px; } }
 .city-cards .note__head sup { font-size: 0.8em; margin-left: 2px; }
 .city-foot { left: var(--gutter); bottom: calc(var(--nav-clear) + 12px); margin: 0; max-width: min(600px, calc(100vw - 2 * var(--gutter)));
   font: 400 13px / 1.3 var(--font-mono); letter-spacing: var(--tracking-label); color: var(--text-muted); opacity: 0; }
@@ -94,6 +96,10 @@ html[data-motion="off"] .city-cards, html[data-motion="off"] .city-foot { opacit
   .a-row .orb { width: 150px !important; height: 150px !important; }
   .a-row .orb canvas { left: -37.5px !important; top: -37.5px !important; width: 225px !important; height: 225px !important; }
   .a-ledger { font-size: 12px; }
+  /* card 3 on phones (QA D-035): values keep their column, the bars go, so every row fits on one or two lines */
+  .a-ledger__bar { display: none; }
+  .a-ledger th, .a-ledger td { padding-top: 2px; padding-bottom: 2px; }
+  .a-ledger__check { margin-top: 6px; padding-top: 6px; }
 }
 
 /* ---------- S03a ---------- */
@@ -110,7 +116,7 @@ html[data-motion="off"] .city-cards, html[data-motion="off"] .city-foot { opacit
 }
 @media (max-width: 767px) {
   .rush-text { left: 16px; right: 16px; top: 48px; gap: 10px; }
-  .rush-text .scene-body, .rush-tags { display: none; }
+  .rush-text .scene-body { display: none; }
   .rush-controls { position: absolute; left: 0; right: 0; top: calc(100dvh - 48px - var(--nav-clear) - 92px); flex-direction: column; align-items: center; }
   .rush-readout { width: 200px; }
   .rush-readout__time { font-size: 32px; }
@@ -155,7 +161,6 @@ html[data-motion="off"] .city-cards, html[data-motion="off"] .city-foot { opacit
 }
 @media (max-width: 767px) {
   .cor-text { left: 16px; right: 16px; top: 44px; }
-  .cor-text .cor-chips .chip:nth-child(n + 2) { display: none; }
   .cor-ledger { left: 16px; right: 16px; bottom: calc(var(--nav-clear) + 8px); padding: 12px 14px; background: rgb(22 22 22 / 0.94); border-radius: var(--radius-card); font-size: 12px; }
   /* M: a compact 3-row list card under the arc (VISUAL_DESIGN S03b M: y 640-760) */
   .cor-ledger { padding: 10px 12px; }
@@ -300,7 +305,8 @@ html[data-motion="off"] .lab-stage { position: relative; inset: auto; height: 48
   .fut-deltas { left: 48px; right: 48px; top: auto; bottom: calc(var(--nav-clear) + 70px); width: auto; }
   .fut-deltas li { height: 20px; }
   .fut-deltas .fut-bar { grid-column: auto; height: 6px; }
-  .fut-deltas li { grid-template-columns: 1fr 1fr auto; }
+  /* T: name, minutes, then the bar takes the rest of the row (it collapsed to 1px in an auto column) */
+  .fut-deltas li { grid-template-columns: 140px 90px 1fr; grid-template-rows: 20px; }
   .fut-hour, .fut-text .scene-note { display: none; }
   .fut-select { overflow-x: auto; max-width: calc(100vw - 32px); scroll-snap-type: x mandatory; }
   .fut-select .fut-item { scroll-snap-align: start; white-space: nowrap; }
@@ -320,7 +326,6 @@ html[data-motion="off"] .lab-stage { position: relative; inset: auto; height: 48
   .fut-select { bottom: calc(var(--nav-clear) + 6px); display: grid; grid-template-columns: 1fr 1fr; width: calc(100vw - 32px); overflow: visible; }
   .fut-select .fut-item { padding: 6px 8px; white-space: normal; }
   .fut-deltas { bottom: calc(var(--nav-clear) + 100px); }
-  .fut-text .cor-chips .chip:first-child { display: none; }
 }
 html[data-motion="off"] .fut-canvas { position: relative !important; height: 70vh; }
 html[data-motion="off"] .fut-select { transform: none; }
@@ -465,7 +470,6 @@ html[data-motion="off"] .end-canvas { position: relative !important; height: 50v
   .obs-sheet .obs-rail { position: static; flex-direction: column; align-items: stretch; }
   .obs-sheet .seg-ctl__item { min-height: 44px; }
   .obs-actions { left: 16px; top: 256px; bottom: auto; }
-  .obs-title .cor-chips .chip:nth-child(n + 2) { display: none; }
   .obs-table { display: none; }
   .inspector { max-height: calc(80dvh - var(--nav-clear)); }
 }
@@ -499,4 +503,10 @@ html[data-motion="off"] .scene-obs .stage-content { padding: 0; }
   /* S05: a 380px column; the map is fitted right of it (mapView.ts) */
   .lab-text { width: 380px; gap: 12px; }
   .lab-text .scene-statement { font-size: 44px; }
+}
+
+/* M: honesty tags are never hidden (QA D-030/D-031/D-032); they shrink instead */
+@media (max-width: 767px) {
+  .rush-tags .chip, .cor-text .cor-chips .chip, .obs-title .cor-chips .chip, .fut-text .cor-chips .chip { font-size: 11px; padding: 3px 6px; line-height: 1.25; }
+  .cor-text .cor-chips, .obs-title .cor-chips, .fut-text .cor-chips { gap: 4px; }
 }
