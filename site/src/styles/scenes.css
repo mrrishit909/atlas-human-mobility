@@ -43,7 +43,7 @@ html[data-motion="off"] .city-statement { opacity: 1 !important; }
 .city-cards .note { width: 100%; padding: 20px 24px; gap: 12px; }
 /* D: error lines sit top-left under the wordmark, clear of the cards and the horizon (QA D-041, D-042) */
 @media (min-width: 1024px) { .city-error { right: auto; top: 64px; bottom: auto; width: 420px; display: flex; flex-direction: column; gap: 8px; } }
-.city-cards .note__head sup { font-size: 0.8em; margin-left: 2px; }
+.city-cards .note__head sup { font-size: 11px; margin-left: 2px; } /* the 11px floor (QA D-059) */
 .city-foot { left: var(--gutter); bottom: calc(var(--nav-clear) + 12px); margin: 0; max-width: min(600px, calc(100vw - 2 * var(--gutter)));
   font: 400 13px / 1.3 var(--font-mono); letter-spacing: var(--tracking-label); color: var(--text-muted); opacity: 0; }
 @media (max-width: 1023px) {
@@ -194,7 +194,7 @@ html[data-motion="off"] .city-cards, html[data-motion="off"] .city-foot { opacit
 html[data-motion="off"] .dem-labels { display: none; }
 @media (max-width: 1023px) { .dem-text { left: 48px; right: 48px; top: 56px; width: auto; } }
 @media (max-width: 767px) {
-  .dem-text { left: 16px; right: 16px; top: auto; bottom: calc(var(--nav-clear) + 8px); width: auto; max-height: 40dvh; overflow: auto; gap: 10px; padding: 14px; background: rgb(22 22 22 / 0.94); border-radius: var(--radius-card); }
+  .dem-text { left: 16px; right: 16px; top: auto; bottom: calc(var(--nav-clear) + 8px); width: auto; max-height: 50dvh; overflow: auto; gap: 10px; padding: 14px; background: rgb(22 22 22 / 0.94); border-radius: var(--radius-card); }
   .dem-text .scene-statement { font-size: 26px; }
 }
 .rm-demand { position: relative !important; display: grid; gap: 24px; padding: 0 var(--margin) 64px; }
@@ -246,7 +246,7 @@ html.is-gallery .map-stage { display: none; }
 .lab-hatch { height: 12px; background: repeating-linear-gradient(45deg, rgb(255 76 37 / 0.7) 0 1px, transparent 1px 6px); border-top: 1px dashed var(--accent-orange); border-bottom: 1px dashed var(--accent-orange); }
 .bpr-stage { position: relative; flex: 1; min-height: 200px; }
 .bpr-stage svg { position: absolute; inset: 0; overflow: visible; }
-.bpr-stage--skeleton { border-top: 1px solid var(--line); }
+.bpr-stage--skeleton { border-top: 1px solid var(--line); pointer-events: none; } /* never over a RETRY (QA D-055) */
 .bpr-hair { stroke: rgb(255 255 255 / 0.25); stroke-width: 1; }
 .bpr-fit { fill: none; stroke: var(--accent-light-blue); stroke-width: 2; }
 .bpr-fit--beyond { stroke-dasharray: 2 4; }
@@ -359,6 +359,7 @@ html[data-motion="off"] .fut-select { transform: none; }
 .ev-bar--fit { background: #000; }
 .ev-bar--const { background: rgb(0 0 0 / 0.45); }
 .ev-bar--ff { background: rgb(0 0 0 / 0.2); }
+.ev-bpr td:last-child { white-space: nowrap; text-align: right; } /* a triplet never wraps one number per line (QA D-034) */
 .ev-typing { position: absolute; bottom: -28px; left: 0; margin: 0; font: 400 13px / 1 var(--font-mono); letter-spacing: var(--tracking-label); color: var(--text-muted);
   animation: typing 700ms linear forwards; }
 @keyframes typing { 0%, 50% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
@@ -384,7 +385,17 @@ html[data-motion="off"] .fut-select { transform: none; }
   .ev-q { font-size: 16px; }
   .ev-a { font-size: 13px; }
   .ev-ex.is-old, .ev-ex.is-prev { display: none; } /* M: only the latest objection + answer (VISUAL_DESIGN S07 M) */
+  .ev-bpr { font-size: 11px; }
+  .ev-bpr th { padding-right: 6px; }
 }
+/* QA D-055 (L12): the stack and its cards never catch a tap; only real controls in shown cards do */
+.ev-stack, .ev-ex { pointer-events: none; }
+.ev-ex:not([aria-hidden="true"]) :is(button, a) { pointer-events: auto; }
+/* the daily.json line inside a cyan answer card: dark red and a black RETRY, not red on cyan */
+.ev-ex:not(.is-prev) .ev-card--a .state-line { color: #000; }
+.ev-ex:not(.is-prev) .ev-card--a .state-line--error { color: #7a0e00; }
+.ev-ex:not(.is-prev) .ev-card--a .btn-square { border-color: #000; color: #000; }
+.ev-ex:not(.is-prev) .ev-card--a .btn-square:hover { background: #000; color: var(--accent-light-blue); }
 .ev-stack.is-flow .ev-ex { position: relative; margin-bottom: 24px; }
 html[data-motion="off"] .ev-receipt { display: flex; }
 
@@ -456,9 +467,12 @@ html[data-motion="off"] .end-canvas { position: relative !important; height: 50v
 @media (max-width: 1279px) { .obs-region { left: auto; right: var(--gutter); transform: none; top: auto; bottom: calc(var(--nav-clear) + 170px); align-items: flex-end; } }
 @media (max-width: 1023px) {
   .obs-title { left: 48px; right: 48px; width: auto; top: 32px; }
-  .obs-rail { left: 16px; right: 16px; top: auto; bottom: calc(var(--nav-clear) + 230px); flex-direction: row; overflow-x: auto; align-items: center; scroll-snap-type: x mandatory; }
-  .obs-rail > * { flex: none; scroll-snap-align: start; }
-  .obs-region { bottom: calc(var(--nav-clear) + 280px); }
+  /* T (QA D-048): search, regions and every layer control wrap into the band between the title and the map,
+     so nothing sits off-screen or over the city */
+  .obs-region { left: 48px; right: 48px; top: 272px; bottom: auto; flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .obs-combo input { width: 240px; }
+  .obs-rail { left: 48px; right: 48px; top: 318px; bottom: auto; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; }
+  .obs-rail > * { flex: none; }
   .inspector { left: 0; right: 0; top: auto; bottom: var(--nav-clear); width: auto; max-height: calc(50dvh - var(--nav-clear)); border-radius: var(--radius-card) var(--radius-card) 0 0; animation-name: sheet-in; }
   @keyframes sheet-in { from { transform: translateY(100%); } }
 }
@@ -519,4 +533,25 @@ html[data-motion="off"] .scene-obs .stage-content { padding: 0; }
   /* QA pass 3: an error line never sits on the search box (OBS) or the footnote (CITY) */
   .obs-title .state-error { position: absolute; left: 0; right: 0; top: 280px; padding: 8px 10px; background: rgb(0 0 0 / 0.88); z-index: 3; }
   .city-error { bottom: calc(var(--nav-clear) + 96px); }
+}
+
+/* QA D-036 / D-050: where the horizon or the morphing ring passes behind a desktop text column, the column
+   carries a feathered black ground, so no stroke or node runs through a word */
+@media (min-width: 1024px) {
+  .cor-text, .cor-ledger, .dem-text { background: rgb(0 0 0 / 0.9); box-shadow: 0 0 24px 18px rgb(0 0 0 / 0.9); }
+}
+@media (max-width: 767px) {
+  /* QA D-046: the band row wraps inside the ledger card instead of running off the right edge */
+  .cor-bands-m { flex-wrap: wrap; max-width: 100%; }
+}
+/* QA D-055 (L12): the lab chart is display-only; it never sits over a RETRY in the text column */
+.lab-stage { pointer-events: none; }
+.lab-stage :is(button, a, input) { pointer-events: auto; }
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* T: error lines sit below the control band (search, regions, rail), over the map's upper edge */
+  .obs-title .state-error { position: absolute; left: 0; right: 0; top: 400px; padding: 8px 10px; background: rgb(0 0 0 / 0.88); z-index: 3; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* T: the same ground under S04's text (the morphing ring passes behind it) and S03a's (an error line can reach the orbit) */
+  .dem-text, .rush-text { background: rgb(0 0 0 / 0.9); box-shadow: 0 0 20px 14px rgb(0 0 0 / 0.9); }
 }

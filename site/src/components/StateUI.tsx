@@ -32,7 +32,7 @@ const announcers = new Map<string, symbol>();
  * Every scene that lost an artifact shows its own line + RETRY; only the line in the scene in view
  * is the live region, so each failed file has one alert at a time (QA D-014, D-041).
  */
-export function ErrorLine({ file, reason, attempt, onRetry }: { file: string; reason: string; attempt: number; onRetry: () => void }) {
+export function ErrorLine({ file, reason, attempt, onRetry, live: inView = true }: { file: string; reason: string; attempt: number; onRetry: () => void; live?: boolean }) {
   const scene = useContext(SceneContext);
   const active = useActiveScene() ?? "city";
   const slot = `${file}@${scene ?? ""}`;
@@ -44,7 +44,7 @@ export function ErrorLine({ file, reason, attempt, onRetry }: { file: string; re
     return true;
   });
   useEffect(() => () => { if (announcers.get(slot) === me) announcers.delete(slot); }, [slot, me]);
-  const live = owner && (scene === null || scene === active);
+  const live = inView && owner && (scene === null || scene === active); // inView: e.g. only while its story card is the shown one (QA D-054)
   return (
     <div className="state-error" role={live ? "alert" : undefined}>
       <p className="state-line state-line--error">

@@ -7,8 +7,8 @@ import { WordReveal } from "../components/WordReveal";
 import { HonestyChip } from "../components/HonestyChip";
 import { ErrorLine } from "../components/StateUI";
 import { useArtifact } from "../data/useArtifact";
-import { facts, odRingTop, zonesIndex } from "../data/types";
-import { copyS00, copyS01 } from "../data/copy";
+import { facts, odRingTop, reconciliation, zonesIndex } from "../data/types";
+import { cityStatement, copyS00, copyS01 } from "../data/copy";
 import { useProgress } from "../scroll/hooks";
 import { windowed } from "../motion/progress";
 import { easeSymmetric } from "../motion/ease";
@@ -21,6 +21,8 @@ export function S01City() {
   const [f] = useArtifact(facts);
   const [ring] = useArtifact(odRingTop, false);
   const [zi, retryZi] = useArtifact(zonesIndex);
+  const [rec] = useArtifact(reconciliation);
+  const statement = rec.status === "ready" && zi.status === "ready" ? cityStatement(rec.data, zi.data.zones.length) : null;
   const noteRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const footRef = useRef<HTMLParagraphElement>(null);
@@ -95,13 +97,14 @@ export function S01City() {
   return createPortal(
     <SceneContext.Provider value="city">
       <p className="sr-only">{c0.alt}</p>
-      {(zi.status === "error" || f.status === "error" || ring.status === "error") && (
+      {(zi.status === "error" || f.status === "error" || ring.status === "error" || rec.status === "error") && (
         <div className="city-error">
           {zi.status === "error" && <ErrorLine file="zones_index.json" reason={zi.reason} attempt={zi.attempt} onRetry={retryZi} />}
           {/* the cards are bound to facts.json: say so where they are missing (QA D-041) */}
           <FactsState />
           {/* one stable place for every CITY error line: a line that moved would lose its live region */}
           <ArtifactError spec={odRingTop} />
+          <ArtifactError spec={reconciliation} />
         </div>
       )}
       <div className="city-note" ref={noteRef}>
@@ -109,7 +112,7 @@ export function S01City() {
         <span>{c0.note}</span>
       </div>
       <div className="city-statement" ref={stmtRef} style={{ opacity: 0 }}>
-        <WordReveal as="h2" className="city-statement__h" text={STATEMENT} mode={{ kind: "scrub", track: "city", from: 0.35, to: 0.75 }} />
+        {statement && <WordReveal as="h2" className="city-statement__h" text={statement} mode={{ kind: "scrub", track: "city", from: 0.35, to: 0.75 }} />}
       </div>
       {c1 && (
         <div className="city-cards" ref={cardsRef}>
@@ -131,5 +134,3 @@ export function S01City() {
     portal,
   );
 }
-/** Static statement; its "263" is the zone count, asserted against zones_index.json in copy.test.ts. */
-export const STATEMENT = "Every ride begins in one of 263 zones and ends in another.";

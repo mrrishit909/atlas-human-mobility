@@ -97,7 +97,7 @@ export function S02Anatomy({ id, height, landing }: { id: string; height: string
     { variant: "orb", chip: copy[0]!.chip, title: copy[0]!.title, visual: (on) => <Fields on={on} />, body: <p>{copy[0]!.body}</p>, tag: <HonestyChip tag="OBSERVED" /> },
     { variant: "blue", chip: copy[1]!.chip, title: copy[1]!.title, visual: (on) => <Fleets f={f.data} on={on} />, body: <p>{copy[1]!.body}</p>, tag: <HonestyChip tag="OBSERVED" /> },
     { variant: "dark", chip: copy[2]!.chip, title: copy[2]!.title, visual: (on) => ledgerState(r, retryR, on),
-      body: <><p>{copy[2]!.body}</p>{copy[2]!.foot ? <p className="a-foot">{copy[2]!.foot}</p> : <div className="a-foot"><ArtifactError spec={meta} /></div>}</>, tag: <HonestyChip tag="OBSERVED" /> },
+      body: (on: boolean) => <><p>{copy[2]!.body}</p>{copy[2]!.foot ? <p className="a-foot">{copy[2]!.foot}</p> : <div className="a-foot"><ArtifactError spec={meta} live={on} /></div>}</>, tag: <HonestyChip tag="OBSERVED" /> },
     { variant: "light", chip: copy[3]!.chip, title: copy[3]!.title, visual: (on) => <Grid on={on} />, body: <p>{copy[3]!.body}</p>, tag: <HonestyChip tag="OBSERVED" onLight /> },
   ] : [];
   return (

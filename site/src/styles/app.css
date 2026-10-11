@@ -183,7 +183,8 @@ html[data-motion="off"] .menu-panel { transition: none; }
   .corner-btn { bottom: 16px; }
 }
 @media (max-width: 767px) {
-  .corner-btn { max-width: 96px; white-space: normal; text-align: right; line-height: 1.1; }
+  /* its box clears the centred MENU pill by 8px or more down to 360 wide (QA D-058) */
+  .corner-btn { right: 6px; padding: 8px 6px; max-width: 76px; white-space: normal; text-align: right; line-height: 1.1; }
 }
 
 /* ---------- honesty chips ---------- */

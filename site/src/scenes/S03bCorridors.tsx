@@ -90,25 +90,32 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
   // compact desktop: the title sits just above a shorter tick, between the text column and the arc
   const titleLift = typeof document !== "undefined" && isCompact(stageW()) ? 86 : 128;
 
-  // QA D-047: the title sits at its design height unless the text column (chips, band selector) reaches it;
-  // then it drops below the column, and the anchor tick is shortened so it never runs into the title.
+  // QA D-047 / D-057: the title sits at its design height. If the text column (chips, band selector) reaches it,
+  // it first slides right of the column when there is room (desktop), else drops below the column; the anchor
+  // tick is shortened so it never runs into a title still over the centre.
   const textRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     const te = textRef.current;
     const text = te?.getBoundingClientRect();
     const textBottom = te ? te.offsetTop + te.offsetHeight : 0; // stage coordinates, transform-free
+    const vw = stageW();
     let cap = Infinity;
     document.querySelectorAll<HTMLElement>(`#${id} .dial-title`).forEach((t) => {
       const top0 = arcTop - titleLift;
       t.style.top = `${top0}px`;
+      t.style.translate = "";
       const rg = document.createRange();
       rg.selectNodeContents(t);
       const g = rg.getBoundingClientRect(), box = t.getBoundingClientRect();
       const glyphTop = top0 + (g.top - box.top); // the in/out animation moves both rects alike
+      let dx = 0;
       if (text && text.height > 0 && g.width > 0 && g.left < text.right && text.left < g.right && glyphTop < textBottom + 10) {
-        t.style.top = `${top0 + textBottom + 10 - glyphTop}px`;
+        const shift = text.right + 24 - g.left;
+        if (g.right + shift <= vw - 24 && text.left > vw * 0.02 && text.right < vw * 0.6) { dx = shift; t.style.translate = `${Math.round(shift)}px 0`; }
+        else t.style.top = `${top0 + textBottom + 10 - glyphTop}px`;
       }
-      cap = Math.min(cap, 2 * (arcTop - (t.offsetTop + t.offsetHeight) - 6));
+      const cx = vw / 2;
+      if (g.left + dx < cx && cx < g.right + dx) cap = Math.min(cap, 2 * (arcTop - (t.offsetTop + t.offsetHeight) - 6));
     });
     setDialTickCap(Math.max(24, cap));
   });

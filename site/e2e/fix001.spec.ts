@@ -107,6 +107,12 @@ for (const [w, h] of ALL) test(`D-001: no text collides with text or cards, or t
   await d001Scenes(page, w, h);
 });
 
+// L2 laptop sizes (QA D-057): the S03b title must clear the column and the ticket row here too
+for (const [w, h] of [[1280, 720], [1366, 768], [1440, 760]] as const) test(`D-057: no text collides in S01, S03a, S03b at ${w}x${h}`, async ({ page }) => {
+  test.setTimeout(180_000);
+  await d001Scenes(page, w, h);
+});
+
 test("D-001: the S06 split ring never intersects a text block (all 7 viewports)", async ({ page }) => {
   test.setTimeout(180_000);
   for (const [w, h] of ALL) await d001Futures(page, w, h);
@@ -478,4 +484,46 @@ for (const [file, scene, p, layer] of [
   await expect(page.locator("[role=alert]", { hasText: file.toUpperCase() })).toHaveCount(0, { timeout: 10000 });
   expect(hits).toBe(before + 1);
   if (layer) await expect(page.locator("#observatory .obs-title .chip", { hasText: "PAGERANK" })).toHaveCount(1);
+});
+
+/* ---------------- P01-FIX-004 (QA pass 4) ---------------- */
+
+test("D-054: the S02 meta.json line is live only while card 3 is the shown card", async ({ page }) => {
+  await page.route("**/data/meta.json", (r) => r.fulfill({ status: 500, body: "" }));
+  await open(page, 1440, 900);
+  await jump(page, "anatomy", 0.14, 1500);
+  expect(await page.locator("[role=alert]", { hasText: "META.JSON" }).count(), "card 1 shown").toBe(0);
+  await jump(page, "anatomy", 0.5, 1500);
+  const a = page.locator("[role=alert]", { hasText: "META.JSON" });
+  await expect(a).toHaveCount(1);
+  await expect(a).toBeInViewport();
+});
+
+for (const [w, h] of [[768, 1024], [390, 844], [375, 812], [360, 800]] as const) test(`D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (${w}x${h})`, async ({ page }) => {
+  await open(page, w, h);
+  for (const p of [0.35, 0.5, 0.65, 0.8, 0.95]) {
+    await jump(page, "evidence", p, 1200);
+    const r = await page.evaluate(() => {
+      const hd = document.querySelector<HTMLElement>("#evidence .ev-head h2")!.getBoundingClientRect();
+      const cards = [...document.querySelectorAll<HTMLElement>("#evidence .ev-ex:not([aria-hidden=true]) .ev-card")].filter((c) => getComputedStyle(c.closest(".ev-ex")!).display !== "none" && Number(getComputedStyle(c.closest(".ev-ex")!).opacity) > 0.05).map((c) => c.getBoundingClientRect());
+      const hit = cards.some((c) => c.left < hd.right && hd.left < c.right && c.top < hd.bottom && hd.top < c.bottom);
+      const trip = [...document.querySelectorAll<HTMLElement>("#evidence .ev-bpr td:last-child")].map((td) => td.getClientRects().length);
+      return { hit, maxLines: Math.max(0, ...trip) };
+    });
+    expect(r.hit, `p ${p}: a card covers the heading`).toBe(false);
+    expect(r.maxLines, `p ${p}: a holdout triplet wraps`).toBeLessThanOrEqual(1);
+  }
+});
+
+for (const [w, h] of [[390, 844], [375, 812], [360, 800]] as const) test(`D-058/D-059: corner button clears the pill by 8px, the dagger is at least 11px (${w}x${h})`, async ({ page }) => {
+  await open(page, w, h);
+  await jump(page, "city", 0.78, 1200);
+  const m = await page.evaluate(() => {
+    const c = document.querySelector<HTMLElement>(".corner-btn")!.getBoundingClientRect();
+    const p = document.querySelector<HTMLElement>(".nav-pill.is-fixed .menu-pill")!.getBoundingClientRect();
+    const sup = document.querySelector<HTMLElement>(".city-cards sup");
+    return { gap: c.left - p.right, dagger: sup ? parseFloat(getComputedStyle(sup).fontSize) : 99 };
+  });
+  expect(m.gap).toBeGreaterThanOrEqual(8);
+  expect(m.dagger).toBeGreaterThanOrEqual(11);
 });

@@ -12,7 +12,7 @@ export function FactsState() {
 }
 
 /** Any artifact a scene draws from: its own error line + RETRY, so no failure is silent (QA D-042, D-052). */
-export function ArtifactError<T>({ spec }: { spec: ArtifactSpec<T> }) {
+export function ArtifactError<T>({ spec, live }: { spec: ArtifactSpec<T>; live?: boolean }) {
   const [s, retry] = useArtifact(spec, false);
-  return s.status === "error" ? <ErrorLine file={spec.file} reason={s.reason} attempt={s.attempt} onRetry={retry} /> : null;
+  return s.status === "error" ? <ErrorLine file={spec.file} reason={s.reason} attempt={s.attempt} onRetry={retry} live={live} /> : null;
 }

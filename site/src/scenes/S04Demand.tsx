@@ -6,7 +6,7 @@ import { HonestyChip } from "../components/HonestyChip";
 import { Tooltip } from "../components/Tooltip";
 import { ErrorLine, LoadingLine } from "../components/StateUI";
 import { useArtifact } from "../data/useArtifact";
-import { facts, zoneMonth, zonesGeo } from "../data/types";
+import { clusters, facts, network, zoneMonth, zonesGeo } from "../data/types";
 import { copyS04, int } from "../data/copy";
 import { annual, clusterOf, demand, emit, getClusters, loadDemandData, model, useAtlas } from "../state/atlas";
 import { getProgress } from "../scroll/engine";
@@ -14,7 +14,7 @@ import { useFrame, useMotion, useProgress } from "../scroll/hooks";
 import { HANDOFF, morphPositions } from "./director";
 import { Segmented } from "./S03aRush";
 import { StaticRing } from "./StaticRing";
-import { FactsState } from "./FactsState";
+import { ArtifactError, FactsState } from "./FactsState";
 import { mapState } from "./MapStage";
 import { CLUSTER_CSS, metricValues, type Metric } from "./mapStyle";
 import type { MapApi } from "./deckMap";
@@ -78,6 +78,10 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
   }, [motion]);
 
   const phase = demand.phase;
+  // the cluster step needs both models; without either, no K-MEANS claim is drawn (QA D-056)
+  const [netS] = useArtifact(network, false);
+  const [clS] = useArtifact(clusters, false);
+  const clustersOk = netS.status === "ready" && clS.status === "ready";
   const metric = demand.metric as Metric;
   useFrame(() => {
     const a = mapState.api;
@@ -88,7 +92,7 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
   });
 
   const copy = f.status === "ready" ? copyS04(f.data) : null;
-  const statement = copy ? [copy.s1, copy.s2, copy.s3][phase] ?? copy.s1 : "";
+  const statement = copy ? [copy.s1, copy.s2, clustersOk ? copy.s3 : copy.s2][phase] ?? copy.s1 : ""; // no cluster claim over a missing model (QA D-056)
   const m = model();
   const hv = mapState.scene === "demand" ? mapState.hover : { loc: null, x: 0, y: 0 };
   const pick = hv.loc !== null && m ? m.idx.get(hv.loc) : undefined;
@@ -108,17 +112,19 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
         <WordReveal as="h2" id={`${id}-title`} tabIndex={-1} data-scene-heading className="scene-statement" text={statement}
           mode={motion ? { kind: "time", playKey: phase + 1, per: 600, stagger: 60 } : { kind: "value", t: 1 }} />
         <p className="mono-label dem-legend">{legend}</p>
-        {phase < 2 && <p className="mono-label dem-legend">LABELS: THE ZONES RANKED 1, 10 AND 50 BY THIS HEIGHT</p>}
+        {(phase < 2 || !clustersOk) && <p className="mono-label dem-legend">LABELS: THE ZONES RANKED 1, 10 AND 50 BY THIS HEIGHT</p>}
         {metric === "net" && <p className="mono-label dem-legend">DIMMED ZONES = NET SINKS (MORE DROPOFFS THAN PICKUPS)</p>}
         <Segmented label="Height metric" value={metric} className={interactive ? "" : "is-disabled"}
           onChange={(v) => { if (interactive) { demand.metric = v; emit(); } }}
           items={[{ id: "pickups", label: "PICKUPS" }, { id: "dropoffs", label: "DROPOFFS" }, { id: "net", label: "NET" }]} />
         <div className="cor-chips">
           <HonestyChip tag="OBSERVED" detail="HEIGHTS" />
-          {phase >= 2 && f.status === "ready" && <HonestyChip tag="DERIVED" detail={`K-MEANS, K=${f.data.clusters.k}, SILHOUETTE ${f.data.clusters.silhouette.toFixed(2)}`} />}
+          {phase >= 2 && clustersOk && f.status === "ready" && <HonestyChip tag="DERIVED" detail={`K-MEANS, K=${f.data.clusters.k}, SILHOUETTE ${f.data.clusters.silhouette.toFixed(2)}`} />}
         </div>
-        {phase >= 2 && copy && <p className="scene-note">{copy.clusterNote}</p>}
+        {phase >= 2 && clustersOk && copy && <p className="scene-note">{copy.clusterNote}</p>}
         <FactsState />
+        {phase >= 2 && <ArtifactError spec={network} />}
+        {phase >= 2 && <ArtifactError spec={clusters} />}
         {geo.status === "loading" && <LoadingLine file="zones.geojson" loaded={geo.loaded} total={geo.total} />}
         {geo.status === "error" && <ErrorLine file="zones.geojson" reason={geo.reason} attempt={geo.attempt} onRetry={retryGeo} />}
         {zm.status === "error" && <ErrorLine file="zone_month.json" reason={zm.reason} attempt={zm.attempt} onRetry={retryZm} />}

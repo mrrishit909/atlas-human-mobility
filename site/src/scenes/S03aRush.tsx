@@ -117,6 +117,7 @@ export function S03aRush({ id, height, landing }: { id: string; height: string; 
         <div className="rush-tags"><HonestyChip tag="OBSERVED" detail="MEAN TRIPS PER HOUR" /></div>
         <FactsState />
         <ArtifactError spec={odRingTop} />
+        <ArtifactError spec={odTop} />
         {zhw.status === "loading" && <LoadingLine file="zone_hour_week.json" loaded={zhw.loaded} total={zhw.total} />}
         {zhw.status === "error" && <ErrorLine file="zone_hour_week.json" reason={zhw.reason} attempt={zhw.attempt} onRetry={retryZ} />}
       </div>

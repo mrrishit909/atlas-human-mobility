@@ -8,7 +8,9 @@ import { windowed } from "../motion/progress";
 import { viewportClass } from "../graphics/ring";
 import { motionEnabled } from "../state/motion";
 
-export type DeckCard = Omit<StoryCardProps, "index" | "count" | "active" | "onSelect" | "visual"> & {
+export type DeckCard = Omit<StoryCardProps, "index" | "count" | "active" | "onSelect" | "visual" | "body"> & {
+  /** Body; a function receives whether its card is the active one (an error line in it is live only then). */
+  body: StoryCardProps["body"] | ((active: boolean) => StoryCardProps["body"]);
   /** Visual zone; a function receives whether its card is the active one (stepped 800ms entrance). */
   visual?: StoryCardProps["visual"] | ((active: boolean) => StoryCardProps["visual"]);
 };
@@ -89,7 +91,7 @@ export function StoryDeck({ track, cards }: { track: string; cards: DeckCard[] }
   return (
     <div className="deck" ref={root}>
       {cards.map((c, i) => (
-        <StoryCard key={i} {...c} visual={typeof c.visual === "function" ? c.visual(i === active || !motionEnabled()) : c.visual} index={i} count={n} active={i === active} onSelect={select} />
+        <StoryCard key={i} {...c} visual={typeof c.visual === "function" ? c.visual(i === active || !motionEnabled()) : c.visual} body={typeof c.body === "function" ? c.body(i === active || !motionEnabled()) : c.body} index={i} count={n} active={i === active} onSelect={select} />
       ))}
     </div>
   );

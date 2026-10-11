@@ -1,10 +1,9 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { copyS01, copyS02, copyS03a, copyS03b, copyS04, copyS05, copyS07, copyS08, limitations, int, pct0, pct1, signed } from "./copy";
+import { cityStatement, copyS01, copyS02, copyS03a, copyS03b, copyS04, copyS05, copyS07, copyS08, limitations, int, pct0, pct1, signed } from "./copy";
 import { anchors, annualByRing, halfSet, hourTotals, hourlyByRing, ledger, ringModel } from "./derive";
 import type { Facts, Meta, Reconciliation, ZoneHourWeek, ZoneMonth, ZonesIndex } from "./types";
 import type { BoroughFit } from "./bpr";
-import { STATEMENT } from "../scenes/S01City";
 
 const read = <T,>(f: string): T => JSON.parse(readFileSync(new URL(`../../public/data/${f}`, import.meta.url), "utf-8"));
 const facts = read<Facts>("facts.json");
@@ -15,6 +14,10 @@ const zi = read<ZonesIndex>("zones_index.json");
 const bpr = read<{ boroughs: Record<string, BoroughFit> }>("bpr_fit.json");
 const cl = read<{ silhouette_by_k: Record<string, number>; random_label_silhouette: { max: number }; stability_ari: { ari_min: number; n_seeds: number }; k: number; silhouette: number }>("clusters.json");
 const m = ringModel(zi);
+const rec = read<Reconciliation>("reconciliation.json");
+const STATEMENT = cityStatement(rec, zi.zones.length)!;
+// independent recompute of the known-zone share (QA D-053)
+const knownPct = pct0((100 * rec.rows.reduce((s, r) => s + (r as unknown as { kept_known_od: number }).kept_known_od, 0)) / rec.rows.reduce((s, r) => s + r.kept, 0));
 
 
 describe("copy deck numbers are facts.json values (VISUAL_DESIGN section 6)", () => {
@@ -22,7 +25,7 @@ describe("copy deck numbers are facts.json values (VISUAL_DESIGN section 6)", ()
     int(facts.busiest_zone_how.mean_trips), String(facts.busiest_zone_how.zone), int(facts.trips_per_minute_mean), int(facts.trips_kept_total),
     pct1(facts.share_pct.fhvhv), pct1(facts.share_pct.yellow), pct1(facts.share_pct.green), int(facts.excluded_total), int(facts.suppressed_cells_total),
     pct0(facts.mn_internal_share_pct), pct0(facts.bk_internal_share_pct), int(facts.airport_dest_zone_count), String(facts.zones_for_half_pickups),
-    String(facts.clusters.k), facts.clusters.silhouette.toFixed(2), String(zi.zones.length), meta.pipeline_version,
+    String(facts.clusters.k), facts.clusters.silhouette.toFixed(2), String(zi.zones.length), meta.pipeline_version, knownPct,
     // literal rule thresholds and calendar labels written in the design copy, not data values
     String((meta as unknown as { small_cell_threshold: number }).small_cell_threshold),
     ...[facts.am_peak_hour, facts.pm_peak_hour, facts.weekend_peak_hour].flatMap((h) => numbers(h.label)),
@@ -56,7 +59,7 @@ describe("copy deck numbers are facts.json values (VISUAL_DESIGN section 6)", ()
     expect(copyS01(facts).card2Body).toContain(int(facts.trips_kept_total));
     expect(copyS02(facts, meta)[2]!.title).toBe(`${int(facts.excluded_total)} rows didn't make it.`);
     expect(copyS04(facts).s2).toContain(`${facts.zones_for_half_pickups} of 263`);
-    expect(STATEMENT).toContain(String(zi.zones.length));
+    expect(STATEMENT).toBe(`${knownPct}% of rides begin and end in one of ${zi.zones.length} known zones.`);
   });
   it("(CHECK) claims follow their checks", () => {
     expect(copyS03b({ ...facts, mn_internal_share_pct: 40 }).states.MN.title).toBe("Manhattan's corridors");

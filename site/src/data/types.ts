@@ -124,7 +124,7 @@ export const clusters: ArtifactSpec<Clusters> = {
 };
 
 /** reconciliation.json: per service x month raw / kept / exclusions. */
-export interface ReconRow { service: string; month: number; raw_rows: number; kept: number; exclusions: Record<string, number> }
+export interface ReconRow { service: string; month: number; raw_rows: number; kept: number; kept_known_od?: number; exclusions: Record<string, number> }
 export interface Reconciliation { rows: ReconRow[]; suppressed_cells_total: number; suppressed_trips_total: number }
 export const reconciliation: ArtifactSpec<Reconciliation> = {
   file: "reconciliation.json",

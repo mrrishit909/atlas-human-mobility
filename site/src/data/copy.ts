@@ -22,7 +22,6 @@ export function copyS00() {
 export function copyS01(f: Facts) {
   const b = f.busiest_zone_how;
   return {
-    statement: "Every ride begins in one of 263 zones and ends in another.",
     card1Head: `FROM: ZONE ${b.zone} · ${b.name.toUpperCase()} / ${b.how_label.toUpperCase()}`,
     card1Body: `${int(b.mean_trips)} PICKUPS IN AN AVERAGE HOUR LIKE THIS ONE.`,
     // The busiest zone-hour is the Sunday 1 AM hour that the DST fall-back repeats (data agent note).
@@ -164,6 +163,16 @@ export function futureLine(rows: readonly { borough: string; delta: number }[], 
   const by = [...rows].sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
   const most = by[0]!, least = by[by.length - 1]!;
   return `At ${when}: ${most.borough} ${signed(most.delta)} min a trip, the most; ${least.borough} ${signed(least.delta)}, the least.`;
+}
+
+/**
+ * S01 statement (QA D-053): what holds. Some kept rides have an unknown pickup or dropoff zone, and some
+ * begin and end in the same zone, so the claim is the share with two known zones, bound to reconciliation.json.
+ */
+export function cityStatement(rec: { rows: { kept: number; kept_known_od?: number }[] }, zones: number): string | null {
+  const kept = rec.rows.reduce((s, r) => s + r.kept, 0), known = rec.rows.reduce((s, r) => s + (r.kept_known_od ?? NaN), 0);
+  if (!kept || !Number.isFinite(known)) return null;
+  return `${pct0((100 * known) / kept)}% of rides begin and end in one of ${zones} known zones.`;
 }
 
 /** D-010: the S05 statement's ratio and the lab's speed are different quantities; name both. */

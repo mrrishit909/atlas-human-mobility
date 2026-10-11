@@ -168,6 +168,7 @@ export function Observatory({ id, height, landing }: { id: string; height: strin
           {geo.status === "loading" && <LoadingLine file="zones.geojson" loaded={geo.loaded} total={geo.total} />}
           {geo.status === "error" && <ErrorLine file="zones.geojson" reason={geo.reason} attempt={geo.attempt} onRetry={retryGeo} />}
           {obs.layer === "network" && <ArtifactError spec={network} />}
+          {obs.flows && <ArtifactError spec={odTop} />}
           {obs.layer === "clusters" && <ArtifactError spec={clusters} />}
           {mapState.noGL && <p className="state-line">3D UNAVAILABLE ON THIS DEVICE</p>}
         </div>
