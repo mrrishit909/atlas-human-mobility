@@ -23,7 +23,7 @@ export const SCENES: SceneDef[] = [
   { id: "evidence", nav: "EVIDENCE", track: "250vh", landing: 0.05, kicker: "08 · HOW WE KNOW", heading: "How we know." },
   { id: "observatory", nav: "OBSERVATORY", track: "auto", landing: 0, kicker: "THE URBAN INTELLIGENCE OBSERVATORY", heading: "The urban intelligence observatory." },
   {
-    id: "closing", track: "200vh", landing: 0.6, kicker: "CLOSING",
+    id: "closing", track: "200vh", landing: 0.9, kicker: "CLOSING", // past the paragraph reveal and the echo
     heading: "A city is not only its streets. It is everyone deciding, every hour, to be somewhere else, and the lines those decisions draw.",
   },
 ];

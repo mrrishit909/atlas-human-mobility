@@ -115,6 +115,10 @@ export function locate(ids: readonly string[]): { id: string; p: number; after: 
 }
 export const viewportH = () => vh;
 
+/** A direct jump lands in a fully resolved state (6.2): stepped/timed reveals check this and skip ahead. */
+let jumpedAt = -1e9;
+export const recentlyJumped = (ms = 800) => performance.now() - jumpedAt < ms;
+
 /** OBS EXPLORE: lock page scroll (Lenis + overflow) and restore the exact scrollY on exit. */
 let lockedY = -1;
 export function lockScroll(on: boolean) {
@@ -154,6 +158,7 @@ export function jumpTo(id: string, p?: number, opts: { push?: boolean; focus?: b
   const y = Math.round(t.top + prog * Math.max(0, t.height - vh));
   // push before tick(): tick's scroll-driven replaceState must not overwrite the previous entry
   if (opts.push) history.pushState({ scene: id }, "", `#${id}`);
+  jumpedAt = performance.now();
   window.dispatchEvent(new CustomEvent("atlas:jump", { detail: { id, p: prog } }));
   setScroll(y);
   tick();

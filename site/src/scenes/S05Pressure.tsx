@@ -6,8 +6,8 @@ import { Orb } from "../components/Orb";
 import { ErrorLine, LoadingLine } from "../components/StateUI";
 import { useArtifact } from "../data/useArtifact";
 import { bprFit, facts, zoneHourWeek } from "../data/types";
-import { copyS05, mph } from "../data/copy";
-import { howLabel, labResult, tti, type BoroughFit } from "../data/bpr";
+import { copyS05, mph, speedDefinitions } from "../data/copy";
+import { howLabel, howOf, labResult, tti, type BoroughFit } from "../data/bpr";
 import { lab, labHow, resetLab, setLab } from "../state/lab";
 import { useAtlas } from "../state/atlas";
 import { useMotion, useProgress } from "../scroll/hooks";
@@ -127,6 +127,10 @@ export function S05Pressure({ id, height, landing }: { id: string; height: strin
     setTimeout(() => setResetDone(false), 1200);
   };
   const statement = copy ? (inLab ? copy.s2 : copy.s1) : "";
+  // the statement's ratio (zone medians) and the lab's pooled borough speed, both named (QA D-010)
+  const mnFit = fits?.Manhattan;
+  const mnBase = mnFit && f.status === "ready" ? mnFit.baseline[howOf("weekday", f.data.am_peak_hour.hour)] : null;
+  const defs = f.status === "ready" && mnFit && mnBase?.median_speed_mph ? speedDefinitions(f.data, mnBase.median_speed_mph, mnFit.free_flow_mph, howLabel(howOf("weekday", f.data.am_peak_hour.hour))) : "";
 
   const controls = (
     <div className="lab-controls" aria-disabled={disabled}>
@@ -172,6 +176,7 @@ export function S05Pressure({ id, height, landing }: { id: string; height: strin
             <HonestyChip tag="DERIVED" detail="RATIO OF OBSERVED MEDIANS" />
           </div>
         )}
+        {defs && !inLab && <p className="scene-note lab-defs" data-testid="speed-defs">{defs}</p>}
         <FactsState />
         {fitS.status === "loading" && <LoadingLine file="bpr_fit.json" loaded={fitS.loaded} total={fitS.total} />}
         {fitS.status === "error" && <ErrorLine file="bpr_fit.json" reason={fitS.reason} attempt={fitS.attempt} onRetry={retryFit} />}
@@ -181,11 +186,14 @@ export function S05Pressure({ id, height, landing }: { id: string; height: strin
 
       {inLab && (
         <section className="lab-stage" aria-label="Pressure lab">
-          <div className="lab-stage__head">
-            <span className={`chip chip--simulated ${lab.touched ? "chip--pulse" : ""}`}><span className="chip__mark" aria-hidden="true" />SIMULATED<span className="chip__detail"> · {copy?.chip}</span></span>
-            <span className="mono-label lab-stage__fit"><HonestyChip tag="DERIVED" detail={`FITTED CURVE · RMSE ${fit ? fit.rmse.toFixed(2) : ""}`} /></span>
-          </div>
-          <div className="lab-hatch" aria-hidden="true" />
+          {/* chips claim model output only when a model is loaded (QA D-015) */}
+          {fit && (
+            <div className="lab-stage__head">
+              <span className={`chip chip--simulated ${lab.touched ? "chip--pulse" : ""}`}><span className="chip__mark" aria-hidden="true" />SIMULATED<span className="chip__detail"> · {copy?.chip}</span></span>
+              <span className="mono-label lab-stage__fit"><HonestyChip tag="DERIVED" detail={`FITTED CURVE · RMSE ${fit.rmse.toFixed(2)}`} /></span>
+            </div>
+          )}
+          {fit && <div className="lab-hatch" aria-hidden="true" />}
           {fit ? <BprStage fit={fit} dm={lab.dm} cm={lab.cm} how={how} /> : <div className="bpr-stage bpr-stage--skeleton" />}
           {r && (
             <p className="lab-result">

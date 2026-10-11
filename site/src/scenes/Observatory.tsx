@@ -11,7 +11,7 @@ import { loadDemandData, model, useAtlas } from "../state/atlas";
 import { obs, resetObs, setObs, regionTotal, type ObsLayer } from "../state/obs";
 import { labChanged } from "../state/lab";
 import { useFrame, useMotion } from "../scroll/hooks";
-import { stageW } from "../graphics/canvas";
+import { stageH, stageW } from "../graphics/canvas";
 import { viewportClass } from "../graphics/ring";
 import { lockScroll } from "../scroll/engine";
 import { hourBandOf } from "../data/derive";
@@ -67,7 +67,7 @@ export function Observatory({ id, height, landing }: { id: string; height: strin
   const [geo, retryGeo] = useArtifact(zonesGeo, false);
   const [od] = useArtifact(odTop);
   useArtifact(network, false); useArtifact(clusters, false); useArtifact(bprFit);
-  const [size, setSize] = useState({ w: 1440, h: 900 });
+  const [size, setSize] = useState(() => ({ w: stageW(), h: stageH() })); // never a desktop default: on phones it widens the layout viewport
   const [sheet, setSheet] = useState(false);
   const [q, setQ] = useState("");
   const [qOpen, setQOpen] = useState(false);

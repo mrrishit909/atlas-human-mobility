@@ -139,11 +139,13 @@ export function S03aRush({ id, height, landing }: { id: string; height: string; 
         </div>
       )}
       {totals && (
-        <table className="sr-only">
-          <caption>Citywide pickups per hour, average {dayLabel.toLowerCase()}, {SERVICES.find((s) => s.id === rush.service)!.label.toLowerCase()} services</caption>
-          <thead><tr><th scope="col">Hour</th><th scope="col">Pickups per hour</th></tr></thead>
-          <tbody>{totals.map((t, h) => <tr key={h}><td>{hh(h)}</td><td>{int(t)}</td></tr>)}</tbody>
-        </table>
+        <div className="sr-only">{/* a 1px clipping box: a table cannot shrink below its content width */}
+          <table>
+            <caption>Citywide pickups per hour, average {dayLabel.toLowerCase()}, {SERVICES.find((s) => s.id === rush.service)!.label.toLowerCase()} services</caption>
+            <thead><tr><th scope="col">Hour</th><th scope="col">Pickups per hour</th></tr></thead>
+            <tbody>{totals.map((t, h) => <tr key={h}><td>{hh(h)}</td><td>{int(t)}</td></tr>)}</tbody>
+          </table>
+        </div>
       )}
     </Track>
   );

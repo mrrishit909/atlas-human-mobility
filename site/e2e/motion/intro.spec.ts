@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { open } from "./helpers";
 
+// Playwright requires an object-destructuring first argument even when no fixture is used.
+// eslint-disable-next-line no-empty-pattern
 test.beforeEach(({}, info) => test.skip(info.project.name !== "desktop", "intro chrome checked at 1440x900"));
 const navVisible = (page: import("@playwright/test").Page) => page.locator(".nav-bar.is-fixed:not(.is-hidden)");
 

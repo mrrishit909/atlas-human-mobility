@@ -3,6 +3,8 @@ import { defineConfig, devices } from "@playwright/test";
 // Always runs against the production build (vite preview), never the dev server.
 export default defineConfig({
   testDir: "e2e",
+  // the QA motion suite runs under its own config (one worker, serial): npx playwright test -c playwright.qa.config.ts
+  testIgnore: "motion/**",
   fullyParallel: true,
   // each worker runs deck.gl on software WebGL (SwiftShader); more than 2 starves the CPU and times out
   workers: 2,

@@ -60,6 +60,13 @@ export function App() {
 
   return (
     <>
+      {/* first Tab stops (QA D-013): SKIP INTRO while the intro plays, then a skip link to the chapters */}
+      {!intro.navIn && <button type="button" className="corner-btn" onClick={intro.skip}>SKIP INTRO</button>}
+      <a href="#chapters" className="skip-link" onClick={(e) => {
+        e.preventDefault();
+        const t = document.querySelector<HTMLElement>(".nav-bar.is-fixed .nav__item, .nav-pill.is-fixed .menu-pill");
+        t?.focus();
+      }}>SKIP TO CHAPTERS</a>
       <MapStage />
       <RingStage />
       <S01City />

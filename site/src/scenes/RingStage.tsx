@@ -7,7 +7,7 @@ import { motionEnabled } from "../state/motion";
 import { HANDOFF, RING_SCENES, handoff, sceneFrame } from "./director";
 
 const SCENES_PLUS_NEXT = [...RING_SCENES, "pressure"] as const;
-declare global { interface Window { __atlasRing?: { draws: number; scene: string; p: number } } }
+declare global { interface Window { __atlasRing?: { draws: number; scene: string; p: number; geom?: { cx: number; cy: number; r: number } } } }
 
 /** The fixed ring canvas behind S00-S04 (hidden under reduced motion: scenes draw in flow). */
 export function RingStage() {
@@ -55,6 +55,7 @@ export function RingStage() {
     window.__atlasRing!.draws++;
     window.__atlasRing!.scene = scene;
     window.__atlasRing!.p = loc.p;
+    window.__atlasRing!.geom = frame.opts.xy ? undefined : { ...frame.opts.geom }; // for layout tests (text vs ring)
   }, 50);
 
   return <canvas ref={ref} className="ring-stage" aria-hidden="true" />;

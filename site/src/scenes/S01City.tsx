@@ -24,6 +24,24 @@ export function S01City() {
   const stmtRef = useRef<HTMLDivElement>(null);
   const geom = useRef({ cy: 0, h: 0 });
 
+  // T/M: the statement always starts below the (variable-height) cards, never under them
+  useEffect(() => {
+    const cards = cardsRef.current, st = stmtRef.current;
+    if (!cards || !st) return;
+    const place = () => {
+      st.style.top = "";
+      if (viewportClass(stageW()) === "D") return;
+      const stageTop = st.closest(".stage")?.getBoundingClientRect().top ?? 0;
+      const need = cards.getBoundingClientRect().bottom - stageTop + 16;
+      if (need > st.offsetTop) st.style.top = `${Math.round(need)}px`;
+    };
+    place();
+    const ro = new ResizeObserver(place);
+    ro.observe(cards);
+    addEventListener("resize", place);
+    return () => { ro.disconnect(); removeEventListener("resize", place); };
+  });
+
   useEffect(() => {
     const h1 = document.querySelector<HTMLElement>("h1[data-hero]");
     const measure = () => {
@@ -55,8 +73,8 @@ export function S01City() {
         const topY = cls === "M" ? 56 : 96;
         const dy = (topY + (geom.current.h * target) / 2 - geom.current.cy) * s;
         h1.style.transform = `translateY(${dy.toFixed(1)}px) scale(${sc.toFixed(4)})`;
-        // T/M: the cards take the top of the screen, so the small headline yields to them
-        h1.style.opacity = cls === "D" ? "" : String(1 - windowed(p, 0.55, 0.65));
+        // one statement per viewport (QA D-026): the shrunk headline yields as the statement arrives
+        h1.style.opacity = String(1 - windowed(p, 0.3, 0.38));
       }
     }
     const chordsGone = (1 - easeSymmetric(windowed(p, 0, 0.4))) ** 2;
@@ -88,16 +106,17 @@ export function S01City() {
         <div className="city-cards" ref={cardsRef}>
           <article className="note">
             <header className="note__head"><span>{c1.card1Head}<sup>†</sup></span></header>
-            <WordReveal as="p" className="note__body" text={c1.card1Body} blur={6} mode={{ kind: "scrub", track: "city", from: 0.6, to: 0.78 }} />
+            <WordReveal as="p" className="note__body" text={c1.card1Body} blur={6} mode={{ kind: "scrub", track: "city", from: 0.6, to: 0.7 }} />
             <div className="note__tag"><HonestyChip tag="OBSERVED" /></div>
           </article>
           <article className="note note--light">
             <header className="note__head"><span>{c1.card2Head}</span></header>
-            <WordReveal as="p" className="note__body" text={c1.card2Body} blur={6} mode={{ kind: "scrub", track: "city", from: 0.74, to: 0.92 }} />
+            <WordReveal as="p" className="note__body" text={c1.card2Body} blur={6} mode={{ kind: "scrub", track: "city", from: 0.66, to: 0.76 }} />
             <div className="note__tag"><HonestyChip tag="DERIVED" onLight /></div>
           </article>
         </div>
       )}
+      {/* reveal windows end by p 0.76 so the nav landing (0.78) is fully resolved (QA D-006) */}
       {c1 && <p className="city-foot" ref={footRef}>† {c1.card1Foot}</p>}
     </>,
     portal,

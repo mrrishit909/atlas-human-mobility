@@ -11,7 +11,7 @@ import { copyS03b, int } from "../data/copy";
 import { dial, getAnchors, loadDemandData, model, useAtlas } from "../state/atlas";
 import { useFrame, useMotion, useProgress } from "../scroll/hooks";
 import { bandLabel, currentAnchor, fanFor, fanGeometry, setDial, setHover, setBand } from "./director";
-import { pointAt, quadCrossY, quadPoint, ringR1, viewportClass } from "../graphics/ring";
+import { isCompact, pointAt, quadCrossY, quadPoint, ringR1, viewportClass } from "../graphics/ring";
 import { StaticRing } from "./StaticRing";
 import { FactsState } from "./FactsState";
 import { Segmented } from "./S03aRush";
@@ -19,37 +19,54 @@ import { Segmented } from "./S03aRush";
 const name = (loc: number) => { const m = model(); return m ? m.name[m.idx.get(loc)!] ?? `ZONE ${loc}` : `ZONE ${loc}`; };
 const mins = (v: number | null) => (v === null ? "n/a" : String(Math.round(v)));
 
-interface Ticket { key: string; x: number; text: string }
-let measureCtx: CanvasRenderingContext2D | null = null;
-const textW = (s: string) => {
-  measureCtx ??= document.createElement("canvas").getContext("2d");
-  if (!measureCtx) return s.length * 7.8;
-  measureCtx.font = '13px "JetBrains Mono Variable", monospace';
-  return measureCtx.measureText(s).width + 16;
+interface Ticket { key: string; x: number; w: number; trips: number; text: string }
+let probe: HTMLSpanElement | null = null;
+/** Exact rendered width of a ticket (same class, so font, letter-spacing and padding all count). */
+const ticketW = (s: string) => {
+  if (!probe) {
+    probe = document.createElement("span");
+    probe.className = "ticket";
+    probe.style.cssText = "position:absolute;visibility:hidden;left:-9999px;top:0;animation:none";
+    document.body.appendChild(probe);
+  }
+  probe.textContent = s;
+  return probe.offsetWidth;
 };
 
-/** Destination tickets where chords leave the bottom edge; 1D greedy collision avoidance (8px). */
+/**
+ * Pack tickets on one row: each wants to sit centred on its chord's exit point; a forward pass keeps
+ * an 8px gap, a backward pass keeps everything 16px inside the right edge. If the row cannot hold them
+ * all, the smallest corridor is dropped and the row is packed again (QA D-003).
+ */
+export function packRow(items: { x: number; w: number; trips: number }[], width: number, pad = 16, gap = 8) {
+  let list = [...items].sort((a, b) => a.x - b.x);
+  for (;;) {
+    const xs = list.map((t) => t.x - t.w / 2);
+    for (let i = 0; i < list.length; i++) xs[i] = Math.max(xs[i]!, pad, i ? xs[i - 1]! + list[i - 1]!.w + gap : pad);
+    for (let i = list.length - 1; i >= 0; i--) xs[i] = Math.min(xs[i]!, width - pad - list[i]!.w, i < list.length - 1 ? xs[i + 1]! - gap - list[i]!.w : Infinity);
+    const ok = xs.every((x, i) => x >= pad - 0.5 && (i === 0 || x >= xs[i - 1]! + list[i - 1]!.w + gap - 0.5));
+    if (ok || !list.length) return list.map((t, i) => ({ ...t, x: xs[i]! }));
+    const smallest = list.reduce((m, t) => (t.trips < m.trips ? t : m), list[0]!);
+    list = list.filter((t) => t !== smallest);
+  }
+}
+
+/** Destination tickets where chords leave the bottom edge (D 6, T 4), packed without overlap. */
 export function layoutTickets(w: number, h: number, max: number): Ticket[] {
   const y = h - 96;
-  const out: Ticket[] = [];
+  const want: (Ticket & { cx: number })[] = [];
   for (const g of fanGeometry(w, h)) {
-    if (out.length >= max) break;
+    if (want.length >= max) break;
     if (g.destVisible) continue;
     const t = quadCrossY(g.p1, g.cp, g.p2, y);
     if (t === null) continue;
     const x = quadPoint(g.p1, g.cp, g.p2, t).x;
     if (x < 0 || x > w) continue;
     const dest = currentAnchor()!.origins.has(g.row[0]) ? g.row[1] : g.row[0];
-    out.push({ key: `${g.row[0]}-${g.row[1]}`, x, text: `→ ${name(dest).toUpperCase()} · ${int(g.row[3])}` });
+    const text = `→ ${name(dest).toUpperCase()} · ${int(g.row[3])}`;
+    want.push({ key: `${g.row[0]}-${g.row[1]}`, x, cx: x, w: ticketW(text), trips: g.row[3], text });
   }
-  out.sort((a, b) => a.x - b.x);
-  let edge = 16;
-  for (const t of out) {
-    const wd = textW(t.text);
-    t.x = Math.max(edge, Math.min(t.x - wd / 2, w - 16 - wd));
-    edge = t.x + wd + 8;
-  }
-  return out;
+  return packRow(want, w) as Ticket[];
 }
 
 /** S03b Invisible Corridors: the horizon dial, threshold-stepped through 4 anchors. */
@@ -62,7 +79,16 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
   const [tip, setTip] = useState<{ x: number; y: number; row: OdTopRow | null }>({ x: 0, y: 0, row: null });
   const [rmAnchor, setRmAnchor] = useState(0);
   const [tk, setTk] = useState({ cur: "", prev: "", n: 0 });
+  // after a nav jump the anchor body appears at once (resolved landing), otherwise it fades in
+  const [instantBody, setInstantBody] = useState(false);
+  useEffect(() => {
+    const on = () => { setInstantBody(true); setTimeout(() => setInstantBody(false), 1600); };
+    addEventListener("atlas:jump", on);
+    return () => removeEventListener("atlas:jump", on);
+  }, []);
   const [arcTop, setArcTop] = useState(0);
+  // compact desktop: the title sits just above a shorter tick, between the text column and the arc
+  const titleLift = typeof document !== "undefined" && isCompact(stageW()) ? 86 : 128;
 
   useProgress(id, (p) => { if (p > 0) loadDemandData(); }); // S04 data + deck warm up during S03
   useEffect(() => {
@@ -138,7 +164,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
 
   const SHORT: Record<string, string> = { all: "ALL", overnight: "NIGHT", am_peak: "AM PEAK", midday: "MIDDAY", pm_peak: "PM PEAK", evening: "EVENING" };
   const bands = od.status === "ready" ? [{ id: "all", label: "ALL" }, ...od.data.bands.map((b) => ({ id: b.id, label: SHORT[b.id] ?? b.id.toUpperCase() }))] : [];
-  const ledgerRows = rows.slice(0, viewportClass(typeof document !== "undefined" ? stageW() : 1440) === "M" ? 3 : 5);
+  const ledgerRows = rows.slice(0, typeof document !== "undefined" && (viewportClass(stageW()) === "M" || isCompact(stageW())) ? 3 : 5);
   const anchorName = a && f.status === "ready" ? (a.key.startsWith("Z") ? name(Number(a.key.slice(1))) : copy?.states[a.key as "MN"].title ?? "") : "";
 
   return (
@@ -146,7 +172,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
       <div className="cor-text">
         <p className="scene-kicker">04 · INVISIBLE CORRIDORS</p>
         <WordReveal as="h2" id={`${id}-title`} tabIndex={-1} data-scene-heading className="scene-statement scene-statement--sm" text={copy?.statement ?? ""} mode={{ kind: "value", t: 1 }} />
-        <p key={`b-${key}-${dial.band}`} className="scene-body cor-body" aria-live="polite">{bodyOf(key)}</p>
+        <p key={`b-${key}-${dial.band}`} className={`scene-body cor-body ${instantBody ? "no-anim" : ""}`} aria-live="polite">{bodyOf(key)}</p>
         <div className="cor-chips">
           <HonestyChip tag="OBSERVED" detail="CHORDS + LEDGER" />
           {a?.key === "HINGE" && <HonestyChip tag="DERIVED" detail="WEIGHTED BETWEENNESS, 2024 OD GRAPH" />}
@@ -168,8 +194,8 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
 
       {motion && copy && (
         <div className="dial-titles" aria-hidden="true">
-          {tk.prev && <p key={`out-${tk.n}`} className="dial-title is-out" style={{ top: arcTop - 128 }}>{titleOf(tk.prev)}</p>}
-          <p key={`in-${tk.n}`} className={`dial-title ${tk.n > 1 ? "is-in" : ""}`} style={{ top: arcTop - 128 }} data-anchor={key}>{titleOf(tk.cur)}</p>
+          {tk.prev && <p key={`out-${tk.n}`} className="dial-title is-out" style={{ top: arcTop - titleLift }}>{titleOf(tk.prev)}</p>}
+          <p key={`in-${tk.n}`} className={`dial-title ${tk.n > 1 ? "is-in" : ""}`} style={{ top: arcTop - titleLift }} data-anchor={key}>{titleOf(tk.cur)}</p>
         </div>
       )}
       {motion && <p className="sr-only" aria-live="polite">Anchor: {anchorName}</p>}

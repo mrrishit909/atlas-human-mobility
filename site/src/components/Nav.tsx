@@ -9,7 +9,8 @@ interface Props {
   active: string | null;
   onJump: (id: string) => void;
   introPlaying: boolean;
-  onSkip: () => void;
+  /** unused: SKIP INTRO is rendered first in the document by App (QA D-013) */
+  onSkip?: () => void;
   onReplay: () => void;
   /** Render inline (gallery specimen) instead of fixed to the viewport. */
   specimen?: "bar" | "pill";
@@ -21,7 +22,7 @@ interface Props {
  * with a sliding white active block. T/M: white MENU pill naming the current
  * section that expands upward into a blurred list.
  */
-export function Nav({ items, active, onJump, introPlaying, onSkip, onReplay, specimen, defaultOpen = false }: Props) {
+export function Nav({ items, active, onJump, introPlaying, onReplay, specimen, defaultOpen = false }: Props) {
   const motion = useMotion();
   const [open, setOpen] = useState(defaultOpen);
   const barRef = useRef<HTMLDivElement>(null);
@@ -126,11 +127,10 @@ export function Nav({ items, active, onJump, introPlaying, onSkip, onReplay, spe
         </div>
       )}
 
-      {fixed && (introPlaying ? (
-        <button type="button" className="corner-btn" onClick={onSkip}>SKIP INTRO</button>
-      ) : (
+      {/* SKIP INTRO is rendered first in the document by App (first Tab stop); REPLAY lives here */}
+      {fixed && !introPlaying && (
         <button type="button" className="corner-btn corner-btn--compact" onClick={onReplay}>REPLAY INTRO</button>
-      ))}
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { percent, type LoadState } from "../data/loader";
 
 const upper = (f: string) => f.toUpperCase();
@@ -21,9 +21,22 @@ export function RetryButton({ onClick, busy, children = "RETRY" }: { onClick: ()
   );
 }
 
+/**
+ * One live region per failed artifact (QA D-014): the first mounted ErrorLine for a file announces
+ * (role="alert"); the other scenes show the same line and RETRY without re-announcing it.
+ */
+const announcers = new Map<string, symbol>();
 export function ErrorLine({ file, reason, attempt, onRetry }: { file: string; reason: string; attempt: number; onRetry: () => void }) {
+  const [me] = useState(() => Symbol(file));
+  // claim the announcer slot once, at first render; released on unmount
+  const [owner] = useState(() => {
+    if (announcers.has(file)) return false;
+    announcers.set(file, me);
+    return true;
+  });
+  useEffect(() => () => { if (announcers.get(file) === me) announcers.delete(file); }, [file, me]);
   return (
-    <div className="state-error" role="alert">
+    <div className="state-error" role={owner ? "alert" : undefined}>
       <p className="state-line state-line--error">
         COULD NOT LOAD {upper(file)} ({reason}){attempt > 1 ? ` (ATTEMPT ${attempt})` : ""}
       </p>

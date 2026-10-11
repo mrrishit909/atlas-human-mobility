@@ -13,7 +13,7 @@ import { clamp } from "../lib/math";
 import { easePremium, easeSmooth, easeSymmetric } from "../motion/ease";
 import { windowed } from "../motion/progress";
 import { motionEnabled } from "../state/motion";
-import { jumpTo } from "../scroll/engine";
+import { jumpTo, recentlyJumped } from "../scroll/engine";
 import { REPO } from "./S07Evidence";
 
 const ECHO = 0.75;
@@ -42,7 +42,12 @@ export function S08Closing({ id, height, landing }: { id: string; height: string
   useProgress(id, (p) => {
     prog.current = p;
     // the echo plays once per down-crossing; rearmed only above the threshold minus hysteresis
-    if (p >= ECHO && echo.current.armed) { echo.current = { at: performance.now(), armed: false }; }
+    if (p >= ECHO && echo.current.armed) {
+      // a direct jump lands with the echo already played and its caption shown
+      const instant = recentlyJumped();
+      echo.current = { at: instant ? performance.now() - 5000 : performance.now(), armed: false };
+      if (instant) setEchoed(true);
+    }
     if (p < ECHO - 0.02 && !echo.current.armed) { echo.current.armed = true; setEchoed(false); }
     setLinksIn(p >= 0.8 || !motion);
   });

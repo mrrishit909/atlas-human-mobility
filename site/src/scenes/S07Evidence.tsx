@@ -7,6 +7,7 @@ import { bprFit, clusters, daily, facts, meta, weatherModel, type Daily } from "
 import { copyS07, int, limitations, signed, type Exchange } from "../data/copy";
 import { useMotion, useProgress } from "../scroll/hooks";
 import { stepState } from "../motion/progress";
+import { recentlyJumped } from "../scroll/engine";
 import { FactsState } from "./FactsState";
 import type { LoadState } from "../data/loader";
 
@@ -101,7 +102,7 @@ export function S07Evidence({ id, height, landing }: { id: string; height: strin
 
   useProgress(id, (p) => {
     const s = stepState(stepRef.current, p, EVIDENCE_THRESHOLDS);
-    if (s !== stepRef.current) { stepRef.current = s; setStep(s); setTyping(true); }
+    if (s !== stepRef.current) { stepRef.current = s; setStep(s); setTyping(p > 0 && p < 1 && !recentlyJumped()); } // no indicator for steps passed by a nav jump
   });
   // measured each render; the equality guard stops the update loop
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -148,11 +149,11 @@ export function S07Evidence({ id, height, landing }: { id: string; height: strin
           return (
             <div key={j} className={`ev-ex ${age >= 2 ? "is-old" : ""} ${motion && age === 1 ? "is-prev" : ""}`} ref={(el) => { blocks.current[j] = el; }} style={style} aria-hidden={!shown || (motion && age >= 2)}>
               <article className="ev-card ev-card--q">
-                <header className="note__head"><span>A SKEPTIC</span><span>NOW</span></header>
+                <header className="note__head"><span>OBJECTION {String(j + 1).padStart(2, "0")}</span><span>FROM A READER</span></header>
                 <p className="ev-q">{ex.q}</p>
               </article>
               <article className="ev-card ev-card--a" style={motion ? { transitionDelay: age === 0 ? "350ms" : "0ms" } : undefined}>
-                <header className="note__head"><span>THE PIPELINE</span><span>ALWAYS</span></header>
+                <header className="note__head"><span>ANSWER {String(j + 1).padStart(2, "0")}</span><span>SOURCE: {ex.receipt.toUpperCase()}</span></header>
                 <p className="ev-a">{ex.a}</p>
                 {visual(j, ex, { daily: d, retryDaily: retryD, f: f.status === "ready" ? f.data : null, bpr: bpr.status === "ready" ? bpr.data.boroughs : null })}
                 {ex.tag && <HonestyChip tag={ex.tag} onLight detail={j === 3 ? "ASSOCIATION, NOT CAUSE" : undefined} />}
@@ -160,7 +161,7 @@ export function S07Evidence({ id, height, landing }: { id: string; height: strin
             </div>
           );
         })}
-        {motion && typing && <p className="ev-typing" aria-hidden="true" key={`t${step}`} onAnimationEnd={() => setTyping(false)}>THE PIPELINE IS TYPING<span className="dots"><i>.</i><i>.</i><i>.</i></span></p>}
+        {motion && typing && <p className="ev-typing" aria-hidden="true" key={`t${step}`} onAnimationEnd={() => setTyping(false)}>CHECKING THE LEDGER<span className="dots"><i>.</i><i>.</i><i>.</i></span></p>}
       </div>
       <aside className="ev-receipt" aria-label="Source for this answer">
         <p className="mono-label">RECEIPT</p>

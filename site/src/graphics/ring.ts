@@ -21,14 +21,26 @@ export function ringR0(vw: number, vh: number, cls = viewportClass(vw)): RingGeo
 }
 
 /** R1 horizon dial: r = 82vw (D/T) or 130vw (M); arc top at 50/46/52 dvh. */
+/**
+ * Compact desktop (1024-1279 px wide, e.g. 1024x768): a deliberate composition of its own, not
+ * the 1440 layout squeezed. The horizon sits lower and the rush orbit is fitted right of the text.
+ */
+export const isCompact = (vw: number) => vw >= 1024 && vw < 1280;
+
 export function ringR1(vw: number, vh: number, cls = viewportClass(vw)): RingGeom {
   const r = (cls === "M" ? 1.3 : 0.82) * vw;
-  const top = vh * (cls === "D" ? 0.5 : cls === "T" ? 0.46 : 0.52);
+  const top = vh * (cls === "D" ? (isCompact(vw) ? 0.64 : 0.5) : cls === "T" ? 0.46 : 0.52);
   return { cx: vw / 2, cy: top + r, r };
 }
 
 /** R0c rush orbit (S03a): D c(860, 470) r 380, T c(384, 600) r 300, M c(195, 470) r 168. */
 export function ringR0c(vw: number, vh: number, cls = viewportClass(vw)): RingGeom {
+  if (cls === "D" && isCompact(vw)) {
+    // right of the 380px text column (x 96..476) with a 32px gutter, clear of the edge and the nav
+    const x0 = 96 + 380 + 32, x1 = vw - 24;
+    const r = Math.min((x1 - x0) / 2, (vh - 96 - 72) / 2);
+    return { cx: (x0 + x1) / 2, cy: vh * (470 / 900), r };
+  }
   if (cls === "D") return { cx: vw * (860 / 1440), cy: vh * (470 / 900), r: vh * (380 / 900) };
   if (cls === "T") return { cx: vw / 2, cy: vh * (600 / 1024), r: vw * (300 / 768) };
   return { cx: vw / 2, cy: vh * (470 / 844), r: vw * (168 / 390) };

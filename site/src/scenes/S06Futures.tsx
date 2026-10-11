@@ -6,13 +6,13 @@ import { Tooltip } from "../components/Tooltip";
 import { ErrorLine, LoadingLine } from "../components/StateUI";
 import { useArtifact } from "../data/useArtifact";
 import { bprFit, zoneHourWeek } from "../data/types";
-import { FUTURES, copyS06, mph, signed } from "../data/copy";
+import { FUTURES, asymmetryCallout, copyS06, mph, signed } from "../data/copy";
 import { howLabel, labResult, type BoroughFit } from "../data/bpr";
 import { lab, labChanged, labHow } from "../state/lab";
 import { model, useAtlas, zhwIndex, getZhw } from "../state/atlas";
 import { useFrame, useMotion, useProgress } from "../scroll/hooks";
 import { fitCanvas, stageW } from "../graphics/canvas";
-import { viewportClass, type ViewportClass } from "../graphics/ring";
+import { isCompact, viewportClass, type ViewportClass } from "../graphics/ring";
 import { clamp, lerp } from "../lib/math";
 import { easeSmooth, easeSymmetric } from "../motion/ease";
 import { windowed } from "../motion/progress";
@@ -55,6 +55,8 @@ function freeBox(canvas: HTMLCanvasElement, cls: ViewportClass, motion: boolean)
   const stage = canvas.parentElement!;
   const r = (sel: string) => { const e = stage.querySelector(sel)?.getBoundingClientRect(); return e ? { l: e.left - c.left, t: e.top - c.top, r: e.right - c.left, b: e.bottom - c.top } : null; };
   const text = r(".fut-text"), deltas = r(".fut-deltas"), select = r(".fut-select");
+  // compact desktop: text and minutes list stacked on the left, the ring fills the right
+  if (cls === "D" && isCompact(c.width)) return { x0: Math.max(text?.r ?? 0, deltas?.r ?? 0) + 32, x1: c.width - 24, y0: 48, y1: (select?.t ?? c.height) - 24 };
   if (cls === "D") return { x0: (text?.r ?? 0) + 32, x1: (deltas?.l ?? c.width) - 32, y0: 48, y1: (select?.t ?? c.height) - 24 };
   return { x0: 16, x1: c.width - 16, y0: (text?.b ?? 0) + 20, y1: Math.min(deltas?.t ?? c.height, select?.t ?? c.height) - 16 };
 }
@@ -125,10 +127,10 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
   const active: FutureId = future === "yours" && !yoursOk ? "busier" : future;
   const { dm, cm } = futureParams(active);
   const deltas = fits ? boroughDeltas(fits, how, dm, cm) : null;
-  const asym = useMemo(() => {
-    if (!fits) return false;
+  const callout = useMemo(() => {
+    if (!fits) return null;
     const up = boroughDeltas(fits, how, 1.15, 1).city, down = boroughDeltas(fits, how, 0.85, 1).city;
-    return Math.abs(up) > Math.abs(down);
+    return asymmetryCallout(up, down, howLabel(how));
   }, [fits, how]);
   const zones = useMemo(() => (m && deltas ? zoneDeltas(m, how, (b) => deltas.rows.find((r) => r.borough === b)?.ratio ?? 1) : []), [m, deltas, how]);
   const excluded = zones.filter((z) => z === null).length;
@@ -256,8 +258,8 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
       <div className="fut-text">
         <p className="scene-kicker">07 · ALTERNATIVE FUTURES</p>
         <WordReveal as="h2" id={`${id}-title`} tabIndex={-1} data-scene-heading className="scene-statement" text={copy.statement}
-          mode={motion ? { kind: "scrub", track: id, from: 0, to: 0.15 } : { kind: "value", t: 1 }} />
-        {asym && <p className="fut-callout">{copy.callout}</p>}
+          mode={motion ? { kind: "scrub", track: id, from: 0, to: 0.08 } : { kind: "value", t: 1 }} /* ends before the 0.10 landing */ />
+        {callout && <p className="fut-callout">{callout}</p>}
         <div className="cor-chips">
           <HonestyChip tag="OBSERVED" detail="LEFT HALF" />
           <HonestyChip tag="SIMULATED" detail={copy.chip} />
@@ -275,11 +277,20 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
         {zhw.status === "error" && <ErrorLine file="zone_hour_week.json" reason={zhw.reason} attempt={zhw.attempt} onRetry={retryZ} />}
       </div>
 
-      <div role="radiogroup" aria-label="Future" className="seg-ctl fut-select">
+      <div role="radiogroup" aria-label="Future" className="seg-ctl fut-select" onKeyDown={(e) => {
+        // ARIA radio pattern (QA D-012): arrows move the selection, skipping the disabled option
+        const d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+        if (!d) return;
+        e.preventDefault();
+        const ids = FUTURES.map((x) => x.id).filter((x) => x !== "yours" || yoursOk);
+        const next = ids[(ids.indexOf(active) + d + ids.length) % ids.length]!;
+        setFuture(next);
+        (e.currentTarget.querySelector(`[data-id="${next}"]`) as HTMLElement | null)?.focus();
+      }}>
         {FUTURES.map((x) => {
           const dis = x.id === "yours" && !yoursOk;
           return (
-            <button key={x.id} type="button" role="radio" aria-checked={active === x.id} aria-disabled={dis} title={dis ? "SET A SCENARIO IN PRESSURE FIRST" : undefined}
+            <button key={x.id} type="button" role="radio" data-id={x.id} tabIndex={active === x.id ? 0 : -1} aria-checked={active === x.id} aria-disabled={dis} title={dis ? "SET A SCENARIO IN PRESSURE FIRST" : undefined}
               className={`seg-ctl__item fut-item ${dis ? "is-disabled" : ""}`} onClick={() => !dis && setFuture(x.id)}>
               {x.label}<small>{x.id === "yours" && yoursOk ? `x${lab.dm.toFixed(2)} · ${signed((lab.cm - 1) * 100, 0)}%` : x.sub}</small>
             </button>
@@ -303,11 +314,13 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
           })}
         </ol>
         {deltas && <p className="mono-label fut-city">CITYWIDE, TRIP-WEIGHTED: <span className="tnum">{signed(deltas.city)} MIN</span></p>}
-        <table className="sr-only">
-          <caption>Observed and simulated median trip minutes by borough</caption>
-          <thead><tr><th>Borough</th><th>Observed minutes</th><th>Simulated minutes</th></tr></thead>
-          <tbody>{deltas?.rows.map((r) => <tr key={r.borough}><td>{r.borough}</td><td>{r.obsMin.toFixed(1)}</td><td>{r.simMin.toFixed(1)}</td></tr>)}</tbody>
-        </table>
+        <div className="sr-only">{/* a 1px clipping box: a table cannot shrink below its content width */}
+          <table>
+            <caption>Observed and simulated median trip minutes by borough</caption>
+            <thead><tr><th>Borough</th><th>Observed minutes</th><th>Simulated minutes</th></tr></thead>
+            <tbody>{deltas?.rows.map((r) => <tr key={r.borough}><td>{r.borough}</td><td>{r.obsMin.toFixed(1)}</td><td>{r.simMin.toFixed(1)}</td></tr>)}</tbody>
+          </table>
+        </div>
       </aside>
 
       {z && m && (

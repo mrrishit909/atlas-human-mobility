@@ -104,7 +104,6 @@ export const FUTURES = [
 export function copyS06() {
   return {
     statement: "Three futures, one curve.",
-    callout: "Adding 15% costs more than removing 15% saves.",
     chip: "NOT A FORECAST",
     caption: "THE MODEL HAS NO ROUTING AND NO MODE SHIFT: ONLY SPEED CHANGES.",
   };
@@ -154,4 +153,23 @@ export function copyS08(f: Facts) {
     paragraph: "A city is not only its streets. It is everyone deciding, every hour, to be somewhere else, and the lines those decisions draw.",
     caption: `THE BUSIEST CORRIDOR OF 2024: ${f.top_od_pair.o_name.toUpperCase()} → ${f.top_od_pair.d_name.toUpperCase()} · ${int(f.top_od_pair.trips)} RIDES.`,
   };
+}
+
+/** Minimum citywide margin (minutes) before the asymmetry is worth a headline: 15 seconds. */
+export const ASYM_MIN_MARGIN = 0.25;
+/**
+ * S06 asymmetry callout (QA D-011): scoped to what was computed (citywide, trip-weighted, at the
+ * selected hour) and shown only when the margin clears ASYM_MIN_MARGIN. Otherwise null.
+ */
+export function asymmetryCallout(up: number, down: number, when: string): string | null {
+  const margin = Math.abs(up) - Math.abs(down);
+  if (margin < ASYM_MIN_MARGIN) return null;
+  return `Citywide at ${when}, adding 15% costs more than removing 15% saves.`;
+}
+
+/** D-010: the S05 statement's ratio and the lab's speed are different quantities; name both. */
+export function speedDefinitions(f: Facts, labSpeed: number, labFreeFlow: number, when: string) {
+  const mn = f.borough_am_peak_speed_ratio.Manhattan;
+  if (!mn) return "";
+  return `${pct0(mn.speed_ratio_pct)}% IS THE MEDIAN ZONE SPEED AGAINST ITS OWN OVERNIGHT FREE-FLOW, ${f.am_peak_hour.label.toUpperCase()} WEEKDAYS. THE LAB POOLS ALL MANHATTAN TRIPS: ${mph(labSpeed)} MPH AT ${when}, ${pct0((100 * labSpeed) / labFreeFlow)}% OF ${mph(labFreeFlow)} MPH.`;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { stageH, stageW } from "../graphics/canvas";
 import { Track } from "../scroll/Track";
 import { WordReveal } from "../components/WordReveal";
@@ -44,6 +44,17 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
   const [geo, retryGeo] = useArtifact(zonesGeo, false);
   const [zm, retryZm] = useArtifact(zoneMonth, false);
   const [labels, setLabels] = useState<{ key: string; list: Label[] }>({ key: "", list: [] });
+  const labelsRef = useRef<HTMLDivElement>(null);
+  // keep every direct label inside the viewport with a 16px margin; a cut number reads as another number (QA D-004)
+  useLayoutEffect(() => {
+    const w = stageW();
+    labelsRef.current?.querySelectorAll<HTMLElement>(".dem-label").forEach((el) => {
+      el.style.marginLeft = "0px";
+      const r = el.getBoundingClientRect();
+      const shift = r.right > w - 16 ? w - 16 - r.right : r.left < 16 ? 16 - r.left : 0;
+      if (shift) el.style.marginLeft = `${Math.round(shift)}px`;
+    });
+  });
 
   // direct jumps / deep links to S04 must not depend on S03 having prefetched
   useProgress(id, (p) => { if (p > 0 || !motion) loadDemandData(); });
@@ -83,6 +94,7 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
         <WordReveal as="h2" id={`${id}-title`} tabIndex={-1} data-scene-heading className="scene-statement" text={statement}
           mode={motion ? { kind: "time", playKey: phase + 1, per: 600, stagger: 60 } : { kind: "value", t: 1 }} />
         <p className="mono-label dem-legend">{legend}</p>
+        {phase < 2 && <p className="mono-label dem-legend">LABELS: THE ZONES RANKED 1, 10 AND 50 BY THIS HEIGHT</p>}
         {metric === "net" && <p className="mono-label dem-legend">DIMMED ZONES = NET SINKS (MORE DROPOFFS THAN PICKUPS)</p>}
         <Segmented label="Height metric" value={metric} className={interactive ? "" : "is-disabled"}
           onChange={(v) => { if (interactive) { demand.metric = v; emit(); } }}
@@ -112,8 +124,13 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
         </div>
       )}
       <div className="dem-hit" onPointerMove={onMove} onPointerLeave={() => { mapState.hover = { loc: null, x: 0, y: 0 }; emit(); }} aria-hidden="true" />
-      <div className="dem-labels" aria-hidden="true">
-        {(motion ? phase >= 1 : true) && labels.list.map((l) => (
+      {!motion && labels.list.length > 0 && (
+        <ul className="rm-labels mono-label" aria-label="Labelled zones">
+          {labels.list.map((l) => <li key={l.key} style={{ color: l.color }}>{l.text}</li>)}
+        </ul>
+      )}
+      <div className="dem-labels" aria-hidden="true" ref={labelsRef}>
+        {motion && phase >= 1 && labels.list.map((l) => (
           <span key={l.key} className="dem-label" style={{ left: l.x, top: l.y, color: l.color }}>
             {l.text}
             {l.profile && <Spark values={l.profile} color={l.color ?? "#fff"} />}

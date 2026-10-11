@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { IDS, NAV_IDS, collectErrors, expectConsistent, finiteState, inView, jump, navActive, open, settle, trackBox } from "./helpers";
 
+// Playwright requires an object-destructuring first argument even when no fixture is used.
+// eslint-disable-next-line no-empty-pattern
 test.beforeEach(({}, info) => test.skip(info.project.name !== "desktop", "wheel/scroll compositions run at 1440x900"));
 
 test("1. every pinned track releases its stage at the end (no scroll trap)", async ({ page }) => {

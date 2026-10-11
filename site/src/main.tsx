@@ -15,8 +15,10 @@ const Gallery = GALLERY_ENABLED ? lazy(() => import("./scenes/Gallery")) : null;
 const isGallery = !!Gallery && document.documentElement.classList.contains("is-gallery");
 if (!isGallery) document.documentElement.classList.remove("is-gallery");
 
-// Test/evidence hook: the same instant-jump path the nav uses (deterministic captures).
-Object.assign(window, { __atlas: { jumpTo, getProgress, setLab, setObs } });
+// Test/evidence hook: the same instant-jump path the nav uses (deterministic captures), including
+// focus on the landed scene's heading, so the next Tab starts inside that scene.
+const hookJump = (id: string, p?: number, opts: Parameters<typeof jumpTo>[2] = { focus: true }) => jumpTo(id, p, opts);
+Object.assign(window, { __atlas: { jumpTo: hookJump, getProgress, setLab, setObs } });
 
 startEngine();
 createRoot(document.getElementById("root")!).render(

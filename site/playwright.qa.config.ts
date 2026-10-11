@@ -9,7 +9,8 @@ export default defineConfig({
   reporter: [["list"]],
   use: { baseURL: "http://localhost:4302/atlas-human-mobility/" },
   webServer: {
-    command: "npm run build && npx vite preview --port 4302 --strictPort",
+    // restart loop: other agents on this shared machine kill stray preview servers mid-run
+    command: "npm run build && sh -c 'while :; do node node_modules/vite/bin/vite.js preview --port 4302 --strictPort; sleep 1; done'",
     url: "http://localhost:4302/atlas-human-mobility/",
     reuseExistingServer: false,
     timeout: 180_000,

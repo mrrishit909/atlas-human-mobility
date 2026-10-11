@@ -87,7 +87,8 @@ function demandFrame(p: number, w: number, h: number, now: number): MapFrame | n
   const s = easeSymmetric(windowed(p, HANDOFF, 0.85));
   const base = mapView(m, w, h, cls);
   const view = { ...base, pitch: (cls === "M" ? 40 : 50) * s, bearing: -18 * s };
-  const style = demandStyle(ph, demand.metric as Metric, windowed(p, HANDOFF, HANDOFF + 0.05), s);
+  // polygons start at 35% at the handoff itself so the stage is never blank at exactly p = 0.65 (QA D-009)
+  const style = demandStyle(ph, demand.metric as Metric, 0.35 + 0.65 * windowed(p, HANDOFF, HANDOFF + 0.05), s);
   if (!style) return null;
   const fade = Math.min(1, (now - handoff.at) / 200);
   return { view, style, opacity: handoff.on ? fade : 1 - fade, live: fade < 1 };
@@ -112,7 +113,7 @@ function pressureFrame(p: number, w: number, h: number): MapFrame | null {
   const ratio = speedRatioAt(labHow());
   if (!m || !pu || !ratio) return null;
   const cls = viewportClass(w);
-  const base = mapView(m, w, h, cls);
+  const base = mapView(m, w, h, cls, 360); // M: the city sits under the statement, legend and definitions
   const s = easeSymmetric(windowed(p, 0, 0.12));
   const view = { ...base, zoom: base.zoom - 0.6 * s, pitch: lerp(cls === "M" ? 40 : 50, 35, s), bearing: -18 };
   let max = 0;

@@ -7,7 +7,7 @@
  */
 import { WebMercatorViewport } from "@math.gl/web-mercator";
 import {
-  chordControl, drawPulse, lerpGeom, pointAt, quadLength, ringR0, ringR0c, ringR1, scaleGeom, viewportClass,
+  chordControl, drawPulse, isCompact, lerpGeom, pointAt, quadLength, ringR0, ringR0c, ringR1, scaleGeom, viewportClass,
   type Chord, type RingDrawOpts, type RingGeom, type ViewportClass,
 } from "../graphics/ring";
 import { clamp, lerp } from "../lib/math";
@@ -350,7 +350,7 @@ function corridorsFrame(p: number, w: number, h: number, cls: ViewportClass, now
     opts: {
       geom, rotation: dial.rot.value, angles: m.angles, nodeSize: nodeHorizon(cls), nodeAlpha: 0.9,
       chords, chordAlpha: 1, opacity: 1, markers,
-      anchor: { tick: cls === "M" ? 72 : 120, tickProgress: arrived ? tick : 0 },
+      anchor: { tick: cls === "M" ? 72 : isCompact(w) ? 80 : 120, tickProgress: arrived ? tick : 0 },
     },
     extra: (ctx) => {
       const pos = (i: number) => pointAt(geom, m.angles[i]! + dial.rot.value);

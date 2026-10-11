@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef, type ElementType } from "react";
 import { Reveal } from "../motion/reveal";
 import { useFrame, useProgress } from "../scroll/hooks";
 import { windowed } from "../motion/progress";
-import { getProgress } from "../scroll/engine";
+import { getProgress, recentlyJumped } from "../scroll/engine";
 
 type Mode =
   | { kind: "scrub"; track: string; from?: number; to?: number }
@@ -52,6 +52,8 @@ export function WordReveal({ text, as: Tag = "h2", className = "", mode, blur = 
   useEffect(() => {
     if (!playKey) return;
     start.current = 0;
+    // a nav jump lands resolved: no half-sharp words to read (QA D-006)
+    if (recentlyJumped()) { busy.current = false; reveal.current?.set(1); return; }
     busy.current = true;
     reveal.current?.set(0);
   }, [playKey]);
