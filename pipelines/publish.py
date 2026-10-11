@@ -255,7 +255,9 @@ def build_bpr(supp: dict) -> tuple[dict, dict]:
         f = bpr.fit_curve(x, y)
         order = np.argsort(x); bins = np.array_split(order, 24)
         binned = [{"x": round(float(x[i].mean()), 4), "tti": round(float(y[i].mean()), 4), "n": int(len(i))} for i in bins]
-        base = [{"how": int(h), "v": round(float(v), 2), "x": round(float(xx), 4), "median_speed_mph": round(float(s), 2), "median_trip_min": round(float(dm), 2),
+        # v and median_speed_mph at full float precision: the site's live BPR lab feeds them straight into
+        # scenario_speed, and must match bpr_test_vectors.json (which uses the unrounded values) at 1e-9
+        base = [{"how": int(h), "v": float(v), "x": round(float(xx), 4), "median_speed_mph": float(s), "median_trip_min": round(float(dm), 2),
                  "tti": round(float(yy), 4), "fitted_speed_mph": round(bpr.fitted_speed(o["ff"], v, f.alpha, f.beta, o["vref"]), 2)}
                 for h, v, xx, s, dm, yy in zip(df["how"], df["v"], df["x"], df["speed_p50"], df["dur_min"], df["y"])]
         zdf = zob[b]; zx, zy = zdf["x"].to_numpy(), zdf["y"].to_numpy()
