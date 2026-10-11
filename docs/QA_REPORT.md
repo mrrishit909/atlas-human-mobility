@@ -1400,3 +1400,92 @@ The sweep also confirms the FIX-005 claim about the CITY corners: no CITY collis
 | Lighthouse, frame pacing | not run: +1.80 KB gz vs pass 2 (threshold 2 KB) | |
 
 Committed evidence is about 3 MB: `artifacts/evidence/qa-6/`. No U+2014/U+2015 in this pass.
+
+# Pass 7: limited re-verification after FIX-006 (task P01-QA-008)
+
+Independent reviewer, qa-reviewer (Claude Opus 5.5). I wrote passes 4 to 6. I built none of the site.
+Date: 2026-10-11, 13:37 to about 14:30 EDT. Product code audited at HEAD e87fff5.
+- The FIX-006 product change is a single CSS rule in 0c885ae: `@media (min-width: 768px) and (max-height: 760px) { .end-text { top: 160px; gap: 16px; } }`.
+- `e2e/collide.ts` now includes fixed elements.
+
+Fresh production build `index-DyfUAdXG.js` (curl-confirmed) on the restart-loop `vite preview --port 4301`. Everything ran with `--workers 1` without waiting for load (1-minute load 7 to 27). All numbers and frames are from my own captures.
+
+**Verdict: PASSED.** No blocker or major remains, and every measured gate row passes. GitHub, Deployment and Portfolio stay BLOCKED (out of scope).
+- **D-063 is closed** at all 12 variants, at the true page bottom, in normal and reduced motion. The negative control is caught at 12 of 12.
+- The fix moved no S08 text into a new collision.
+- D-060, D-061 and D-037 hold.
+- D-062 and D-064 remain minor. One existing polish item (D-027, the horizon crossing the S08 footer) is raised to minor because it also reaches 360x800.
+
+## P7.1 Release gate (pass 7)
+
+Evidence paths are under `artifacts/evidence/qa-7/` unless marked otherwise.
+- `results-a.json`: sweep and sweeprm.
+- `results-b.json`: d047, tags, labels, chip, errors4, remount, nav, axe.
+- `titleink.json`, plus the logs in `scripts/`.
+- 12 contact sheets.
+
+| Row | Result | Measured evidence |
+|---|---|---|
+| Visual design | PASS | 12 contact sheets (11 states per variant) read. S08 at 1280x720 now sits higher, with the credit at y 593..626 and the nav at 676..708 (`probe/sweep-1280x720-BOTTOM.png`). The composition is otherwise unchanged from pass 6. |
+| Motion UI (6 layers) | PASS | e2e motion-bearing specs pass in the full run below; 40 nav jumps with 0 half-revealed words and 0 axe violations after a jump (`nav`). The QA motion suite was not rerun this pass: the product change is one S08 CSS rule; pass 6 ran 21/21 on 751371a. Frame pacing cited from pass 2. |
+| UX | PASS | D-063 closed. Keyboard: Tab 1 SKIP INTRO, Tab 2 SKIP TO CHAPTERS, Enter on CITY, next Tab ANATOMY (`scripts/extra6.mjs` → `scripts/extra.log`). |
+| Functionality and states | PASS | `errors4` (real pointer at the RETRY centre): 73 of 78 recover; the other 5 are the same non-defects as passes 5 and 6. `remount` 66 of 66. D-061: a cold arrival at S02 0.9 with meta.json blocked gives one live alert, in view, at 1440. |
+| AI / analytical honesty | PASS | The S08 data credit and TLC disclaimer are readable at the page bottom at every variant. L16: 0 of 496 sampled boxes below 4.5:1 (D-037 holds). No tag is hidden (132 rows). 48%, 21.3 mph and K = 3 confirmed on screen (`extra.log`). `facts.json` and the copy are unchanged since pass 6 (23/23). |
+| Performance | PASS (cited) | Build: main JS 109.65 KB gz, CSS 13.48 KB gz, deckMap 203.43 KB gz. That is +1.83 KB gz vs pass 2 (108.3 + 13.0), under 2 KB, so Lighthouse was not rerun. Pass 2: mobile LCP 1804 to 1806 ms, perf 0.99; desktop LCP 404 to 406 ms; CLS 0. |
+| Responsiveness | PASS | Document-wide sweep (my own, see pass 6 §P6.3), now with the true page bottom: 780 states over 12 variants. The only hits beyond the standing dismissals are D-062, a transient minor. Page-bottom footer clearance to the nearest fixed control: 50 px at 1280x720, 22 at 1366x768, 90 at 1440x760, 22 at 1024 and 1024-classic, 272 at 768 and 768-classic, 81 at 390, 18 at 375, 6 at 360 (no overlap). `d047` 72 states, 0 hits. Per-glyph title ink: worst 16.4:1 over 72 states. Labels 36 states (one 1 px margin note at 375); chip 24 states, 0 bad. |
+| Professional quality | PASS | `npx tsc --noEmit` exit 0, `npm run lint` clean, `npm test` 70/70. Full e2e `--workers 1` (13:38 to 14:09, load 7.3 to 21.7): **242 passed, 216 skipped, 0 failed, 0 flaky** (`scripts/e2e-run1.log`). axe: 160 scans (10 scenes x normal and reduced x 1440, 1024, 1024-classic and 390, plus whole page), 0 violations. |
+| GitHub | BLOCKED | Out of scope for this task. |
+| Deployment | BLOCKED | Out of scope for this task. |
+| Portfolio | BLOCKED | Out of scope for this task. |
+
+## P7.2 The four questions
+
+1. **D-063 is closed.**
+   - Normal motion, page bottom (`scrollTo(scrollHeight)`): 0 sweep hits at all 12 variants. At 1280x720 the footer spans y 593..626, 50 px above the nav.
+   - Reduced motion, page bottom: 0 hits at all 12 variants.
+   - The negative control (an element with a never-seen class over the first heading) is caught at 12 of 12.
+   - Frames: `probe/sweep-1280x720-BOTTOM.png`, `sweep-1366x768-BOTTOM.png`, `sweep-1440x760-BOTTOM.png`, `sweeprm-1280x720-BOTTOM.png`.
+2. **No new S08 collisions** at 1366x768, 1440x760, 1024x768, 768x1024-classic, 390, 375 and 360, or under reduced motion.
+   - The S08 states at p 0.05 to 0.95, and the page bottom, show no S08 hit at any variant.
+   - The rule only applies at min-width 768 and max-height 760. Of the required and laptop sizes it therefore changes only 1280x720 and 1440x760: the 1440x760 footer moves to 593..626, and it is clear.
+   - Under reduced motion the sweep reports text flowing under the fixed bottom nav at scroll positions where a scene's top is aligned to the viewport. That is ordinary scrolling under a fixed bar, it clears with a scroll, and it is dismissed. No overlap remains at the page bottom.
+3. **No regression.**
+   - D-060: 72 dial states, 0 hits; worst glyph 16.4:1.
+   - D-061: alert live and in view on cold arrival.
+   - D-037: L16 0 of 496.
+4. **D-062 and D-064 remain minor.**
+   - D-062: the sweep again catches the 768-classic title touching the band row at p 0.8 for about 1 s before it settles (`probe/sweep-768x1024-classic-corridors-0.8.png`).
+   - D-064: 1 frame (2 in one case) of old-basis labels after the S04 legend switches, measured at 4 to 32 ms after the click (`scripts/l18b.log`).
+
+## P7.3 Register (open, none blocking)
+
+**Minor:**
+- **D-062:** 768-classic dial title transient.
+- **D-064:** S04 one-frame label lag (L18).
+- **D-016:** data budget, 887 KB gz vs 400 KB.
+- **D-027 (raised from polish):**
+  - At 360x800 the closing horizon's bright stroke runs through lines 2 and 3 of the S08 credit ("NOAA GHCN-DAILY", "REPRESENTATION"). The text stays readable (`probe/zoom-sweep-360x800-BOTTOM.png`).
+  - 390 and 375 are clear (`probe/sweep-390x844-BOTTOM.png`).
+  - At 1024 the echo chord crosses the footer, as before.
+  - Phone CSS was not touched by FIX-006, so this is pre-existing.
+  - I did not sample its contrast with a reliable method: the strip method is confounded by the stroke itself.
+
+**Polish:**
+- **D-022:** S02 card-1 grid over the body, 3 to 5 px at desktop.
+- **D-023:** ledger ranges wrap mid-range.
+- **D-024:** OBS LAYERS button over the map on phones.
+- **D-040:** reduced-motion wordmark over CITY card 1 on phones.
+
+These are known limitations, not blockers.
+
+## P7.4 Commands run (uptime recorded)
+
+| Command | Result | Load (1-min) |
+|---|---|---|
+| `npx tsc --noEmit`, `npm run lint`, `npm test`, `npm run build` | 0, clean, 70/70, OK | 7.8 |
+| `RES=results-a.json scripts/run7.sh sweep sweeprm` | 780 + 132 states; `scripts/run-a.log` | 7.3 to 27.3 |
+| `RES=results-b.json scripts/run7.sh d047 tags,labels,chip errors4 remount nav axe`, then `titleink.mjs`/`.py`, `l18b.mjs`, `extra6.mjs` | `scripts/run-b.log`, `titleink.log`, `l18b.log`, `extra.log` | 7.3 to 25.4 |
+| `npx playwright test --workers 1` | 242 passed, 216 skipped, 0 failed, 0 flaky, 31.1 min | 7.3 to 21.7 |
+| Not rerun (out of the limited scope; product change is one S08 CSS rule): QA motion suite (pass 6: 21/21), l12/l9/l17/buttons (pass 6: all pass), `numbersText` (pass 6: 23/23) | | |
+
+Committed evidence is about 2.4 MB. No U+2014/U+2015 in this pass.

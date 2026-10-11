@@ -1,0 +1,6 @@
+1440 PICKUPS -> DROPOFFS frames 89 | legend new at 20 ms | frames with new legend but old-basis labels at opacity > 0.5: 1 (20..20 ms)
+1440 DROPOFFS -> NET frames 84 | legend new at 16 ms | frames with new legend but old-basis labels at opacity > 0.5: 1 (16..16 ms)
+1440 NET -> PICKUPS frames 80 | legend new at 12 ms | frames with new legend but old-basis labels at opacity > 0.5: 1 (12..12 ms)
+390 PICKUPS -> DROPOFFS frames 84 | legend new at 26 ms | frames with new legend but old-basis labels at opacity > 0.5: 1 (26..26 ms)
+390 DROPOFFS -> NET frames 89 | legend new at 32 ms | frames with new legend but old-basis labels at opacity > 0.5: 1 (32..32 ms)
+390 NET -> PICKUPS frames 88 | legend new at 4 ms | frames with new legend but old-basis labels at opacity > 0.5: 2 (4..21 ms)

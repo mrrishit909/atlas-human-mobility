@@ -1,0 +1,30 @@
+== sweep start 13:38  up 2 days, 16:08, 4 users, load averages: 7.33 7.35 8.30
+sweep 1920x1080 neg 1 states with hits 12
+sweep 1440x900 neg 1 states with hits 11
+sweep 1024x768 neg 1 states with hits 10
+sweep 768x1024 neg 1 states with hits 1
+sweep 390x844 neg 2 states with hits 8
+sweep 375x812 neg 2 states with hits 8
+sweep 360x800 neg 1 states with hits 8
+sweep 1024x768-classic neg 1 states with hits 10
+sweep 768x1024-classic neg 1 states with hits 2
+sweep 1280x720 neg 1 states with hits 10
+sweep 1366x768 neg 1 states with hits 11
+sweep 1440x760 neg 1 states with hits 11
+done sweep
+== sweep end 14:00  up 2 days, 16:30, 4 users, load averages: 27.32 26.29 20.75
+== sweeprm start 14:00  up 2 days, 16:30, 4 users, load averages: 27.32 26.29 20.75
+sweeprm 1920x1080 3 0
+sweeprm 1440x900 4 0
+sweeprm 1024x768 5 0
+sweeprm 768x1024 4 0
+sweeprm 390x844 7 0
+sweeprm 375x812 5 0
+sweeprm 360x800 5 0
+sweeprm 1024x768-classic 5 0
+sweeprm 768x1024-classic 4 0
+sweeprm 1280x720 5 0
+sweeprm 1366x768 3 0
+sweeprm 1440x760 4 0
+done sweeprm
+== sweeprm end 14:04  up 2 days, 16:34, 4 users, load averages: 19.04 23.83 21.16
