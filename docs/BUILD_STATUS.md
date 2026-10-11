@@ -22,5 +22,5 @@
 | 21-22 Chapters S05-S08, OBS, Zone Inspector (Stage B2) | PASSED with fixes (orchestrator reran tsc, lint, 65 Vitest; reviewed B2 sheets 2026-10-10; B3 fixes queued: S06 ring/text collision, S05 header overlap + busyness, chip wrap, M inspector clearance, rain wording, BPR full-precision parity) | commits e8d1f40, 8505582; artifacts/evidence/stage-b2/; agent e2e 43 passed 0 failed |
 | Docs, CI, deploy script (release prep) | PASSED (TESTING.md TBD rows pending QA) | b6d59a5 |
 | B3 fixes | PASSED (orchestrator: pytest 50, Vitest 65, B3 sheets read; agent e2e 48 passed 0 failed) | cb2e1eb, 0175811; artifacts/evidence/stage-b3/ |
-| 23-28 Independent QA (motion, responsive, a11y, perf, tests, creative audit) | FAILED (P01-QA-002: 7 major, 0 blocker; numbers honest 26/26) -> FIX-001 running, then fresh QA-003 with idle-machine Lighthouse | docs/QA_REPORT.md (06d1946); artifacts/evidence/qa/ |
+| 23-28 Independent QA (motion, responsive, a11y, perf, tests, creative audit) | FAILED (P01-QA-002: 7 major, 0 blocker; numbers honest 26/26) -> FIX-001 PASSED (cf9419b; orchestrator reran tsc, lint, Vitest 70/70; sheets read) -> QA-003 RUNNING (fresh reviewer, Lighthouse when load < 8) | docs/QA_REPORT.md (06d1946); artifacts/evidence/qa/ |
 | 29-30 | NOT_STARTED | |
