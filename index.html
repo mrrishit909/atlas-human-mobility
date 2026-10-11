@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-motion="on">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/atlas-human-mobility/favicon.svg" />
+    <title>Atlas of Human Mobility</title>
+    <meta name="description" content="A year of New York taxi and app-based rides, drawn as one living system: corridors, rush hours, concentration and pressure, from 2024 TLC trip records." />
+    <!-- only the display face the LCP headline uses is preloaded (34 KB subset) -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/atlas-human-mobility/assets/newsreader-opsz-400-site-C_-Noo6o.woff2" />
+    <script>
+      // Before first paint: motion preference (OS or in-site session override) and gallery flag.
+      (function () {
+        var d = document.documentElement, o = null;
+        try { o = sessionStorage.getItem("atlas.motion"); } catch (e) {}
+        var rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        d.setAttribute("data-motion", o === "on" || o === "off" ? o : rm ? "off" : "on");
+        if (/[?&]gallery(=|&|$)/.test(location.search)) d.classList.add("is-gallery");
+      })();
+    </script>
+    <script type="module" crossorigin src="/atlas-human-mobility/assets/index-DyfUAdXG.js"></script>
+    <link rel="stylesheet" crossorigin href="/atlas-human-mobility/assets/index-_pE-02J0.css">
+  </head>
+  <body>
+    <main id="main">
+      <!-- S01 is static HTML so the LCP headline paints before any JS (MOTION_SYSTEM 2). -->
+      <section id="city" class="track track--pinned scene-city" aria-labelledby="hero-title" style="--track-h: 200vh" data-static-track>
+        <div class="stage">
+          <div class="stage-content" data-stage-content>
+            <p class="wordmark" data-intro-corner>ATLAS OF HUMAN MOBILITY</p>
+            <p class="intro-code" data-intro-corner>AN AVERAGE WEEKDAY · <span data-intro-code class="tnum">23:59</span></p>
+            <h1 id="hero-title" class="hero-title wr" data-hero data-scene-heading tabindex="-1"><span class="wr-word">Millions</span> <span class="wr-word">of</span> <span class="wr-word">journeys.</span> <span class="wr-word">One</span> <span class="wr-word">living</span> <span class="wr-word">system.</span></h1>
+            <div id="city-portal"></div>
+          </div>
+        </div>
+      </section>
+      <div id="root"></div>
+    </main>
+  </body>
+</html>
