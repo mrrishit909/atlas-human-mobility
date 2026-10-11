@@ -1,8 +1,8 @@
 /**
  * Artifact types (DATA_CONTRACTS.md + VISUAL_DESIGN 6.2 data requests), with
  * hand-written guards at the trust boundary. Shapes for DR-* artifacts are
- * PROVISIONAL until the data agent publishes them; the guards are the single
- * place to reconcile.
+ * checked against the published files in types.test.ts; the guards are the
+ * single place to reconcile.
  */
 import type { ArtifactSpec } from "./loader";
 
@@ -17,24 +17,25 @@ export const zonesGeo: ArtifactSpec<ZonesGeo> = {
   isEmpty: (v) => v.features.length === 0,
 };
 
-/** DR-1 zones_index.json (provisional). */
-export interface ZoneIndexRow { id: number; name: string; borough: string; lon: number; lat: number; ring_index: number; ring_angle_deg: number }
-export interface ZonesIndex { zones: ZoneIndexRow[] }
+/** DR-1 zones_index.json (as published by the pipeline, schema v1). */
+export interface ZoneIndexRow { LocationID: number; name: string; borough: string; lon: number; lat: number; ring_index: number; ring_angle_deg: number }
+export interface ZonesIndex { schema_version: string; borough_order: string[]; gap_deg: number; zones: ZoneIndexRow[] }
 export const zonesIndex: ArtifactSpec<ZonesIndex> = {
   file: "zones_index.json",
   guard: (v): v is ZonesIndex =>
-    isObj(v) && Array.isArray(v.zones) &&
-    v.zones.every((z) => isObj(z) && isNum(z.id) && typeof z.name === "string" && isNum(z.ring_index) && isNum(z.ring_angle_deg)),
+    isObj(v) && Array.isArray(v.zones) && isNum(v.gap_deg) &&
+    v.zones.every((z) => isObj(z) && isNum(z.LocationID) && typeof z.name === "string" && isNum(z.ring_index) && isNum(z.ring_angle_deg)),
   isEmpty: (v) => v.zones.length === 0,
 };
 
-/** DR-11 od_ring_top.json (provisional): top OD pairs by annual trips, descending. */
-export interface OdPair { o: number; d: number; trips: number }
-export interface OdRingTop { pairs: OdPair[] }
+/** DR-11 od_ring_top.json: columnar rows [o, d, trips], descending by trips. */
+export interface OdRingTop { schema_version: string; columns: ["o", "d", "trips"]; rows: [number, number, number][] }
 export const odRingTop: ArtifactSpec<OdRingTop> = {
   file: "od_ring_top.json",
-  guard: (v): v is OdRingTop => isObj(v) && Array.isArray(v.pairs) && v.pairs.every((p) => isObj(p) && isNum(p.o) && isNum(p.d) && isNum(p.trips)),
-  isEmpty: (v) => v.pairs.length === 0,
+  guard: (v): v is OdRingTop =>
+    isObj(v) && Array.isArray(v.columns) && v.columns.join() === "o,d,trips" &&
+    Array.isArray(v.rows) && v.rows.every((r) => Array.isArray(r) && r.length === 3 && r.every(isNum)),
+  isEmpty: (v) => v.rows.length === 0,
 };
 
 /** meta.json: pipeline version, generation time, tags per artifact. */
