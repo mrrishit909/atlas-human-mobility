@@ -690,3 +690,27 @@ fonts 34.3 + 4.9 KB.
 - Committed (about 15 MB): `artifacts/evidence/qa-2/`, holding the cited probe frames, `screenshots/*/scene-*.png` plus 5 cited sequence frames, the contact sheets, Lighthouse, frame pacing and scripts.
 - Gitignored: everything else (259 geom frames, all 532 harness states, webm recordings, 1 fps frames and full-size sheets) is in `artifacts/evidence/recordings/qa-2/`.
 - Some `file` entries in `probe-results.json` point to frames that were moved there (`probe-all/`).
+
+# Pass 3: re-verification after FIX-002 (task P01-QA-004)
+
+Independent reviewer, qa-reviewer (Claude Opus 5.5). I did not build the site and I am not the pass-1 or pass-2 reviewer.
+Date: 2026-10-11, 02:47 to about 04:30 EDT. Product code audited at HEAD 7ec70d6 (product source identical to c8aa516).
+Build: `npm run build` (served `index-BYRpRiWI.js`), served by `vite preview --port 4301 --strictPort` in a restart loop
+(`sh -c 'while true; do node node_modules/vite/bin/vite.js preview --port 4301 --strictPort; sleep 1; done'`, cwd `site/`).
+The dev server was never used. All frames cited below were taken by me in this pass.
+
+**Status: IN PROGRESS (skeleton committed early so the work is durable; the final verdict and gate table follow below).**
+
+## P3.0 Environment check for D-033 (classic scrollbars)
+
+Two browsers: plain = default headless Chromium (scrollbars hidden, the overlay case); classic = headed Chromium launched
+without `--hide-scrollbars`, plus an injected `html { overflow-y: scroll } ::-webkit-scrollbar { width: 15px }`.
+
+| Variant | clientWidth | `__atlas.vpClass()` (JS) | media-query class (CSS) |
+|---|---|---|---|
+| 1024x768 plain | 1024 | D | D |
+| 768x1024 plain | 768 | T | T |
+| 1024x768 classic | 1009 | D | D |
+| 768x1024 classic | 753 | T | T |
+
+JS and CSS now agree under a classic scrollbar (pass 2: JS said T at 1024 and M at 768).
