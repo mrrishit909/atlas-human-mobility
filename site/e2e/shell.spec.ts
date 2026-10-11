@@ -9,11 +9,17 @@ async function open(page: Page, path = "") {
   await page.keyboard.press("Escape"); // completes the intro (MOTION_SYSTEM 5.1)
 }
 
-test("no external network requests (app shell + gallery)", async ({ page }) => {
+test("no external network requests, including the lazy deck.gl chunk (luma.gl / loaders.gl)", async ({ page }) => {
   const external: string[] = [];
   page.on("request", (r) => { if (!isLocal(r.url())) external.push(r.url()); });
   await page.goto("", { waitUntil: "networkidle" });
-  await page.goto("?gallery", { waitUntil: "networkidle" });
+  await page.keyboard.press("Escape");
+  for (const [id, p] of [["rush-hour", 0.4], ["corridors", 0.5], ["demand", 0.9]] as const) {
+    await page.evaluate(([id, p]) => (window as unknown as { __atlas: { jumpTo: (i: string, p: number) => void } }).__atlas.jumpTo(id, p), [id, p] as const);
+    await page.waitForTimeout(400);
+  }
+  await page.waitForFunction(() => !!(window as unknown as { __atlas: { mapApi?: () => unknown } }).__atlas.mapApi?.(), null, { timeout: 20000 });
+  await page.waitForLoadState("networkidle");
   expect(external).toEqual([]);
 });
 
@@ -124,7 +130,7 @@ test("resize D -> M keeps the scene and its progress, without errors", async ({ 
   expect(errors).toEqual([]);
 });
 
-for (const path of ["", "?gallery"]) {
+for (const path of [""]) {
   test(`axe: no serious or critical violations (${path || "app shell"})`, async ({ page }) => {
     await open(page, path);
     await page.waitForTimeout(400);

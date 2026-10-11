@@ -4,6 +4,7 @@ import { HonestyChip } from "../components/HonestyChip";
 import { Orb } from "../components/Orb";
 import { CountUp } from "../components/CountUp";
 import { ErrorLine, LoadingLine } from "../components/StateUI";
+import { FactsState } from "./FactsState";
 import { useArtifact } from "../data/useArtifact";
 import { facts, meta, reconciliation, type Facts, type Reconciliation } from "../data/types";
 import { copyS02, pct1 } from "../data/copy";
@@ -102,7 +103,7 @@ export function S02Anatomy({ id, height, landing }: { id: string; height: string
   return (
     <Track id={id} height={height} landing={landing} label="Anatomy of a journey" className="scene scene-anatomy">
       <h2 className="sr-only" id={`${id}-title`} tabIndex={-1} data-scene-heading>Anatomy of a journey</h2>
-      {cards.length ? <StoryDeck track={id} cards={cards} /> : f.status === "error" ? <div className="scene-state"><p className="state-line state-line--error">COULD NOT LOAD FACTS.JSON</p></div> : null}
+      {cards.length ? <StoryDeck track={id} cards={cards} /> : <div className="scene-state"><FactsState /></div>}
     </Track>
   );
 }

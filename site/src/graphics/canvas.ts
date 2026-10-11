@@ -11,3 +11,12 @@ export function fitCanvas(canvas: HTMLCanvasElement, cap = innerWidth < 1024 ? 1
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   return { ctx, width: w, height: h, dpr };
 }
+
+/**
+ * The stage box every scene measures from: the viewport WITHOUT classic
+ * scrollbars. The fixed ring canvas, the deck canvas, the map camera and the
+ * hit-testing all use this one box, so the S04 handoff stays pixel-exact on
+ * systems with visible scrollbars.
+ */
+export const stageW = () => document.documentElement.clientWidth;
+export const stageH = () => document.documentElement.clientHeight;

@@ -1,3 +1,4 @@
+import { stageH, stageW } from "../graphics/canvas";
 import { useEffect, useState } from "react";
 import { Track } from "../scroll/Track";
 import { WordReveal } from "../components/WordReveal";
@@ -12,6 +13,7 @@ import { useFrame, useMotion, useProgress } from "../scroll/hooks";
 import { bandLabel, currentAnchor, fanFor, fanGeometry, setDial, setHover, setBand } from "./director";
 import { pointAt, quadCrossY, quadPoint, ringR1, viewportClass } from "../graphics/ring";
 import { StaticRing } from "./StaticRing";
+import { FactsState } from "./FactsState";
 import { Segmented } from "./S03aRush";
 
 const name = (loc: number) => { const m = model(); return m ? m.name[m.idx.get(loc)!] ?? `ZONE ${loc}` : `ZONE ${loc}`; };
@@ -64,7 +66,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
 
   useProgress(id, (p) => { if (p > 0) loadDemandData(); }); // S04 data + deck warm up during S03
   useEffect(() => {
-    const place = () => { const g = ringR1(innerWidth, innerHeight, viewportClass(innerWidth)); setArcTop(g.cy - g.r); };
+    const place = () => { const g = ringR1(stageW(), stageH(), viewportClass(stageW())); setArcTop(g.cy - g.r); };
     place();
     addEventListener("resize", place);
     return () => removeEventListener("resize", place);
@@ -93,7 +95,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
   // tickets once the rotation settles and the fan has drawn (D 6, T 4; M uses the list card)
   useFrame((now) => {
     if (!motion || dial.rot.active || now - dial.stepAt < 1500) return;
-    const w = innerWidth, h = innerHeight, cls = viewportClass(w);
+    const w = stageW(), h = stageH(), cls = viewportClass(w);
     const k = `${key}:${dial.band}:${w}x${h}`;
     if (k === tickets.key || cls === "M") return;
     setTickets({ key: k, list: layoutTickets(w, h, cls === "D" ? 6 : 4) });
@@ -102,7 +104,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
   const hit = (e: React.PointerEvent) => {
     const m = model();
     if (!m) return null;
-    const w = innerWidth, h = innerHeight, g = ringR1(w, h, viewportClass(w));
+    const w = stageW(), h = stageH(), g = ringR1(w, h, viewportClass(w));
     let best = -1, bd = 22;
     for (let i = 0; i < m.n; i++) {
       const p = pointAt(g, m.angles[i]! + dial.rot.value);
@@ -114,7 +116,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
   const onMove = (e: React.PointerEvent) => {
     if (e.pointerType !== "mouse") return;
     let found = -1;
-    fanGeometry(innerWidth, innerHeight).forEach((g, i) => {
+    fanGeometry(stageW(), stageH()).forEach((g, i) => {
       if (found >= 0) return;
       for (let s = 0; s <= 24; s++) {
         const q = quadPoint(g.p1, g.cp, g.p2, s / 24);
@@ -136,7 +138,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
 
   const SHORT: Record<string, string> = { all: "ALL", overnight: "NIGHT", am_peak: "AM PEAK", midday: "MIDDAY", pm_peak: "PM PEAK", evening: "EVENING" };
   const bands = od.status === "ready" ? [{ id: "all", label: "ALL" }, ...od.data.bands.map((b) => ({ id: b.id, label: SHORT[b.id] ?? b.id.toUpperCase() }))] : [];
-  const ledgerRows = rows.slice(0, viewportClass(typeof innerWidth === "number" ? innerWidth : 1440) === "M" ? 3 : 5);
+  const ledgerRows = rows.slice(0, viewportClass(typeof document !== "undefined" ? stageW() : 1440) === "M" ? 3 : 5);
   const anchorName = a && f.status === "ready" ? (a.key.startsWith("Z") ? name(Number(a.key.slice(1))) : copy?.states[a.key as "MN"].title ?? "") : "";
 
   return (
@@ -156,6 +158,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
           onChange={(b) => { setBand(b); setTickets({ key: "", list: [] }); }} />
         )}
 
+        <FactsState />
         {od.status === "loading" && <LoadingLine file="od_top.json" loaded={od.loaded} total={od.total} />}
         {od.status === "error" && <ErrorLine file="od_top.json" reason={od.reason} attempt={od.attempt} onRetry={retryOd} />}
         {od.status === "ready" && a && rows.length === 0 && (

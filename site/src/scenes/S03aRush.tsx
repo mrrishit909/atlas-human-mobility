@@ -1,3 +1,4 @@
+import { stageH, stageW } from "../graphics/canvas";
 import { useEffect, useRef } from "react";
 import { Track } from "../scroll/Track";
 import { WordReveal } from "../components/WordReveal";
@@ -13,6 +14,7 @@ import { bandLabel, hourAt } from "./director";
 import { getProgress } from "../scroll/engine";
 import { ringR0c, viewportClass } from "../graphics/ring";
 import { StaticRing } from "./StaticRing";
+import { FactsState } from "./FactsState";
 
 const SERVICES: { id: Service; label: string; short: string }[] = [
   { id: "all", label: "ALL", short: "ALL" }, { id: "yellow", label: "YELLOW", short: "YELLOW" },
@@ -87,7 +89,7 @@ export function S03aRush({ id, height, landing }: { id: string; height: string; 
   useEffect(() => {
     // position the readout at the ring centre for the current viewport class
     const place = () => {
-      const g = ringR0c(innerWidth, innerHeight, viewportClass(innerWidth));
+      const g = ringR0c(stageW(), stageH(), viewportClass(stageW()));
       if (readout.current) { readout.current.style.left = `${g.cx}px`; readout.current.style.top = `${g.cy}px`; }
     };
     place();
@@ -113,6 +115,7 @@ export function S03aRush({ id, height, landing }: { id: string; height: string; 
             items={SERVICES.map((s) => ({ id: s.id, label: s.label }))} />
         </div>
         <div className="rush-tags"><HonestyChip tag="OBSERVED" detail="MEAN TRIPS PER HOUR" /></div>
+        <FactsState />
         {zhw.status === "loading" && <LoadingLine file="zone_hour_week.json" loaded={zhw.loaded} total={zhw.total} />}
         {zhw.status === "error" && <ErrorLine file="zone_hour_week.json" reason={zhw.reason} attempt={zhw.attempt} onRetry={retryZ} />}
       </div>

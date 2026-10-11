@@ -7,12 +7,12 @@ import { STATEMENT } from "../scenes/S01City";
 
 const read = <T,>(f: string): T => JSON.parse(readFileSync(new URL(`../../public/data/${f}`, import.meta.url), "utf-8"));
 const facts = read<Facts>("facts.json");
+/** Every number printed in a string, as written (commas kept, trailing comma dropped). */
+const numbers = (s: string) => (s.match(/\d[\d,]*(\.\d+)?/g) ?? []).map((n) => n.replace(/,$/, ""));
 const meta = read<Meta>("meta.json");
 const zi = read<ZonesIndex>("zones_index.json");
 const m = ringModel(zi);
 
-/** Every number printed in a string, as written (commas kept). */
-const numbers = (s: string) => (s.match(/\d[\d,]*(\.\d+)?/g) ?? []).map((n) => n.replace(/,$/, ""));
 
 describe("copy deck numbers are facts.json values (VISUAL_DESIGN section 6)", () => {
   const allowed = new Set<string>([
@@ -21,7 +21,11 @@ describe("copy deck numbers are facts.json values (VISUAL_DESIGN section 6)", ()
     pct0(facts.mn_internal_share_pct), pct0(facts.bk_internal_share_pct), int(facts.airport_dest_zone_count), String(facts.zones_for_half_pickups),
     String(facts.clusters.k), facts.clusters.silhouette.toFixed(2), String(zi.zones.length), meta.pipeline_version,
     // literal rule thresholds and calendar labels written in the design copy, not data values
-    "1", "11", "80", "2024", "01", "02", "03", "04", "3", "1.9", "8", "6", "10",
+    String((meta as unknown as { small_cell_threshold: number }).small_cell_threshold),
+    ...[facts.am_peak_hour, facts.pm_peak_hour, facts.weekend_peak_hour].flatMap((h) => numbers(h.label)),
+    // design-copy literals that are rules or labels, not data: 80 MPH and 200 MI cleaning rules (DATA_CONTRACTS),
+    // card numbers 01-04, the year, and the DST note's 1 AM / Nov 3 / 1.9% (METHODOLOGY.md, not an artifact field)
+    "1", "80", "2024", "01", "02", "03", "04", "3", "1.9",
   ]);
   const texts = [
     ...Object.values(copyS01(facts)),

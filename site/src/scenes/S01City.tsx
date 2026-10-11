@@ -1,3 +1,4 @@
+import { stageW } from "../graphics/canvas";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { WordReveal } from "../components/WordReveal";
@@ -47,7 +48,7 @@ export function S01City() {
     if (h1) {
       if (!on) { h1.style.transform = ""; h1.style.opacity = ""; }
       else {
-        const cls = viewportClass(innerWidth);
+        const cls = viewportClass(stageW());
         const s = easeSymmetric(windowed(p, 0, 0.4));
         const target = cls === "D" ? 44 / 96 : cls === "T" ? 36 / 64 : 28 / 40;
         const sc = 1 + (target - 1) * s;
@@ -62,6 +63,8 @@ export function S01City() {
     if (noteRef.current) noteRef.current.style.opacity = on ? String(chordsGone) : "1";
     if (stmtRef.current) stmtRef.current.style.opacity = on ? String(windowed(p, 0.3, 0.38)) : "1";
     if (cardsRef.current) cardsRef.current.style.opacity = on ? String(windowed(p, 0.58, 0.64)) : "1";
+    // T/M: the full-width cards take the top edge, so the corner labels step aside
+    if (on && viewportClass(stageW()) !== "D") document.querySelectorAll<HTMLElement>("[data-intro-corner]").forEach((c) => (c.style.opacity = String(1 - windowed(p, 0.55, 0.6))));
     if (footRef.current) footRef.current.style.opacity = on ? String(windowed(p, 0.6, 0.7)) : "1";
   });
 

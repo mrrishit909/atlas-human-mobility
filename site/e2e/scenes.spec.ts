@@ -85,3 +85,25 @@ test("deep link to #demand loads zone shapes and lands on the map without visiti
   await expect(page.locator("#demand-title")).toBeFocused();
   await expect(page.locator(".dem-text")).toContainText("HEIGHT = 2024 PICKUPS");
 });
+
+const FAILURES: { file: string; scene: string; p: number; region: string; recovered: string }[] = [
+  { file: "facts.json", scene: "anatomy", p: 0.14, region: ".scene-anatomy", recovered: "A journey, as the city records it." },
+  { file: "reconciliation.json", scene: "anatomy", p: 0.6, region: ".scene-anatomy", recovered: "RAW = KEPT + EXCLUDED" },
+  { file: "od_top.json", scene: "corridors", p: 0.1, region: ".cor-text", recovered: "OF RIDES THAT START IN MANHATTAN" },
+  { file: "zones.geojson", scene: "demand", p: 0.9, region: ".dem-text", recovered: "HEIGHT = 2024 PICKUPS" },
+];
+for (const f of FAILURES) {
+  test(`state: ${f.file} fails -> error line -> RETRY re-fetches exactly once and recovers`, async ({ page, isMobile }) => {
+    test.skip(!!isMobile, "state logic is viewport-independent");
+    let calls = 0;
+    await page.route(`**/data/${f.file}`, (route) => (++calls === 1 ? route.fulfill({ status: 500, body: "" }) : route.continue()));
+    await open(page);
+    await jump(page, f.scene, f.p);
+    const alert = page.locator(`${f.region} [role=alert]`).filter({ hasText: `COULD NOT LOAD ${f.file.toUpperCase()} (HTTP 500)` }).first();
+    await expect(alert).toBeVisible({ timeout: 15000 });
+    expect(calls).toBe(1); // no silent retry
+    await alert.getByRole("button", { name: "RETRY" }).click();
+    await expect(page.locator(f.region).first()).toContainText(f.recovered, { timeout: 15000 });
+    expect(calls).toBe(2);
+  });
+}

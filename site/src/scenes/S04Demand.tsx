@@ -1,3 +1,4 @@
+import { stageH, stageW } from "../graphics/canvas";
 import { useEffect, useRef, useState } from "react";
 import { Track } from "../scroll/Track";
 import { WordReveal } from "../components/WordReveal";
@@ -18,6 +19,7 @@ import { HANDOFF, handoff, morphPositions, RING_SCENES } from "./director";
 import { mapView, type MapViewState } from "./mapView";
 import { Segmented } from "./S03aRush";
 import { StaticRing } from "./StaticRing";
+import { FactsState } from "./FactsState";
 import type { MapApi, MapStyle } from "./deckMap";
 
 const SCENES = [...RING_SCENES, "pressure"] as const;
@@ -120,7 +122,7 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
     const a = api.current;
     const m = model();
     if (!a || !m) return;
-    const w = innerWidth, h = innerHeight, cls = viewportClass(w);
+    const w = stageW(), h = stageH(), cls = viewportClass(w);
     let p: number, ph: number;
     if (motion) {
       const loc = locate(SCENES);
@@ -181,6 +183,7 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
           {(motion ? phase : rmPhase) >= 2 && copy && <HonestyChip tag="DERIVED" detail={`K-MEANS, K=${f.status === "ready" ? f.data.clusters.k : ""}, SILHOUETTE ${f.status === "ready" ? f.data.clusters.silhouette.toFixed(2) : ""}`} />}
         </div>
         {(motion ? phase : rmPhase) >= 2 && copy && <p className="scene-note">{copy.clusterNote}</p>}
+        <FactsState />
         {geo.status === "loading" && <LoadingLine file="zones.geojson" loaded={geo.loaded} total={geo.total} />}
         {geo.status === "error" && <ErrorLine file="zones.geojson" reason={geo.reason} attempt={geo.attempt} onRetry={retryGeo} />}
         {zm.status === "error" && <ErrorLine file="zone_month.json" reason={zm.reason} attempt={zm.attempt} onRetry={retryZm} />}
@@ -226,7 +229,7 @@ export function S04Demand({ id, height, landing }: { id: string; height: string;
 async function parity(a: MapApi | null) {
   const m = model();
   if (!m || !a) return null;
-  const w = innerWidth, h = innerHeight;
+  const w = stageW(), h = stageH();
   const pos = morphPositions(HANDOFF, w, h, 0)!;
   let worst = 0;
   for (let i = 0; i < m.n; i++) {
