@@ -1,0 +1,23 @@
+{
+  "task_id": "P01-QA-007",
+  "agent": "qa-reviewer",
+  "status": "FAILED",
+  "owned_paths": ["docs/QA_REPORT.md", "artifacts/evidence/qa-6/"],
+  "files_changed": ["docs/QA_REPORT.md", "artifacts/evidence/qa-6/"],
+  "commits": ["781cb2a"],
+  "tests_executed": [
+    {"command": "npx tsc --noEmit && npm run lint && npm test && npm run build", "result": "0, clean, 70/70, OK; +1.80 KB gz vs pass 2 (< 2 KB) so Lighthouse not rerun, pass-2 mobile LCP 1.8 s cited"},
+    {"command": "npx playwright test --workers 1", "result": "236 passed, 210 skipped, 0 failed, 0 flaky (full rerun after the final fix)"},
+    {"command": "npx playwright test -c playwright.qa.config.ts --workers 1", "result": "21 passed, 17 skipped, 0 failed"},
+    {"command": "probe6.mjs sweep (document-wide DOM-generated collision boxes, 12 variants x 64 states, negative control)", "result": "negative control caught 12/12; new: S08 footer under fixed nav at 1280x720 (D-063), S03b title transient at 768-classic (D-062)"},
+    {"command": "probe6.mjs d047 + titleink.mjs/.py (12 variants x 6 anchors)", "result": "0 hits, worst glyph 16.4:1: D-060 closed"},
+    {"command": "probe6.mjs errors4, remount, l12, l9, l8, l17, buttons.mjs", "result": "73/78 real-pointer RETRY recover (5 non-defects), remount 66/66, 214 real clicks act, no covered control, L8 >= 18 px, L17 27/27, D-061 closed"},
+    {"command": "probe6.mjs tags,labels,chip,tickets,rm,nav,axe,keyboard,numbers + l15.py, l16.py, l18b.mjs", "result": "L16 0/496 below 4.5:1 (D-037 closed); L14/L15 pass; tickets 0 defects; axe 160 scans 0; facts 23/23; L18 one-frame label lag (D-064)"}
+  ],
+  "evidence_paths": ["docs/QA_REPORT.md (Pass 6)", "artifacts/evidence/qa-6/contact-sheets/", "artifacts/evidence/qa-6/probe/", "artifacts/evidence/qa-6/results-a.json", "artifacts/evidence/qa-6/results-b.json", "artifacts/evidence/qa-6/titleink.json", "artifacts/evidence/qa-6/scripts/"],
+  "blocking_issues": [
+    "P01-D-063 (major, pre-existing, missed by passes 1-5): at 1280x720 the fixed .nav-bar (y 676-708) covers the S08 .end-foot data credit and TLC disclaimer (y 669-702) at S08 p 0.8/0.95 and at the true page bottom; clear at 1366x768/1440x760/1024x768 and under reduced motion; e2e/collide.ts is scoped to a scene root so it cannot see fixed elements (L19)"
+  ],
+  "open_questions": ["D-063 rated major for consistency with D-057 (same 1280x720 L2 viewport, text overprinted, honesty element); if 1280x720 is treated as non-required, the measured rows would pass and the remaining items are minor/polish"],
+  "next_action": "P01-FIX-006: keep the S08 footer clear of the fixed nav at short heights (e.g. raise .end-foot by the nav clearance when innerHeight < ~760) and make collide.ts include fixed elements (nav, pill, corner buttons) against every scene; optionally D-062 (place the dial title before first paint) and D-064 (swap S04 legend and labels in one commit); then a targeted QA check of S08 at 1280x720 plus the sweep"
+}
