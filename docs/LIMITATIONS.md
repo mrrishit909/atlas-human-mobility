@@ -23,10 +23,19 @@ Collected from `docs/METHODOLOGY.md`, `docs/DATA_SOURCES.md` and the frontend bu
 - **Network measures favour airports.** The highest-betweenness zone is LaGuardia; betweenness measures position in the flow graph, not physical routing.
 - **Noisy small zones.** Median speed is masked below 30 trips per cell.
 
-## Frontend (known so far; to be updated by QA)
+## Frontend and release (final, after independent QA pass 7)
 
-- Frontend edits to the map and director were still in progress at the time of writing; the final state is covered by BUILD_STATUS, not this file.
-- Scroll storytelling uses a long page (about 23 viewports by design); QA may trim S03a and S07 if fatigue shows (`VISUAL_DESIGN.md` 3.1).
-- deck.gl needs WebGL; the local e2e tests rely on software WebGL (SwiftShader), which is slower than a real GPU. Real-device frame pacing: TBD (pending QA).
-- Playwright e2e is not run in CI (see `docs/TESTING.md`).
-- Lighthouse, axe, and three-breakpoint screenshot verdicts for the final build: TBD (pending QA).
+Open minors accepted at release (none blocks; see `docs/QA_REPORT.md` Pass 7 register):
+
+- **D-016, data budget.** Scene data is 887 KB gzipped against the 400 KB budget (`zone_hour_week.json` alone is 496 KB gz). It loads lazily per scene; measured Lighthouse (mobile LCP 1.8 s, perf 0.99) is inside the gate. deckMap ships without a source map.
+- **D-027, S08 footer under the horizon.** At 1024 wide the echo chord crosses the footer credit, and at 360x800 the closing horizon stroke runs through two credit lines. The text stays readable.
+- **D-062, 768x1024 with classic scrollbars.** On the S03b LaGuardia step the title touches the band row for about 1 s, then settles 13 px lower.
+- **D-064, S04 metric switch.** For one frame (two in one case) after a click the legend names the new basis while three labels still show the old one.
+- Polish: D-022, D-023, D-024, D-040 (see QA register).
+
+Environment limits:
+
+- Scroll storytelling is a long page (about 23 viewports by design).
+- deck.gl needs WebGL. Frame pacing was measured on a laptop with software WebGL in headless Chromium, 4x CPU throttle for mobile; it is not a real phone.
+- Playwright e2e is not run in CI (see `docs/TESTING.md`); QA ran it locally, 242 passed, 0 failed.
+- No code licence file is included yet: the licence is a pending owner decision, so by default all rights are reserved. Data licences are in `docs/DATA_SOURCES.md`.
