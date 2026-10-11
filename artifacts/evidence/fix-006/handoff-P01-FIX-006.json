@@ -1,0 +1,8 @@
+{"task_id":"P01-FIX-006","agent":"fix-builder (Claude Sonnet 5.5)","status":"PASSED",
+"owned_paths":["site/"],
+"files_changed":["site/src/styles/scenes.css","site/e2e/collide.ts","site/e2e/sweep.spec.ts","docs/BUILD_STATUS.md"],
+"tests_executed":[{"command":"npx tsc --noEmit","result":"clean"},{"command":"npm run lint","result":"clean"},{"command":"npm test","result":"70/70"},{"command":"npm run build","result":"ok"},{"command":"npx playwright test --workers 1","result":"desktop project: all pass, 1 load flake (sweep 1440x760) passed on serial retry; mobile project: 0 failed (run in two parts, 9 passed + skips by design)"},{"command":"D-063 test with CSS fix reverted","result":"fails at 1280x720 (footer b 702 vs nav t 676), passes with fix"}],
+"evidence_paths":["artifacts/evidence/fix-006/s08-1280x720.png","artifacts/evidence/fix-006/s08-1366x768.png","artifacts/evidence/fix-006/s08-1024x768.png","artifacts/evidence/fix-006/s08-1440x900.png","artifacts/evidence/fix-006/s08-390x844.png","artifacts/evidence/fix-006/e2e.log","artifacts/evidence/fix-006/e2e-mobile-rest.log"],
+"blocking_issues":[],
+"open_questions":["D-027 (echo arc crossing S08 footer text at 1024x768 and 1440x900, ambient canvas at low alpha) still open as polish","D-062 and D-064 not attempted"],
+"next_action":"Independent QA pass 7 on the new build, then deploy gate"}
