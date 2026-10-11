@@ -1,0 +1,42 @@
+{
+  "task_id": "P01-QA-002",
+  "agent": "qa-reviewer",
+  "status": "FAILED",
+  "owned_paths": ["docs/QA_REPORT.md", "artifacts/evidence/qa/"],
+  "files_changed": ["docs/QA_REPORT.md", "artifacts/evidence/qa/ (contact-sheets, screenshots x7 viewports, probe, lighthouse x3, frame-pacing.json, scripts)"],
+  "commits": ["06d1946"],
+  "tests_executed": [
+    {"command": "npm run build", "result": "OK (deckMap >500 KB warning)"},
+    {"command": "npx tsc --noEmit", "result": "clean"},
+    {"command": "npm test", "result": "65/65 passed"},
+    {"command": "npm run lint", "result": "2 errors (no-empty-pattern) in e2e/motion/{intro,scroll}.spec.ts from the merged QA suite"},
+    {"command": "npx playwright test e2e/shell.spec.ts e2e/scenes.spec.ts e2e/b2.spec.ts", "result": "47 passed, 1 failed (b2:227 mobile, load 18-31), 22 skipped"},
+    {"command": "evidence-harness (QA copy) at 7 viewports + frame pacing", "result": "p95 10.4 ms desktop, 21.1 ms 1440@4x, 21.6 ms 390@4x (load 27-55)"},
+    {"command": "run-lighthouse.sh x3", "result": "mobile LCP 2571/2262/2559 ms (median fails 2.5 s), mobile perf 0.81/0.98/0.96, desktop perf 0.86/0.98/1.00, a11y 1.00, CLS <= 0.013 (load 13-20)"},
+    {"command": "axe (@axe-core/playwright) 10 scenes + nav + page, normal and reduced motion, 1440 and 390", "result": "1 serious color-contrast at CITY landing (card 2 mid-reveal); all else clean"},
+    {"command": "qa-probe.mjs errors (8 blocked artifacts)", "result": "7 show error + RETRY and recover after exactly one re-fetch; od_matrix_totals path not exercised"},
+    {"command": "qa-probe.mjs keyboard journey", "result": "works except S06 radios (no arrows) and intro tab order"}
+  ],
+  "evidence_paths": [
+    "docs/QA_REPORT.md",
+    "artifacts/evidence/qa/contact-sheets/",
+    "artifacts/evidence/qa/screenshots/",
+    "artifacts/evidence/qa/probe/",
+    "artifacts/evidence/qa/lighthouse/",
+    "artifacts/evidence/qa/frame-pacing.json"
+  ],
+  "blocking_issues": [
+    "P01-D-001 text collisions at 1024x768 (S01, S03a, S03b, S06)",
+    "P01-D-002 S01 OBSERVED/DERIVED tags display:none on phones",
+    "P01-D-003 S03b destination tickets overlap (digits hidden) and run off-screen at 1920/1440/1024",
+    "P01-D-004 S04 reference-height labels truncated past the viewport at 390/375/360",
+    "P01-D-005 reduced motion: S04 labels drawn on the S05 chart; page scrolls sideways on phones (scrollWidth 604 vs 375)",
+    "P01-D-006 CITY nav landing p 0.78 shows card 2 half-blurred; axe serious contrast 3.72:1",
+    "P01-D-007 mobile Lighthouse LCP median 2559 ms over 3 runs (load-confounded; re-measure idle and on Pages)"
+  ],
+  "open_questions": [
+    "Re-run Lighthouse on an idle machine and on the deployed gzip URL to settle D-007",
+    "Should S05 statement bind to the lab baseline (41%) or carry a definition note (D-010)?"
+  ],
+  "next_action": "Frontend builder fixes P01-D-001..007 (plus D-008 chip, D-012/013 keyboard), adds the listed verification tests, then a fresh independent QA pass re-runs the harness at all 7 viewports and Lighthouse on an idle machine."
+}
