@@ -114,6 +114,21 @@ export function locate(ids: readonly string[]): { id: string; p: number; after: 
   return { id: found.id, p: Math.max(0, found.p), after: Math.max(0, scrollY - (found.top + found.height - vh)) };
 }
 export const viewportH = () => vh;
+
+/** OBS EXPLORE: lock page scroll (Lenis + overflow) and restore the exact scrollY on exit. */
+let lockedY = -1;
+export function lockScroll(on: boolean) {
+  if (on && lockedY < 0) {
+    lockedY = scrollY;
+    lenis?.stop();
+    document.documentElement.style.overflow = "hidden";
+  } else if (!on && lockedY >= 0) {
+    document.documentElement.style.overflow = "";
+    lenis?.start();
+    setScroll(lockedY);
+    lockedY = -1;
+  }
+}
 export const getActive = () => active;
 export function subscribeActive(fn: () => void) {
   activeSubs.add(fn);

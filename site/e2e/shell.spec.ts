@@ -14,7 +14,7 @@ test("no external network requests, including the lazy deck.gl chunk (luma.gl / 
   page.on("request", (r) => { if (!isLocal(r.url())) external.push(r.url()); });
   await page.goto("", { waitUntil: "networkidle" });
   await page.keyboard.press("Escape");
-  for (const [id, p] of [["rush-hour", 0.4], ["corridors", 0.5], ["demand", 0.9]] as const) {
+  for (const [id, p] of [["rush-hour", 0.4], ["corridors", 0.5], ["demand", 0.9], ["pressure", 0.5], ["futures", 0.5], ["evidence", 0.9], ["observatory", 0], ["closing", 0.95]] as const) {
     await page.evaluate(([id, p]) => (window as unknown as { __atlas: { jumpTo: (i: string, p: number) => void } }).__atlas.jumpTo(id, p), [id, p] as const);
     await page.waitForTimeout(400);
   }

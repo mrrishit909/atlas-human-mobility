@@ -47,6 +47,7 @@ test("S04 handoff: Canvas2D node positions match deck.gl's projection within 1px
   await jump(page, "demand", 0.65);
   await page.waitForFunction(() => !!(window as unknown as Atlas).__atlas.mapApi?.(), null, { timeout: 20000 });
   await jump(page, "demand", 0.65);
+  await page.waitForFunction(() => (window as unknown as Atlas).__atlas.morphParity!().then((x) => !!x), null, { timeout: 20000 });
   await page.waitForTimeout(300);
   const r = await page.evaluate(() => (window as unknown as Atlas).__atlas.morphParity!());
   expect(r).not.toBeNull();
@@ -73,7 +74,7 @@ test("S03a controls: GREEN changes the readout; 263 zones stay in the a11y table
   const total = page.locator(".rush-readout__total");
   await expect(total).toContainText("PICKUPS / HOUR");
   const before = await total.textContent();
-  await page.getByRole("radio", { name: "GREEN" }).click();
+  await page.locator(".rush-controls").getByRole("radio", { name: "GREEN" }).click();
   await expect(total).not.toHaveText(before!);
   await expect(page.locator(".scene-rush table tbody tr")).toHaveCount(24);
 });

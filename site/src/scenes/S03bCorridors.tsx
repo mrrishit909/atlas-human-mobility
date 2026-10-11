@@ -192,7 +192,8 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
           {ledgerRows.map((r) => (
             <li key={`${r[0]}-${r[1]}-${r[2]}`}>
               <span className="cor-ledger__od">{name(r[0]).toUpperCase()} → {name(r[1]).toUpperCase()}</span>
-              <span className="tnum">{int(r[3])} · MEDIAN {mins(r[5])} MIN (P10-P90 {mins(r[4])}-{mins(r[6])})</span>
+              <span className="tnum cor-ledger__full">{int(r[3])} · MEDIAN {mins(r[5])} MIN (P10-P90 {mins(r[4])}-{mins(r[6])})</span>
+              <span className="tnum cor-ledger__short">{int(r[3])} · {mins(r[5])} MIN</span>
             </li>
           ))}
         </ol>

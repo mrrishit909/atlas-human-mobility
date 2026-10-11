@@ -59,6 +59,8 @@ export interface Facts {
   top_od_pair: { o: number; d: number; o_name: string; d_name: string; trips: number };
   suppressed_cells_total: number; suppressed_trips_total: number;
   clusters: { k: number; silhouette: number };
+  borough_am_peak_speed_ratio: Record<string, { am_peak_median_speed_mph: number; free_flow_mph: number; speed_ratio_pct: number }>;
+  weather_prcp_effect_10mm: { pct: number; ci_low_pct: number; ci_high_pct: number };
 }
 export const facts: ArtifactSpec<Facts> = {
   file: "facts.json",
@@ -132,3 +134,35 @@ export const reconciliation: ArtifactSpec<Reconciliation> = {
 
 /** Deliberately missing artifact, used by the dev gallery to exercise the real 404 path. */
 export const missingProbe: ArtifactSpec<unknown> = { file: "gallery_probe_missing.json", guard: (v): v is unknown => v !== undefined };
+
+/** bpr_fit.json (DR-2): borough-grain BPR fits with 168-hour baselines and holdout diagnostics. */
+export interface BprFit { boroughs: Record<string, import("./bpr").BoroughFit>; model: string }
+export const bprFit: ArtifactSpec<BprFit> = {
+  file: "bpr_fit.json",
+  guard: (v): v is BprFit => isObj(v) && isObj(v.boroughs) && Object.values(v.boroughs).every((b) =>
+    isObj(b) && isNum(b.alpha) && isNum(b.beta) && isNum(b.capacity_index) && Array.isArray(b.baseline) && b.baseline.length === 168 && Array.isArray(b.binned_points)),
+};
+
+/** weather_model.json: log(daily trips) OLS, association only. */
+export interface Coef { term: string; beta: number; ci_lo: number; ci_hi: number; p: number; pct_effect: number; pct_ci_lo: number; pct_ci_hi: number }
+export interface WeatherModel {
+  prcp_effect_10mm: { pct: number; ci_low_pct: number; ci_high_pct: number; spec: string };
+  models: Record<string, { n: number; r2: number; adj_r2: number; spec: string; coefficients: Coef[] }>;
+  association_only?: unknown;
+}
+export const weatherModel: ArtifactSpec<WeatherModel> = {
+  file: "weather_model.json",
+  guard: (v): v is WeatherModel => isObj(v) && isObj(v.prcp_effect_10mm) && isNum(v.prcp_effect_10mm.pct) && isObj(v.models),
+};
+
+/** daily.json: per date trips by service + Central Park weather. */
+export interface Daily { date: string[]; prcp_mm: (number | null)[]; trips: Record<string, number[]>; station: string }
+export const daily: ArtifactSpec<Daily> = {
+  file: "daily.json",
+  guard: (v): v is Daily => isObj(v) && Array.isArray(v.date) && Array.isArray(v.prcp_mm) && isObj(v.trips),
+  isEmpty: (v) => v.date.length === 0,
+};
+
+/** validation.json: holdouts and checks computed by the pipeline. */
+export type Validation = Record<string, unknown>;
+export const validation: ArtifactSpec<Validation> = { file: "validation.json", guard: (v): v is Validation => isObj(v) };

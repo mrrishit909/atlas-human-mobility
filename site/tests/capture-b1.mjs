@@ -33,7 +33,12 @@ async function run() {
       await page.evaluate(([id, p]) => window.__atlas.jumpTo(id, p), [id, p]);
       await page.waitForTimeout(wait);
       // headless WebGL (SwiftShader) can stall frames; never capture a stage mid-fade
-      await page.waitForFunction(() => [...document.querySelectorAll(".stage-enter")].every((e) => getComputedStyle(e).opacity === "1"), null, { timeout: 10000 }).catch(() => {});
+      await page.waitForFunction(() =>
+        document.getAnimations().every((a) => !(a instanceof CSSAnimation && a.animationName === "stage-in" && a.playState === "running")) &&
+        [...document.querySelectorAll(".stage-enter")].every((e) => getComputedStyle(e).opacity === "1") &&
+        [...document.querySelectorAll(".deck-stage, .map-stage")].every((e) => !e.style.opacity || e.style.opacity === "0" || e.style.opacity === "1"),
+        null, { timeout: 15000 }).catch(() => {});
+      await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
     };
 
     // S00 intro at four timepoints (first visit in a fresh session)

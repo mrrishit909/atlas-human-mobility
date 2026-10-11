@@ -113,11 +113,20 @@ export const dial = {
 
 export const demand = { metric: "pickups" as "pickups" | "dropoffs" | "net", phase: 0, phaseAt: -1e9 };
 
+export const getZhw = () => ready(zoneHourWeek);
+let zhwIdx: Map<number, number> | null = null;
+/** LocationID -> zone index in zone_hour_week arrays */
+export const zhwIndex = () => { const z = getZhw(); return z ? (zhwIdx ??= new Map(z.zones.map((loc, i) => [loc, i]))) : null; };
+export const getNetwork = () => ready(network);
+
 /** Start loading: critical set now; scene data at idle (MOTION_SYSTEM 10 budgets). */
 export function bootData() {
   for (const s of [zonesIndex, odRingTop, facts, meta]) getStore(s as never).prefetch();
   const idle = (fn: () => void) => ("requestIdleCallback" in window ? requestIdleCallback(fn, { timeout: 1500 }) : setTimeout(fn, 600));
-  idle(() => { for (const s of [reconciliation, odTop, zoneHourWeek]) getStore(s as never).prefetch(); });
+  // scene data (zone_hour_week is 506 KB gzip) waits for the page load event, the display font and an idle slot,
+  // so it never competes with the LCP headline; any scene that needs it earlier requests it itself.
+  const afterLoad = () => document.fonts.ready.then(() => idle(() => { for (const s of [reconciliation, odTop, zoneHourWeek]) getStore(s as never).prefetch(); }));
+  if (document.readyState === "complete") afterLoad(); else addEventListener("load", afterLoad, { once: true });
   for (const s of [zonesIndex, odRingTop, facts, meta, reconciliation, odTop, zoneHourWeek, zoneMonth, network, clusters, zonesGeo]) getStore(s as never).subscribe(emit);
 }
 /** S03 entry: lazy S04 data (geometry, months, clusters). */

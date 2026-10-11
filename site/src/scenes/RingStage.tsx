@@ -33,7 +33,8 @@ export function RingStage() {
     const scene = loc?.id as (typeof RING_SCENES)[number];
     // S04 handoff to deck.gl
     if (visible && scene === "demand") {
-      const want = handoff.deckReady && (handoff.on ? loc.p >= HANDOFF - 0.02 : loc.p >= HANDOFF);
+      // 0.001 slack: a jump lands on an integer scrollY, so p = 0.65 can read as 0.6499
+      const want = handoff.deckReady && (handoff.on ? loc.p >= HANDOFF - 0.02 : loc.p >= HANDOFF - 0.001);
       if (want !== handoff.on) { handoff.on = want; handoff.at = jumped.current ? -1e9 : now; }
     } else if (handoff.on) { handoff.on = false; handoff.at = -1e9; }
     const fade = Math.min(1, (now - handoff.at) / 200);

@@ -95,7 +95,7 @@ export function peaksHold(totals: number[], am: number, pm: number) {
   return argmax(5, 11) === am && argmax(15, 21) === pm && isLocalMax(am) && isLocalMax(pm);
 }
 
-export function hourBandOf(hour: number, bands: { id: string; hours: number[] }[]) {
+export function hourBandOf<B extends { id: string; hours: number[] }>(hour: number, bands: B[]): B {
   return bands.find((b) => b.hours.includes(hour)) ?? bands[0]!;
 }
 

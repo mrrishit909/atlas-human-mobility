@@ -1,8 +1,9 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { copyS01, copyS02, copyS03a, copyS03b, copyS04, int, pct0, pct1 } from "./copy";
+import { copyS01, copyS02, copyS03a, copyS03b, copyS04, copyS05, copyS07, copyS08, limitations, int, pct0, pct1, signed } from "./copy";
 import { anchors, annualByRing, halfSet, hourTotals, hourlyByRing, ledger, ringModel } from "./derive";
 import type { Facts, Meta, Reconciliation, ZoneHourWeek, ZoneMonth, ZonesIndex } from "./types";
+import type { BoroughFit } from "./bpr";
 import { STATEMENT } from "../scenes/S01City";
 
 const read = <T,>(f: string): T => JSON.parse(readFileSync(new URL(`../../public/data/${f}`, import.meta.url), "utf-8"));
@@ -11,6 +12,8 @@ const facts = read<Facts>("facts.json");
 const numbers = (s: string) => (s.match(/\d[\d,]*(\.\d+)?/g) ?? []).map((n) => n.replace(/,$/, ""));
 const meta = read<Meta>("meta.json");
 const zi = read<ZonesIndex>("zones_index.json");
+const bpr = read<{ boroughs: Record<string, BoroughFit> }>("bpr_fit.json");
+const cl = read<{ silhouette_by_k: Record<string, number>; random_label_silhouette: { max: number }; stability_ari: { ari_min: number; n_seeds: number }; k: number; silhouette: number }>("clusters.json");
 const m = ringModel(zi);
 
 
@@ -23,6 +26,12 @@ describe("copy deck numbers are facts.json values (VISUAL_DESIGN section 6)", ()
     // literal rule thresholds and calendar labels written in the design copy, not data values
     String((meta as unknown as { small_cell_threshold: number }).small_cell_threshold),
     ...[facts.am_peak_hour, facts.pm_peak_hour, facts.weekend_peak_hour].flatMap((h) => numbers(h.label)),
+    pct0(facts.borough_am_peak_speed_ratio.Manhattan!.speed_ratio_pct), int(facts.raw_rows_total), int(facts.suppressed_trips_total), int(facts.top_od_pair.trips),
+    ...[facts.weather_prcp_effect_10mm.pct, facts.weather_prcp_effect_10mm.ci_low_pct, facts.weather_prcp_effect_10mm.ci_high_pct].map((v) => signed(v).replace(/^[+-]/, "")),
+    ...Object.values(bpr.boroughs).flatMap((b) => [b.rmse.toFixed(2), ...(b.holdout?.borough_level ? [b.holdout.borough_level.test.rmse, b.holdout.borough_level.test.rmse_const_train_mean, b.holdout.borough_level.test.rmse_freeflow_const].map((v) => v.toFixed(2)) : [])]),
+    cl.silhouette_by_k["4"]!.toFixed(2), cl.random_label_silhouette.max.toFixed(2), String(cl.stability_ari.n_seeds), cl.stability_ari.ari_min.toFixed(2),
+    // rule/design literals in S05-S08 copy: 10 mm rain unit, 95% CI, Jan-Sep / Oct-Dec split, 1.0x, k range 3 to 8, 2016 zone policy year
+    "10", "95", "1.0", "8", "2016", "4" /* the k = 4 comparison label */,
     // design-copy literals that are rules or labels, not data: 80 MPH and 200 MI cleaning rules (DATA_CONTRACTS),
     // card numbers 01-04, the year, and the DST note's 1 AM / Nov 3 / 1.9% (METHODOLOGY.md, not an artifact field)
     "1", "80", "2024", "01", "02", "03", "04", "3", "1.9",
@@ -33,6 +42,10 @@ describe("copy deck numbers are facts.json values (VISUAL_DESIGN section 6)", ()
     ...Object.values(copyS03a(facts, true)).filter((v): v is string => typeof v === "string"),
     ...Object.values(copyS03b(facts).states).flatMap((s) => [s.title, s.body ?? ""]),
     ...Object.values(copyS04(facts)),
+    ...Object.values(copyS05(facts)),
+    ...copyS07(facts, { bpr: bpr.boroughs, clusters: cl as never }).flatMap((e) => [e.q, e.a]),
+    ...Object.values(copyS08(facts)),
+    ...limitations(),
     STATEMENT,
   ];
   it("contains no number that is not bound to a named field", () => {
