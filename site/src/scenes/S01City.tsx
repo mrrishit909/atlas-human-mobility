@@ -2,12 +2,12 @@ import { stageW } from "../graphics/canvas";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { SceneContext } from "../scroll/Track";
-import { FactsState } from "./FactsState";
+import { ArtifactError, FactsState } from "./FactsState";
 import { WordReveal } from "../components/WordReveal";
 import { HonestyChip } from "../components/HonestyChip";
 import { ErrorLine } from "../components/StateUI";
 import { useArtifact } from "../data/useArtifact";
-import { facts, zonesIndex } from "../data/types";
+import { facts, odRingTop, zonesIndex } from "../data/types";
 import { copyS00, copyS01 } from "../data/copy";
 import { useProgress } from "../scroll/hooks";
 import { windowed } from "../motion/progress";
@@ -19,6 +19,7 @@ import { motionEnabled } from "../state/motion";
 export function S01City() {
   const portal = document.getElementById("city-portal");
   const [f] = useArtifact(facts);
+  const [ring] = useArtifact(odRingTop, false);
   const [zi, retryZi] = useArtifact(zonesIndex);
   const noteRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -94,11 +95,13 @@ export function S01City() {
   return createPortal(
     <SceneContext.Provider value="city">
       <p className="sr-only">{c0.alt}</p>
-      {(zi.status === "error" || f.status === "error") && (
+      {(zi.status === "error" || f.status === "error" || ring.status === "error") && (
         <div className="city-error">
           {zi.status === "error" && <ErrorLine file="zones_index.json" reason={zi.reason} attempt={zi.attempt} onRetry={retryZi} />}
           {/* the cards are bound to facts.json: say so where they are missing (QA D-041) */}
           <FactsState />
+          {/* one stable place for every CITY error line: a line that moved would lose its live region */}
+          <ArtifactError spec={odRingTop} />
         </div>
       )}
       <div className="city-note" ref={noteRef}>

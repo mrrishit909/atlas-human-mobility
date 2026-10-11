@@ -41,8 +41,8 @@ html[data-motion="off"] .ring-stage, html.is-gallery .ring-stage { display: none
 html[data-motion="off"] .city-statement { opacity: 1 !important; }
 .city-cards { right: var(--gutter); top: 96px; width: 360px; display: flex; flex-direction: column; gap: 24px; opacity: 0; }
 .city-cards .note { width: 100%; padding: 20px 24px; gap: 12px; }
-/* D: the error line sits where the facts-bound cards would be, clear of the horizon (QA D-041) */
-@media (min-width: 1024px) { .city-error { left: auto; right: var(--gutter); top: 96px; bottom: auto; width: 360px; } }
+/* D: error lines sit top-left under the wordmark, clear of the cards and the horizon (QA D-041, D-042) */
+@media (min-width: 1024px) { .city-error { right: auto; top: 64px; bottom: auto; width: 420px; display: flex; flex-direction: column; gap: 8px; } }
 .city-cards .note__head sup { font-size: 0.8em; margin-left: 2px; }
 .city-foot { left: var(--gutter); bottom: calc(var(--nav-clear) + 12px); margin: 0; max-width: min(600px, calc(100vw - 2 * var(--gutter)));
   font: 400 13px / 1.3 var(--font-mono); letter-spacing: var(--tracking-label); color: var(--text-muted); opacity: 0; }
@@ -89,6 +89,10 @@ html[data-motion="off"] .city-cards, html[data-motion="off"] .city-foot { opacit
 .a-ledger.is-on .a-ledger__check { opacity: 1; }
 .a-unavail { display: flex; flex-direction: column; gap: 8px; }
 .a-foot { margin-top: 10px !important; font-size: 13px; color: var(--text-muted); }
+/* card 3 provenance failure (QA D-042): one compact row in the space the provenance line used */
+.a-foot .state-error { flex-wrap: nowrap; gap: 8px; }
+.a-foot .state-line { font-size: 11px; line-height: 1.2; }
+.a-foot .btn-square { flex: none; padding: 4px 8px; font-size: 11px; }
 .a-grid { width: 100%; display: grid; grid-template-columns: repeat(19, 1fr); gap: 3px; align-content: center; }
 .a-grid i { aspect-ratio: 1; background: #000; transform: scale(0); transition: transform var(--motion-standard) var(--ease-premium); }
 .a-grid.is-on i { transform: none; transition-delay: calc(var(--i) * 2ms); }
@@ -509,4 +513,10 @@ html[data-motion="off"] .scene-obs .stage-content { padding: 0; }
 @media (max-width: 767px) {
   .rush-tags .chip, .cor-text .cor-chips .chip, .obs-title .cor-chips .chip, .fut-text .cor-chips .chip { font-size: 11px; padding: 3px 6px; line-height: 1.25; }
   .cor-text .cor-chips, .obs-title .cor-chips, .fut-text .cor-chips { gap: 4px; }
+}
+
+@media (max-width: 767px) {
+  /* QA pass 3: an error line never sits on the search box (OBS) or the footnote (CITY) */
+  .obs-title .state-error { position: absolute; left: 0; right: 0; top: 280px; padding: 8px 10px; background: rgb(0 0 0 / 0.88); z-index: 3; }
+  .city-error { bottom: calc(var(--nav-clear) + 96px); }
 }

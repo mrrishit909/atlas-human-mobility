@@ -21,6 +21,10 @@ import {
 } from "../state/atlas";
 import { mapView, projectCentroids } from "./mapView";
 
+/** The anchor tick never reaches up into the dial title; S03b sets this after placing the title (QA D-047). */
+let dialTickCap = Infinity;
+export const setDialTickCap = (v: number) => { dialTickCap = v; };
+
 export const RING_SCENES = ["city", "anatomy", "rush-hour", "corridors", "demand"] as const;
 export type RingScene = (typeof RING_SCENES)[number];
 export const DIAL_THRESHOLDS = [0.25, 0.5, 0.75] as const;
@@ -350,7 +354,7 @@ function corridorsFrame(p: number, w: number, h: number, cls: ViewportClass, now
     opts: {
       geom, rotation: dial.rot.value, angles: m.angles, nodeSize: nodeHorizon(cls), nodeAlpha: 0.9,
       chords, chordAlpha: 1, opacity: 1, markers,
-      anchor: { tick: cls === "M" ? 72 : isCompact(w) ? 80 : 120, tickProgress: arrived ? tick : 0 },
+      anchor: { tick: Math.min(cls === "M" ? 72 : isCompact(w) ? 80 : 120, dialTickCap), tickProgress: arrived ? tick : 0 },
     },
     extra: (ctx) => {
       const pos = (i: number) => pointAt(geom, m.angles[i]! + dial.rot.value);

@@ -1,19 +1,19 @@
 import { stageH, stageW } from "../graphics/canvas";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Track } from "../scroll/Track";
 import { WordReveal } from "../components/WordReveal";
 import { HonestyChip } from "../components/HonestyChip";
 import { Tooltip } from "../components/Tooltip";
 import { ErrorLine, LoadingLine, EmptyLine } from "../components/StateUI";
 import { useArtifact } from "../data/useArtifact";
-import { facts, odTop, type OdTopRow } from "../data/types";
+import { facts, odRingTop, odTop, type OdTopRow } from "../data/types";
 import { copyS03b, int } from "../data/copy";
 import { dial, getAnchors, loadDemandData, model, useAtlas } from "../state/atlas";
 import { useFrame, useMotion, useProgress } from "../scroll/hooks";
-import { bandLabel, currentAnchor, fanFor, fanGeometry, setDial, setHover, setBand } from "./director";
+import { bandLabel, currentAnchor, fanFor, fanGeometry, setDial, setDialTickCap, setHover, setBand } from "./director";
 import { isCompact, pointAt, quadCrossY, quadPoint, ringR1, viewportClass } from "../graphics/ring";
 import { StaticRing } from "./StaticRing";
-import { FactsState } from "./FactsState";
+import { ArtifactError, FactsState } from "./FactsState";
 import { Segmented } from "./S03aRush";
 
 const name = (loc: number) => { const m = model(); return m ? m.name[m.idx.get(loc)!] ?? `ZONE ${loc}` : `ZONE ${loc}`; };
@@ -89,6 +89,29 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
   const [arcTop, setArcTop] = useState(0);
   // compact desktop: the title sits just above a shorter tick, between the text column and the arc
   const titleLift = typeof document !== "undefined" && isCompact(stageW()) ? 86 : 128;
+
+  // QA D-047: the title sits at its design height unless the text column (chips, band selector) reaches it;
+  // then it drops below the column, and the anchor tick is shortened so it never runs into the title.
+  const textRef = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const te = textRef.current;
+    const text = te?.getBoundingClientRect();
+    const textBottom = te ? te.offsetTop + te.offsetHeight : 0; // stage coordinates, transform-free
+    let cap = Infinity;
+    document.querySelectorAll<HTMLElement>(`#${id} .dial-title`).forEach((t) => {
+      const top0 = arcTop - titleLift;
+      t.style.top = `${top0}px`;
+      const rg = document.createRange();
+      rg.selectNodeContents(t);
+      const g = rg.getBoundingClientRect(), box = t.getBoundingClientRect();
+      const glyphTop = top0 + (g.top - box.top); // the in/out animation moves both rects alike
+      if (text && text.height > 0 && g.width > 0 && g.left < text.right && text.left < g.right && glyphTop < textBottom + 10) {
+        t.style.top = `${top0 + textBottom + 10 - glyphTop}px`;
+      }
+      cap = Math.min(cap, 2 * (arcTop - (t.offsetTop + t.offsetHeight) - 6));
+    });
+    setDialTickCap(Math.max(24, cap));
+  });
 
   useProgress(id, (p) => { if (p > 0) loadDemandData(); }); // S04 data + deck warm up during S03
   useEffect(() => {
@@ -169,7 +192,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
 
   return (
     <Track id={id} height={height} landing={landing} label="Invisible corridors" className="scene scene-corridors">
-      <div className="cor-text">
+      <div className="cor-text" ref={textRef}>
         <p className="scene-kicker">04 · INVISIBLE CORRIDORS</p>
         <WordReveal as="h2" id={`${id}-title`} tabIndex={-1} data-scene-heading className="scene-statement scene-statement--sm" text={copy?.statement ?? ""} mode={{ kind: "value", t: 1 }} />
         <p key={`b-${key}-${dial.band}`} className={`scene-body cor-body ${instantBody ? "no-anim" : ""}`} aria-live="polite">{bodyOf(key)}</p>
@@ -185,6 +208,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
         )}
 
         <FactsState />
+        <ArtifactError spec={odRingTop} />
         {od.status === "loading" && <LoadingLine file="od_top.json" loaded={od.loaded} total={od.total} />}
         {od.status === "error" && <ErrorLine file="od_top.json" reason={od.reason} attempt={od.attempt} onRetry={retryOd} />}
         {od.status === "ready" && a && rows.length === 0 && (
@@ -194,8 +218,8 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
 
       {motion && copy && (
         <div className="dial-titles" aria-hidden="true">
-          {tk.prev && <p key={`out-${tk.n}`} className="dial-title is-out" style={{ top: arcTop - titleLift }}>{titleOf(tk.prev)}</p>}
-          <p key={`in-${tk.n}`} className={`dial-title ${tk.n > 1 ? "is-in" : ""}`} style={{ top: arcTop - titleLift }} data-anchor={key}>{titleOf(tk.cur)}</p>
+          {tk.prev && <p key={`out-${tk.n}`} className="dial-title is-out">{titleOf(tk.prev)}</p>}
+          <p key={`in-${tk.n}`} className={`dial-title ${tk.n > 1 ? "is-in" : ""}`} data-anchor={key}>{titleOf(tk.cur)}</p>
         </div>
       )}
       {motion && <p className="sr-only" aria-live="polite">Anchor: {anchorName}</p>}

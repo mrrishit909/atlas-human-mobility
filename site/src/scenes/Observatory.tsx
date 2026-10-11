@@ -3,6 +3,7 @@ import { Track } from "../scroll/Track";
 import { HonestyChip } from "../components/HonestyChip";
 import { Tooltip } from "../components/Tooltip";
 import { ErrorLine, LoadingLine } from "../components/StateUI";
+import { ArtifactError } from "./FactsState";
 import { useArtifact } from "../data/useArtifact";
 import { bprFit, clusters, network, odTop, zoneHourWeek, zonesGeo, type Service } from "../data/types";
 import { int } from "../data/copy";
@@ -66,7 +67,7 @@ export function Observatory({ id, height, landing }: { id: string; height: strin
   const [zhw, retryZ] = useArtifact(zoneHourWeek);
   const [geo, retryGeo] = useArtifact(zonesGeo, false);
   const [od] = useArtifact(odTop);
-  useArtifact(network, false); useArtifact(clusters, false); useArtifact(bprFit);
+  const [net] = useArtifact(network, false); const [cl] = useArtifact(clusters, false); useArtifact(bprFit);
   const [size, setSize] = useState(() => ({ w: stageW(), h: stageH() })); // never a desktop default: on phones it widens the layout viewport
   const [sheet, setSheet] = useState(false);
   const [q, setQ] = useState("");
@@ -155,6 +156,8 @@ export function Observatory({ id, height, landing }: { id: string; height: strin
           <div className="cor-chips">
             {obs.compare === "future" && futureOk && obs.layer === "speed"
               ? <HonestyChip tag="SIMULATED" detail="YOUR FUTURE FROM THE LAB · NOT A FORECAST" />
+              // a model chip only over a model that loaded (QA D-052, the D-015 pattern)
+              : (obs.layer === "network" && net.status !== "ready") || (obs.layer === "clusters" && cl.status !== "ready") ? null
               : <HonestyChip tag={LAYER_TAG[obs.layer][0]} detail={LAYER_TAG[obs.layer][1]} />}
             {obs.flows && motion && band && <HonestyChip tag="DERIVED" detail={`FLOWS: ALL SERVICES · ${band.label.toUpperCase()} · SEEDED TIMING`} />}
             {!motion && <span className="mono-label">FLOWS SHOWN AS STATIC LINES IN NETWORK VIEW</span>}
@@ -164,6 +167,8 @@ export function Observatory({ id, height, landing }: { id: string; height: strin
           {zhw.status === "error" && <ErrorLine file="zone_hour_week.json" reason={zhw.reason} attempt={zhw.attempt} onRetry={retryZ} />}
           {geo.status === "loading" && <LoadingLine file="zones.geojson" loaded={geo.loaded} total={geo.total} />}
           {geo.status === "error" && <ErrorLine file="zones.geojson" reason={geo.reason} attempt={geo.attempt} onRetry={retryGeo} />}
+          {obs.layer === "network" && <ArtifactError spec={network} />}
+          {obs.layer === "clusters" && <ArtifactError spec={clusters} />}
           {mapState.noGL && <p className="state-line">3D UNAVAILABLE ON THIS DEVICE</p>}
         </div>
 

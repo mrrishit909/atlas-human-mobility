@@ -4,7 +4,7 @@ import { HonestyChip } from "../components/HonestyChip";
 import { Orb } from "../components/Orb";
 import { CountUp } from "../components/CountUp";
 import { ErrorLine, LoadingLine } from "../components/StateUI";
-import { FactsState } from "./FactsState";
+import { ArtifactError, FactsState } from "./FactsState";
 import { useArtifact } from "../data/useArtifact";
 import { facts, meta, reconciliation, type Facts, type Reconciliation } from "../data/types";
 import { copyS02, pct1 } from "../data/copy";
@@ -97,7 +97,7 @@ export function S02Anatomy({ id, height, landing }: { id: string; height: string
     { variant: "orb", chip: copy[0]!.chip, title: copy[0]!.title, visual: (on) => <Fields on={on} />, body: <p>{copy[0]!.body}</p>, tag: <HonestyChip tag="OBSERVED" /> },
     { variant: "blue", chip: copy[1]!.chip, title: copy[1]!.title, visual: (on) => <Fleets f={f.data} on={on} />, body: <p>{copy[1]!.body}</p>, tag: <HonestyChip tag="OBSERVED" /> },
     { variant: "dark", chip: copy[2]!.chip, title: copy[2]!.title, visual: (on) => ledgerState(r, retryR, on),
-      body: <><p>{copy[2]!.body}</p>{copy[2]!.foot ? <p className="a-foot">{copy[2]!.foot}</p> : null}</>, tag: <HonestyChip tag="OBSERVED" /> },
+      body: <><p>{copy[2]!.body}</p>{copy[2]!.foot ? <p className="a-foot">{copy[2]!.foot}</p> : <div className="a-foot"><ArtifactError spec={meta} /></div>}</>, tag: <HonestyChip tag="OBSERVED" /> },
     { variant: "light", chip: copy[3]!.chip, title: copy[3]!.title, visual: (on) => <Grid on={on} />, body: <p>{copy[3]!.body}</p>, tag: <HonestyChip tag="OBSERVED" onLight /> },
   ] : [];
   return (

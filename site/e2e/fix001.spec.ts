@@ -82,9 +82,10 @@ async function d001Scenes(page: Page, w: number, h: number, tag = "") {
   await jump(page, "rush-hour", 0.35, 1200);
   const rush = await textBoxes(page, [".rush-text h2", ".rush-text .scene-body", ".rush-controls", ".rush-tags", ".rush-readout"]);
   expectNoCollisions(rush, await ringGeom(page, w, h), [".rush-text", ".rush-controls", ".rush-tags"], `${w}x${h}${tag} S03a`);
-  for (const p of [0.1, 0.3, 0.55, 0.88]) {
+  // every dial anchor, including the LaGuardia step at 0.8 / 0.88 / 0.95 where a third chip appears (QA D-047)
+  for (const p of [0.1, 0.3, 0.55, 0.8, 0.88, 0.95]) {
     await jump(page, "corridors", p, 2400);
-    const cor = await textBoxes(page, ["#corridors .cor-text h2", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-ledger", "#corridors .dial-title", "#corridors .ticket"]);
+    const cor = await textBoxes(page, ["#corridors .cor-text h2", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-bands", "#corridors .cor-ledger", "#corridors .dial-title", "#corridors .ticket"]);
     expectNoCollisions(cor, await ringGeom(page, w, h), ["#corridors .cor-text", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-ledger", "#corridors .dial-title"], `${w}x${h}${tag} S03b p${p}`);
   }
 }
@@ -102,7 +103,7 @@ async function d001Futures(page: Page, w: number, h: number, tag = "") {
 }
 
 for (const [w, h] of ALL) test(`D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (${w}x${h})`, async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await d001Scenes(page, w, h);
 });
 
@@ -116,7 +117,7 @@ test("D-001: the S06 split ring never intersects a text block (all 7 viewports)"
  * Headless Chromium hides scrollbars by default; this browser keeps them, and the page gets a 15px gutter.
  */
 for (const [w, h] of [[1024, 768], [768, 1024]] as const) test(`D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (${w}x${h})`, async ({ playwright }, info) => {
-  test.setTimeout(240_000);
+  test.setTimeout(300_000);
   const b = await playwright.chromium.launch({ ignoreDefaultArgs: ["--hide-scrollbars"] });
   try {
     const ctx = await b.newContext({ baseURL: info.project.use.baseURL, viewport: { width: w, height: h } });
@@ -444,4 +445,37 @@ test("D-043: S06 states the borough moved most and least, bound to the minutes l
   parsed.sort((a, b) => Math.abs(Number(b.d)) - Math.abs(Number(a.d)));
   expect(line.toUpperCase()).toContain(`${parsed[0]!.b} ${parsed[0]!.d} MIN A TRIP, THE MOST`);
   expect(line.toUpperCase()).toContain(`${parsed[4]!.b} ${parsed[4]!.d}, THE LEAST`);
+});
+
+/* ---------------- P01-FIX-003 (QA pass 3) ---------------- */
+
+// every artifact surfaces its own error + RETRY where it is missing (QA D-042, D-052)
+for (const [file, scene, p, layer] of [
+  ["od_ring_top.json", "city", 0.78, null],
+  ["od_ring_top.json", "corridors", 0.3, null],
+  ["meta.json", "anatomy", 0.5, null],
+  ["meta.json", "evidence", 0.5, null],
+  ["network.json", "observatory", 0, "NETWORK"],
+] as const) test(`D-042/D-052: a ${file} failure is announced and recoverable in ${scene}`, async ({ page }) => {
+  let block = true;
+  let hits = 0;
+  await page.route(`**/data/${file}`, (r) => { hits++; return block ? r.fulfill({ status: 500, body: "" }) : r.continue(); });
+  await open(page, 1440, 900);
+  await jump(page, scene, p, 1500);
+  if (layer) {
+    await page.locator("#observatory").getByRole("radio", { name: layer, exact: true }).first().click();
+    await page.waitForTimeout(800);
+    // no model chip over a model that did not load (the D-015 pattern)
+    await expect(page.locator("#observatory .obs-title .chip", { hasText: "PAGERANK" })).toHaveCount(0);
+  }
+  const alert = page.locator("[role=alert]", { hasText: `COULD NOT LOAD ${file.toUpperCase()}` });
+  await expect(alert).toHaveCount(1, { timeout: 10000 });
+  await expect(alert).toBeInViewport();
+  expect(await alert.evaluate((e) => e.closest("section")?.id)).toBe(scene);
+  block = false;
+  const before = hits;
+  await alert.getByRole("button", { name: /RETRY/ }).click();
+  await expect(page.locator("[role=alert]", { hasText: file.toUpperCase() })).toHaveCount(0, { timeout: 10000 });
+  expect(hits).toBe(before + 1);
+  if (layer) await expect(page.locator("#observatory .obs-title .chip", { hasText: "PAGERANK" })).toHaveCount(1);
 });

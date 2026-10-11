@@ -5,7 +5,7 @@ import { HonestyChip } from "../components/HonestyChip";
 import { useArtifact } from "../data/useArtifact";
 import { facts, meta } from "../data/types";
 import { copyS08 } from "../data/copy";
-import { FactsState } from "./FactsState";
+import { ArtifactError, FactsState } from "./FactsState";
 import { model, useAtlas } from "../state/atlas";
 import { useFrame, useMotion, useProgress } from "../scroll/hooks";
 import { fitCanvas, stageW } from "../graphics/canvas";
@@ -103,6 +103,7 @@ export function S08Closing({ id, height, landing }: { id: string; height: string
         <WordReveal as="h2" id={`${id}-title`} tabIndex={-1} data-scene-heading className="end-para" text={copy?.paragraph ?? ""}
           mode={motion ? { kind: "scrub", track: id, from: 0.3, to: 0.7 } : { kind: "value", t: 1 }} />
         <FactsState />
+        <ArtifactError spec={meta} />
         {copy && (echoed || !motion) && <p className="end-caption"><HonestyChip tag="DERIVED" /> {copy.caption}</p>}
         <nav className={`end-links ${linksIn ? "is-in" : ""}`} aria-label="Next">
           <a href="#observatory" onClick={(e) => { e.preventDefault(); jumpTo("observatory", 0, { push: true, focus: true }); }}>→ OPEN THE OBSERVATORY</a>

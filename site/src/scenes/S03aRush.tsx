@@ -5,7 +5,7 @@ import { WordReveal } from "../components/WordReveal";
 import { HonestyChip } from "../components/HonestyChip";
 import { ErrorLine, LoadingLine } from "../components/StateUI";
 import { useArtifact } from "../data/useArtifact";
-import { facts, odTop, zoneHourWeek, type Service } from "../data/types";
+import { facts, odRingTop, odTop, zoneHourWeek, type Service } from "../data/types";
 import { copyS03a, hh, int } from "../data/copy";
 import { hourBandOf, hourTotals, peaksHold, type DayType } from "../data/derive";
 import { hourly, model, rush, useAtlas, emit } from "../state/atlas";
@@ -14,7 +14,7 @@ import { bandLabel, hourAt } from "./director";
 import { getProgress } from "../scroll/engine";
 import { ringR0c, viewportClass } from "../graphics/ring";
 import { StaticRing } from "./StaticRing";
-import { FactsState } from "./FactsState";
+import { ArtifactError, FactsState } from "./FactsState";
 
 const SERVICES: { id: Service; label: string; short: string }[] = [
   { id: "all", label: "ALL", short: "ALL" }, { id: "yellow", label: "YELLOW", short: "YELLOW" },
@@ -116,6 +116,7 @@ export function S03aRush({ id, height, landing }: { id: string; height: string; 
         </div>
         <div className="rush-tags"><HonestyChip tag="OBSERVED" detail="MEAN TRIPS PER HOUR" /></div>
         <FactsState />
+        <ArtifactError spec={odRingTop} />
         {zhw.status === "loading" && <LoadingLine file="zone_hour_week.json" loaded={zhw.loaded} total={zhw.total} />}
         {zhw.status === "error" && <ErrorLine file="zone_hour_week.json" reason={zhw.reason} attempt={zhw.attempt} onRetry={retryZ} />}
       </div>

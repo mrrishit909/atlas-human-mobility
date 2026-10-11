@@ -8,7 +8,7 @@ import { copyS07, int, limitations, signed, type Exchange } from "../data/copy";
 import { useMotion, useProgress } from "../scroll/hooks";
 import { stepState } from "../motion/progress";
 import { recentlyJumped } from "../scroll/engine";
-import { FactsState } from "./FactsState";
+import { ArtifactError, FactsState } from "./FactsState";
 import type { LoadState } from "../data/loader";
 
 export const REPO = "https://github.com/mrrishit909/atlas-human-mobility";
@@ -135,6 +135,7 @@ export function S07Evidence({ id, height, landing }: { id: string; height: strin
         <p className="scene-kicker">08 · HOW WE KNOW</p>
         <h2 id={`${id}-title`} tabIndex={-1} data-scene-heading className="scene-statement scene-statement--sm">How we know.</h2>
         <FactsState />
+        <ArtifactError spec={meta} />
         {errs}
       </div>
       <div className={`ev-stack ${motion ? "" : "is-flow"}`} aria-live="polite">
