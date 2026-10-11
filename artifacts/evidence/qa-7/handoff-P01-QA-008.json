@@ -1,0 +1,20 @@
+{
+  "task_id": "P01-QA-008",
+  "agent": "qa-reviewer",
+  "status": "PASSED",
+  "owned_paths": ["docs/QA_REPORT.md", "artifacts/evidence/qa-7/"],
+  "files_changed": ["docs/QA_REPORT.md", "artifacts/evidence/qa-7/"],
+  "commits": ["6eb29f4"],
+  "tests_executed": [
+    {"command": "npx tsc --noEmit && npm run lint && npm test && npm run build", "result": "0, clean, 70/70, OK; +1.83 KB gz vs pass 2 (< 2 KB), Lighthouse not rerun, pass-2 mobile LCP 1.8 s cited"},
+    {"command": "npx playwright test --workers 1", "result": "242 passed, 216 skipped, 0 failed, 0 flaky"},
+    {"command": "probe7.mjs sweep (document-wide collision boxes incl. fixed nav, 12 variants x 65 states incl. true page bottom, negative control)", "result": "negative control 12/12; page bottom 0 hits at all 12 variants (1280x720 footer 50 px above the nav): D-063 closed; only D-062 transient remains"},
+    {"command": "probe7.mjs sweeprm (reduced motion, 12 variants x 11 states)", "result": "page bottom 0 hits at all 12; mid-scroll text under the fixed bottom nav dismissed (scrolls clear)"},
+    {"command": "probe7.mjs d047 + titleink.mjs/.py", "result": "72 states 0 hits, worst glyph 16.4:1 (D-060 holds)"},
+    {"command": "probe7.mjs tags,labels,chip,errors4,remount,nav,axe + l16.py, l18b.mjs, extra6.mjs", "result": "L16 0/496 (D-037 holds); 73/78 real-pointer RETRY (5 non-defects); remount 66/66; D-061 holds; axe 160 scans 0; nav 40 jumps clean; D-064 one-frame lag (minor)"}
+  ],
+  "evidence_paths": ["docs/QA_REPORT.md (Pass 7)", "artifacts/evidence/qa-7/contact-sheets/", "artifacts/evidence/qa-7/probe/", "artifacts/evidence/qa-7/results-a.json", "artifacts/evidence/qa-7/results-b.json", "artifacts/evidence/qa-7/titleink.json", "artifacts/evidence/qa-7/scripts/"],
+  "blocking_issues": [],
+  "open_questions": ["Known limitations (minor): D-062 768-classic dial title transient, D-064 S04 one-frame label lag, D-016 data budget, D-027 horizon stroke through the S08 credit at 360x800 (readable); polish D-022, D-023, D-024, D-040"],
+  "next_action": "Publish per the standing pre-authorization (public repo, Pages, case study), then verify the live URL with curl and a real screenshot; GitHub/Deployment/Portfolio gate rows were BLOCKED (out of scope) in this pass"
+}
