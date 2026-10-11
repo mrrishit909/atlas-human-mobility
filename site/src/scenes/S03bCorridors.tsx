@@ -90,32 +90,53 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
   // compact desktop: the title sits just above a shorter tick, between the text column and the arc
   const titleLift = typeof document !== "undefined" && isCompact(stageW()) ? 86 : 128;
 
-  // QA D-047 / D-057: the title sits at its design height. If the text column (chips, band selector) reaches it,
-  // it first slides right of the column when there is room (desktop), else drops below the column; the anchor
-  // tick is shortened so it never runs into a title still over the centre.
+  // QA D-047 / D-057 / D-060: the title sits at its design height, clear of both columns (text with its chips and
+  // bands; the ledger with its band selector). Blocked by a column, it slides right of the text column when the
+  // gap allows (desktop), else drops below every column it would meet. The anchor tick never reaches it.
   const textRef = useRef<HTMLDivElement>(null);
+  const ledgerRef = useRef<HTMLElement>(null);
   useLayoutEffect(() => {
-    const te = textRef.current;
-    const text = te?.getBoundingClientRect();
-    const textBottom = te ? te.offsetTop + te.offsetHeight : 0; // stage coordinates, transform-free
     const vw = stageW();
+    const cols = [textRef.current, ledgerRef.current].flatMap((el) => {
+      if (!el) return [];
+      const r = el.getBoundingClientRect();
+      return r.height > 0 ? [{ l: r.left, r: r.right, top: el.offsetTop, bottom: el.offsetTop + el.offsetHeight }] : []; // stage coordinates
+    });
     let cap = Infinity;
     document.querySelectorAll<HTMLElement>(`#${id} .dial-title`).forEach((t) => {
       const top0 = arcTop - titleLift;
       t.style.top = `${top0}px`;
       t.style.translate = "";
+      t.style.fontSize = "";
       const rg = document.createRange();
       rg.selectNodeContents(t);
       const g = rg.getBoundingClientRect(), box = t.getBoundingClientRect();
-      const glyphTop = top0 + (g.top - box.top); // the in/out animation moves both rects alike
-      let dx = 0;
-      if (text && text.height > 0 && g.width > 0 && g.left < text.right && text.left < g.right && glyphTop < textBottom + 10) {
-        const shift = text.right + 24 - g.left;
-        if (g.right + shift <= vw - 24 && text.left > vw * 0.02 && text.right < vw * 0.6) { dx = shift; t.style.translate = `${Math.round(shift)}px 0`; }
-        else t.style.top = `${top0 + textBottom + 10 - glyphTop}px`;
+      if (g.width === 0) return;
+      const off = g.top - box.top, gh = g.height; // glyph offset inside the box (the in/out animation moves both alike)
+      const hits = (top: number, dx: number, m = 16) => cols.filter((c) => g.left + dx < c.r + m && c.l - m < g.right + dx && top + off < c.bottom + 10 && c.top - 10 < top + off + gh);
+      let top = top0, dx = 0;
+      const blocked = hits(top, 0);
+      if (blocked.length) {
+        const left = cols[0]!;
+        const shift = left.r + 24 - g.left;
+        const fitsRight = left.l > vw * 0.02 && left.r < vw * 0.6 && g.right + shift <= vw - 24 && hits(top, shift, 24).length === 0;
+        // still too wide for the gap between the columns: set it a little smaller (never under 75%) rather than drop it
+        const right = cols.find((c) => c !== left && c.l > left.r);
+        const avail = right ? right.l - 24 - (left.r + 24) : 0; // a 24px gap on both sides, as on the left
+        const k = avail / g.width;
+        if (fitsRight) dx = shift;
+        else if (left.l > vw * 0.02 && left.r < vw * 0.6 && k >= 0.75 && k < 1) {
+          t.style.fontSize = `${parseFloat(getComputedStyle(t).fontSize) * k}px`;
+          const cx0 = (g.left + g.right) / 2;
+          dx = left.r + 24 - (cx0 - (g.width * k) / 2);
+        }
+        else for (let k = 0, h = blocked; h.length && k < 3; k++, h = hits(top, 0)) top = Math.max(...h.map((c) => c.bottom)) + 10 - off;
       }
+      t.style.top = `${top}px`;
+      if (dx) t.style.translate = `${Math.round(dx)}px 0`;
+      // ponytail: the glyph box below is the pre-scaling one; the tick cap is conservative for a scaled title
       const cx = vw / 2;
-      if (g.left + dx < cx && cx < g.right + dx) cap = Math.min(cap, 2 * (arcTop - (t.offsetTop + t.offsetHeight) - 6));
+      if (g.left + dx < cx && cx < g.right + dx) cap = Math.min(cap, 2 * (arcTop - (top + t.offsetHeight) - 6));
     });
     setDialTickCap(Math.max(24, cap));
   });
@@ -243,7 +264,7 @@ export function S03bCorridors({ id, height, landing }: { id: string; height: str
         </Tooltip>
       )}
 
-      <aside className="cor-ledger" aria-label="Top corridors">
+      <aside className="cor-ledger" aria-label="Top corridors" ref={ledgerRef}>
         <p className="cor-ledger__head mono-label">TOP CORRIDORS · {bandLabel(dial.band)}</p>
         <ol>
           {ledgerRows.map((r) => (

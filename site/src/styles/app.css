@@ -314,3 +314,6 @@ html[data-motion="off"] .dial-title.is-out { display: none; }
 @media (max-width: 767px) {
   .scene-kicker--city, .g-intro__code { top: 44px !important; left: var(--gutter); right: auto !important; }
 }
+
+/* T/M: the full-width CITY cards take the top edge, so the corner labels step aside (S01City sets the attribute) */
+html[data-corners-off] [data-intro-corner] { opacity: 0 !important; transition: opacity var(--motion-fast) linear; }

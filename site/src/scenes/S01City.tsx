@@ -87,7 +87,8 @@ export function S01City() {
     if (stmtRef.current) stmtRef.current.style.opacity = on ? String(windowed(p, 0.3, 0.38)) : "1";
     if (cardsRef.current) cardsRef.current.style.opacity = on ? String(windowed(p, 0.58, 0.64)) : "1";
     // T/M: the full-width cards take the top edge, so the corner labels step aside
-    if (on && viewportClass(stageW()) !== "D") document.querySelectorAll<HTMLElement>("[data-intro-corner]").forEach((c) => (c.style.opacity = String(1 - windowed(p, 0.55, 0.6))));
+    // an attribute + CSS rule, not inline opacity: the intro's own reset of the corners must not bring them back (L19 sweep)
+    document.documentElement.toggleAttribute("data-corners-off", on && viewportClass(stageW()) !== "D" && p > 0.56);
     if (footRef.current) footRef.current.style.opacity = on ? String(windowed(p, 0.6, 0.7)) : "1";
   });
 

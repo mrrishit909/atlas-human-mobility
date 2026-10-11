@@ -188,7 +188,8 @@ html[data-motion="off"] .city-cards, html[data-motion="off"] .city-foot { opacit
 .dem-hit { inset: 0; z-index: 1 !important; }
 .dem-labels { inset: 0; pointer-events: none; }
 .dem-label { position: absolute; transform: translate(-50%, calc(-100% - 8px)); display: flex; flex-direction: column; align-items: center; gap: 4px; white-space: nowrap;
-  font: 400 13px / 1.2 var(--font-mono); letter-spacing: var(--tracking-label); text-shadow: 0 0 6px #000, 0 0 2px #000; animation: fade-in var(--motion-standard) linear both; }
+  font: 400 13px / 1.2 var(--font-mono); letter-spacing: var(--tracking-label); text-shadow: 0 0 6px #000, 0 0 2px #000; animation: fade-in var(--motion-standard) linear both;
+  padding: 3px 6px; background: rgb(0 0 0 / 0.86); } /* opaque backing: reads over white extrusions (QA D-037, L16) */
 .spark { display: block; }
 .rm-labels { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
 html[data-motion="off"] .dem-labels { display: none; }
@@ -539,6 +540,10 @@ html[data-motion="off"] .scene-obs .stage-content { padding: 0; }
    carries a feathered black ground, so no stroke or node runs through a word */
 @media (min-width: 1024px) {
   .cor-text, .cor-ledger, .dem-text { background: rgb(0 0 0 / 0.9); box-shadow: 0 0 24px 18px rgb(0 0 0 / 0.9); }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* compact: the lowered horizon never reaches the ledger, and its ground must not dim the dial title (QA D-060) */
+  .cor-ledger { background: none; box-shadow: none; }
 }
 @media (max-width: 767px) {
   /* QA D-046: the band row wraps inside the ledger card instead of running off the right edge */

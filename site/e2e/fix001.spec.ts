@@ -4,6 +4,7 @@
  */
 import { expect, test, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { collisions } from "./collide";
 
 const ALL = [[1920, 1080], [1440, 900], [1024, 768], [768, 1024], [390, 844], [375, 812], [360, 800]] as const;
 const DT = ALL.filter(([w]) => w >= 768);
@@ -26,46 +27,6 @@ const jump = async (page: Page, id: string, p: number, wait = 900) => {
 };
 const overlap = (a: R, b: R, slack = 0) => a.left < b.right - slack && b.left < a.right - slack && a.top < b.bottom - slack && b.top < a.bottom - slack;
 
-/** Tight text boxes (one per rendered line) for each selector's visible elements. */
-function textBoxes(page: Page, selectors: string[]) {
-  return page.evaluate((sels) => {
-    const out: { name: string; left: number; top: number; right: number; bottom: number }[] = [];
-    for (const sel of sels) {
-      document.querySelectorAll<HTMLElement>(sel).forEach((el, k) => {
-        const cs = getComputedStyle(el);
-        if (cs.display === "none" || cs.visibility === "hidden" || Number(cs.opacity) < 0.05 || el.closest("[aria-hidden=true]")) return;
-        let o: HTMLElement | null = el; let op = 1;
-        while (o) { op *= Number(getComputedStyle(o).opacity); o = o.parentElement; }
-        if (op < 0.05) return;
-        const range = document.createRange();
-        range.selectNodeContents(el);
-        for (const r of Array.from(range.getClientRects())) {
-          if (r.width < 2 || r.height < 2 || r.bottom < 0 || r.top > innerHeight) continue;
-          out.push({ name: `${sel}#${k}`, left: r.left, top: r.top, right: r.right, bottom: r.bottom });
-        }
-      });
-    }
-    return out;
-  }, selectors);
-}
-/** Does the ring's stroke (circle of radius r, +-4px for nodes) pass through the box? */
-function crossesRing(b: R, g: { cx: number; cy: number; r: number }) {
-  const nx = Math.max(b.left, Math.min(g.cx, b.right)), ny = Math.max(b.top, Math.min(g.cy, b.bottom));
-  const near = Math.hypot(nx - g.cx, ny - g.cy);
-  const far = Math.max(...[[b.left, b.top], [b.right, b.top], [b.left, b.bottom], [b.right, b.bottom]].map(([x, y]) => Math.hypot(x! - g.cx, y! - g.cy)));
-  return near <= g.r + 4 && far >= g.r - 4;
-}
-function expectNoCollisions(boxes: R[], ring: { cx: number; cy: number; r: number } | null, ringFree: string[], label: string) {
-  for (let i = 0; i < boxes.length; i++) {
-    const a = boxes[i]!;
-    for (let j = i + 1; j < boxes.length; j++) {
-      const b = boxes[j]!;
-      if (a.name!.split("#")[0] === b.name!.split("#")[0] && a.name === b.name) continue; // lines of one block
-      expect(overlap(a, b, 1), `${label}: ${a.name} overlaps ${b.name}`).toBe(false);
-    }
-    if (ring && ringFree.some((s) => a.name!.startsWith(s))) expect(crossesRing(a, ring), `${label}: ring crosses ${a.name}`).toBe(false);
-  }
-}
 /**
  * Ring-vs-text is asserted at 1024x768, the composition D-001 reported. At 1440 and 1920 the
  * ambient S01 ring deliberately runs behind the display type at low alpha (approved in B1);
@@ -75,18 +36,21 @@ const RING_CHECKED = (w: number, h: number) => (w === 1024 && h === 768) || (w =
 const ringGeom = (page: Page, w: number, h: number) => (RING_CHECKED(w, h) ? page.evaluate(() => window.__atlasRing?.geom ?? null) : Promise.resolve(null));
 
 async function d001Scenes(page: Page, w: number, h: number, tag = "") {
+  // boxes are generated from the DOM (QA L19): every text run, control and chip in the scene
+  const check = async (scene: string, label: string) => {
+    const r = await collisions(page, `#${scene}`, await ringGeom(page, w, h));
+    expect(r.boxes, `${label}: boxes found`).toBeGreaterThan(3);
+    expect(r.hits, `${w}x${h}${tag} ${label}`).toEqual([]);
+  };
   await open(page, w, h);
   await jump(page, "city", 0.78);
-  const city = await textBoxes(page, [".city-statement h2", ".city-cards .note", ".city-foot"]);
-  expectNoCollisions(city, await ringGeom(page, w, h), [".city-statement", ".city-cards"], `${w}x${h}${tag} S01`);
+  await check("city", "S01");
   await jump(page, "rush-hour", 0.35, 1200);
-  const rush = await textBoxes(page, [".rush-text h2", ".rush-text .scene-body", ".rush-controls", ".rush-tags", ".rush-readout"]);
-  expectNoCollisions(rush, await ringGeom(page, w, h), [".rush-text", ".rush-controls", ".rush-tags"], `${w}x${h}${tag} S03a`);
-  // every dial anchor, including the LaGuardia step at 0.8 / 0.88 / 0.95 where a third chip appears (QA D-047)
+  await check("rush-hour", "S03a");
+  // every dial anchor, including the LaGuardia step at 0.8 / 0.88 / 0.95 where a third chip appears (QA D-047, D-060)
   for (const p of [0.1, 0.3, 0.55, 0.8, 0.88, 0.95]) {
     await jump(page, "corridors", p, 2400);
-    const cor = await textBoxes(page, ["#corridors .cor-text h2", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-bands", "#corridors .cor-ledger", "#corridors .dial-title", "#corridors .ticket"]);
-    expectNoCollisions(cor, await ringGeom(page, w, h), ["#corridors .cor-text", "#corridors .cor-body", "#corridors .cor-chips", "#corridors .cor-ledger", "#corridors .dial-title"], `${w}x${h}${tag} S03b p${p}`);
+    await check("corridors", `S03b p${p}`);
   }
 }
 
@@ -95,7 +59,9 @@ async function d001Futures(page: Page, w: number, h: number, tag = "") {
   await jump(page, "futures", 0.5, 1500);
   const bb = JSON.parse((await page.locator(".fut-canvas").getAttribute("data-bbox"))!) as number[];
   const ring = { left: bb[0]!, top: bb[1]!, right: bb[2]!, bottom: bb[3]! };
-  const blocks = await textBoxes(page, ["#futures .fut-text h2", "#futures .fut-callout", "#futures .fut-text .cor-chips", "#futures .fut-caption", "#futures .fut-deltas", "#futures .fut-select"]);
+  const r = await collisions(page, "#futures");
+  expect(r.hits, `${w}x${h}${tag} S06`).toEqual([]);
+  const blocks = await page.evaluate(() => [...document.querySelectorAll<HTMLElement>("#futures .stage-content > :not(canvas):not(.fut-canvas)")].filter((e) => e.getBoundingClientRect().width > 0 && getComputedStyle(e).display !== "none" && !e.classList.contains("sr-only")).map((e) => { const x = e.getBoundingClientRect(); return { name: e.className, left: x.left, top: x.top, right: x.right, bottom: x.bottom }; }));
   for (const b of blocks) expect(overlap(ring, b), `${w}x${h}${tag}: ring vs ${b.name}`).toBe(false);
   // T and D: the minute bars are real bars, not 1px ticks (QA D-033 at 768)
   const bars = await page.locator("#futures .fut-bar").evaluateAll((els) => els.filter((e) => getComputedStyle(e).display !== "none").map((e) => (e as HTMLElement).offsetWidth));
@@ -378,32 +344,16 @@ for (const [w, h] of PHONES) test(`D-030/D-031/D-032: every data visual keeps it
 for (const [w, h] of PHONES) test(`D-035: S02 card 3 text blocks never overprint each other (${w}x${h})`, async ({ page }) => {
   await open(page, w, h);
   await jump(page, "anatomy", 0.5, 1500);
-  const card = page.locator("#anatomy .story-card").filter({ hasText: "WHAT WE REMOVED" });
-  const boxes = await card.evaluate((c) => {
-    const out: { name: string; left: number; top: number; right: number; bottom: number }[] = [];
-    const add = (name: string, el: Element | null) => {
-      if (!el) return;
-      const rg = document.createRange(); rg.selectNodeContents(el);
-      for (const r of Array.from(rg.getClientRects())) if (r.width > 1 && r.height > 1) out.push({ name, left: r.left, top: r.top, right: r.right, bottom: r.bottom });
-    };
-    add("title", c.querySelector(".story-card__title"));
-    c.querySelectorAll(".a-ledger tr").forEach((tr, i) => add(`row${i}`, tr));
-    add("check", c.querySelector(".a-ledger__check"));
-    add("body", c.querySelector(".story-card__body"));
-    add("tag", c.querySelector(".story-card__tag"));
-    const cr = c.getBoundingClientRect();
-    return { out, card: { top: cr.top, bottom: cr.bottom } };
+  // generated boxes (QA L19): every text run, control and chip of the shown card (card 3)
+  const r = await collisions(page, "#anatomy .story-card[data-active]");
+  expect(r.boxes).toBeGreaterThan(10);
+  expect(r.hits).toEqual([]);
+  const inside = await page.evaluate(() => {
+    const c = document.querySelector<HTMLElement>("#anatomy .story-card[data-active]")!;
+    const cb = c.getBoundingClientRect().bottom;
+    return [...c.querySelectorAll<HTMLElement>("*")].every((e) => e.getBoundingClientRect().bottom <= cb + 0.5);
   });
-  expect(boxes.out.length).toBeGreaterThan(6);
-  for (let i = 0; i < boxes.out.length; i++) {
-    const a = boxes.out[i]!;
-    expect(a.bottom, `${a.name} inside the card`).toBeLessThanOrEqual(boxes.card.bottom + 0.5);
-    for (let j = i + 1; j < boxes.out.length; j++) {
-      const b = boxes.out[j]!;
-      if (a.name === b.name) continue;
-      expect(overlap(a, b, 1), `${a.name} vs ${b.name}`).toBe(false);
-    }
-  }
+  expect(inside, "every element inside the card").toBe(true);
 });
 
 for (const [w, h] of ALL) test(`D-039: S04 direct labels are pairwise disjoint in every metric (${w}x${h})`, async ({ page }) => {
@@ -526,4 +476,15 @@ for (const [w, h] of [[390, 844], [375, 812], [360, 800]] as const) test(`D-058/
   });
   expect(m.gap).toBeGreaterThanOrEqual(8);
   expect(m.dagger).toBeGreaterThanOrEqual(11);
+});
+
+/* ---------------- P01-FIX-005 (QA pass 5) ---------------- */
+
+test("D-061: a meta.json failure is announced on a cold arrival at S02 card 4 (desktop)", async ({ page }) => {
+  await page.route("**/data/meta.json", (r) => r.fulfill({ status: 500, body: "" }));
+  await open(page, 1440, 900);
+  await jump(page, "anatomy", 0.9, 1500);
+  const a = page.locator("[role=alert]", { hasText: "META.JSON" });
+  await expect(a).toHaveCount(1);
+  await expect(a).toBeInViewport();
 });

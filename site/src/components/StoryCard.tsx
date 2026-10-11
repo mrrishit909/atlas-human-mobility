@@ -20,7 +20,7 @@ export interface StoryCardProps {
 export function StoryCard({ variant, chip, title, body, visual, tag, index, count, active, onSelect }: StoryCardProps) {
   const segs = Array.from({ length: count }, (_, i) => i);
   return (
-    <article className={`story-card story-card--${variant}`} data-card={index} aria-roledescription="story card">
+    <article className={`story-card story-card--${variant}`} data-card={index} data-active={active || undefined} aria-roledescription="story card">
       <span className="story-card__chip">{chip}</span>
       {active && onSelect ? (
         <div className="segs" role="tablist" aria-label="Story progress" onKeyDown={(e) => {

@@ -88,10 +88,12 @@ export function StoryDeck({ track, cards }: { track: string; cards: DeckCard[] }
 
   const select = (i: number) => jumpTo(track, cardLanding(i, n));
 
+  // D/T keep the previous card in view beside the shown one; its error line stays live there (QA D-061)
+  const wide = viewportClass(document.documentElement.clientWidth) !== "M";
   return (
     <div className="deck" ref={root}>
       {cards.map((c, i) => (
-        <StoryCard key={i} {...c} visual={typeof c.visual === "function" ? c.visual(i === active || !motionEnabled()) : c.visual} body={typeof c.body === "function" ? c.body(i === active || !motionEnabled()) : c.body} index={i} count={n} active={i === active} onSelect={select} />
+        <StoryCard key={i} {...c} visual={typeof c.visual === "function" ? c.visual(i === active || !motionEnabled()) : c.visual} body={typeof c.body === "function" ? c.body(i === active || !motionEnabled() || (i === active - 1 && wide)) : c.body} index={i} count={n} active={i === active} onSelect={select} />
       ))}
     </div>
   );

@@ -50,6 +50,7 @@ const CASES: [string, string, number, string?][] = [
 
 for (const [w, h] of VPS) for (const [file, scene, p, layer] of CASES) {
   test(`L12 RETRY: ${file} in ${scene} at ${w}x${h} is reachable and recovers with a real ${w < 768 ? "tap" : "click"}`, async ({ browser }, info) => {
+    test.setTimeout(60_000); // OBS layer cases open the layer sheet and load a model; 30s is tight under load
     const { ctx, page } = await context(browser, info.project.use.baseURL!, w, h);
     let block = true, hits = 0;
     await page.route(`**/data/${file}`, (r) => { hits++; return block ? r.fulfill({ status: 500, body: "" }) : r.continue(); });
@@ -91,7 +92,8 @@ for (const [w, h] of VPS) test(`L12 every control: the topmost element at each v
   let checked = 0;
   for (const [scene, p] of LANDINGS) {
     await land(page, scene, p);
-    const found = await page.evaluate(() => {
+    // QA D-044: controls fade in (OBS); scan until the count of shown controls stops changing, not after a fixed time
+    const scan = () => page.evaluate(() => {
       const out: string[] = [];
       let n = 0;
       const els = document.querySelectorAll<HTMLElement>("button, a[href], [role=radio], [role=tab], input, [role=combobox]");
@@ -110,6 +112,8 @@ for (const [w, h] of VPS) test(`L12 every control: the topmost element at each v
       }
       return { out, n };
     });
+    let found = await scan();
+    for (let k = 0, prev = -1; k < 12 && found.n !== prev; k++) { prev = found.n; await page.waitForTimeout(500); found = await scan(); }
     checked += found.n;
     bad.push(...found.out.map((f) => `${scene}@${p}: ${f}`));
   }
