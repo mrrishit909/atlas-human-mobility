@@ -1,4 +1,100 @@
 {
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-01.parquet": {
+    "bytes": 472757547,
+    "kind": "fhvhv",
+    "last_modified": "Thu, 21 Mar 2024 15:35:44 GMT",
+    "retrieved_at": "2026-10-10T22:51:57Z",
+    "sha256": "9897de352aa52cea36b70348cc6721b8d4494327ce39c85f0dba83d86ecaa098",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-01.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-02.parquet": {
+    "bytes": 462475428,
+    "kind": "fhvhv",
+    "last_modified": "Fri, 19 Apr 2024 18:22:42 GMT",
+    "retrieved_at": "2026-10-10T22:52:23Z",
+    "sha256": "54bafa7bcf3f06e7833fcbccf7ef158eb793a72ee1c4bb8bf080e56ae71a15d6",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-02.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-03.parquet": {
+    "bytes": 507940560,
+    "kind": "fhvhv",
+    "last_modified": "Wed, 22 May 2024 19:27:43 GMT",
+    "retrieved_at": "2026-10-10T22:52:51Z",
+    "sha256": "ff25b93f890f889637963b749d0839ec5a15f075d23ea5297b3312ed9a10d6d9",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-03.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-04.parquet": {
+    "bytes": 476115643,
+    "kind": "fhvhv",
+    "last_modified": "Thu, 20 Jun 2024 20:30:13 GMT",
+    "retrieved_at": "2026-10-10T22:53:20Z",
+    "sha256": "1493f3edd0486bf6c3f949cb5a66ec49e9d04f7ad6e94f85626f16aa6fec7260",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-04.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-05.parquet": {
+    "bytes": 498575918,
+    "kind": "fhvhv",
+    "last_modified": "Thu, 18 Jul 2024 18:35:19 GMT",
+    "retrieved_at": "2026-10-10T22:53:54Z",
+    "sha256": "152db11cbc95a796fea0b9cb26184b3c4cfad181fa9d7488d4c61f06c521b4b5",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-05.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-06.parquet": {
+    "bytes": 484417715,
+    "kind": "fhvhv",
+    "last_modified": "Tue, 20 Aug 2024 14:01:56 GMT",
+    "retrieved_at": "2026-10-10T22:54:26Z",
+    "sha256": "4772ee1ab01e639a5db74169b49049f74f0f46a0c925fd3b67f9f068221f6373",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-06.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-07.parquet": {
+    "bytes": 468437522,
+    "kind": "fhvhv",
+    "last_modified": "Wed, 18 Sep 2024 13:53:34 GMT",
+    "retrieved_at": "2026-10-10T22:54:52Z",
+    "sha256": "3a511a8df72441d72b32f6ce9829e29f5d61666e37f1b40b8d352cc5830c81e1",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-07.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-08.parquet": {
+    "bytes": 465991646,
+    "kind": "fhvhv",
+    "last_modified": "Wed, 23 Oct 2024 18:45:26 GMT",
+    "retrieved_at": "2026-10-10T22:55:17Z",
+    "sha256": "99fd2913d2c8935e4c1d166f229290a90971b6564c490a8ba2a257de9e08fae2",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-08.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-09.parquet": {
+    "bytes": 466470118,
+    "kind": "fhvhv",
+    "last_modified": "Wed, 20 Nov 2024 21:37:39 GMT",
+    "retrieved_at": "2026-10-10T22:55:41Z",
+    "sha256": "d2d26d608a775555128a2b435d375f5d25d3d8125b688c57fc60d5a0fb5a1d3b",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-09.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-10.parquet": {
+    "bytes": 485102359,
+    "kind": "fhvhv",
+    "last_modified": "Wed, 18 Dec 2024 21:21:21 GMT",
+    "retrieved_at": "2026-10-10T22:56:06Z",
+    "sha256": "8ee625798a6543148c3a3e33df5e2cf44acb17af904dbfff925d1cd4f077afb5",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-10.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-11.parquet": {
+    "bytes": 480228052,
+    "kind": "fhvhv",
+    "last_modified": "Fri, 17 Jan 2025 20:03:41 GMT",
+    "retrieved_at": "2026-10-10T22:56:39Z",
+    "sha256": "cc3547280a9ff6edb4eaa467a3aa0ea2a372fca746e3e733d1ea3152d56daed3",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-11.parquet"
+  },
+  "data/raw/tlc/fhvhv/fhvhv_tripdata_2024-12.parquet": {
+    "bytes": 507534115,
+    "kind": "fhvhv",
+    "last_modified": "Fri, 21 Feb 2025 21:29:11 GMT",
+    "retrieved_at": "2026-10-10T22:57:10Z",
+    "sha256": "dcf0885722bc76ab7b5f22a23b784513caf7e7c2b23381ed854610c436c48887",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-12.parquet"
+  },
   "data/raw/tlc/green/green_tripdata_2024-01.parquet": {
     "bytes": 1362284,
     "kind": "green",
@@ -54,6 +150,46 @@
     "retrieved_at": "2026-10-10T22:51:27Z",
     "sha256": "ce0d7591316050bea21da49e383eb733411e98ae17e114afcc7fbe4b36b116f2",
     "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-07.parquet"
+  },
+  "data/raw/tlc/green/green_tripdata_2024-08.parquet": {
+    "bytes": 1267079,
+    "kind": "green",
+    "last_modified": "Wed, 23 Oct 2024 18:45:27 GMT",
+    "retrieved_at": "2026-10-10T22:51:28Z",
+    "sha256": "733210fb27cbe8cf8b0ad9f5d6fff03dfafcc8ff7c2beb1c1b707825d72f0376",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-08.parquet"
+  },
+  "data/raw/tlc/green/green_tripdata_2024-09.parquet": {
+    "bytes": 1326186,
+    "kind": "green",
+    "last_modified": "Wed, 20 Nov 2024 21:37:40 GMT",
+    "retrieved_at": "2026-10-10T22:51:28Z",
+    "sha256": "8f6aa8f3e8a2040fc161c7fbcb60e5418238b27e7e95998363572a4c977b69ce",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-09.parquet"
+  },
+  "data/raw/tlc/green/green_tripdata_2024-10.parquet": {
+    "bytes": 1353731,
+    "kind": "green",
+    "last_modified": "Wed, 18 Dec 2024 21:21:22 GMT",
+    "retrieved_at": "2026-10-10T22:51:29Z",
+    "sha256": "6e737b7c4edac91f865aa210f7110d0118a9992b3a96720936e090277c24edaa",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-10.parquet"
+  },
+  "data/raw/tlc/green/green_tripdata_2024-11.parquet": {
+    "bytes": 1264688,
+    "kind": "green",
+    "last_modified": "Fri, 17 Jan 2025 20:03:42 GMT",
+    "retrieved_at": "2026-10-10T22:51:29Z",
+    "sha256": "fde255b43d4158124921b7c085d9abf15de5c5a9128c2ce0fb4e2372bc1e0d4a",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-11.parquet"
+  },
+  "data/raw/tlc/green/green_tripdata_2024-12.parquet": {
+    "bytes": 1312306,
+    "kind": "green",
+    "last_modified": "Fri, 21 Feb 2025 21:29:12 GMT",
+    "retrieved_at": "2026-10-10T22:51:30Z",
+    "sha256": "1d708f58d29b0795a54ca11a36db6df61262986d122985f0fb52a56acc064bac",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-12.parquet"
   },
   "data/raw/tlc/yellow/yellow_tripdata_2024-01.parquet": {
     "bytes": 49961641,
@@ -163,7 +299,7 @@
     "bytes": 12331,
     "kind": "zones",
     "last_modified": "Thu, 22 Feb 2024 21:33:00 GMT",
-    "retrieved_at": "2026-10-10T22:50:31Z",
+    "retrieved_at": "2026-10-10T22:57:17Z",
     "sha256": "1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed",
     "url": "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv"
   },
