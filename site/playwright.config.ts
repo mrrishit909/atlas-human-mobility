@@ -4,6 +4,8 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "e2e",
   fullyParallel: true,
+  // each worker runs deck.gl on software WebGL (SwiftShader); more than 2 starves the CPU and times out
+  workers: 2,
   reporter: [["list"]],
   use: { baseURL: "http://localhost:4301/atlas-human-mobility/" },
   webServer: {
