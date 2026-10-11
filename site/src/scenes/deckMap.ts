@@ -41,6 +41,7 @@ function hatchAtlas() {
   return c;
 }
 
+let redraws = 0;
 export function createMap(parent: HTMLDivElement, geo: ZonesGeo, onHover: (loc: number | null, x: number, y: number) => void, onClick: (loc: number | null) => void = () => undefined) {
   let view: MapViewState = { longitude: -73.95, latitude: 40.7, zoom: 9.5, pitch: 0, bearing: 0 };
   let controller = false;
@@ -52,6 +53,7 @@ export function createMap(parent: HTMLDivElement, geo: ZonesGeo, onHover: (loc: 
     layers: [],
     style: { position: "absolute", inset: "0" },
     onError: () => undefined,
+    onAfterRender: () => { redraws++; },
     // EXPLORE mode only (the stage ignores pointer events otherwise)
     onHover: (info) => onHover((info.object as Feature | undefined)?.properties?.id ?? null, info.x, info.y),
     onClick: (info) => onClick((info.object as Feature | undefined)?.properties?.id ?? null),
@@ -153,6 +155,8 @@ export function createMap(parent: HTMLDivElement, geo: ZonesGeo, onHover: (loc: 
       else { loop._cancelAnimationFrame(); loop._running = false; }
     },
     isRunning: () => running,
+    /** screen redraws so far (offscreen-pause evidence) */
+    redraws: () => redraws,
     viewport(w: number, h: number) {
       return new WebMercatorViewport({ width: w, height: h, ...view });
     },

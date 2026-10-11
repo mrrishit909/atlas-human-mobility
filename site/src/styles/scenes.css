@@ -196,7 +196,10 @@ html[data-motion="off"] .scene-anatomy .stage-content { padding: 0; }
 
 /* ---------- map stage (S04, S05, OBS, S08) ---------- */
 .map-stage { position: fixed; inset: 0; z-index: 0; opacity: 0; pointer-events: none; }
-.map-stage.is-explore { pointer-events: auto; z-index: 3; }
+.map-stage.is-explore { pointer-events: auto; }
+/* EXPLORE: the map stays under the tracks; the OBS track lets pointer events fall through to it,
+   while its controls (rail, search, EXIT) stay clickable above it */
+.scene-obs.is-explore, .scene-obs.is-explore .stage, .scene-obs.is-explore .stage-content { pointer-events: none; }
 html.is-gallery .map-stage { display: none; }
 
 /* ---------- S05 Pressure Lab ---------- */

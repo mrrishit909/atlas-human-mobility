@@ -151,3 +151,56 @@ for (const [name, setup] of [
     expect(bad.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).slice(0, 5).join(", ")}`)).toEqual([]);
   });
 }
+
+type MapApi = { isRunning: () => boolean; redraws: () => number };
+const api = (page: Page) => page.evaluate(() => { const a = (window as unknown as { __atlas: { mapApi: () => MapApi } }).__atlas.mapApi(); return { running: a.isRunning(), redraws: a.redraws() }; });
+
+test("fix 5: deck's render loop is paused offscreen and idle frames never redraw", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "same logic");
+  await open(page);
+  await jump(page, "demand", 0.9);
+  await page.waitForFunction(() => !!(window as unknown as Atlas).__atlas.mapApi?.(), null, { timeout: 20000 });
+  await page.waitForTimeout(1200);
+  expect((await api(page)).running).toBe(true);
+  await jump(page, "anatomy", 0.4);
+  await page.waitForTimeout(500);
+  const a = await api(page);
+  expect(a.running).toBe(false);
+  await page.waitForTimeout(2000);
+  expect((await api(page)).redraws).toBe(a.redraws);
+  // OBS, flows off, no input: running but idle
+  await jump(page, "observatory", 0);
+  await page.evaluate(() => (window as unknown as Atlas).__atlas.setObs({ flows: false }));
+  await page.waitForTimeout(3500); // let the camera tween (1.2s) and attribute transitions (0.8s) finish under load
+  const b = await api(page);
+  expect(b.running).toBe(true);
+  await page.waitForTimeout(2000);
+  expect((await api(page)).redraws).toBe(b.redraws);
+});
+
+test("EXPLORE: the rail stays clickable and EXIT restores scroll (D)", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "D");
+  await open(page);
+  await jump(page, "observatory", 0);
+  await page.waitForFunction(() => !!(window as unknown as Atlas).__atlas.mapApi?.(), null, { timeout: 20000 });
+  await page.getByRole("button", { name: "EXPLORE" }).click();
+  const y = await page.evaluate(() => scrollY);
+  await page.locator(".obs-rail").getByRole("radio", { name: "SPEED" }).click();
+  await expect(page.locator(".obs-rail").getByRole("radio", { name: "SPEED" })).toHaveAttribute("aria-checked", "true");
+  await page.getByRole("button", { name: "EXIT ✕" }).click();
+  await expect(page.locator("html")).not.toHaveCSS("overflow", "hidden");
+  expect(Math.abs((await page.evaluate(() => scrollY)) - y)).toBeLessThan(2);
+});
+
+test("EXPLORE on touch: tap EXPLORE, tap EXIT, scroll is released (M)", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "M");
+  await open(page);
+  await jump(page, "observatory", 0);
+  await page.waitForFunction(() => !!(window as unknown as Atlas).__atlas.mapApi?.(), null, { timeout: 20000 });
+  await page.getByRole("button", { name: "EXPLORE" }).tap();
+  await expect(page.locator("html")).toHaveCSS("overflow", "hidden");
+  const y = await page.evaluate(() => scrollY);
+  await page.getByRole("button", { name: "EXIT ✕" }).tap();
+  await expect(page.locator("html")).not.toHaveCSS("overflow", "hidden");
+  expect(Math.abs((await page.evaluate(() => scrollY)) - y)).toBeLessThan(2);
+});

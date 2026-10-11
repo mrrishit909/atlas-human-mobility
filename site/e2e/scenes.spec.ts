@@ -87,7 +87,10 @@ test("deep link to #demand loads zone shapes and lands on the map without visiti
   await expect(page.locator(".dem-text")).toContainText("HEIGHT = 2024 PICKUPS");
 });
 
-const FAILURES: { file: string; scene: string; p: number; region: string; recovered: string }[] = [
+const FAILURES: { file: string; scene: string; p: number; region: string; recovered: string; disabled?: string }[] = [
+  { file: "bpr_fit.json", scene: "pressure", p: 0.5, region: ".scene-pressure", recovered: "MEDIAN SPEED", disabled: ".lab-range input" },
+  { file: "daily.json", scene: "evidence", p: 0.5, region: ".ev-stack", recovered: "RAW TOTALS" },
+  { file: "weather_model.json", scene: "evidence", p: 0.5, region: ".scene-evidence", recovered: "ASSOCIATION, NOT CAUSE" },
   { file: "facts.json", scene: "anatomy", p: 0.14, region: ".scene-anatomy", recovered: "A journey, as the city records it." },
   { file: "reconciliation.json", scene: "anatomy", p: 0.6, region: ".scene-anatomy", recovered: "RAW = KEPT + EXCLUDED" },
   { file: "od_top.json", scene: "corridors", p: 0.1, region: ".cor-text", recovered: "OF RIDES THAT START IN MANHATTAN" },
@@ -103,6 +106,7 @@ for (const f of FAILURES) {
     const alert = page.locator(`${f.region} [role=alert]`).filter({ hasText: `COULD NOT LOAD ${f.file.toUpperCase()} (HTTP 500)` }).first();
     await expect(alert).toBeVisible({ timeout: 15000 });
     expect(calls).toBe(1); // no silent retry
+    if (f.disabled) await expect(page.locator(f.disabled).first()).toBeDisabled();
     await alert.getByRole("button", { name: "RETRY" }).click();
     await expect(page.locator(f.region).first()).toContainText(f.recovered, { timeout: 15000 });
     expect(calls).toBe(2);

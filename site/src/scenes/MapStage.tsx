@@ -301,6 +301,10 @@ export function MapStage() {
     el.style.opacity = visible ? String(frame!.opacity) : "0";
     el.style.clipPath = frame?.clip ? `inset(${frame.clip[0]}px 0 ${frame.clip[1]}px 0)` : "";
     el.classList.toggle("is-explore", obs.explore && scene === "observatory");
+    // out of the a11y tree when not shown; the canvas is only keyboard-reachable while exploring
+    el.setAttribute("aria-hidden", visible ? "false" : "true");
+    const cv = el.querySelector("canvas");
+    if (cv) cv.tabIndex = obs.explore ? 0 : -1;
     if (!visible) return;
     const key = `${scene}:${JSON.stringify(frame!.view)}:${frame!.style.key}:${frame!.style.polygonOpacity.toFixed(3)}:${frame!.style.elevationScale.toFixed(3)}`;
     if (key === last.current && !frame!.live) return;

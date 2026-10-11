@@ -53,12 +53,19 @@ export function introTime(now: number) {
 
 const geoCache = { key: "", xs: new Float32Array(0), ys: new Float32Array(0), cx: 0, cy: 0 };
 function geoPositions(m: RingModel, w: number, h: number, cls: ViewportClass) {
-  const key = `${w}x${h}`;
+  const key = `${w}x${h}:${orbitChords()?.length ?? 0}`;
   if (geoCache.key !== key) {
     let a = 180, b = -180, c = 90, d = -90;
-    for (let i = 0; i < m.n; i++) { a = Math.min(a, m.lon[i]!); b = Math.max(b, m.lon[i]!); c = Math.min(c, m.lat[i]!); d = Math.max(d, m.lat[i]!); }
+    // fit what is actually lit at 900-1900ms (the zones the top-600 corridors touch), not the whole
+    // city: untouched outer zones appear later and fly in from beyond the frame (fix 3)
+    const lit = new Set<number>();
+    for (const ch of orbitChords() ?? []) { lit.add(ch.a); lit.add(ch.b); }
+    for (let i = 0; i < m.n; i++) {
+      if (lit.size && !lit.has(i) && cls !== "M") continue;
+      a = Math.min(a, m.lon[i]!); b = Math.max(b, m.lon[i]!); c = Math.min(c, m.lat[i]!); d = Math.max(d, m.lat[i]!);
+    }
     // D/T: the city spans about 60% of the viewport height before it gathers into R0
-    const pad = cls === "M" ? { left: 24, right: 24, top: 90, bottom: 260 } : { left: w * 0.05, right: w * 0.05, top: h * 0.2, bottom: h * 0.2 };
+    const pad = cls === "M" ? { left: 24, right: 24, top: 90, bottom: 260 } : { left: w * 0.05, right: w * 0.05, top: h * 0.1, bottom: h * 0.12 };
     const vp = new WebMercatorViewport({ width: w, height: h }).fitBounds([[a, c], [b, d]], { padding: pad });
     const xs = new Float32Array(m.n), ys = new Float32Array(m.n);
     for (let i = 0; i < m.n; i++) { const [x, y] = vp.project([m.lon[i]!, m.lat[i]!]); xs[i] = x!; ys[i] = y!; }
