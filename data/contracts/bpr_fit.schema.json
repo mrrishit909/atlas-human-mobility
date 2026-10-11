@@ -1,0 +1,672 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "boroughs": {
+   "additionalProperties": true,
+   "properties": {
+    "Bronx": {
+     "additionalProperties": true,
+     "properties": {
+      "alpha": {
+       "type": "number"
+      },
+      "baseline": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "fitted_speed_mph": {
+          "type": "number"
+         },
+         "how": {
+          "type": "integer"
+         },
+         "median_speed_mph": {
+          "type": "number"
+         },
+         "median_trip_min": {
+          "type": "number"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "v": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "how",
+         "v",
+         "x",
+         "median_speed_mph",
+         "median_trip_min",
+         "tti",
+         "fitted_speed_mph"
+        ],
+        "type": "object"
+       },
+       "maxItems": 168,
+       "minItems": 168,
+       "type": "array"
+      },
+      "beta": {
+       "type": "number"
+      },
+      "binned_points": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "n": {
+          "type": "integer"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "x",
+         "tti",
+         "n"
+        ],
+        "type": "object"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "capacity_index": {
+       "type": "number"
+      },
+      "capacity_units": {
+       "type": "string"
+      },
+      "free_flow_mph": {
+       "type": "number"
+      },
+      "holdout": {
+       "type": "object"
+      },
+      "n": {
+       "type": "integer"
+      },
+      "r2": {
+       "type": "number"
+      },
+      "rmse": {
+       "type": "number"
+      },
+      "t0_min_per_mile": {
+       "type": "number"
+      },
+      "x_max_observed": {
+       "type": "number"
+      },
+      "zone_level": {
+       "type": "object"
+      }
+     },
+     "required": [
+      "t0_min_per_mile",
+      "free_flow_mph",
+      "alpha",
+      "beta",
+      "capacity_index",
+      "capacity_units",
+      "rmse",
+      "r2",
+      "n",
+      "x_max_observed",
+      "binned_points",
+      "baseline",
+      "zone_level",
+      "holdout"
+     ],
+     "type": "object"
+    },
+    "Brooklyn": {
+     "additionalProperties": true,
+     "properties": {
+      "alpha": {
+       "type": "number"
+      },
+      "baseline": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "fitted_speed_mph": {
+          "type": "number"
+         },
+         "how": {
+          "type": "integer"
+         },
+         "median_speed_mph": {
+          "type": "number"
+         },
+         "median_trip_min": {
+          "type": "number"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "v": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "how",
+         "v",
+         "x",
+         "median_speed_mph",
+         "median_trip_min",
+         "tti",
+         "fitted_speed_mph"
+        ],
+        "type": "object"
+       },
+       "maxItems": 168,
+       "minItems": 168,
+       "type": "array"
+      },
+      "beta": {
+       "type": "number"
+      },
+      "binned_points": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "n": {
+          "type": "integer"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "x",
+         "tti",
+         "n"
+        ],
+        "type": "object"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "capacity_index": {
+       "type": "number"
+      },
+      "capacity_units": {
+       "type": "string"
+      },
+      "free_flow_mph": {
+       "type": "number"
+      },
+      "holdout": {
+       "type": "object"
+      },
+      "n": {
+       "type": "integer"
+      },
+      "r2": {
+       "type": "number"
+      },
+      "rmse": {
+       "type": "number"
+      },
+      "t0_min_per_mile": {
+       "type": "number"
+      },
+      "x_max_observed": {
+       "type": "number"
+      },
+      "zone_level": {
+       "type": "object"
+      }
+     },
+     "required": [
+      "t0_min_per_mile",
+      "free_flow_mph",
+      "alpha",
+      "beta",
+      "capacity_index",
+      "capacity_units",
+      "rmse",
+      "r2",
+      "n",
+      "x_max_observed",
+      "binned_points",
+      "baseline",
+      "zone_level",
+      "holdout"
+     ],
+     "type": "object"
+    },
+    "Manhattan": {
+     "additionalProperties": true,
+     "properties": {
+      "alpha": {
+       "type": "number"
+      },
+      "baseline": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "fitted_speed_mph": {
+          "type": "number"
+         },
+         "how": {
+          "type": "integer"
+         },
+         "median_speed_mph": {
+          "type": "number"
+         },
+         "median_trip_min": {
+          "type": "number"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "v": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "how",
+         "v",
+         "x",
+         "median_speed_mph",
+         "median_trip_min",
+         "tti",
+         "fitted_speed_mph"
+        ],
+        "type": "object"
+       },
+       "maxItems": 168,
+       "minItems": 168,
+       "type": "array"
+      },
+      "beta": {
+       "type": "number"
+      },
+      "binned_points": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "n": {
+          "type": "integer"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "x",
+         "tti",
+         "n"
+        ],
+        "type": "object"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "capacity_index": {
+       "type": "number"
+      },
+      "capacity_units": {
+       "type": "string"
+      },
+      "free_flow_mph": {
+       "type": "number"
+      },
+      "holdout": {
+       "type": "object"
+      },
+      "n": {
+       "type": "integer"
+      },
+      "r2": {
+       "type": "number"
+      },
+      "rmse": {
+       "type": "number"
+      },
+      "t0_min_per_mile": {
+       "type": "number"
+      },
+      "x_max_observed": {
+       "type": "number"
+      },
+      "zone_level": {
+       "type": "object"
+      }
+     },
+     "required": [
+      "t0_min_per_mile",
+      "free_flow_mph",
+      "alpha",
+      "beta",
+      "capacity_index",
+      "capacity_units",
+      "rmse",
+      "r2",
+      "n",
+      "x_max_observed",
+      "binned_points",
+      "baseline",
+      "zone_level",
+      "holdout"
+     ],
+     "type": "object"
+    },
+    "Queens": {
+     "additionalProperties": true,
+     "properties": {
+      "alpha": {
+       "type": "number"
+      },
+      "baseline": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "fitted_speed_mph": {
+          "type": "number"
+         },
+         "how": {
+          "type": "integer"
+         },
+         "median_speed_mph": {
+          "type": "number"
+         },
+         "median_trip_min": {
+          "type": "number"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "v": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "how",
+         "v",
+         "x",
+         "median_speed_mph",
+         "median_trip_min",
+         "tti",
+         "fitted_speed_mph"
+        ],
+        "type": "object"
+       },
+       "maxItems": 168,
+       "minItems": 168,
+       "type": "array"
+      },
+      "beta": {
+       "type": "number"
+      },
+      "binned_points": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "n": {
+          "type": "integer"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "x",
+         "tti",
+         "n"
+        ],
+        "type": "object"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "capacity_index": {
+       "type": "number"
+      },
+      "capacity_units": {
+       "type": "string"
+      },
+      "free_flow_mph": {
+       "type": "number"
+      },
+      "holdout": {
+       "type": "object"
+      },
+      "n": {
+       "type": "integer"
+      },
+      "r2": {
+       "type": "number"
+      },
+      "rmse": {
+       "type": "number"
+      },
+      "t0_min_per_mile": {
+       "type": "number"
+      },
+      "x_max_observed": {
+       "type": "number"
+      },
+      "zone_level": {
+       "type": "object"
+      }
+     },
+     "required": [
+      "t0_min_per_mile",
+      "free_flow_mph",
+      "alpha",
+      "beta",
+      "capacity_index",
+      "capacity_units",
+      "rmse",
+      "r2",
+      "n",
+      "x_max_observed",
+      "binned_points",
+      "baseline",
+      "zone_level",
+      "holdout"
+     ],
+     "type": "object"
+    },
+    "Staten Island": {
+     "additionalProperties": true,
+     "properties": {
+      "alpha": {
+       "type": "number"
+      },
+      "baseline": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "fitted_speed_mph": {
+          "type": "number"
+         },
+         "how": {
+          "type": "integer"
+         },
+         "median_speed_mph": {
+          "type": "number"
+         },
+         "median_trip_min": {
+          "type": "number"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "v": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "how",
+         "v",
+         "x",
+         "median_speed_mph",
+         "median_trip_min",
+         "tti",
+         "fitted_speed_mph"
+        ],
+        "type": "object"
+       },
+       "maxItems": 168,
+       "minItems": 168,
+       "type": "array"
+      },
+      "beta": {
+       "type": "number"
+      },
+      "binned_points": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "n": {
+          "type": "integer"
+         },
+         "tti": {
+          "type": "number"
+         },
+         "x": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "x",
+         "tti",
+         "n"
+        ],
+        "type": "object"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "capacity_index": {
+       "type": "number"
+      },
+      "capacity_units": {
+       "type": "string"
+      },
+      "free_flow_mph": {
+       "type": "number"
+      },
+      "holdout": {
+       "type": "object"
+      },
+      "n": {
+       "type": "integer"
+      },
+      "r2": {
+       "type": "number"
+      },
+      "rmse": {
+       "type": "number"
+      },
+      "t0_min_per_mile": {
+       "type": "number"
+      },
+      "x_max_observed": {
+       "type": "number"
+      },
+      "zone_level": {
+       "type": "object"
+      }
+     },
+     "required": [
+      "t0_min_per_mile",
+      "free_flow_mph",
+      "alpha",
+      "beta",
+      "capacity_index",
+      "capacity_units",
+      "rmse",
+      "r2",
+      "n",
+      "x_max_observed",
+      "binned_points",
+      "baseline",
+      "zone_level",
+      "holdout"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "Manhattan",
+    "Bronx",
+    "Queens",
+    "Brooklyn",
+    "Staten Island"
+   ],
+   "type": "object"
+  },
+  "free_flow_definition": {
+   "type": "string"
+  },
+  "identifiability": {
+   "type": "string"
+  },
+  "model": {
+   "type": "string"
+  },
+  "robustness_free_flow": {
+   "type": "object"
+  },
+  "scenario_functions": {
+   "type": "object"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "model",
+  "identifiability",
+  "scenario_functions",
+  "free_flow_definition",
+  "robustness_free_flow",
+  "boroughs"
+ ],
+ "title": "bpr_fit",
+ "type": "object"
+}

@@ -1,0 +1,50 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "columns": {
+   "items": {
+    "type": "string"
+   },
+   "maxItems": 3,
+   "minItems": 3,
+   "type": "array"
+  },
+  "note": {
+   "type": "string"
+  },
+  "rows": {
+   "items": {
+    "items": {
+     "type": "integer"
+    },
+    "maxItems": 3,
+    "minItems": 3,
+    "type": "array"
+   },
+   "maxItems": 600,
+   "minItems": 600,
+   "type": "array"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "columns",
+  "note",
+  "rows"
+ ],
+ "title": "od_ring_top",
+ "type": "object"
+}

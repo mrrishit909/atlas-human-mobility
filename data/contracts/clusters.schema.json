@@ -1,0 +1,114 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "clusters": {
+   "items": {
+    "additionalProperties": true,
+    "properties": {
+     "centroid": {
+      "items": {
+       "type": "number"
+      },
+      "maxItems": 168,
+      "minItems": 168,
+      "type": "array"
+     },
+     "feature_ratios_vs_city": {
+      "type": "object"
+     },
+     "id": {
+      "type": "integer"
+     },
+     "label": {
+      "type": "string"
+     },
+     "members": {
+      "items": {
+       "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array"
+     },
+     "share_of_trips": {
+      "type": "number"
+     },
+     "size": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "id",
+     "label",
+     "size",
+     "members",
+     "share_of_trips",
+     "feature_ratios_vs_city",
+     "centroid"
+    ],
+    "type": "object"
+   },
+   "minItems": 3,
+   "type": "array"
+  },
+  "excluded_zones": {
+   "items": {
+    "type": "integer"
+   },
+   "type": "array"
+  },
+  "features": {
+   "type": "string"
+  },
+  "k": {
+   "maximum": 8,
+   "minimum": 3,
+   "type": "integer"
+  },
+  "label_rule": {
+   "type": "string"
+  },
+  "min_zone_trips": {
+   "type": "integer"
+  },
+  "random_label_silhouette": {
+   "type": "object"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "silhouette": {
+   "type": "number"
+  },
+  "silhouette_by_k": {
+   "type": "object"
+  },
+  "stability_ari": {
+   "type": "object"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "k",
+  "silhouette",
+  "silhouette_by_k",
+  "stability_ari",
+  "random_label_silhouette",
+  "min_zone_trips",
+  "excluded_zones",
+  "features",
+  "label_rule",
+  "clusters"
+ ],
+ "title": "clusters",
+ "type": "object"
+}

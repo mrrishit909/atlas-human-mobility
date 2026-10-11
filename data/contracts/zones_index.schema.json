@@ -1,0 +1,90 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "borough_order": {
+   "items": {
+    "type": "string"
+   },
+   "type": "array"
+  },
+  "gap_deg": {
+   "type": "number"
+  },
+  "ring_rule": {
+   "type": "string"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "zones": {
+   "items": {
+    "additionalProperties": true,
+    "properties": {
+     "LocationID": {
+      "maximum": 263,
+      "minimum": 1,
+      "type": "integer"
+     },
+     "borough": {
+      "type": "string"
+     },
+     "lat": {
+      "maximum": 41,
+      "minimum": 40,
+      "type": "number"
+     },
+     "lon": {
+      "maximum": -73,
+      "minimum": -75,
+      "type": "number"
+     },
+     "name": {
+      "type": "string"
+     },
+     "ring_angle_deg": {
+      "maximum": 360,
+      "minimum": 0,
+      "type": "number"
+     },
+     "ring_index": {
+      "maximum": 262,
+      "minimum": 0,
+      "type": "integer"
+     }
+    },
+    "required": [
+     "LocationID",
+     "name",
+     "borough",
+     "lon",
+     "lat",
+     "ring_index",
+     "ring_angle_deg"
+    ],
+    "type": "object"
+   },
+   "maxItems": 263,
+   "minItems": 263,
+   "type": "array"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "ring_rule",
+  "gap_deg",
+  "borough_order",
+  "zones"
+ ],
+ "title": "zones_index",
+ "type": "object"
+}

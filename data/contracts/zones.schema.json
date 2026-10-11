@@ -1,0 +1,100 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "features": {
+   "items": {
+    "additionalProperties": true,
+    "properties": {
+     "geometry": {
+      "additionalProperties": true,
+      "properties": {
+       "coordinates": {
+        "type": "array"
+       },
+       "type": {
+        "enum": [
+         "Polygon",
+         "MultiPolygon"
+        ]
+       }
+      },
+      "required": [
+       "type",
+       "coordinates"
+      ],
+      "type": "object"
+     },
+     "id": {
+      "maximum": 263,
+      "minimum": 1,
+      "type": "integer"
+     },
+     "properties": {
+      "additionalProperties": true,
+      "properties": {
+       "borough": {
+        "type": "string"
+       },
+       "cx": {
+        "type": "number"
+       },
+       "cy": {
+        "type": "number"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "name": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "id",
+       "name",
+       "borough",
+       "cx",
+       "cy"
+      ],
+      "type": "object"
+     },
+     "type": {
+      "const": "Feature"
+     }
+    },
+    "required": [
+     "type",
+     "id",
+     "properties",
+     "geometry"
+    ],
+    "type": "object"
+   },
+   "maxItems": 263,
+   "minItems": 263,
+   "type": "array"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "type": {
+   "const": "FeatureCollection"
+  }
+ },
+ "required": [
+  "type",
+  "schema_version",
+  "tags",
+  "features"
+ ],
+ "title": "zones",
+ "type": "object"
+}

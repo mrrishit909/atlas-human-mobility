@@ -1,0 +1,117 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "functions": {
+   "items": {
+    "type": "string"
+   },
+   "type": "array"
+  },
+  "note": {
+   "type": "string"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "tolerance_rel": {
+   "type": "number"
+  },
+  "vectors": {
+   "items": {
+    "additionalProperties": true,
+    "properties": {
+     "case": {
+      "type": "string"
+     },
+     "expected": {
+      "additionalProperties": true,
+      "properties": {
+       "fitted_speed_mph": {
+        "type": "number"
+       },
+       "scenario_fitted_speed_mph": {
+        "type": "number"
+       },
+       "scenario_speed_mph": {
+        "type": "number"
+       }
+      },
+      "required": [
+       "fitted_speed_mph",
+       "scenario_speed_mph",
+       "scenario_fitted_speed_mph"
+      ],
+      "type": "object"
+     },
+     "inputs": {
+      "additionalProperties": true,
+      "properties": {
+       "alpha": {
+        "type": "number"
+       },
+       "beta": {
+        "type": "number"
+       },
+       "c": {
+        "type": "number"
+       },
+       "capacity_mult": {
+        "type": "number"
+       },
+       "demand_mult": {
+        "type": "number"
+       },
+       "ff_mph": {
+        "type": "number"
+       },
+       "obs_speed_mph": {
+        "type": "number"
+       },
+       "v": {
+        "type": "number"
+       }
+      },
+      "required": [
+       "obs_speed_mph",
+       "ff_mph",
+       "v",
+       "c",
+       "alpha",
+       "beta",
+       "demand_mult",
+       "capacity_mult"
+      ],
+      "type": "object"
+     }
+    },
+    "required": [
+     "case",
+     "inputs",
+     "expected"
+    ],
+    "type": "object"
+   },
+   "minItems": 20,
+   "type": "array"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "tolerance_rel",
+  "functions",
+  "note",
+  "vectors"
+ ],
+ "title": "bpr_test_vectors",
+ "type": "object"
+}

@@ -1,0 +1,61 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "columns": {
+   "items": {
+    "type": "string"
+   },
+   "maxItems": 3,
+   "minItems": 3,
+   "type": "array"
+  },
+  "d": {
+   "items": {
+    "type": "integer"
+   },
+   "minItems": 1,
+   "type": "array"
+  },
+  "note": {
+   "type": "string"
+  },
+  "o": {
+   "items": {
+    "type": "integer"
+   },
+   "minItems": 1,
+   "type": "array"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "trips": {
+   "items": {
+    "minimum": 11,
+    "type": "integer"
+   },
+   "minItems": 1,
+   "type": "array"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "columns",
+  "note",
+  "o",
+  "d",
+  "trips"
+ ],
+ "title": "od_matrix_totals",
+ "type": "object"
+}

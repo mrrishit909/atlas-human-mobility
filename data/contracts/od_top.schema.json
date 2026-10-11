@@ -1,0 +1,81 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "band_all_id": {
+   "const": "all"
+  },
+  "bands": {
+   "items": {
+    "additionalProperties": true,
+    "properties": {
+     "hours": {
+      "items": {
+       "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array"
+     },
+     "id": {
+      "type": "string"
+     },
+     "label": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "label",
+     "hours"
+    ],
+    "type": "object"
+   },
+   "maxItems": 5,
+   "minItems": 5,
+   "type": "array"
+  },
+  "columns": {
+   "items": {
+    "type": "string"
+   },
+   "maxItems": 11,
+   "minItems": 11,
+   "type": "array"
+  },
+  "definition": {
+   "type": "string"
+  },
+  "rows": {
+   "items": {
+    "items": {},
+    "maxItems": 11,
+    "minItems": 11,
+    "type": "array"
+   },
+   "minItems": 1,
+   "type": "array"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "bands",
+  "band_all_id",
+  "definition",
+  "columns",
+  "rows"
+ ],
+ "title": "od_top",
+ "type": "object"
+}

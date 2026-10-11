@@ -1,0 +1,81 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "artifact_bytes": {
+   "type": "object"
+  },
+  "artifact_tags": {
+   "type": "object"
+  },
+  "bands": {
+   "items": {
+    "additionalProperties": true,
+    "properties": {
+     "hours": {
+      "items": {
+       "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array"
+     },
+     "id": {
+      "type": "string"
+     },
+     "label": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "label",
+     "hours"
+    ],
+    "type": "object"
+   },
+   "maxItems": 5,
+   "minItems": 5,
+   "type": "array"
+  },
+  "generated_at": {
+   "type": "string"
+  },
+  "pipeline_version": {
+   "type": "string"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "small_cell_threshold": {
+   "type": "integer"
+  },
+  "sources": {
+   "type": "object"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "zones_simplify_tolerance_deg": {
+   "type": "number"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "pipeline_version",
+  "generated_at",
+  "sources",
+  "bands",
+  "zones_simplify_tolerance_deg",
+  "small_cell_threshold",
+  "artifact_tags",
+  "artifact_bytes"
+ ],
+ "title": "meta",
+ "type": "object"
+}

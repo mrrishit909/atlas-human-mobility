@@ -1,0 +1,237 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "association_only": {
+   "const": true
+  },
+  "coefficient_fields": {
+   "type": "string"
+  },
+  "models": {
+   "additionalProperties": true,
+   "properties": {
+    "bins": {
+     "additionalProperties": true,
+     "properties": {
+      "adj_r2": {
+       "type": "number"
+      },
+      "coefficients": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "beta": {
+          "type": "number"
+         },
+         "ci_hi": {
+          "type": "number"
+         },
+         "ci_lo": {
+          "type": "number"
+         },
+         "p": {
+          "type": "number"
+         },
+         "pct_ci_hi": {
+          "type": "number"
+         },
+         "pct_ci_lo": {
+          "type": "number"
+         },
+         "pct_effect": {
+          "type": "number"
+         },
+         "se": {
+          "type": "number"
+         },
+         "term": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "term",
+         "beta",
+         "se",
+         "ci_lo",
+         "ci_hi",
+         "p",
+         "pct_effect",
+         "pct_ci_lo",
+         "pct_ci_hi"
+        ],
+        "type": "object"
+       },
+       "minItems": 5,
+       "type": "array"
+      },
+      "dropped_days": {
+       "type": "integer"
+      },
+      "n": {
+       "type": "integer"
+      },
+      "r2": {
+       "type": "number"
+      },
+      "se": {
+       "type": "string"
+      },
+      "spec": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "spec",
+      "se",
+      "n",
+      "r2",
+      "adj_r2",
+      "dropped_days",
+      "coefficients"
+     ],
+     "type": "object"
+    },
+    "continuous": {
+     "additionalProperties": true,
+     "properties": {
+      "adj_r2": {
+       "type": "number"
+      },
+      "coefficients": {
+       "items": {
+        "additionalProperties": true,
+        "properties": {
+         "beta": {
+          "type": "number"
+         },
+         "ci_hi": {
+          "type": "number"
+         },
+         "ci_lo": {
+          "type": "number"
+         },
+         "p": {
+          "type": "number"
+         },
+         "pct_ci_hi": {
+          "type": "number"
+         },
+         "pct_ci_lo": {
+          "type": "number"
+         },
+         "pct_effect": {
+          "type": "number"
+         },
+         "se": {
+          "type": "number"
+         },
+         "term": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "term",
+         "beta",
+         "se",
+         "ci_lo",
+         "ci_hi",
+         "p",
+         "pct_effect",
+         "pct_ci_lo",
+         "pct_ci_hi"
+        ],
+        "type": "object"
+       },
+       "minItems": 5,
+       "type": "array"
+      },
+      "dropped_days": {
+       "type": "integer"
+      },
+      "n": {
+       "type": "integer"
+      },
+      "r2": {
+       "type": "number"
+      },
+      "se": {
+       "type": "string"
+      },
+      "spec": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "spec",
+      "se",
+      "n",
+      "r2",
+      "adj_r2",
+      "dropped_days",
+      "coefficients"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "bins",
+    "continuous"
+   ],
+   "type": "object"
+  },
+  "note": {
+   "type": "string"
+  },
+  "prcp_effect_10mm": {
+   "additionalProperties": true,
+   "properties": {
+    "ci_high_pct": {
+     "type": "number"
+    },
+    "ci_low_pct": {
+     "type": "number"
+    },
+    "pct": {
+     "type": "number"
+    },
+    "spec": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "spec",
+    "pct",
+    "ci_low_pct",
+    "ci_high_pct"
+   ],
+   "type": "object"
+  },
+  "primary": {
+   "type": "string"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "association_only",
+  "note",
+  "coefficient_fields",
+  "primary",
+  "models",
+  "prcp_effect_10mm"
+ ],
+ "title": "weather_model",
+ "type": "object"
+}

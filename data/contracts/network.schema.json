@@ -1,0 +1,72 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "method": {
+   "type": "string"
+  },
+  "n_edges": {
+   "type": "integer"
+  },
+  "nodes": {
+   "items": {
+    "additionalProperties": true,
+    "properties": {
+     "betweenness": {
+      "type": "number"
+     },
+     "cluster": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "in_strength": {
+      "type": "integer"
+     },
+     "out_strength": {
+      "type": "integer"
+     },
+     "pagerank": {
+      "type": "number"
+     },
+     "zone": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "zone",
+     "pagerank",
+     "in_strength",
+     "out_strength",
+     "betweenness",
+     "cluster"
+    ],
+    "type": "object"
+   },
+   "maxItems": 263,
+   "minItems": 263,
+   "type": "array"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "method",
+  "n_edges",
+  "nodes"
+ ],
+ "title": "network",
+ "type": "object"
+}

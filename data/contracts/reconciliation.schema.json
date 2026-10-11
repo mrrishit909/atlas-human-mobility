@@ -1,0 +1,97 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "invariant": {
+   "type": "string"
+  },
+  "rows": {
+   "items": {
+    "additionalProperties": true,
+    "properties": {
+     "exclusions": {
+      "type": "object"
+     },
+     "kept": {
+      "type": "integer"
+     },
+     "kept_known_od": {
+      "type": "integer"
+     },
+     "month": {
+      "type": "integer"
+     },
+     "raw_rows": {
+      "type": "integer"
+     },
+     "service": {
+      "type": "string"
+     },
+     "trip_time_mismatch_gt60s": {
+      "type": "integer"
+     },
+     "unknown_do": {
+      "type": "integer"
+     },
+     "unknown_od": {
+      "type": "integer"
+     },
+     "unknown_pu": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "service",
+     "month",
+     "raw_rows",
+     "kept",
+     "exclusions",
+     "unknown_pu",
+     "unknown_do",
+     "unknown_od",
+     "kept_known_od",
+     "trip_time_mismatch_gt60s"
+    ],
+    "type": "object"
+   },
+   "maxItems": 36,
+   "minItems": 36,
+   "type": "array"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "suppressed_cells_total": {
+   "type": "integer"
+  },
+  "suppressed_trips_definition": {
+   "type": "string"
+  },
+  "suppressed_trips_total": {
+   "type": "integer"
+  },
+  "suppression": {
+   "type": "object"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "invariant",
+  "rows",
+  "suppression",
+  "suppressed_cells_total",
+  "suppressed_trips_total",
+  "suppressed_trips_definition"
+ ],
+ "title": "reconciliation",
+ "type": "object"
+}

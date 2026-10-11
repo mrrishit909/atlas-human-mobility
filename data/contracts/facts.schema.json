@@ -1,0 +1,63 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "airport_dest_zone_count": {},
+  "am_peak_hour": {},
+  "bk_internal_share_pct": {},
+  "borough_am_peak_speed_ratio": {},
+  "busiest_zone_how": {},
+  "clusters": {},
+  "excluded_total": {},
+  "hinge_zone": {},
+  "mn_internal_share_pct": {},
+  "pm_peak_hour": {},
+  "raw_rows_total": {},
+  "schema_version": {
+   "const": "v1"
+  },
+  "share_pct": {},
+  "suppressed_cells_total": {},
+  "suppressed_trips_total": {},
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "top_od_pair": {},
+  "trips_kept_total": {},
+  "trips_per_minute_mean": {},
+  "weather_prcp_effect_10mm": {},
+  "weekend_peak_hour": {},
+  "zones_for_half_pickups": {}
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "trips_kept_total",
+  "raw_rows_total",
+  "excluded_total",
+  "share_pct",
+  "trips_per_minute_mean",
+  "busiest_zone_how",
+  "am_peak_hour",
+  "pm_peak_hour",
+  "weekend_peak_hour",
+  "mn_internal_share_pct",
+  "bk_internal_share_pct",
+  "airport_dest_zone_count",
+  "zones_for_half_pickups",
+  "hinge_zone",
+  "top_od_pair",
+  "suppressed_cells_total",
+  "suppressed_trips_total",
+  "clusters",
+  "borough_am_peak_speed_ratio",
+  "weather_prcp_effect_10mm"
+ ],
+ "title": "facts",
+ "type": "object"
+}

@@ -1,0 +1,124 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "date": {
+   "items": {
+    "type": "string"
+   },
+   "maxItems": 366,
+   "minItems": 366,
+   "type": "array"
+  },
+  "prcp_mm": {
+   "items": {
+    "type": [
+     "number",
+     "null"
+    ]
+   },
+   "maxItems": 366,
+   "minItems": 366,
+   "type": "array"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "snow_mm": {
+   "items": {
+    "type": [
+     "number",
+     "null"
+    ]
+   },
+   "maxItems": 366,
+   "minItems": 366,
+   "type": "array"
+  },
+  "station": {
+   "type": "string"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "tmax_c": {
+   "items": {
+    "type": [
+     "number",
+     "null"
+    ]
+   },
+   "maxItems": 366,
+   "minItems": 366,
+   "type": "array"
+  },
+  "tmin_c": {
+   "items": {
+    "type": [
+     "number",
+     "null"
+    ]
+   },
+   "maxItems": 366,
+   "minItems": 366,
+   "type": "array"
+  },
+  "trips": {
+   "additionalProperties": true,
+   "properties": {
+    "fhvhv": {
+     "items": {
+      "type": "integer"
+     },
+     "maxItems": 366,
+     "minItems": 366,
+     "type": "array"
+    },
+    "green": {
+     "items": {
+      "type": "integer"
+     },
+     "maxItems": 366,
+     "minItems": 366,
+     "type": "array"
+    },
+    "yellow": {
+     "items": {
+      "type": "integer"
+     },
+     "maxItems": 366,
+     "minItems": 366,
+     "type": "array"
+    }
+   },
+   "required": [
+    "yellow",
+    "green",
+    "fhvhv"
+   ],
+   "type": "object"
+  },
+  "units": {
+   "type": "object"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "station",
+  "units",
+  "date",
+  "trips",
+  "prcp_mm",
+  "tmax_c",
+  "tmin_c",
+  "snow_mm"
+ ],
+ "title": "daily",
+ "type": "object"
+}

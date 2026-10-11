@@ -1,0 +1,229 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "borough_free_flow_mph": {
+   "additionalProperties": true,
+   "properties": {
+    "Bronx": {
+     "type": "number"
+    },
+    "Brooklyn": {
+     "type": "number"
+    },
+    "Manhattan": {
+     "type": "number"
+    },
+    "Queens": {
+     "type": "number"
+    },
+    "Staten Island": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "Manhattan",
+    "Bronx",
+    "Queens",
+    "Brooklyn",
+    "Staten Island"
+   ],
+   "type": "object"
+  },
+  "definitions": {
+   "type": "object"
+  },
+  "free_flow_mph": {
+   "items": {
+    "type": [
+     "number",
+     "null"
+    ]
+   },
+   "maxItems": 263,
+   "minItems": 263,
+   "type": "array"
+  },
+  "how_count": {
+   "const": 168
+  },
+  "layout": {
+   "type": "string"
+  },
+  "mean_trips": {
+   "additionalProperties": true,
+   "properties": {
+    "all": {
+     "items": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "maxItems": 44184,
+     "minItems": 44184,
+     "type": "array"
+    },
+    "fhvhv": {
+     "items": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "maxItems": 44184,
+     "minItems": 44184,
+     "type": "array"
+    },
+    "green": {
+     "items": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "maxItems": 44184,
+     "minItems": 44184,
+     "type": "array"
+    },
+    "yellow": {
+     "items": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "maxItems": 44184,
+     "minItems": 44184,
+     "type": "array"
+    }
+   },
+   "required": [
+    "all",
+    "yellow",
+    "green",
+    "fhvhv"
+   ],
+   "type": "object"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "services": {
+   "items": {
+    "type": "string"
+   },
+   "maxItems": 4,
+   "minItems": 4,
+   "type": "array"
+  },
+  "speed_mph": {
+   "additionalProperties": true,
+   "properties": {
+    "all": {
+     "items": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "maxItems": 44184,
+     "minItems": 44184,
+     "type": "array"
+    },
+    "fhvhv": {
+     "items": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "maxItems": 44184,
+     "minItems": 44184,
+     "type": "array"
+    },
+    "green": {
+     "items": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "maxItems": 44184,
+     "minItems": 44184,
+     "type": "array"
+    },
+    "yellow": {
+     "items": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "maxItems": 44184,
+     "minItems": 44184,
+     "type": "array"
+    }
+   },
+   "required": [
+    "all",
+    "yellow",
+    "green",
+    "fhvhv"
+   ],
+   "type": "object"
+  },
+  "speed_ratio": {
+   "items": {
+    "type": [
+     "number",
+     "null"
+    ]
+   },
+   "maxItems": 44184,
+   "minItems": 44184,
+   "type": "array"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "vref": {
+   "items": {
+    "type": "number"
+   },
+   "maxItems": 263,
+   "minItems": 263,
+   "type": "array"
+  },
+  "zones": {
+   "items": {
+    "type": "integer"
+   },
+   "maxItems": 263,
+   "minItems": 263,
+   "type": "array"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "layout",
+  "zones",
+  "services",
+  "how_count",
+  "mean_trips",
+  "speed_mph",
+  "speed_ratio",
+  "free_flow_mph",
+  "vref",
+  "borough_free_flow_mph",
+  "definitions"
+ ],
+ "title": "zone_hour_week",
+ "type": "object"
+}

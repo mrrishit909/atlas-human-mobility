@@ -1,0 +1,135 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": true,
+ "properties": {
+  "dropoffs": {
+   "additionalProperties": true,
+   "properties": {
+    "fhvhv": {
+     "items": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "maxItems": 3156,
+     "minItems": 3156,
+     "type": "array"
+    },
+    "green": {
+     "items": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "maxItems": 3156,
+     "minItems": 3156,
+     "type": "array"
+    },
+    "yellow": {
+     "items": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "maxItems": 3156,
+     "minItems": 3156,
+     "type": "array"
+    }
+   },
+   "required": [
+    "yellow",
+    "green",
+    "fhvhv"
+   ],
+   "type": "object"
+  },
+  "layout": {
+   "type": "string"
+  },
+  "months": {
+   "items": {
+    "type": "integer"
+   },
+   "maxItems": 12,
+   "minItems": 12,
+   "type": "array"
+  },
+  "pickups": {
+   "additionalProperties": true,
+   "properties": {
+    "fhvhv": {
+     "items": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "maxItems": 3156,
+     "minItems": 3156,
+     "type": "array"
+    },
+    "green": {
+     "items": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "maxItems": 3156,
+     "minItems": 3156,
+     "type": "array"
+    },
+    "yellow": {
+     "items": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "maxItems": 3156,
+     "minItems": 3156,
+     "type": "array"
+    }
+   },
+   "required": [
+    "yellow",
+    "green",
+    "fhvhv"
+   ],
+   "type": "object"
+  },
+  "schema_version": {
+   "const": "v1"
+  },
+  "tags": {
+   "additionalProperties": {
+    "pattern": "^(OBSERVED|DERIVED|PREDICTED|SIMULATED)(/(OBSERVED|DERIVED|PREDICTED|SIMULATED))*$",
+    "type": "string"
+   },
+   "minProperties": 1,
+   "type": "object"
+  },
+  "zones": {
+   "items": {
+    "type": "integer"
+   },
+   "maxItems": 263,
+   "minItems": 263,
+   "type": "array"
+  }
+ },
+ "required": [
+  "schema_version",
+  "tags",
+  "layout",
+  "zones",
+  "months",
+  "pickups",
+  "dropoffs"
+ ],
+ "title": "zone_month",
+ "type": "object"
+}
