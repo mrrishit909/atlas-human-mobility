@@ -1,0 +1,11 @@
+import { chromium } from "/Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/site/node_modules/@playwright/test/index.mjs";
+const b = await chromium.launch({ headless: false });
+const c = await b.newContext({ viewport: { width: 1440, height: 900 } }); const p = await c.newPage();
+const fi = () => p.evaluate(() => { const a = document.activeElement; return a.tagName + " " + (a.getAttribute("aria-label") || a.textContent || "").slice(0, 30) + " in nav=" + !!a.closest("nav"); });
+await p.goto("http://localhost:4301/atlas-human-mobility/", { waitUntil: "commit" }); await p.waitForTimeout(600);
+await p.keyboard.press("Tab"); console.log("1", await fi());
+await p.keyboard.press("Tab"); console.log("2", await fi());
+await p.keyboard.press("Enter"); await p.waitForTimeout(800); console.log("after Enter", await fi());
+await p.keyboard.press("Tab"); console.log("next", await fi());
+await p.keyboard.press("Enter"); await p.waitForTimeout(1200); console.log("Enter on it", await fi(), await p.evaluate(() => location.hash));
+await b.close();

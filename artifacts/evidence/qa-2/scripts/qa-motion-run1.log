@@ -1,0 +1,75 @@
+ 1:06  up 2 days,  3:36, 4 users, load averages: 16.24 17.50 19.64
+[WebServer] [plugin builtin:vite-reporter] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 38 tests using 1 worker
+
+  ✓   1 [desktop] › e2e/motion/focus.spec.ts:11:1 › 8a. desktop: every nav item and utility shows a focus ring (555ms)
+  ✓   2 [desktop] › e2e/motion/focus.spec.ts:29:1 › 8b. scene controls (S03a radios, S03b dial, S04 HEIGHT, story tabs) show a focus ring (7.0s)
+  -   3 [desktop] › e2e/motion/focus.spec.ts:52:1 › 8c. mobile: MENU pill and its items show a focus ring
+  ✓   4 [desktop] › e2e/motion/intro.spec.ts:9:1 › 7a. SKIP INTRO compresses the intro (499ms)
+  ✓   5 [desktop] › e2e/motion/intro.spec.ts:20:1 › 7b. Esc compresses the intro (420ms)
+  ✓   6 [desktop] › e2e/motion/intro.spec.ts:32:1 › 7c. a second load in the same session does not replay the intro (1.1s)
+  ✓   7 [desktop] › e2e/motion/intro.spec.ts:45:1 › 7d. REPLAY INTRO replays from the top and can be skipped again (1.2s)
+  ✓   8 [desktop] › e2e/motion/nav.spec.ts:4:1 › 3a. nav jump to each section lands there with hash, aria-current and focus (10.4s)
+  ✓   9 [desktop] › e2e/motion/nav.spec.ts:20:1 › 3b. Back / Forward restore the right section (10.1s)
+  ✓  10 [desktop] › e2e/motion/nav.spec.ts:40:1 › 3c. deep link to every hash loads in that section (3.7s)
+  ✓  11 [desktop] › e2e/motion/nav.spec.ts:50:1 › 4. resize 1440x900 -> 390x844 -> 1440x900 keeps the section, no horizontal overflow (20.0s)
+  ✓  12 [desktop] › e2e/motion/robust.spec.ts:4:1 › 5. reduced motion: all sections reachable by nav and keyboard, no pin, no canvas-only content (13.3s)
+  ✓  13 [desktop] › e2e/motion/robust.spec.ts:40:3 › 6. story cards do not clip and clear the MENU pill at 360x800 (8.1s)
+  ✓  14 [desktop] › e2e/motion/robust.spec.ts:40:3 › 6. story cards do not clip and clear the MENU pill at 375x812 (8.2s)
+  ✓  15 [desktop] › e2e/motion/robust.spec.ts:40:3 › 6. story cards do not clip and clear the MENU pill at 390x844 (8.2s)
+  ✘  16 [desktop] › e2e/motion/scroll.spec.ts:8:1 › 1. every pinned track releases its stage at the end (no scroll trap) (32.3s)
+  ✓  17 [desktop] › e2e/motion/scroll.spec.ts:26:1 › 2a. reverse scroll: wheel up from the bottom walks back through every section (27.0s)
+  ✓  18 [desktop] › e2e/motion/scroll.spec.ts:52:1 › 2b. rapid wheel bursts and scrollTo jumps across tracks land consistently (12.1s)
+  ✓  19 [desktop] › e2e/motion/scroll.spec.ts:71:1 › 2c. slow forward scroll keeps nav active equal to the section in view at every step (9.6s)
+  -  20 [mobile] › e2e/motion/focus.spec.ts:11:1 › 8a. desktop: every nav item and utility shows a focus ring
+  -  21 [mobile] › e2e/motion/focus.spec.ts:29:1 › 8b. scene controls (S03a radios, S03b dial, S04 HEIGHT, story tabs) show a focus ring
+  ✓  22 [mobile] › e2e/motion/focus.spec.ts:52:1 › 8c. mobile: MENU pill and its items show a focus ring (837ms)
+  -  23 [mobile] › e2e/motion/intro.spec.ts:9:1 › 7a. SKIP INTRO compresses the intro
+  -  24 [mobile] › e2e/motion/intro.spec.ts:20:1 › 7b. Esc compresses the intro
+  -  25 [mobile] › e2e/motion/intro.spec.ts:32:1 › 7c. a second load in the same session does not replay the intro
+  -  26 [mobile] › e2e/motion/intro.spec.ts:45:1 › 7d. REPLAY INTRO replays from the top and can be skipped again
+  ✓  27 [mobile] › e2e/motion/nav.spec.ts:4:1 › 3a. nav jump to each section lands there with hash, aria-current and focus (9.6s)
+  -  28 [mobile] › e2e/motion/nav.spec.ts:20:1 › 3b. Back / Forward restore the right section
+  -  29 [mobile] › e2e/motion/nav.spec.ts:40:1 › 3c. deep link to every hash loads in that section
+  -  30 [mobile] › e2e/motion/nav.spec.ts:50:1 › 4. resize 1440x900 -> 390x844 -> 1440x900 keeps the section, no horizontal overflow
+  ✓  31 [mobile] › e2e/motion/robust.spec.ts:4:1 › 5. reduced motion: all sections reachable by nav and keyboard, no pin, no canvas-only content (8.8s)
+  -  32 [mobile] › e2e/motion/robust.spec.ts:40:3 › 6. story cards do not clip and clear the MENU pill at 360x800
+  -  33 [mobile] › e2e/motion/robust.spec.ts:40:3 › 6. story cards do not clip and clear the MENU pill at 375x812
+  -  34 [mobile] › e2e/motion/robust.spec.ts:40:3 › 6. story cards do not clip and clear the MENU pill at 390x844
+  -  35 [mobile] › e2e/motion/scroll.spec.ts:8:1 › 1. every pinned track releases its stage at the end (no scroll trap)
+  -  36 [mobile] › e2e/motion/scroll.spec.ts:26:1 › 2a. reverse scroll: wheel up from the bottom walks back through every section
+  -  37 [mobile] › e2e/motion/scroll.spec.ts:52:1 › 2b. rapid wheel bursts and scrollTo jumps across tracks land consistently
+  -  38 [mobile] › e2e/motion/scroll.spec.ts:71:1 › 2c. slow forward scroll keeps nav active equal to the section in view at every step
+
+
+  1) [desktop] › e2e/motion/scroll.spec.ts:8:1 › 1. every pinned track releases its stage at the end (no scroll trap) 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+       at helpers.ts:15
+
+      13 |
+      14 | export const jump = (page: Page, id: string, p?: number) =>
+    > 15 |   page.evaluate(([id, p]) => (window as unknown as Atlas).__atlas.jumpTo(id as string, p as number | undefined), [id, p] as const);
+         |        ^
+      16 |
+      17 | /** Section whose box contains the viewport centre (same rule as the engine; closing reports as observatory like the nav). */
+      18 | export const inView = (page: Page) =>
+        at jump (/Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/site/e2e/motion/helpers.ts:15:8)
+        at /Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/site/e2e/motion/scroll.spec.ts:11:11
+
+    Error Context: test-results/scroll-1-every-pinned-trac-22e38--at-the-end-no-scroll-trap--desktop/error-context.md
+
+  1 failed
+    [desktop] › e2e/motion/scroll.spec.ts:8:1 › 1. every pinned track releases its stage at the end (no scroll trap) 
+  17 skipped
+  20 passed (3.3m)
+exit 1
+ 1:09  up 2 days,  3:40, 4 users, load averages: 22.19 20.27 20.30

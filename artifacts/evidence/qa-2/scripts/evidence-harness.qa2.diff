@@ -1,0 +1,47 @@
+27,28c27,28
+< import { chromium } from "@playwright/test";
+< import ffmpegPath from "ffmpeg-static";
+---
+> import { chromium } from "/Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/site/node_modules/@playwright/test/index.mjs";
+> const ffmpegPath = "/private/tmp/claude-501/-Users-rishitmathurrishit-data-frontier/2345476d-71fe-4b13-9b7d-12d3e947ff61/scratchpad/ff/node_modules/ffmpeg-static/ffmpeg";
+35,36c35,37
+< const ROOT = join(HERE, "..", "..");
+< const ARTIFACTS = join(ROOT, "artifacts", "evidence");
+---
+> const PROJ = "/Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility";
+> const ARTIFACTS = join(PROJ, "artifacts", "evidence", "qa-2");
+> const REC = join(PROJ, "artifacts", "evidence", "recordings", "qa-2");
+48c49
+< const config = JSON.parse(readFileSync(join(HERE, "evidence.config.json"), "utf-8"));
+---
+> const config = JSON.parse(readFileSync(join("/Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/site/tests", "evidence.config.json"), "utf-8"));
+57c58
+<   ensureDir(join(ARTIFACTS, "recordings"));
+---
+>   ensureDir(REC);
+61c62
+<     recordVideo: { dir: join(ARTIFACTS, "recordings", `tmp-${width}`), size: { width: vp.width, height: vp.height } },
+---
+>     recordVideo: { dir: join(REC, `tmp-${width}`), size: { width: vp.width, height: vp.height } },
+100c101
+<     renameSync(savedPath, join(ARTIFACTS, "recordings", `${width}.webm`));
+---
+>     renameSync(savedPath, join(REC, `${width}.webm`));
+106,108c107,109
+<   const input = join(ARTIFACTS, "recordings", `${width}.webm`);
+<   const framesGlob = join(ARTIFACTS, "contact-sheets", `${width}-frame-%03d.png`);
+<   execFileSync(ffmpegPath, ["-y", "-i", input, "-vf", "fps=1,scale=-2:240", framesGlob], { stdio: "inherit" });
+---
+>   const input = join(REC, `${width}.webm`);
+>   ensureDir(join(REC, "frames")); const framesGlob = join(REC, "frames", `${width}-frame-%03d.png`);
+>   execFileSync(ffmpegPath, ["-y", "-i", input, "-vf", "fps=1", framesGlob], { stdio: "inherit" });
+110c111
+<   const n = readdirSync(join(ARTIFACTS, "contact-sheets")).filter((f) => f.startsWith(`${width}-frame-`)).length;
+---
+>   const n = readdirSync(join(REC, "frames")).filter((f) => f.startsWith(`${width}-frame-`)).length;
+113,114c114,115
+<     "-y", "-pattern_type", "glob", "-i", join(ARTIFACTS, "contact-sheets", `${width}-frame-*.png`),
+<     "-filter_complex", `tile=${cols}x${rows}:margin=4:padding=4`, "-frames:v", "1", "-update", "1", montage,
+---
+>     "-y", "-pattern_type", "glob", "-i", join(REC, "frames", `${width}-frame-*.png`),
+>     "-filter_complex", `scale=-2:240,tile=${cols}x${rows}:margin=4:padding=4`, "-frames:v", "1", "-update", "1", montage,

@@ -1,0 +1,34 @@
+{
+  "device": "Mac15,6",
+  "heavyInteractionLabel": "Rapid scroll storm across all tracks (jumpTo every 120ms)",
+  "measuredAt": "2026-10-11T05:44:16.169Z",
+  "runs": [
+    {
+      "label": "1440x900 unthrottled",
+      "stateChanged": true,
+      "sampleCount": 476,
+      "p50_ms": 8.299999982118607,
+      "p95_ms": 10.700000017881393,
+      "pct_over_16_7ms": 0.004201680672268907,
+      "pct_over_33ms": 0.0021008403361344537
+    },
+    {
+      "label": "1440x900 4x CPU throttle",
+      "stateChanged": true,
+      "sampleCount": 262,
+      "p50_ms": 10.400000005960464,
+      "p95_ms": 36.599999994039536,
+      "pct_over_16_7ms": 0.25190839694656486,
+      "pct_over_33ms": 0.06870229007633588
+    },
+    {
+      "label": "390x844 4x CPU throttle",
+      "stateChanged": true,
+      "sampleCount": 337,
+      "p50_ms": 9.099999994039536,
+      "p95_ms": 28.299999982118607,
+      "pct_over_16_7ms": 0.14836795252225518,
+      "pct_over_33ms": 0.032640949554896145
+    }
+  ]
+}
