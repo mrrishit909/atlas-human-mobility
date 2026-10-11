@@ -1,0 +1,44 @@
+== geom start  9:00  up 2 days, 11:30, 4 users, load averages: 6.38 11.25 16.02
+done geom
+== geom end  9:14  up 2 days, 11:45, 4 users, load averages: 21.42 21.39 18.48
+== tags,labels,chip start  9:14  up 2 days, 11:45, 4 users, load averages: 21.42 21.39 18.48
+done tags,labels,chip
+== tags,labels,chip end  9:25  up 2 days, 11:55, 4 users, load averages: 31.24 30.02 24.59
+== l9 start  9:25  up 2 days, 11:55, 4 users, load averages: 31.24 30.02 24.59
+l9 768x1024 corridors 0.1 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[384,728],"hit":"SPAN.cor-ledger__od \"UPPER EAST SIDE SOUTH → U\""}]
+l9 768x1024 corridors 0.3 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[384,728],"hit":"P.cor-ledger__head mono-label \"TOP CORRIDORS · ALL HOURS\""}]
+l9 768x1024 corridors 0.6 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[384,728],"hit":"P.cor-ledger__head mono-label \"TOP CORRIDORS · ALL HOURS\""}]
+l9 768x1024 corridors 0.9 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[384,728],"hit":"LI. \"LAGUARDIA AIRPORT → TIMES\""}]
+l9 390x844 corridors 0.1 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[195,621],"hit":"ASIDE.cor-ledger \"TOP CORRIDORS · ALL HOURS\""}]
+l9 390x844 corridors 0.3 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[195,621],"hit":"ASIDE.cor-ledger \"TOP CORRIDORS · ALL HOURS\""}]
+l9 390x844 corridors 0.6 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[195,621],"hit":"ASIDE.cor-ledger \"TOP CORRIDORS · ALL HOURS\""}]
+l9 390x844 corridors 0.9 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[195,621],"hit":"ASIDE.cor-ledger \"TOP CORRIDORS · ALL HOURS\""}]
+l9 375x812 corridors 0.1 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[188,597],"hit":"SPAN.cor-ledger__od \"UPPER EAST SIDE SOUTH → U\""}]
+l9 375x812 corridors 0.3 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[188,597],"hit":"SPAN.cor-ledger__od \"LAGUARDIA AIRPORT → TIMES\""}]
+l9 375x812 corridors 0.6 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[188,597],"hit":"SPAN.cor-ledger__od \"BUSHWICK NORTH → BUSHWICK\""}]
+l9 375x812 corridors 0.9 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[188,597],"hit":"SPAN.cor-ledger__od \"LAGUARDIA AIRPORT → TIMES\""}]
+l9 360x800 corridors 0.1 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[180,588],"hit":"SPAN.cor-ledger__od \"UPPER EAST SIDE SOUTH → U\""}]
+l9 360x800 corridors 0.3 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[180,588],"hit":"SPAN.cor-ledger__od \"LAGUARDIA AIRPORT → TIMES\""}]
+l9 360x800 corridors 0.6 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[180,588],"hit":"SPAN.cor-ledger__od \"BUSHWICK NORTH → BUSHWICK\""}]
+l9 360x800 corridors 0.9 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[180,588],"hit":"SPAN.cor-ledger__od \"LAGUARDIA AIRPORT → TIMES\""}]
+l9 768x1024-classic corridors 0.1 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[377,728],"hit":"SPAN.cor-ledger__od \"UPPER EAST SIDE SOUTH → U\""}]
+l9 768x1024-classic corridors 0.3 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[377,728],"hit":"LI. \"LAGUARDIA AIRPORT → TIMES\""}]
+l9 768x1024-classic corridors 0.6 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[377,728],"hit":"P.cor-ledger__head mono-label \"TOP CORRIDORS · ALL HOURS\""}]
+l9 768x1024-classic corridors 0.9 [{"ctl":"DIV.cor-hit \"Corridor dial. Left and r\"","at":[377,728],"hit":"LI. \"LAGUARDIA AIRPORT → TIMES\""}]
+done l9
+== l9 end  9:39  up 2 days, 12:10, 4 users, load averages: 46.62 40.64 31.14
+== tickets start  9:39  up 2 days, 12:10, 4 users, load averages: 46.62 40.64 31.14
+done tickets
+== tickets end  9:46  up 2 days, 12:16, 4 users, load averages: 33.13 34.06 31.38
+== rm start  9:46  up 2 days, 12:16, 4 users, load averages: 33.13 34.06 31.38
+done rm
+== rm end  9:54  up 2 days, 12:24, 4 users, load averages: 32.75 35.82 34.05
+== nav start  9:54  up 2 days, 12:24, 4 users, load averages: 32.75 35.82 34.05
+done nav
+== nav end  9:57  up 2 days, 12:27, 4 users, load averages: 24.23 30.08 31.94
+== axe start  9:57  up 2 days, 12:27, 4 users, load averages: 24.23 30.08 31.94
+done axe
+== axe end 10:04  up 2 days, 12:34, 4 users, load averages: 25.41 25.65 28.51
+== keyboard,numbers start 10:04  up 2 days, 12:34, 4 users, load averages: 25.41 25.65 28.51
+done keyboard,numbers
+== keyboard,numbers end 10:05  up 2 days, 12:36, 4 users, load averages: 37.59 31.14 30.39

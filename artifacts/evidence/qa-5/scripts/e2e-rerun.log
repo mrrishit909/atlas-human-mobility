@@ -1,0 +1,14 @@
+start 10:01  up 2 days, 12:31, 4 users, load averages: 16.40 23.31 28.51
+          |                                                           ^
+      118 |   expect(bad).toEqual([]);
+      119 | });
+      120 |
+        at /Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/site/e2e/l12.spec.ts:117:59
+
+    Error Context: test-results/l12-L12-every-control-the--9804a-e-is-that-control-768x1024--desktop/error-context.md
+
+  1 failed
+    [desktop] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (768x1024) 
+  109 skipped
+  108 passed (8.8m)
+end 10:09  up 2 days, 12:40, 4 users, load averages: 28.39 28.40 29.13

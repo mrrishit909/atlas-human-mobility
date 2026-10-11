@@ -1,0 +1,10423 @@
+{
+ "d047": [
+  {
+   "cw": 1920,
+   "vp": "1920x1080",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 855,
+       "t": 412,
+       "r": 1065,
+       "b": 456
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1920x1080-corridors-0.1.png"
+  },
+  {
+   "cw": 1920,
+   "vp": "1920x1080",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 844,
+       "t": 412,
+       "r": 1076,
+       "b": 456
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1920x1080-corridors-0.3.png"
+  },
+  {
+   "cw": 1920,
+   "vp": "1920x1080",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 873,
+       "t": 412,
+       "r": 1047,
+       "b": 456
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1920x1080-corridors-0.55.png"
+  },
+  {
+   "cw": 1920,
+   "vp": "1920x1080",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 787,
+       "t": 412,
+       "r": 1133,
+       "b": 456
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1920x1080-corridors-0.8.png"
+  },
+  {
+   "cw": 1920,
+   "vp": "1920x1080",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 787,
+       "t": 412,
+       "r": 1133,
+       "b": 456
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1920x1080-corridors-0.88.png"
+  },
+  {
+   "cw": 1920,
+   "vp": "1920x1080",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 787,
+       "t": 412,
+       "r": 1133,
+       "b": 456
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1920x1080-corridors-0.95.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x900",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 615,
+       "t": 322,
+       "r": 825,
+       "b": 366
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1440x900-corridors-0.1.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x900",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 604,
+       "t": 322,
+       "r": 836,
+       "b": 366
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1440x900-corridors-0.3.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x900",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 633,
+       "t": 322,
+       "r": 807,
+       "b": 366
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1440x900-corridors-0.55.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x900",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 322,
+       "r": 893,
+       "b": 366
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1440x900-corridors-0.8.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x900",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 322,
+       "r": 893,
+       "b": 366
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1440x900-corridors-0.88.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x900",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 322,
+       "r": 893,
+       "b": 366
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1440x900-corridors-0.95.png"
+  },
+  {
+   "cw": 1024,
+   "vp": "1024x768",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 420,
+       "t": 405,
+       "r": 604,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1024x768-corridors-0.1.png"
+  },
+  {
+   "cw": 1024,
+   "vp": "1024x768",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 411,
+       "t": 405,
+       "r": 613,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1024x768-corridors-0.3.png"
+  },
+  {
+   "cw": 1024,
+   "vp": "1024x768",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 436,
+       "t": 405,
+       "r": 588,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1024x768-corridors-0.55.png"
+  },
+  {
+   "cw": 1024,
+   "vp": "1024x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 500,
+       "t": 405,
+       "r": 802,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x BOX seg-ctl cor-bands-m ALLNIGHTAM PEAKMIDDA (174x7)",
+    "LaGuardia Airport x BOX seg-ctl__item PM PEAK (78x7)",
+    "LaGuardia Airport x BOX seg-ctl__item EVENING (79x7)"
+   ],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1024x768-corridors-0.8.png"
+  },
+  {
+   "cw": 1024,
+   "vp": "1024x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 500,
+       "t": 405,
+       "r": 802,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x BOX seg-ctl cor-bands-m ALLNIGHTAM PEAKMIDDA (174x7)",
+    "LaGuardia Airport x BOX seg-ctl__item PM PEAK (78x7)",
+    "LaGuardia Airport x BOX seg-ctl__item EVENING (79x7)"
+   ],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1024x768-corridors-0.88.png"
+  },
+  {
+   "cw": 1024,
+   "vp": "1024x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 500,
+       "t": 405,
+       "r": 802,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x BOX seg-ctl cor-bands-m ALLNIGHTAM PEAKMIDDA (174x7)",
+    "LaGuardia Airport x BOX seg-ctl__item PM PEAK (78x7)",
+    "LaGuardia Airport x BOX seg-ctl__item EVENING (79x7)"
+   ],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1024x768-corridors-0.95.png"
+  },
+  {
+   "cw": 768,
+   "vp": "768x1024",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 303,
+       "t": 347,
+       "r": 465,
+       "b": 381
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.1,
+   "file": "d047-768x1024-corridors-0.1.png"
+  },
+  {
+   "cw": 768,
+   "vp": "768x1024",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 294,
+       "t": 347,
+       "r": 474,
+       "b": 381
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.3,
+   "file": "d047-768x1024-corridors-0.3.png"
+  },
+  {
+   "cw": 768,
+   "vp": "768x1024",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 316,
+       "t": 347,
+       "r": 452,
+       "b": 381
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.55,
+   "file": "d047-768x1024-corridors-0.55.png"
+  },
+  {
+   "cw": 768,
+   "vp": "768x1024",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 250,
+       "t": 347,
+       "r": 518,
+       "b": 381
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.8,
+   "file": "d047-768x1024-corridors-0.8.png"
+  },
+  {
+   "cw": 768,
+   "vp": "768x1024",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 250,
+       "t": 347,
+       "r": 518,
+       "b": 381
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.88,
+   "file": "d047-768x1024-corridors-0.88.png"
+  },
+  {
+   "cw": 768,
+   "vp": "768x1024",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 250,
+       "t": 347,
+       "r": 518,
+       "b": 381
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.95,
+   "file": "d047-768x1024-corridors-0.95.png"
+  },
+  {
+   "cw": 390,
+   "vp": "390x844",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 129,
+       "t": 310,
+       "r": 261,
+       "b": 339
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.1,
+   "file": "d047-390x844-corridors-0.1.png"
+  },
+  {
+   "cw": 390,
+   "vp": "390x844",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 122,
+       "t": 310,
+       "r": 268,
+       "b": 339
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.3,
+   "file": "d047-390x844-corridors-0.3.png"
+  },
+  {
+   "cw": 390,
+   "vp": "390x844",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 140,
+       "t": 310,
+       "r": 250,
+       "b": 339
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.55,
+   "file": "d047-390x844-corridors-0.55.png"
+  },
+  {
+   "cw": 390,
+   "vp": "390x844",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 85,
+       "t": 319,
+       "r": 305,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.8,
+   "file": "d047-390x844-corridors-0.8.png"
+  },
+  {
+   "cw": 390,
+   "vp": "390x844",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 85,
+       "t": 319,
+       "r": 305,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.88,
+   "file": "d047-390x844-corridors-0.88.png"
+  },
+  {
+   "cw": 390,
+   "vp": "390x844",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 85,
+       "t": 319,
+       "r": 305,
+       "b": 348
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.95,
+   "file": "d047-390x844-corridors-0.95.png"
+  },
+  {
+   "cw": 375,
+   "vp": "375x812",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 122,
+       "t": 295,
+       "r": 253,
+       "b": 324
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.1,
+   "file": "d047-375x812-corridors-0.1.png"
+  },
+  {
+   "cw": 375,
+   "vp": "375x812",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 115,
+       "t": 295,
+       "r": 260,
+       "b": 324
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.3,
+   "file": "d047-375x812-corridors-0.3.png"
+  },
+  {
+   "cw": 375,
+   "vp": "375x812",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 133,
+       "t": 295,
+       "r": 242,
+       "b": 324
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.55,
+   "file": "d047-375x812-corridors-0.55.png"
+  },
+  {
+   "cw": 375,
+   "vp": "375x812",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 79,
+       "t": 332,
+       "r": 296,
+       "b": 361
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.8,
+   "file": "d047-375x812-corridors-0.8.png"
+  },
+  {
+   "cw": 375,
+   "vp": "375x812",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 79,
+       "t": 332,
+       "r": 296,
+       "b": 361
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.88,
+   "file": "d047-375x812-corridors-0.88.png"
+  },
+  {
+   "cw": 375,
+   "vp": "375x812",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 79,
+       "t": 332,
+       "r": 296,
+       "b": 361
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.95,
+   "file": "d047-375x812-corridors-0.95.png"
+  },
+  {
+   "cw": 360,
+   "vp": "360x800",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 115,
+       "t": 295,
+       "r": 245,
+       "b": 323
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.1,
+   "file": "d047-360x800-corridors-0.1.png"
+  },
+  {
+   "cw": 360,
+   "vp": "360x800",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 108,
+       "t": 295,
+       "r": 252,
+       "b": 323
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.3,
+   "file": "d047-360x800-corridors-0.3.png"
+  },
+  {
+   "cw": 360,
+   "vp": "360x800",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 126,
+       "t": 295,
+       "r": 234,
+       "b": 323
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.55,
+   "file": "d047-360x800-corridors-0.55.png"
+  },
+  {
+   "cw": 360,
+   "vp": "360x800",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 72,
+       "t": 332,
+       "r": 288,
+       "b": 360
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.8,
+   "file": "d047-360x800-corridors-0.8.png"
+  },
+  {
+   "cw": 360,
+   "vp": "360x800",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 72,
+       "t": 332,
+       "r": 288,
+       "b": 360
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.88,
+   "file": "d047-360x800-corridors-0.88.png"
+  },
+  {
+   "cw": 360,
+   "vp": "360x800",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 72,
+       "t": 332,
+       "r": 288,
+       "b": 360
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "M",
+   "q": 0.95,
+   "file": "d047-360x800-corridors-0.95.png"
+  },
+  {
+   "cw": 1009,
+   "vp": "1024x768-classic",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 413,
+       "t": 405,
+       "r": 596,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1024x768-classic-corridors-0.1.png"
+  },
+  {
+   "cw": 1009,
+   "vp": "1024x768-classic",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 403,
+       "t": 405,
+       "r": 606,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1024x768-classic-corridors-0.3.png"
+  },
+  {
+   "cw": 1009,
+   "vp": "1024x768-classic",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 428,
+       "t": 405,
+       "r": 581,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1024x768-classic-corridors-0.55.png"
+  },
+  {
+   "cw": 1009,
+   "vp": "1024x768-classic",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 500,
+       "t": 405,
+       "r": 803,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x BOX seg-ctl cor-bands-m ALLNIGHTAM PEAKMIDDA (190x7)",
+    "LaGuardia Airport x BOX seg-ctl__item PM PEAK (78x7)",
+    "LaGuardia Airport x BOX seg-ctl__item EVENING (78x7)"
+   ],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1024x768-classic-corridors-0.8.png"
+  },
+  {
+   "cw": 1009,
+   "vp": "1024x768-classic",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 500,
+       "t": 405,
+       "r": 803,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x BOX seg-ctl cor-bands-m ALLNIGHTAM PEAKMIDDA (190x7)",
+    "LaGuardia Airport x BOX seg-ctl__item PM PEAK (78x7)",
+    "LaGuardia Airport x BOX seg-ctl__item EVENING (78x7)"
+   ],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1024x768-classic-corridors-0.88.png"
+  },
+  {
+   "cw": 1009,
+   "vp": "1024x768-classic",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 500,
+       "t": 405,
+       "r": 803,
+       "b": 444
+      }
+     ]
+    }
+   ],
+   "hits": [
+    "LaGuardia Airport x BOX seg-ctl cor-bands-m ALLNIGHTAM PEAKMIDDA (190x7)",
+    "LaGuardia Airport x BOX seg-ctl__item PM PEAK (78x7)",
+    "LaGuardia Airport x BOX seg-ctl__item EVENING (78x7)"
+   ],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1024x768-classic-corridors-0.95.png"
+  },
+  {
+   "cw": 753,
+   "vp": "768x1024-classic",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 295,
+       "t": 347,
+       "r": 458,
+       "b": 382
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.1,
+   "file": "d047-768x1024-classic-corridors-0.1.png"
+  },
+  {
+   "cw": 753,
+   "vp": "768x1024-classic",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 287,
+       "t": 347,
+       "r": 466,
+       "b": 382
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.3,
+   "file": "d047-768x1024-classic-corridors-0.3.png"
+  },
+  {
+   "cw": 753,
+   "vp": "768x1024-classic",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 309,
+       "t": 347,
+       "r": 444,
+       "b": 382
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.55,
+   "file": "d047-768x1024-classic-corridors-0.55.png"
+  },
+  {
+   "cw": 753,
+   "vp": "768x1024-classic",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 242,
+       "t": 386,
+       "r": 511,
+       "b": 421
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.8,
+   "file": "d047-768x1024-classic-corridors-0.8.png"
+  },
+  {
+   "cw": 753,
+   "vp": "768x1024-classic",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 242,
+       "t": 386,
+       "r": 511,
+       "b": 421
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.88,
+   "file": "d047-768x1024-classic-corridors-0.88.png"
+  },
+  {
+   "cw": 753,
+   "vp": "768x1024-classic",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 242,
+       "t": 386,
+       "r": 511,
+       "b": 421
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "T",
+   "q": 0.95,
+   "file": "d047-768x1024-classic-corridors-0.95.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 538,
+       "t": 231,
+       "r": 742,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1280x720-corridors-0.1.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 527,
+       "t": 231,
+       "r": 753,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1280x720-corridors-0.3.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 555,
+       "t": 231,
+       "r": 725,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1280x720-corridors-0.55.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 540,
+       "t": 231,
+       "r": 876,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1280x720-corridors-0.8.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 540,
+       "t": 231,
+       "r": 876,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1280x720-corridors-0.88.png"
+  },
+  {
+   "cw": 1280,
+   "vp": "1280x720",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 540,
+       "t": 231,
+       "r": 876,
+       "b": 274
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1280x720-corridors-0.95.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 578,
+       "t": 256,
+       "r": 788,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1366x768-corridors-0.1.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 567,
+       "t": 256,
+       "r": 799,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1366x768-corridors-0.3.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 596,
+       "t": 256,
+       "r": 770,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1366x768-corridors-0.55.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 540,
+       "t": 256,
+       "r": 886,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1366x768-corridors-0.8.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 540,
+       "t": 256,
+       "r": 886,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1366x768-corridors-0.88.png"
+  },
+  {
+   "cw": 1366,
+   "vp": "1366x768",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 540,
+       "t": 256,
+       "r": 886,
+       "b": 300
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1366x768-corridors-0.95.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "MN",
+   "titles": [
+    {
+     "text": "Manhattan",
+     "cls": "dial-title ",
+     "op": 1,
+     "rects": [
+      {
+       "l": 615,
+       "t": 252,
+       "r": 825,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.1,
+   "file": "d047-1440x760-corridors-0.1.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "AIR",
+   "titles": [
+    {
+     "text": "The airports",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 604,
+       "t": 252,
+       "r": 836,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.3,
+   "file": "d047-1440x760-corridors-0.3.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "BK",
+   "titles": [
+    {
+     "text": "Brooklyn",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 633,
+       "t": 252,
+       "r": 807,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.55,
+   "file": "d047-1440x760-corridors-0.55.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 252,
+       "r": 893,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.8,
+   "file": "d047-1440x760-corridors-0.8.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 252,
+       "r": 893,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.88,
+   "file": "d047-1440x760-corridors-0.88.png"
+  },
+  {
+   "cw": 1440,
+   "vp": "1440x760",
+   "anchor": "HINGE",
+   "titles": [
+    {
+     "text": "LaGuardia Airport",
+     "cls": "dial-title is-in",
+     "op": 1,
+     "rects": [
+      {
+       "l": 547,
+       "t": 252,
+       "r": 893,
+       "b": 296
+      }
+     ]
+    }
+   ],
+   "hits": [],
+   "vpClass": "D",
+   "q": 0.95,
+   "file": "d047-1440x760-corridors-0.95.png"
+  }
+ ],
+ "load_d047": "13.94 11.33 14.86",
+ "errors4": [
+  {
+   "file": "facts.json",
+   "id": "city",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-city-1440.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "city",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-city-390.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "anatomy",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-anatomy-1440.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "anatomy",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-anatomy-390.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "rush-hour",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN TRIPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-rush-hour-1440.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "rush-hour",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN TRIPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-rush-hour-390.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "corridors",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · CHORDS + LEDGER",
+    "DERIVED · PULSES SAMPLED FROM ZONE-TO-ZONE COUNTS,"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-corridors-1440.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "corridors",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · CHORDS + LEDGER",
+    "DERIVED · PULSES SAMPLED FROM ZONE-TO-ZONE COUNTS,"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-corridors-390.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-demand-1440.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-demand-390.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "pressure",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "pressure",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-pressure-1440.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "pressure",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "pressure",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-pressure-390.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-evidence-1440.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-evidence-390.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "closing",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "closing",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-closing-1440.png",
+   "console": []
+  },
+  {
+   "file": "facts.json",
+   "id": "closing",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "closing",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-facts.json-closing-390.png",
+   "console": []
+  },
+  {
+   "file": "zones_index.json",
+   "id": "city",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONES_INDEX.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zones_index.json-city-1440.png",
+   "console": []
+  },
+  {
+   "file": "zones_index.json",
+   "id": "city",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONES_INDEX.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zones_index.json-city-390.png",
+   "console": []
+  },
+  {
+   "file": "od_ring_top.json",
+   "id": "city",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_ring_top.json-city-1440.png",
+   "console": []
+  },
+  {
+   "file": "od_ring_top.json",
+   "id": "city",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_ring_top.json-city-390.png",
+   "console": []
+  },
+  {
+   "file": "od_ring_top.json",
+   "id": "rush-hour",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN TRIPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_ring_top.json-rush-hour-1440.png",
+   "console": []
+  },
+  {
+   "file": "od_ring_top.json",
+   "id": "rush-hour",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN TRIPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_ring_top.json-rush-hour-390.png",
+   "console": []
+  },
+  {
+   "file": "od_ring_top.json",
+   "id": "corridors",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · CHORDS + LEDGER",
+    "DERIVED · PULSES SAMPLED FROM ZONE-TO-ZONE COUNTS,"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_ring_top.json-corridors-1440.png",
+   "console": []
+  },
+  {
+   "file": "od_ring_top.json",
+   "id": "corridors",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · CHORDS + LEDGER",
+    "DERIVED · PULSES SAMPLED FROM ZONE-TO-ZONE COUNTS,"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_ring_top.json-corridors-390.png",
+   "console": []
+  },
+  {
+   "file": "meta.json",
+   "id": "anatomy",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED",
+    "OBSERVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-meta.json-anatomy-1440.png",
+   "console": []
+  },
+  {
+   "file": "meta.json",
+   "id": "anatomy",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-meta.json-anatomy-390.png",
+   "console": []
+  },
+  {
+   "file": "meta.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED",
+    "DERIVED · ASSOCIATION, NOT CAUSE",
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-meta.json-evidence-1440.png",
+   "console": []
+  },
+  {
+   "file": "meta.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED",
+    "DERIVED · ASSOCIATION, NOT CAUSE",
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-meta.json-evidence-390.png",
+   "console": []
+  },
+  {
+   "file": "meta.json",
+   "id": "closing",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "closing",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-meta.json-closing-1440.png",
+   "console": []
+  },
+  {
+   "file": "meta.json",
+   "id": "closing",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "closing",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-meta.json-closing-390.png",
+   "console": []
+  },
+  {
+   "file": "zone_hour_week.json",
+   "id": "rush-hour",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONE_HOUR_WEEK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN TRIPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zone_hour_week.json-rush-hour-1440.png",
+   "console": []
+  },
+  {
+   "file": "zone_hour_week.json",
+   "id": "rush-hour",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONE_HOUR_WEEK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN TRIPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zone_hour_week.json-rush-hour-390.png",
+   "console": []
+  },
+  {
+   "file": "zone_hour_week.json",
+   "id": "pressure",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": false,
+   "intercepted": null,
+   "pointerHits": null,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 0,
+   "chips": [
+    "SIMULATED · BPR VOLUME-DELAY CURVE, FITTED TO 2024",
+    "DERIVED · FITTED CURVE · RMSE 0.33"
+   ],
+   "hasRetry": false,
+   "hitsBefore": 1,
+   "hitsAfter": 1,
+   "alertsAfter": null,
+   "linesAfter": null,
+   "png": "err4-zone_hour_week.json-pressure-1440.png",
+   "console": []
+  },
+  {
+   "file": "zone_hour_week.json",
+   "id": "pressure",
+   "layer": null,
+   "vp": "390x844",
+   "ok": false,
+   "intercepted": null,
+   "pointerHits": null,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 0,
+   "chips": [
+    "SIMULATED · BPR VOLUME-DELAY CURVE, FITTED TO 2024",
+    "DERIVED · FITTED CURVE · RMSE 0.33"
+   ],
+   "hasRetry": false,
+   "hitsBefore": 1,
+   "hitsAfter": 1,
+   "alertsAfter": null,
+   "linesAfter": null,
+   "png": "err4-zone_hour_week.json-pressure-390.png",
+   "console": []
+  },
+  {
+   "file": "zone_hour_week.json",
+   "id": "futures",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "futures",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONE_HOUR_WEEK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · LEFT HALF",
+    "SIMULATED · NOT A FORECAST"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zone_hour_week.json-futures-1440.png",
+   "console": []
+  },
+  {
+   "file": "zone_hour_week.json",
+   "id": "futures",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "futures",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONE_HOUR_WEEK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · TOP HALF",
+    "SIMULATED · NOT A FORECAST"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zone_hour_week.json-futures-390.png",
+   "console": []
+  },
+  {
+   "file": "zone_hour_week.json",
+   "id": "observatory",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONE_HOUR_WEEK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN PICKUPS PER HOUR",
+    "DERIVED · FLOWS: ALL SERVICES · AM PEAK 6-10 AM · "
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zone_hour_week.json-observatory-1440.png",
+   "console": []
+  },
+  {
+   "file": "zone_hour_week.json",
+   "id": "observatory",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONE_HOUR_WEEK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN PICKUPS PER HOUR",
+    "DERIVED · FLOWS: ALL SERVICES · AM PEAK 6-10 AM · "
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zone_hour_week.json-observatory-390.png",
+   "console": []
+  },
+  {
+   "file": "zone_month.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONE_MONTH.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zone_month.json-demand-1440.png",
+   "console": []
+  },
+  {
+   "file": "zone_month.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONE_MONTH.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zone_month.json-demand-390.png",
+   "console": []
+  },
+  {
+   "file": "od_top.json",
+   "id": "corridors",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · CHORDS + LEDGER",
+    "DERIVED · PULSES SAMPLED FROM ZONE-TO-ZONE COUNTS,"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_top.json-corridors-1440.png",
+   "console": []
+  },
+  {
+   "file": "od_top.json",
+   "id": "corridors",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · CHORDS + LEDGER",
+    "DERIVED · PULSES SAMPLED FROM ZONE-TO-ZONE COUNTS,"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_top.json-corridors-390.png",
+   "console": []
+  },
+  {
+   "file": "od_top.json",
+   "id": "rush-hour",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN TRIPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_top.json-rush-hour-1440.png",
+   "console": []
+  },
+  {
+   "file": "od_top.json",
+   "id": "rush-hour",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN TRIPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_top.json-rush-hour-390.png",
+   "console": []
+  },
+  {
+   "file": "od_top.json",
+   "id": "observatory",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN PICKUPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_top.json-observatory-1440.png",
+   "console": []
+  },
+  {
+   "file": "od_top.json",
+   "id": "observatory",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN PICKUPS PER HOUR"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-od_top.json-observatory-390.png",
+   "console": []
+  },
+  {
+   "file": "zones.geojson",
+   "id": "demand",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONES.GEOJSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zones.geojson-demand-1440.png",
+   "console": []
+  },
+  {
+   "file": "zones.geojson",
+   "id": "demand",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONES.GEOJSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zones.geojson-demand-390.png",
+   "console": []
+  },
+  {
+   "file": "zones.geojson",
+   "id": "observatory",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONES.GEOJSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN PICKUPS PER HOUR",
+    "DERIVED · FLOWS: ALL SERVICES · AM PEAK 6-10 AM · "
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zones.geojson-observatory-1440.png",
+   "console": []
+  },
+  {
+   "file": "zones.geojson",
+   "id": "observatory",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD ZONES.GEOJSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · MEAN PICKUPS PER HOUR",
+    "DERIVED · FLOWS: ALL SERVICES · AM PEAK 6-10 AM · "
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-zones.geojson-observatory-390.png",
+   "console": []
+  },
+  {
+   "file": "bpr_fit.json",
+   "id": "pressure",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "pressure",
+     "inView": true,
+     "text": "COULD NOT LOAD BPR_FIT.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "pressure",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-bpr_fit.json-pressure-1440.png",
+   "console": []
+  },
+  {
+   "file": "bpr_fit.json",
+   "id": "pressure",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "pressure",
+     "inView": true,
+     "text": "COULD NOT LOAD BPR_FIT.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "pressure",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-bpr_fit.json-pressure-390.png",
+   "console": []
+  },
+  {
+   "file": "bpr_fit.json",
+   "id": "futures",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "futures",
+     "inView": true,
+     "text": "COULD NOT LOAD BPR_FIT.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · LEFT HALF",
+    "SIMULATED · NOT A FORECAST"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-bpr_fit.json-futures-1440.png",
+   "console": []
+  },
+  {
+   "file": "bpr_fit.json",
+   "id": "futures",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "futures",
+     "inView": true,
+     "text": "COULD NOT LOAD BPR_FIT.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · TOP HALF",
+    "SIMULATED · NOT A FORECAST"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-bpr_fit.json-futures-390.png",
+   "console": []
+  },
+  {
+   "file": "bpr_fit.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD BPR_FIT.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-bpr_fit.json-evidence-1440.png",
+   "console": []
+  },
+  {
+   "file": "bpr_fit.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD BPR_FIT.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "futures",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-bpr_fit.json-evidence-390.png",
+   "console": []
+  },
+  {
+   "file": "reconciliation.json",
+   "id": "anatomy",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD RECONCILIATION.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED",
+    "OBSERVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-reconciliation.json-anatomy-1440.png",
+   "console": []
+  },
+  {
+   "file": "reconciliation.json",
+   "id": "anatomy",
+   "layer": null,
+   "vp": "390x844",
+   "ok": false,
+   "intercepted": "undefined.undefined",
+   "pointerHits": 0,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD RECONCILIATION.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 1,
+   "alertsAfter": 1,
+   "linesAfter": 2,
+   "png": "err4-reconciliation.json-anatomy-390.png",
+   "console": []
+  },
+  {
+   "file": "weather_model.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD WEATHER_MODEL.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED · ASSOCIATION, NOT CAUSE",
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-weather_model.json-evidence-1440.png",
+   "console": []
+  },
+  {
+   "file": "weather_model.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD WEATHER_MODEL.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED · ASSOCIATION, NOT CAUSE",
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-weather_model.json-evidence-390.png",
+   "console": []
+  },
+  {
+   "file": "daily.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD DAILY.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED",
+    "DERIVED · ASSOCIATION, NOT CAUSE",
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-daily.json-evidence-1440.png",
+   "console": []
+  },
+  {
+   "file": "daily.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD DAILY.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED · ASSOCIATION, NOT CAUSE",
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-daily.json-evidence-390.png",
+   "console": []
+  },
+  {
+   "file": "clusters.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-clusters.json-evidence-1440.png",
+   "console": []
+  },
+  {
+   "file": "clusters.json",
+   "id": "evidence",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-clusters.json-evidence-390.png",
+   "console": []
+  },
+  {
+   "file": "clusters.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": false,
+   "intercepted": null,
+   "pointerHits": null,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 0,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": false,
+   "hitsBefore": 1,
+   "hitsAfter": 1,
+   "alertsAfter": null,
+   "linesAfter": null,
+   "png": "err4-clusters.json-demand-1440.png",
+   "console": []
+  },
+  {
+   "file": "clusters.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "390x844",
+   "ok": false,
+   "intercepted": null,
+   "pointerHits": null,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 0,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": false,
+   "hitsBefore": 1,
+   "hitsAfter": 1,
+   "alertsAfter": null,
+   "linesAfter": null,
+   "png": "err4-clusters.json-demand-390.png",
+   "console": []
+  },
+  {
+   "file": "clusters.json",
+   "id": "observatory",
+   "layer": "clusters",
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED · FLOWS: ALL SERVICES · AM PEAK 6-10 AM · "
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-clusters.json-observatory-clusters-1440.png",
+   "console": []
+  },
+  {
+   "file": "clusters.json",
+   "id": "observatory",
+   "layer": "clusters",
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED · FLOWS: ALL SERVICES · AM PEAK 6-10 AM · "
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-clusters.json-observatory-clusters-390.png",
+   "console": []
+  },
+  {
+   "file": "network.json",
+   "id": "observatory",
+   "layer": "network",
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED · FLOWS: ALL SERVICES · AM PEAK 6-10 AM · "
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-network.json-observatory-network-1440.png",
+   "console": []
+  },
+  {
+   "file": "network.json",
+   "id": "observatory",
+   "layer": "network",
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED · FLOWS: ALL SERVICES · AM PEAK 6-10 AM · "
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-network.json-observatory-network-390.png",
+   "console": []
+  },
+  {
+   "file": "network.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-network.json-demand-1440.png",
+   "console": []
+  },
+  {
+   "file": "network.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-network.json-demand-390.png",
+   "console": []
+  },
+  {
+   "file": "clusters.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-clusters.json-demand-1440.png",
+   "console": []
+  },
+  {
+   "file": "clusters.json",
+   "id": "demand",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "demand",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED · HEIGHTS"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-clusters.json-demand-390.png",
+   "console": []
+  },
+  {
+   "file": "reconciliation.json",
+   "id": "anatomy",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD RECONCILIATION.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED",
+    "OBSERVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-reconciliation.json-anatomy-1440.png",
+   "console": []
+  },
+  {
+   "file": "reconciliation.json",
+   "id": "anatomy",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD RECONCILIATION.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "OBSERVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-reconciliation.json-anatomy-390.png",
+   "console": []
+  },
+  {
+   "file": "reconciliation.json",
+   "id": "city",
+   "layer": null,
+   "vp": "1440x900",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD RECONCILIATION.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-reconciliation.json-city-1440.png",
+   "console": []
+  },
+  {
+   "file": "reconciliation.json",
+   "id": "city",
+   "layer": null,
+   "vp": "390x844",
+   "ok": true,
+   "intercepted": null,
+   "pointerHits": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD RECONCILIATION.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "visibleLinesInScene": 1,
+   "chips": [
+    "DERIVED",
+    "OBSERVED",
+    "DERIVED"
+   ],
+   "hasRetry": true,
+   "hitsBefore": 1,
+   "hitsAfter": 2,
+   "alertsAfter": 0,
+   "linesAfter": 0,
+   "png": "err4-reconciliation.json-city-390.png",
+   "console": []
+  }
+ ],
+ "load_errors4": "25.72 23.97 19.95",
+ "remount": [
+  {
+   "file": "od_ring_top.json",
+   "vp": "1440x900",
+   "step": 0,
+   "id": "city",
+   "p": 0.5,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": "remount-od_ring_top.json-1440x900-0-city-0.5.png"
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "1440x900",
+   "step": 1,
+   "id": "rush-hour",
+   "p": 0.35,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "1440x900",
+   "step": 2,
+   "id": "corridors",
+   "p": 0.3,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "1440x900",
+   "step": 3,
+   "id": "city",
+   "p": 0.5,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "1440x900",
+   "step": 4,
+   "id": "corridors",
+   "p": 0.8,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "1440x900",
+   "step": 5,
+   "id": "rush-hour",
+   "p": 0.6,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "1440x900",
+   "step": 6,
+   "id": "city",
+   "p": 0.3,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 0,
+   "id": "anatomy",
+   "p": 0.15,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": "remount-meta.json-1440x900-0-anatomy-0.15.png"
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 1,
+   "id": "anatomy",
+   "p": 0.4,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 2,
+   "id": "anatomy",
+   "p": 0.65,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 3,
+   "id": "anatomy",
+   "p": 0.9,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": false,
+   "png": "remount-meta.json-1440x900-3-anatomy-0.9.png"
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 4,
+   "id": "anatomy",
+   "p": 0.65,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 5,
+   "id": "evidence",
+   "p": 0.15,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 6,
+   "id": "closing",
+   "p": 0.95,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "closing",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 7,
+   "id": "anatomy",
+   "p": 0.65,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "1440x900",
+   "step": 8,
+   "id": "evidence",
+   "p": 0.5,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "network.json",
+   "vp": "1440x900",
+   "step": 0,
+   "id": "observatory",
+   "p": 0,
+   "layer": "network",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": "remount-network.json-1440x900-0-observatory-0-network.png"
+  },
+  {
+   "file": "network.json",
+   "vp": "1440x900",
+   "step": 1,
+   "id": "observatory",
+   "p": 0,
+   "layer": "demand",
+   "shouldShow": false,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "network.json",
+   "vp": "1440x900",
+   "step": 2,
+   "id": "observatory",
+   "p": 0,
+   "layer": "network",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "network.json",
+   "vp": "1440x900",
+   "step": 3,
+   "id": "closing",
+   "p": 0.9,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "network.json",
+   "vp": "1440x900",
+   "step": 4,
+   "id": "observatory",
+   "p": 0,
+   "layer": "network",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "1440x900",
+   "step": 0,
+   "id": "observatory",
+   "p": 0,
+   "layer": "clusters",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": "remount-clusters.json-1440x900-0-observatory-0-clusters.png"
+  },
+  {
+   "file": "clusters.json",
+   "vp": "1440x900",
+   "step": 1,
+   "id": "observatory",
+   "p": 0,
+   "layer": "speed",
+   "shouldShow": false,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "1440x900",
+   "step": 2,
+   "id": "observatory",
+   "p": 0,
+   "layer": "clusters",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "1440x900",
+   "step": 3,
+   "id": "evidence",
+   "p": 0.75,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "1440x900",
+   "step": 4,
+   "id": "demand",
+   "p": 0.89,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "1440x900",
+   "step": 5,
+   "id": "observatory",
+   "p": 0,
+   "layer": "clusters",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "1440x900",
+   "step": 0,
+   "id": "city",
+   "p": 0.78,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": "remount-facts.json-1440x900-0-city-0.78.png"
+  },
+  {
+   "file": "facts.json",
+   "vp": "1440x900",
+   "step": 1,
+   "id": "anatomy",
+   "p": 0.5,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "1440x900",
+   "step": 2,
+   "id": "city",
+   "p": 0.78,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "1440x900",
+   "step": 3,
+   "id": "closing",
+   "p": 0.9,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "closing",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "1440x900",
+   "step": 4,
+   "id": "corridors",
+   "p": 0.3,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "1440x900",
+   "step": 5,
+   "id": "city",
+   "p": 0.78,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "390x844",
+   "step": 0,
+   "id": "city",
+   "p": 0.5,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": "remount-od_ring_top.json-390x844-0-city-0.5.png"
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "390x844",
+   "step": 1,
+   "id": "rush-hour",
+   "p": 0.35,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "390x844",
+   "step": 2,
+   "id": "corridors",
+   "p": 0.3,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "390x844",
+   "step": 3,
+   "id": "city",
+   "p": 0.5,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "390x844",
+   "step": 4,
+   "id": "corridors",
+   "p": 0.8,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "390x844",
+   "step": 5,
+   "id": "rush-hour",
+   "p": 0.6,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "od_ring_top.json",
+   "vp": "390x844",
+   "step": 6,
+   "id": "city",
+   "p": 0.3,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD OD_RING_TOP.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 0,
+   "id": "anatomy",
+   "p": 0.15,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": "remount-meta.json-390x844-0-anatomy-0.15.png"
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 1,
+   "id": "anatomy",
+   "p": 0.4,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 2,
+   "id": "anatomy",
+   "p": 0.65,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 3,
+   "id": "anatomy",
+   "p": 0.9,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 4,
+   "id": "anatomy",
+   "p": 0.65,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 5,
+   "id": "evidence",
+   "p": 0.15,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 6,
+   "id": "closing",
+   "p": 0.95,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "closing",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 7,
+   "id": "anatomy",
+   "p": 0.65,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "meta.json",
+   "vp": "390x844",
+   "step": 8,
+   "id": "evidence",
+   "p": 0.5,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD META.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "network.json",
+   "vp": "390x844",
+   "step": 0,
+   "id": "observatory",
+   "p": 0,
+   "layer": "network",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": "remount-network.json-390x844-0-observatory-0-network.png"
+  },
+  {
+   "file": "network.json",
+   "vp": "390x844",
+   "step": 1,
+   "id": "observatory",
+   "p": 0,
+   "layer": "demand",
+   "shouldShow": false,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "network.json",
+   "vp": "390x844",
+   "step": 2,
+   "id": "observatory",
+   "p": 0,
+   "layer": "network",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "network.json",
+   "vp": "390x844",
+   "step": 3,
+   "id": "closing",
+   "p": 0.9,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "network.json",
+   "vp": "390x844",
+   "step": 4,
+   "id": "observatory",
+   "p": 0,
+   "layer": "network",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD NETWORK.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "390x844",
+   "step": 0,
+   "id": "observatory",
+   "p": 0,
+   "layer": "clusters",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": "remount-clusters.json-390x844-0-observatory-0-clusters.png"
+  },
+  {
+   "file": "clusters.json",
+   "vp": "390x844",
+   "step": 1,
+   "id": "observatory",
+   "p": 0,
+   "layer": "speed",
+   "shouldShow": false,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "390x844",
+   "step": 2,
+   "id": "observatory",
+   "p": 0,
+   "layer": "clusters",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "390x844",
+   "step": 3,
+   "id": "evidence",
+   "p": 0.75,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "390x844",
+   "step": 4,
+   "id": "demand",
+   "p": 0.89,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 0,
+   "alerts": [],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "clusters.json",
+   "vp": "390x844",
+   "step": 5,
+   "id": "observatory",
+   "p": 0,
+   "layer": "clusters",
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "observatory",
+     "inView": true,
+     "text": "COULD NOT LOAD CLUSTERS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "observatory",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "390x844",
+   "step": 0,
+   "id": "city",
+   "p": 0.78,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": "remount-facts.json-390x844-0-city-0.78.png"
+  },
+  {
+   "file": "facts.json",
+   "vp": "390x844",
+   "step": 1,
+   "id": "anatomy",
+   "p": 0.5,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "390x844",
+   "step": 2,
+   "id": "city",
+   "p": 0.78,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "390x844",
+   "step": 3,
+   "id": "closing",
+   "p": 0.9,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "closing",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": true,
+     "live": true
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "390x844",
+   "step": 4,
+   "id": "corridors",
+   "p": 0.3,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "corridors",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  },
+  {
+   "file": "facts.json",
+   "vp": "390x844",
+   "step": 5,
+   "id": "city",
+   "p": 0.78,
+   "layer": null,
+   "shouldShow": true,
+   "visibleInScene": 1,
+   "alerts": [
+    {
+     "sec": "city",
+     "inView": true,
+     "text": "COULD NOT LOAD FACTS.JSON (NETWORK ERROR)RETRY"
+    }
+   ],
+   "lines": [
+    {
+     "sec": "city",
+     "inView": true,
+     "live": true
+    },
+    {
+     "sec": "anatomy",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "rush-hour",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "corridors",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "demand",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "pressure",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "evidence",
+     "inView": false,
+     "live": false
+    },
+    {
+     "sec": "closing",
+     "inView": false,
+     "live": false
+    }
+   ],
+   "ok": true,
+   "png": null
+  }
+ ],
+ "load_remount": "31.73 26.66 21.91",
+ "l12": [
+  {
+   "vp": "1440x900",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "WEEKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "ALL",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "demand",
+   "p": 0.89,
+   "label": "DROPOFFS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "demand",
+   "p": 0.89,
+   "label": "NET",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "BK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "QN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "BX",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "SI",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "WKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A LANE LOST-10% CAPACITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A QUIETER CITY-15% DEMAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 1 of 4",
+   "reach": true,
+   "top": "SPAN.seg__fill",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 3 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 4 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "MANHATTAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "BROOKLYN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "QUEENS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "BRONX",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "SI",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "SPEED",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "CLUSTERS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "NETWORK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "2D",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "3D",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "OFF",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "CITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "BOROUGH",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1440x900",
+   "id": "observatory",
+   "p": 0,
+   "label": "ZONE",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "WEEKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "ALL",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "demand",
+   "p": 0.89,
+   "label": "DROPOFFS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "demand",
+   "p": 0.89,
+   "label": "NET",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A LANE LOST-10% CAPACITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A QUIETER CITY-15% DEMAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 1 of 4",
+   "reach": true,
+   "top": "SPAN.seg__fill",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 3 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 4 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "BROOKLYN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "QUEENS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "SI",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "SPEED",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "CLUSTERS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "2D",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "3D",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "OFF",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "CITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "BOROUGH",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1280x720",
+   "id": "observatory",
+   "p": 0,
+   "label": "ZONE",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "WEEKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "ALL",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "demand",
+   "p": 0.89,
+   "label": "DROPOFFS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "demand",
+   "p": 0.89,
+   "label": "NET",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "BK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "QN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "BX",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "SI",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "WKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A LANE LOST-10% CAPACITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A QUIETER CITY-15% DEMAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 1 of 4",
+   "reach": true,
+   "top": "SPAN.seg__fill",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 3 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 4 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "MANHATTAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "QUEENS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "BRONX",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "SI",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "SPEED",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "CLUSTERS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "NETWORK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "2D",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "3D",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "OFF",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "CITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "1024x768",
+   "id": "observatory",
+   "p": 0,
+   "label": "ZONE",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "WEEKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "ALL",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "demand",
+   "p": 0.89,
+   "label": "DROPOFFS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "demand",
+   "p": 0.89,
+   "label": "NET",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "BK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "QN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "BX",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "SI",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "pressure",
+   "p": 0.5,
+   "label": "WKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A LANE LOST-10% CAPACITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A QUIETER CITY-15% DEMAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 1 of 4",
+   "reach": true,
+   "top": "SPAN.seg__fill",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 3 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 4 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "MANHATTAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "BROOKLYN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "QUEENS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "BRONX",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "SI",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "SPEED",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "CLUSTERS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "NETWORK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "2D",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "3D",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "OFF",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "CITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "BOROUGH",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "768x1024",
+   "id": "observatory",
+   "p": 0,
+   "label": "ZONE",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "WEEKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "ALL",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "demand",
+   "p": 0.89,
+   "label": "DROPOFFS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "demand",
+   "p": 0.89,
+   "label": "NET",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A LANE LOST-10% CAPACITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A QUIETER CITY-15% DEMAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 1 of 4",
+   "reach": true,
+   "top": "SPAN.seg__fill",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 3 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "390x844",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 4 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "WEEKEND",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "YELLOW",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "GREEN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "rush-hour",
+   "p": 0.35,
+   "label": "APP",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.3,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "ALL",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "NIGHT",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "AM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "MIDDAY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "PM PEAK",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "corridors",
+   "p": 0.9,
+   "label": "EVENING",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "demand",
+   "p": 0.89,
+   "label": "DROPOFFS",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "demand",
+   "p": 0.89,
+   "label": "NET",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A LANE LOST-10% CAPACITY",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "futures",
+   "p": 0.5,
+   "label": "A QUIETER CITY-15% DEMAN",
+   "reach": true,
+   "top": "BUTTON.seg-ctl__item fut-item ",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 1 of 4",
+   "reach": true,
+   "top": "SPAN.seg__fill",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 3 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  },
+  {
+   "vp": "360x800",
+   "id": "anatomy",
+   "p": 0.35,
+   "label": "Card 4 of 4",
+   "reach": true,
+   "top": "BUTTON.seg",
+   "acted": true
+  }
+ ],
+ "load_l12": "16.58 25.07 23.88",
+ "l8": [
+  {
+   "vp": "768x1024",
+   "t": 600,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 653,
+     "t": 976,
+     "r": 752,
+     "b": 1008
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 304,
+     "t": 1000,
+     "r": 464,
+     "b": 1032
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 19,
+     "t": 24,
+     "r": 211,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 189
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 939
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "768x1024",
+   "t": 1500,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 653,
+     "t": 976,
+     "r": 752,
+     "b": 1008
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 304,
+     "t": 1000,
+     "r": 464,
+     "b": 1032
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 19,
+     "t": 24,
+     "r": 211,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 189
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 939
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "768x1024",
+   "t": 3000,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 653,
+     "t": 976,
+     "r": 752,
+     "b": 1008
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 304,
+     "t": 1000,
+     "r": 464,
+     "b": 1032
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 19,
+     "t": 24,
+     "r": 211,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 189
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 939
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "768x1024",
+   "t": 9000,
+   "corner": [
+    {
+     "text": "REPLAY INTRO",
+     "l": 636,
+     "t": 976,
+     "r": 752,
+     "b": 1008
+    }
+   ],
+   "pill": [
+    {
+     "text": "nav-pill is-fixed ",
+     "l": 304,
+     "t": 976,
+     "r": 464,
+     "b": 1008
+    },
+    {
+     "text": "menu-pill ",
+     "l": 304,
+     "t": 976,
+     "r": 464,
+     "b": 1008
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 19,
+     "t": 24,
+     "r": 211,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "REPLAY INTRO",
+     "b": "nav-pill is-fixed ",
+     "clearance": 172
+    },
+    {
+     "a": "REPLAY INTRO",
+     "b": "menu-pill ",
+     "clearance": 172
+    },
+    {
+     "a": "REPLAY INTRO",
+     "b": "wordmark",
+     "clearance": 939
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "390x844",
+   "t": 600,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 308,
+     "t": 783,
+     "r": 384,
+     "b": 828
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 115,
+     "t": 820,
+     "r": 275,
+     "b": 852
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 33
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 746
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "390x844",
+   "t": 1500,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 308,
+     "t": 783,
+     "r": 384,
+     "b": 828
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 115,
+     "t": 820,
+     "r": 275,
+     "b": 852
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 33
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 746
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "390x844",
+   "t": 3000,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 308,
+     "t": 783,
+     "r": 384,
+     "b": 828
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 115,
+     "t": 820,
+     "r": 275,
+     "b": 852
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 33
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 746
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "390x844",
+   "t": 9000,
+   "corner": [
+    {
+     "text": "REPLAY INTRO",
+     "l": 308,
+     "t": 783,
+     "r": 384,
+     "b": 828
+    }
+   ],
+   "pill": [
+    {
+     "text": "nav-pill is-fixed ",
+     "l": 115,
+     "t": 796,
+     "r": 275,
+     "b": 828
+    },
+    {
+     "text": "menu-pill ",
+     "l": 115,
+     "t": 796,
+     "r": 275,
+     "b": 828
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "REPLAY INTRO",
+     "b": "nav-pill is-fixed ",
+     "clearance": 33
+    },
+    {
+     "a": "REPLAY INTRO",
+     "b": "menu-pill ",
+     "clearance": 33
+    },
+    {
+     "a": "REPLAY INTRO",
+     "b": "wordmark",
+     "clearance": 746
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "375x812",
+   "t": 600,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 293,
+     "t": 751,
+     "r": 369,
+     "b": 796
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 108,
+     "t": 788,
+     "r": 268,
+     "b": 820
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 25
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 714
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "375x812",
+   "t": 1500,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 293,
+     "t": 751,
+     "r": 369,
+     "b": 796
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 108,
+     "t": 788,
+     "r": 268,
+     "b": 820
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 25
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 714
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "375x812",
+   "t": 3000,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 293,
+     "t": 751,
+     "r": 369,
+     "b": 796
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 108,
+     "t": 788,
+     "r": 268,
+     "b": 820
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 25
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 714
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "375x812",
+   "t": 9000,
+   "corner": [
+    {
+     "text": "REPLAY INTRO",
+     "l": 293,
+     "t": 751,
+     "r": 369,
+     "b": 796
+    }
+   ],
+   "pill": [
+    {
+     "text": "nav-pill is-fixed ",
+     "l": 108,
+     "t": 764,
+     "r": 268,
+     "b": 796
+    },
+    {
+     "text": "menu-pill ",
+     "l": 108,
+     "t": 764,
+     "r": 268,
+     "b": 796
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "REPLAY INTRO",
+     "b": "nav-pill is-fixed ",
+     "clearance": 25
+    },
+    {
+     "a": "REPLAY INTRO",
+     "b": "menu-pill ",
+     "clearance": 25
+    },
+    {
+     "a": "REPLAY INTRO",
+     "b": "wordmark",
+     "clearance": 714
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "360x800",
+   "t": 600,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 278,
+     "t": 739,
+     "r": 354,
+     "b": 784
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 100,
+     "t": 776,
+     "r": 260,
+     "b": 808
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 18
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 702
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "360x800",
+   "t": 1500,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 278,
+     "t": 739,
+     "r": 354,
+     "b": 784
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 100,
+     "t": 776,
+     "r": 260,
+     "b": 808
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 18
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 702
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "360x800",
+   "t": 3000,
+   "corner": [
+    {
+     "text": "SKIP INTRO",
+     "l": 278,
+     "t": 739,
+     "r": 354,
+     "b": 784
+    }
+   ],
+   "pill": [
+    {
+     "text": "menu-pill ",
+     "l": 100,
+     "t": 776,
+     "r": 260,
+     "b": 808
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "SKIP INTRO",
+     "b": "menu-pill ",
+     "clearance": 18
+    },
+    {
+     "a": "SKIP INTRO",
+     "b": "wordmark",
+     "clearance": 702
+    }
+   ],
+   "bad": []
+  },
+  {
+   "vp": "360x800",
+   "t": 9000,
+   "corner": [
+    {
+     "text": "REPLAY INTRO",
+     "l": 278,
+     "t": 739,
+     "r": 354,
+     "b": 784
+    }
+   ],
+   "pill": [
+    {
+     "text": "nav-pill is-fixed ",
+     "l": 100,
+     "t": 752,
+     "r": 260,
+     "b": 784
+    },
+    {
+     "text": "menu-pill ",
+     "l": 100,
+     "t": 752,
+     "r": 260,
+     "b": 784
+    }
+   ],
+   "brand": [
+    {
+     "text": "wordmark",
+     "l": 16,
+     "t": 24,
+     "r": 207,
+     "b": 37
+    }
+   ],
+   "gaps": [
+    {
+     "a": "REPLAY INTRO",
+     "b": "nav-pill is-fixed ",
+     "clearance": 18
+    },
+    {
+     "a": "REPLAY INTRO",
+     "b": "menu-pill ",
+     "clearance": 18
+    },
+    {
+     "a": "REPLAY INTRO",
+     "b": "wordmark",
+     "clearance": 702
+    }
+   ],
+   "bad": []
+  }
+ ],
+ "load_l8": "14.39 23.39 23.31"
+}

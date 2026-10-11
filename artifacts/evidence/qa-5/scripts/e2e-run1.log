@@ -1,0 +1,442 @@
+start  9:30  up 2 days, 12 hrs, 4 users, load averages: 13.62 21.98 22.79
+
+Running 408 tests using 1 worker
+
+  ✓    1 [desktop] › e2e/b2.spec.ts:12:1 › S05: the lab output in the DOM equals the Python BPR vector (Manhattan, WED 23:00, demand x1.20) (4.8s)
+  ✓    2 [desktop] › e2e/b2.spec.ts:45:1 › S06: YOUR FUTURE is disabled until the lab changes, then enabled (2.9s)
+  ✓    3 [desktop] › e2e/b2.spec.ts:61:1 › nav jumps to each B2 section with aria-current, hash and focus (2.9s)
+  ✓    4 [desktop] › e2e/b2.spec.ts:73:1 › reverse and rapid scroll through S05-S08 never traps (12.7s)
+  ✓    5 [desktop] › e2e/b2.spec.ts:95:1 › OBS: search a zone -> inspector (sorted destinations) -> Esc closes and returns focus; EXPLORE locks scroll and Esc restores (12.6s)
+  ✓    6 [desktop] › e2e/b2.spec.ts:126:1 › OBS readout equals the sum of the region's zone values (QUEENS, WED 08:00, GREEN) (4.9s)
+  ✓    7 [desktop] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (pressure lab) (3.6s)
+  ✓    8 [desktop] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (observatory with inspector) (5.2s)
+  ✓    9 [desktop] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (evidence stack) (2.1s)
+  ✓   10 [desktop] › e2e/b2.spec.ts:158:1 › fix 5: deck's render loop is paused offscreen and idle frames never redraw (10.4s)
+  ✓   11 [desktop] › e2e/b2.spec.ts:181:1 › EXPLORE: the rail stays clickable and EXIT restores scroll (D) (13.9s)
+  -   12 [desktop] › e2e/b2.spec.ts:195:1 › EXPLORE on touch: tap EXPLORE, tap EXIT, scroll is released (M)
+  ✓   13 [desktop] › e2e/b2.spec.ts:211:1 › S06: the split ring never intersects a text block (bbox) (4.4s)
+  ✓   14 [desktop] › e2e/b2.spec.ts:227:1 › S05: chart labels never overlap each other or the stage header (bbox) (4.0s)
+  -   15 [desktop] › e2e/b2.spec.ts:243:1 › M OBS inspector clears the MENU pill
+  ✓   16 [desktop] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1920x1080) (40.8s)
+  ✓   17 [desktop] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1440x900) (40.2s)
+  ✓   18 [desktop] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1024x768) (27.2s)
+  ✓   19 [desktop] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (768x1024) (44.7s)
+  ✓   20 [desktop] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (390x844) (29.5s)
+  ✓   21 [desktop] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (375x812) (33.2s)
+  ✓   22 [desktop] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (360x800) (30.7s)
+  ✓   23 [desktop] › e2e/fix001.spec.ts:111:72 › D-057: no text collides in S01, S03a, S03b at 1280x720 (1.3m)
+  ✓   24 [desktop] › e2e/fix001.spec.ts:111:72 › D-057: no text collides in S01, S03a, S03b at 1366x768 (1.4m)
+  ✓   25 [desktop] › e2e/fix001.spec.ts:111:72 › D-057: no text collides in S01, S03a, S03b at 1440x760 (1.5m)
+  ✓   26 [desktop] › e2e/fix001.spec.ts:116:1 › D-001: the S06 split ring never intersects a text block (all 7 viewports) (17.7s)
+  ✓   27 [desktop] › e2e/fix001.spec.ts:125:59 › D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (1024x768) (50.5s)
+  ✓   28 [desktop] › e2e/fix001.spec.ts:125:59 › D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (768x1024) (1.3m)
+  ✓   29 [desktop] › e2e/fix001.spec.ts:151:1 › D-002: every S01 number card shows its honesty tag on phones (5.7s)
+  ✓   30 [desktop] › e2e/fix001.spec.ts:165:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1920x1080) (22.3s)
+  ✓   31 [desktop] › e2e/fix001.spec.ts:165:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1440x900) (22.3s)
+  ✓   32 [desktop] › e2e/fix001.spec.ts:165:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1024x768) (22.3s)
+  ✓   33 [desktop] › e2e/fix001.spec.ts:165:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (768x1024) (22.3s)
+  ✓   34 [desktop] › e2e/fix001.spec.ts:190:1 › D-004: S04 direct labels stay inside the viewport on phones (14.8s)
+  ✓   35 [desktop] › e2e/fix001.spec.ts:208:3 › D-005: no sideways scroll in any scene at 360/375/390 (normal motion) (29.5s)
+  ✓   36 [desktop] › e2e/fix001.spec.ts:208:3 › D-005: no sideways scroll in any scene at 360/375/390 (reduced motion) (41.3s)
+  ✓   37 [desktop] › e2e/fix001.spec.ts:231:1 › D-006: every nav jump lands fully resolved, and axe passes after each jump (40.9s)
+  ✓   38 [desktop] › e2e/fix001.spec.ts:254:1 › D-008: the S05 SIMULATED chip fits inside the viewport at all 7 viewports (32.5s)
+  ✓   39 [desktop] › e2e/fix001.spec.ts:267:1 › D-009: the S04 stage is never blank across the handoff (p 0.60 to 0.70) (33.9s)
+  ✓   40 [desktop] › e2e/fix001.spec.ts:282:1 › D-010: the S05 statement's 48% and the lab's Manhattan speed are both named (3.7s)
+  ✓   41 [desktop] › e2e/fix001.spec.ts:294:1 › D-012: the S06 futures radiogroup uses arrows and a single Tab stop (2.3s)
+  ✓   42 [desktop] › e2e/fix001.spec.ts:305:1 › D-013: the first Tab during the intro lands on SKIP INTRO (242ms)
+  ✓   43 [desktop] › e2e/fix001.spec.ts:314:1 › D-014 + D-015: one live region per failed artifact; no model chip without a model (3.9s)
+  ✓   44 [desktop] › e2e/fix001.spec.ts:323:1 › D-017: a favicon is served and nothing 404s (1.1s)
+  ✓   45 [desktop] › e2e/fix001.spec.ts:333:1 › phones: the layout viewport never widens during load, so an early jump lands at its progress (115ms)
+  ✓   46 [desktop] › e2e/fix001.spec.ts:360:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (390x844) (10.6s)
+  ✓   47 [desktop] › e2e/fix001.spec.ts:360:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (375x812) (9.2s)
+  ✓   48 [desktop] › e2e/fix001.spec.ts:360:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (360x800) (11.3s)
+  ✓   49 [desktop] › e2e/fix001.spec.ts:378:30 › D-035: S02 card 3 text blocks never overprint each other (390x844) (3.9s)
+  ✓   50 [desktop] › e2e/fix001.spec.ts:378:30 › D-035: S02 card 3 text blocks never overprint each other (375x812) (2.8s)
+  ✓   51 [desktop] › e2e/fix001.spec.ts:378:30 › D-035: S02 card 3 text blocks never overprint each other (360x800) (2.7s)
+  ✓   52 [desktop] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1920x1080) (12.7s)
+  ✓   53 [desktop] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1440x900) (10.4s)
+  ✓   54 [desktop] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1024x768) (9.9s)
+  ✓   55 [desktop] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (768x1024) (10.7s)
+  ✓   56 [desktop] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (390x844) (12.6s)
+  ✓   57 [desktop] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (375x812) (12.3s)
+  ✓   58 [desktop] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (360x800) (12.4s)
+  ✓   59 [desktop] › e2e/fix001.spec.ts:424:58 › D-041: a facts.json failure is announced and recoverable on CITY (1440x900) (2.4s)
+  ✓   60 [desktop] › e2e/fix001.spec.ts:424:58 › D-041: a facts.json failure is announced and recoverable on CITY (390x844) (2.4s)
+  ✓   61 [desktop] › e2e/fix001.spec.ts:439:1 › D-038: the skip link has a target (1.1s)
+  ✓   62 [desktop] › e2e/fix001.spec.ts:444:1 › D-043: S06 states the borough moved most and least, bound to the minutes list (2.6s)
+  ✓   63 [desktop] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a od_ring_top.json failure is announced and recoverable in city (2.6s)
+  ✓   64 [desktop] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a od_ring_top.json failure is announced and recoverable in corridors (2.7s)
+  ✓   65 [desktop] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a meta.json failure is announced and recoverable in anatomy (2.6s)
+  ✓   66 [desktop] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a meta.json failure is announced and recoverable in evidence (2.6s)
+  ✓   67 [desktop] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a network.json failure is announced and recoverable in observatory (14.1s)
+  ✓   68 [desktop] › e2e/fix001.spec.ts:491:1 › D-054: the S02 meta.json line is live only while card 3 is the shown card (4.8s)
+  ✓   69 [desktop] › e2e/fix001.spec.ts:502:82 › D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (768x1024) (7.1s)
+  ✓   70 [desktop] › e2e/fix001.spec.ts:502:82 › D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (390x844) (7.1s)
+  ✓   71 [desktop] › e2e/fix001.spec.ts:502:82 › D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (375x812) (7.1s)
+  ✓   72 [desktop] › e2e/fix001.spec.ts:502:82 › D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (360x800) (7.1s)
+  ✓   73 [desktop] › e2e/fix001.spec.ts:518:69 › D-058/D-059: corner button clears the pill by 8px, the dagger is at least 11px (390x844) (2.3s)
+  ✓   74 [desktop] › e2e/fix001.spec.ts:518:69 › D-058/D-059: corner button clears the pill by 8px, the dagger is at least 11px (375x812) (2.3s)
+  ✓   75 [desktop] › e2e/fix001.spec.ts:518:69 › D-058/D-059: corner button clears the pill by 8px, the dagger is at least 11px (360x800) (2.2s)
+  ✓   76 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   77 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   78 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   79 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   80 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 1440x900 is reachable and recovers with a real click (4.0s)
+  ✓   81 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 1440x900 is reachable and recovers with a real click (4.2s)
+  ✓   82 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   83 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   84 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   85 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   86 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   87 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   88 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   89 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   90 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   91 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   92 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   93 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   94 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   95 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   96 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   97 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 1440x900 is reachable and recovers with a real click (5.7s)
+  ✓   98 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓   99 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 1440x900 is reachable and recovers with a real click (2.5s)
+  ✓  100 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 1440x900 is reachable and recovers with a real click (2.5s)
+  ✓  101 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 1440x900 is reachable and recovers with a real click (3.5s)
+  ✓  102 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓  103 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓  104 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓  105 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓  106 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 1440x900 is reachable and recovers with a real click (2.6s)
+  ✓  107 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 1440x900 is reachable and recovers with a real click (5.4s)
+  ✓  108 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 1440x900 is reachable and recovers with a real click (5.3s)
+  ✓  109 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 1440x900 is reachable and recovers with a real click (22.4s)
+  ✓  110 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 1440x900 is reachable and recovers with a real click (15.1s)
+  ✓  111 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  112 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  113 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  114 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  115 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 768x1024 is reachable and recovers with a real click (4.6s)
+  ✓  116 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 768x1024 is reachable and recovers with a real click (4.4s)
+  ✓  117 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  118 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  119 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  120 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  121 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  122 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  123 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  124 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  125 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  126 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  127 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  128 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  129 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 768x1024 is reachable and recovers with a real click (2.5s)
+  ✓  130 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  131 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  132 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 768x1024 is reachable and recovers with a real click (6.7s)
+  ✓  133 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  134 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  135 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  136 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 768x1024 is reachable and recovers with a real click (4.1s)
+  ✓  137 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  138 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  139 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 768x1024 is reachable and recovers with a real click (2.7s)
+  ✓  140 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  141 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 768x1024 is reachable and recovers with a real click (2.6s)
+  ✓  142 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 768x1024 is reachable and recovers with a real click (3.2s)
+  ✓  143 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 768x1024 is reachable and recovers with a real click (3.4s)
+  ✓  144 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 768x1024 is reachable and recovers with a real click (11.1s)
+  ✓  145 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 768x1024 is reachable and recovers with a real click (8.6s)
+  ✓  146 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  147 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  148 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  149 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  150 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 390x844 is reachable and recovers with a real tap (3.0s)
+  ✓  151 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 390x844 is reachable and recovers with a real tap (2.5s)
+  ✓  152 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 390x844 is reachable and recovers with a real tap (2.5s)
+  ✓  153 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  154 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  155 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  156 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  157 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  158 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  159 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 390x844 is reachable and recovers with a real tap (2.7s)
+  ✓  160 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 390x844 is reachable and recovers with a real tap (2.7s)
+  ✓  161 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  162 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 390x844 is reachable and recovers with a real tap (2.8s)
+  ✓  163 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  164 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  165 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 390x844 is reachable and recovers with a real tap (2.7s)
+  ✓  166 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  167 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 390x844 is reachable and recovers with a real tap (8.2s)
+  ✓  168 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 390x844 is reachable and recovers with a real tap (2.9s)
+  ✓  169 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  170 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  171 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  172 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  173 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 390x844 is reachable and recovers with a real tap (2.5s)
+  ✓  174 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  175 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  176 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 390x844 is reachable and recovers with a real tap (2.6s)
+  ✓  177 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 390x844 is reachable and recovers with a real tap (2.8s)
+  ✓  178 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 390x844 is reachable and recovers with a real tap (3.4s)
+  ✓  179 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 390x844 is reachable and recovers with a real tap (17.5s)
+  ✓  180 [desktop] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 390x844 is reachable and recovers with a real tap (13.0s)
+  ✓  181 [desktop] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (1440x900) (29.4s)
+  ✘  182 [desktop] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (768x1024) (28.6s)
+  ✓  183 [desktop] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (768x1024) (retry #1) (28.4s)
+  ✓  184 [desktop] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (390x844) (27.5s)
+  ✓  185 [desktop] › e2e/l12.spec.ts:121:1 › L12 a real click acts: S06 futures and S03a service radios respond to page.mouse at their centres (15.1s)
+  ✓  186 [desktop] › e2e/scenes.spec.ts:12:1 › rendered copy equals facts.json (S01 cards, S02 ledger title, S03b Manhattan) (261ms)
+  ✓  187 [desktop] › e2e/scenes.spec.ts:23:1 › S03b dial: p 0.6 is Brooklyn forward and backward; a rapid jump lands on the hinge (374ms)
+  ✓  188 [desktop] › e2e/scenes.spec.ts:44:1 › S04 handoff: Canvas2D node positions match deck.gl's projection within 1px for 263/263 zones (1.4s)
+  ✓  189 [desktop] › e2e/scenes.spec.ts:58:1 › S03a states: a failed zone_hour_week fetch shows the error, RETRY re-fetches and recovers (616ms)
+  ✓  190 [desktop] › e2e/scenes.spec.ts:70:1 › S03a controls: GREEN changes the readout; 263 zones stay in the a11y table (275ms)
+  ✓  191 [desktop] › e2e/scenes.spec.ts:82:1 › deep link to #demand loads zone shapes and lands on the map without visiting S03 (1.8s)
+  ✓  192 [desktop] › e2e/scenes.spec.ts:100:3 › state: bpr_fit.json fails -> error line -> RETRY re-fetches exactly once and recovers (2.6s)
+  ✓  193 [desktop] › e2e/scenes.spec.ts:100:3 › state: daily.json fails -> error line -> RETRY re-fetches exactly once and recovers (338ms)
+  ✓  194 [desktop] › e2e/scenes.spec.ts:100:3 › state: weather_model.json fails -> error line -> RETRY re-fetches exactly once and recovers (292ms)
+  ✓  195 [desktop] › e2e/scenes.spec.ts:100:3 › state: facts.json fails -> error line -> RETRY re-fetches exactly once and recovers (259ms)
+  ✓  196 [desktop] › e2e/scenes.spec.ts:100:3 › state: reconciliation.json fails -> error line -> RETRY re-fetches exactly once and recovers (334ms)
+  ✓  197 [desktop] › e2e/scenes.spec.ts:100:3 › state: od_top.json fails -> error line -> RETRY re-fetches exactly once and recovers (294ms)
+  ✓  198 [desktop] › e2e/scenes.spec.ts:100:3 › state: zones.geojson fails -> error line -> RETRY re-fetches exactly once and recovers (299ms)
+  ✓  199 [desktop] › e2e/shell.spec.ts:12:1 › no external network requests, including the lazy deck.gl chunk (luma.gl / loaders.gl) (5.7s)
+  ✓  200 [desktop] › e2e/shell.spec.ts:26:1 › desktop nav: keyboard jump, aria-current, focus, back/forward (520ms)
+  -  201 [desktop] › e2e/shell.spec.ts:57:1 › mobile menu pill: open, Esc closes and returns focus, item jumps
+  ✓  202 [desktop] › e2e/shell.spec.ts:82:1 › reduced motion: no pinned stages, no blur, page bottom reachable (5.0s)
+  ✓  203 [desktop] › e2e/shell.spec.ts:106:1 › motion toggle switches the whole site to reduced motion and back (1.1s)
+  ✓  204 [desktop] › e2e/shell.spec.ts:116:1 › resize D -> M keeps the scene and its progress, without errors (1.0s)
+  ✓  205 [desktop] › e2e/shell.spec.ts:134:3 › axe: no serious or critical violations (app shell) (1.5s)
+  -  206 [mobile] › e2e/b2.spec.ts:12:1 › S05: the lab output in the DOM equals the Python BPR vector (Manhattan, WED 23:00, demand x1.20)
+  -  207 [mobile] › e2e/b2.spec.ts:45:1 › S06: YOUR FUTURE is disabled until the lab changes, then enabled
+  -  208 [mobile] › e2e/b2.spec.ts:61:1 › nav jumps to each B2 section with aria-current, hash and focus
+  -  209 [mobile] › e2e/b2.spec.ts:73:1 › reverse and rapid scroll through S05-S08 never traps
+  -  210 [mobile] › e2e/b2.spec.ts:95:1 › OBS: search a zone -> inspector (sorted destinations) -> Esc closes and returns focus; EXPLORE locks scroll and Esc restores
+  -  211 [mobile] › e2e/b2.spec.ts:126:1 › OBS readout equals the sum of the region's zone values (QUEENS, WED 08:00, GREEN)
+  ✓  212 [mobile] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (pressure lab) (1.8s)
+  ✓  213 [mobile] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (observatory with inspector) (4.2s)
+  ✓  214 [mobile] › e2e/b2.spec.ts:145:3 › axe: no serious or critical violations (evidence stack) (1.7s)
+  -  215 [mobile] › e2e/b2.spec.ts:158:1 › fix 5: deck's render loop is paused offscreen and idle frames never redraw
+  -  216 [mobile] › e2e/b2.spec.ts:181:1 › EXPLORE: the rail stays clickable and EXIT restores scroll (D)
+  ✓  217 [mobile] › e2e/b2.spec.ts:195:1 › EXPLORE on touch: tap EXPLORE, tap EXIT, scroll is released (M) (10.7s)
+  ✓  218 [mobile] › e2e/b2.spec.ts:211:1 › S06: the split ring never intersects a text block (bbox) (4.4s)
+  ✓  219 [mobile] › e2e/b2.spec.ts:227:1 › S05: chart labels never overlap each other or the stage header (bbox) (2.7s)
+  ✓  220 [mobile] › e2e/b2.spec.ts:243:1 › M OBS inspector clears the MENU pill (7.7s)
+  -  221 [mobile] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1920x1080)
+  -  222 [mobile] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1440x900)
+  -  223 [mobile] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (1024x768)
+  -  224 [mobile] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (768x1024)
+  -  225 [mobile] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (390x844)
+  -  226 [mobile] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (375x812)
+  -  227 [mobile] › e2e/fix001.spec.ts:105:27 › D-001: no text collides with text or cards, or the ring at 1024x768 and 768x1024, in S01, S03a, S03b (360x800)
+  -  228 [mobile] › e2e/fix001.spec.ts:111:72 › D-057: no text collides in S01, S03a, S03b at 1280x720
+  -  229 [mobile] › e2e/fix001.spec.ts:111:72 › D-057: no text collides in S01, S03a, S03b at 1366x768
+  -  230 [mobile] › e2e/fix001.spec.ts:111:72 › D-057: no text collides in S01, S03a, S03b at 1440x760
+  -  231 [mobile] › e2e/fix001.spec.ts:116:1 › D-001: the S06 split ring never intersects a text block (all 7 viewports)
+  -  232 [mobile] › e2e/fix001.spec.ts:125:59 › D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (1024x768)
+  -  233 [mobile] › e2e/fix001.spec.ts:125:59 › D-033: with classic scrollbars, JS and CSS agree on the composition and nothing collides (768x1024)
+  -  234 [mobile] › e2e/fix001.spec.ts:151:1 › D-002: every S01 number card shows its honesty tag on phones
+  -  235 [mobile] › e2e/fix001.spec.ts:165:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1920x1080)
+  -  236 [mobile] › e2e/fix001.spec.ts:165:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1440x900)
+  -  237 [mobile] › e2e/fix001.spec.ts:165:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (1024x768)
+  -  238 [mobile] › e2e/fix001.spec.ts:165:26 › D-003: destination tickets never overlap each other or leave the viewport, every anchor and two bands (768x1024)
+  -  239 [mobile] › e2e/fix001.spec.ts:190:1 › D-004: S04 direct labels stay inside the viewport on phones
+  -  240 [mobile] › e2e/fix001.spec.ts:208:3 › D-005: no sideways scroll in any scene at 360/375/390 (normal motion)
+  -  241 [mobile] › e2e/fix001.spec.ts:208:3 › D-005: no sideways scroll in any scene at 360/375/390 (reduced motion)
+  -  242 [mobile] › e2e/fix001.spec.ts:231:1 › D-006: every nav jump lands fully resolved, and axe passes after each jump
+  -  243 [mobile] › e2e/fix001.spec.ts:254:1 › D-008: the S05 SIMULATED chip fits inside the viewport at all 7 viewports
+  -  244 [mobile] › e2e/fix001.spec.ts:267:1 › D-009: the S04 stage is never blank across the handoff (p 0.60 to 0.70)
+  -  245 [mobile] › e2e/fix001.spec.ts:282:1 › D-010: the S05 statement's 48% and the lab's Manhattan speed are both named
+  -  246 [mobile] › e2e/fix001.spec.ts:294:1 › D-012: the S06 futures radiogroup uses arrows and a single Tab stop
+  -  247 [mobile] › e2e/fix001.spec.ts:305:1 › D-013: the first Tab during the intro lands on SKIP INTRO
+  -  248 [mobile] › e2e/fix001.spec.ts:314:1 › D-014 + D-015: one live region per failed artifact; no model chip without a model
+  -  249 [mobile] › e2e/fix001.spec.ts:323:1 › D-017: a favicon is served and nothing 404s
+  -  250 [mobile] › e2e/fix001.spec.ts:333:1 › phones: the layout viewport never widens during load, so an early jump lands at its progress
+  -  251 [mobile] › e2e/fix001.spec.ts:360:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (390x844)
+  -  252 [mobile] › e2e/fix001.spec.ts:360:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (375x812)
+  -  253 [mobile] › e2e/fix001.spec.ts:360:30 › D-030/D-031/D-032: every data visual keeps its honesty tag on phones (360x800)
+  -  254 [mobile] › e2e/fix001.spec.ts:378:30 › D-035: S02 card 3 text blocks never overprint each other (390x844)
+  -  255 [mobile] › e2e/fix001.spec.ts:378:30 › D-035: S02 card 3 text blocks never overprint each other (375x812)
+  -  256 [mobile] › e2e/fix001.spec.ts:378:30 › D-035: S02 card 3 text blocks never overprint each other (360x800)
+  -  257 [mobile] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1920x1080)
+  -  258 [mobile] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1440x900)
+  -  259 [mobile] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (1024x768)
+  -  260 [mobile] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (768x1024)
+  -  261 [mobile] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (390x844)
+  -  262 [mobile] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (375x812)
+  -  263 [mobile] › e2e/fix001.spec.ts:409:27 › D-039: S04 direct labels are pairwise disjoint in every metric (360x800)
+  -  264 [mobile] › e2e/fix001.spec.ts:424:58 › D-041: a facts.json failure is announced and recoverable on CITY (1440x900)
+  -  265 [mobile] › e2e/fix001.spec.ts:424:58 › D-041: a facts.json failure is announced and recoverable on CITY (390x844)
+  -  266 [mobile] › e2e/fix001.spec.ts:439:1 › D-038: the skip link has a target
+  -  267 [mobile] › e2e/fix001.spec.ts:444:1 › D-043: S06 states the borough moved most and least, bound to the minutes list
+  -  268 [mobile] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a od_ring_top.json failure is announced and recoverable in city
+  -  269 [mobile] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a od_ring_top.json failure is announced and recoverable in corridors
+  -  270 [mobile] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a meta.json failure is announced and recoverable in anatomy
+  -  271 [mobile] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a meta.json failure is announced and recoverable in evidence
+  -  272 [mobile] › e2e/fix001.spec.ts:465:13 › D-042/D-052: a network.json failure is announced and recoverable in observatory
+  -  273 [mobile] › e2e/fix001.spec.ts:491:1 › D-054: the S02 meta.json line is live only while card 3 is the shown card
+  -  274 [mobile] › e2e/fix001.spec.ts:502:82 › D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (768x1024)
+  -  275 [mobile] › e2e/fix001.spec.ts:502:82 › D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (390x844)
+  -  276 [mobile] › e2e/fix001.spec.ts:502:82 › D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (375x812)
+  -  277 [mobile] › e2e/fix001.spec.ts:502:82 › D-051/D-034: S07 cards never cover "How we know." and holdout triplets stay on one line (360x800)
+  -  278 [mobile] › e2e/fix001.spec.ts:518:69 › D-058/D-059: corner button clears the pill by 8px, the dagger is at least 11px (390x844)
+  -  279 [mobile] › e2e/fix001.spec.ts:518:69 › D-058/D-059: corner button clears the pill by 8px, the dagger is at least 11px (375x812)
+  -  280 [mobile] › e2e/fix001.spec.ts:518:69 › D-058/D-059: corner button clears the pill by 8px, the dagger is at least 11px (360x800)
+  -  281 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 1440x900 is reachable and recovers with a real click
+  -  282 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 1440x900 is reachable and recovers with a real click
+  -  283 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 1440x900 is reachable and recovers with a real click
+  -  284 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 1440x900 is reachable and recovers with a real click
+  -  285 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 1440x900 is reachable and recovers with a real click
+  -  286 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 1440x900 is reachable and recovers with a real click
+  -  287 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 1440x900 is reachable and recovers with a real click
+  -  288 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 1440x900 is reachable and recovers with a real click
+  -  289 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 1440x900 is reachable and recovers with a real click
+  -  290 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 1440x900 is reachable and recovers with a real click
+  -  291 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 1440x900 is reachable and recovers with a real click
+  -  292 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 1440x900 is reachable and recovers with a real click
+  -  293 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 1440x900 is reachable and recovers with a real click
+  -  294 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 1440x900 is reachable and recovers with a real click
+  -  295 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 1440x900 is reachable and recovers with a real click
+  -  296 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 1440x900 is reachable and recovers with a real click
+  -  297 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 1440x900 is reachable and recovers with a real click
+  -  298 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 1440x900 is reachable and recovers with a real click
+  -  299 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 1440x900 is reachable and recovers with a real click
+  -  300 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 1440x900 is reachable and recovers with a real click
+  -  301 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 1440x900 is reachable and recovers with a real click
+  -  302 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 1440x900 is reachable and recovers with a real click
+  -  303 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 1440x900 is reachable and recovers with a real click
+  -  304 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 1440x900 is reachable and recovers with a real click
+  -  305 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 1440x900 is reachable and recovers with a real click
+  -  306 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 1440x900 is reachable and recovers with a real click
+  -  307 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 1440x900 is reachable and recovers with a real click
+  -  308 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 1440x900 is reachable and recovers with a real click
+  -  309 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 1440x900 is reachable and recovers with a real click
+  -  310 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 1440x900 is reachable and recovers with a real click
+  -  311 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 1440x900 is reachable and recovers with a real click
+  -  312 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 1440x900 is reachable and recovers with a real click
+  -  313 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 1440x900 is reachable and recovers with a real click
+  -  314 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 1440x900 is reachable and recovers with a real click
+  -  315 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 1440x900 is reachable and recovers with a real click
+  -  316 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 768x1024 is reachable and recovers with a real click
+  -  317 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 768x1024 is reachable and recovers with a real click
+  -  318 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 768x1024 is reachable and recovers with a real click
+  -  319 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 768x1024 is reachable and recovers with a real click
+  -  320 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 768x1024 is reachable and recovers with a real click
+  -  321 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 768x1024 is reachable and recovers with a real click
+  -  322 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 768x1024 is reachable and recovers with a real click
+  -  323 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 768x1024 is reachable and recovers with a real click
+  -  324 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 768x1024 is reachable and recovers with a real click
+  -  325 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 768x1024 is reachable and recovers with a real click
+  -  326 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 768x1024 is reachable and recovers with a real click
+  -  327 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 768x1024 is reachable and recovers with a real click
+  -  328 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 768x1024 is reachable and recovers with a real click
+  -  329 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 768x1024 is reachable and recovers with a real click
+  -  330 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 768x1024 is reachable and recovers with a real click
+  -  331 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 768x1024 is reachable and recovers with a real click
+  -  332 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 768x1024 is reachable and recovers with a real click
+  -  333 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 768x1024 is reachable and recovers with a real click
+  -  334 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 768x1024 is reachable and recovers with a real click
+  -  335 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 768x1024 is reachable and recovers with a real click
+  -  336 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 768x1024 is reachable and recovers with a real click
+  -  337 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 768x1024 is reachable and recovers with a real click
+  -  338 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 768x1024 is reachable and recovers with a real click
+  -  339 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 768x1024 is reachable and recovers with a real click
+  -  340 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 768x1024 is reachable and recovers with a real click
+  -  341 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 768x1024 is reachable and recovers with a real click
+  -  342 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 768x1024 is reachable and recovers with a real click
+  -  343 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 768x1024 is reachable and recovers with a real click
+  -  344 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 768x1024 is reachable and recovers with a real click
+  -  345 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 768x1024 is reachable and recovers with a real click
+  -  346 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 768x1024 is reachable and recovers with a real click
+  -  347 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 768x1024 is reachable and recovers with a real click
+  -  348 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 768x1024 is reachable and recovers with a real click
+  -  349 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 768x1024 is reachable and recovers with a real click
+  -  350 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 768x1024 is reachable and recovers with a real click
+  -  351 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in city at 390x844 is reachable and recovers with a real tap
+  -  352 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in anatomy at 390x844 is reachable and recovers with a real tap
+  -  353 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in rush-hour at 390x844 is reachable and recovers with a real tap
+  -  354 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in corridors at 390x844 is reachable and recovers with a real tap
+  -  355 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in demand at 390x844 is reachable and recovers with a real tap
+  -  356 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in pressure at 390x844 is reachable and recovers with a real tap
+  -  357 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  358 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: facts.json in closing at 390x844 is reachable and recovers with a real tap
+  -  359 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones_index.json in city at 390x844 is reachable and recovers with a real tap
+  -  360 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in city at 390x844 is reachable and recovers with a real tap
+  -  361 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: reconciliation.json in anatomy at 390x844 is reachable and recovers with a real tap
+  -  362 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in city at 390x844 is reachable and recovers with a real tap
+  -  363 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in rush-hour at 390x844 is reachable and recovers with a real tap
+  -  364 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_ring_top.json in corridors at 390x844 is reachable and recovers with a real tap
+  -  365 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in anatomy at 390x844 is reachable and recovers with a real tap
+  -  366 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  367 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: meta.json in closing at 390x844 is reachable and recovers with a real tap
+  -  368 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in rush-hour at 390x844 is reachable and recovers with a real tap
+  -  369 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_hour_week.json in observatory at 390x844 is reachable and recovers with a real tap
+  -  370 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in rush-hour at 390x844 is reachable and recovers with a real tap
+  -  371 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in corridors at 390x844 is reachable and recovers with a real tap
+  -  372 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: od_top.json in observatory at 390x844 is reachable and recovers with a real tap
+  -  373 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zone_month.json in demand at 390x844 is reachable and recovers with a real tap
+  -  374 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in demand at 390x844 is reachable and recovers with a real tap
+  -  375 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: zones.geojson in observatory at 390x844 is reachable and recovers with a real tap
+  -  376 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in pressure at 390x844 is reachable and recovers with a real tap
+  -  377 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in futures at 390x844 is reachable and recovers with a real tap
+  -  378 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: bpr_fit.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  379 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: daily.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  380 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: weather_model.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  381 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in evidence at 390x844 is reachable and recovers with a real tap
+  -  382 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in demand at 390x844 is reachable and recovers with a real tap
+  -  383 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in demand at 390x844 is reachable and recovers with a real tap
+  -  384 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: clusters.json in observatory at 390x844 is reachable and recovers with a real tap
+  -  385 [mobile] › e2e/l12.spec.ts:52:3 › L12 RETRY: network.json in observatory at 390x844 is reachable and recovers with a real tap
+  -  386 [mobile] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (1440x900)
+  -  387 [mobile] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (768x1024)
+  -  388 [mobile] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (390x844)
+  -  389 [mobile] › e2e/l12.spec.ts:121:1 › L12 a real click acts: S06 futures and S03a service radios respond to page.mouse at their centres
+  ✓  390 [mobile] › e2e/scenes.spec.ts:12:1 › rendered copy equals facts.json (S01 cards, S02 ledger title, S03b Manhattan) (297ms)
+  ✓  391 [mobile] › e2e/scenes.spec.ts:23:1 › S03b dial: p 0.6 is Brooklyn forward and backward; a rapid jump lands on the hinge (327ms)
+  ✓  392 [mobile] › e2e/scenes.spec.ts:44:1 › S04 handoff: Canvas2D node positions match deck.gl's projection within 1px for 263/263 zones (1.6s)
+  ✓  393 [mobile] › e2e/scenes.spec.ts:58:1 › S03a states: a failed zone_hour_week fetch shows the error, RETRY re-fetches and recovers (856ms)
+  -  394 [mobile] › e2e/scenes.spec.ts:70:1 › S03a controls: GREEN changes the readout; 263 zones stay in the a11y table
+  ✓  395 [mobile] › e2e/scenes.spec.ts:82:1 › deep link to #demand loads zone shapes and lands on the map without visiting S03 (1.7s)
+  -  396 [mobile] › e2e/scenes.spec.ts:100:3 › state: bpr_fit.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  397 [mobile] › e2e/scenes.spec.ts:100:3 › state: daily.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  398 [mobile] › e2e/scenes.spec.ts:100:3 › state: weather_model.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  399 [mobile] › e2e/scenes.spec.ts:100:3 › state: facts.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  400 [mobile] › e2e/scenes.spec.ts:100:3 › state: reconciliation.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  401 [mobile] › e2e/scenes.spec.ts:100:3 › state: od_top.json fails -> error line -> RETRY re-fetches exactly once and recovers
+  -  402 [mobile] › e2e/scenes.spec.ts:100:3 › state: zones.geojson fails -> error line -> RETRY re-fetches exactly once and recovers
+  ✓  403 [mobile] › e2e/shell.spec.ts:12:1 › no external network requests, including the lazy deck.gl chunk (luma.gl / loaders.gl) (4.8s)
+  -  404 [mobile] › e2e/shell.spec.ts:26:1 › desktop nav: keyboard jump, aria-current, focus, back/forward
+  ✓  405 [mobile] › e2e/shell.spec.ts:57:1 › mobile menu pill: open, Esc closes and returns focus, item jumps (975ms)
+  ✓  406 [mobile] › e2e/shell.spec.ts:82:1 › reduced motion: no pinned stages, no blur, page bottom reachable (3.6s)
+  -  407 [mobile] › e2e/shell.spec.ts:106:1 › motion toggle switches the whole site to reduced motion and back
+  -  408 [mobile] › e2e/shell.spec.ts:116:1 › resize D -> M keeps the scene and its progress, without errors
+  ✓  409 [mobile] › e2e/shell.spec.ts:134:3 › axe: no serious or critical violations (app shell) (1.3s)
+
+
+  1) [desktop] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (768x1024) 
+
+    Error: controls checked across the landings
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 60
+    Received:   55
+
+      115 |   }
+      116 |   await ctx.close();
+    > 117 |   expect(checked, "controls checked across the landings").toBeGreaterThan(w < 768 ? 30 : 60);
+          |                                                           ^
+      118 |   expect(bad).toEqual([]);
+      119 | });
+      120 |
+        at /Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility/site/e2e/l12.spec.ts:117:59
+
+    Error Context: test-results/l12-L12-every-control-the--9804a-e-is-that-control-768x1024--desktop/error-context.md
+
+  Slow test file: [desktop] › e2e/fix001.spec.ts (19.0m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 flaky
+    [desktop] › e2e/l12.spec.ts:87:27 › L12 every control: the topmost element at each visible control's centre is that control (768x1024) 
+  191 skipped
+  216 passed (30.1m)
+end 10:00  up 2 days, 12:31, 4 users, load averages: 18.99 24.15 28.90

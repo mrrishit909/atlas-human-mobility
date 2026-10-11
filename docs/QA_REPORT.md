@@ -1087,3 +1087,159 @@ Evidence paths are under `artifacts/evidence/qa-4/` unless marked otherwise.
 - Gitignored: `artifacts/evidence/recordings/qa-4/` (every frame at full resolution). The `file` and `png` fields in the results name frames there.
 
 No dash characters U+2014/U+2015 in this pass.
+
+# Pass 5: final full pass after FIX-004 (task P01-QA-006)
+
+Independent reviewer, qa-reviewer (Claude Opus 5.5). I wrote pass 4. I built none of the site.
+Date: 2026-10-11, 08:59 to about 10:40 EDT. Product code audited at HEAD a63b0f8 (928f793 changes only `docs/BUILD_STATUS.md`).
+Build: `npm run build` (served `index-6sctjOLv.js`, confirmed with curl before and after the QA motion suite's rebuild). It was served by the same restart-loop `vite preview --port 4301 --strictPort`.
+Probes and suites ran with `--workers 1`, without waiting for load (1-minute load 6 to 47). Every frame and number below is from my own captures.
+
+**Verdict: FAILED (1 major).** FIX-004 closes every item it lists, measured from my own frames and real-pointer clicks:
+- **D-055 is closed.** 73 of 78 route-blocked cases recover with a real `page.mouse.click` or `touchscreen.tap` at the RETRY centre: hits +1, 0 lines after. The 5 others are dismissed below.
+- **D-057 is closed** at 1280x720 in geometry and in pixels.
+- **The minors are closed:** D-053, D-056, D-058, D-059, D-051, D-034, D-048, D-036, D-050 and D-046.
+
+The release gate still fails on one major:
+- **D-060.** At **1024x768**, a required viewport, plain and classic, the LaGuardia dial title from p 0.8 to 0.95 has two problems:
+  - It enters the band selector box (`.cor-bands-m`, now in the ledger column).
+  - Its right half sits under the ledger's new 90% black feathered ground, so the glyphs "r" and "A" fall to 3.4 to 4.1:1.
+- This is the D-047 assertion (title disjoint from the band selector) failing again at a required viewport. It is a regression from FIX-004.
+- Two new minors: D-061 (a meta.json failure is never announced on a cold arrival at S02 card 4 on desktop) and D-037 raised to minor (L16: the JFK label over the white extrusion is 2.1 to 3.4:1).
+
+## P5.1 Release gate (pass 5)
+
+Evidence paths are under `artifacts/evidence/qa-5/` unless marked otherwise.
+- `results-a.json`: d047, errors4, remount, l12, l8.
+- `results-b.json`: geom, tags (with L16 boxes), labels, chip, l9, tickets, rm (with L14 and L15 data), nav, axe, keyboard, numbers.
+- `titleink.json`: per-glyph title ink.
+- Full frames are in the gitignored `artifacts/evidence/recordings/qa-5/`.
+- Variants (12): 1920x1080, 1440x900, 1024x768, 768x1024, 390x844, 375x812, 360x800, 1024x768-classic (clientWidth 1009), 768x1024-classic (753), 1280x720, 1366x768, 1440x760.
+
+| Row | Result | Measured evidence |
+|---|---|---|
+| Visual design | PASS (with defects) | I read all 12 contact sheets and about 40 full frames. Each scene keeps its composition at every width, and the laptop variants are deliberate compositions (S03b at 1280x720 puts the title right of the text column, `probe/d047-1280x720-corridors-0.88.png`). Painted pixels: the S03b arc and the S04 morphing ring now fade under the desktop text column, so no stroke or node runs through a word (`probe/geom-1440x900-corridors-0.65.png`, `geom-1440x900-demand-0.35.png`). Remaining: D-060 (major), D-037. |
+| Motion UI (6 layers) | PASS | QA motion suite 20 of 21 run passed. The failure, `robust.spec:4`, was a 30 s timeout at load 29.7 to 33.6; it passed serially in 8.4 s and 8.9 s (desktop and mobile; `scripts/qa-motion-rerun.log`). Nav: 40 real nav jumps with 0 half-revealed words and 0 axe violations. PLAY advances the hour (WED 08:00 to 11:00, 14:00, 12:00) at 1440, 768 and 390 (`scripts/buttons.mjs`). Frame pacing not re-measured (load); pass 2: desktop p95 10.7 ms, 390 at 4x CPU p95 28.3 ms. |
+| UX | **FAIL** | Keyboard journey passes (`scripts/extra5.mjs`, `keyboard`). Real-pointer journeys pass: PLAY/PAUSE, EXPLORE (overflow hidden) and EXIT (visible), LAYERS (17 radios), RESET VIEW, S05 RESET (8.3 back to 8.8 mph), MENU pill, motion toggle, REPLAY INTRO, and the closing OBSERVATORY link (hash #observatory). Coverage limit: at 768 my selector missed the tablet MOTION and REPLAY INTRO utilities, which l9 covers by hit-test only. Fails on D-060. |
+| Functionality and states | PASS (with minor D-061) | `errors4` (real pointer): 78 cases, 73 recover; the 5 others are dismissed in §P5.3. `l12`: 210 real clicks or taps on every visible radio and tab at 8 landings x 1440, 1280x720, 1024, 768, 390 and 360. Every one is reached (`elementFromPoint` returns the control) and acts. `l9` hit-test on every control in every scene at 4 progress points x 12 variants: no covered control except the S03b dial's stage-wide hit area, whose centre lies under the ledger (dismissed, as in pass 4). `remount`: 66 steps, 1 failure, which is D-061. |
+| AI / analytical honesty | PASS | 23 of 23 facts.json values match on screen: 20 via `facts_check.py` on `numbersText`, plus 48%, 21.3 mph and K = 3 from `extra5.mjs`. D-053 is closed: S01 now reads "96% of rides begin and end in one of 263 known zones." That is bound to `reconciliation.json` (kept_known_od / kept = 96.29%). D-056 is closed: od_top, network and clusters failures each show their own line and RETRY at S03a, OBS and S04, with no K-MEANS or PageRank chip over a missing model (`errors4`, `scripts/net5.mjs`). No tag is `display:none` (132 tag rows). |
+| Performance | PASS (cited) | `npm run build`: main JS 109.41 KB gz, CSS 13.41 KB gz, deckMap 203.43 KB gz, fonts unchanged. Pass 2 had 108.3 and 13.0, so the bundle is +1.52 KB gz, under 2 KB, and Lighthouse was not rerun. Pass 2: mobile LCP 1804 to 1806 ms, perf 0.99; desktop LCP 404 to 406 ms; CLS 0. D-016 data budget unchanged (open minor). |
+| Responsiveness | **FAIL** | `d047`: 72 states (12 variants x 6 anchors). The only hits are 1024x768 and 1024-classic at p 0.8, 0.88 and 0.95 (D-060). Per-glyph ink (`scripts/titleink.mjs`, `titleink.py`): worst glyph 3.4:1 (1024) and 3.6:1 (1024-classic); 1280x720 worst is the final "t" at 5.9:1; every other variant 20.6 to 21:1. Tickets: 126 states, 0 defects. S04 labels: 36 states, 0 overlaps. S05 chip: 24 states, 0 bad. Reduced motion: max scrollWidth equals the configured width at all 12 variants, with 0 sticky and 0 console errors. |
+| Professional quality | PASS (D-044 note) | `typecheck` exit 0, `lint` clean, `npm test` 70/70. e2e `--workers 1` (09:30 to 10:00, load 13.6 to 29): 216 passed, 191 skipped, 1 flaky. The flaky test is `l12.spec.ts:87` (768x1024, "controls checked > 60"); it also failed on two isolated serial reruns, with 55 counted. My replica (`scripts/l12count.mjs`) counts 66 controls at the spec's 1500 ms settle and 92 at 4000 ms, because the OBS controls are still fading in (2 vs 28), and finds **0 covered controls**. That is a test count floor racing the fade-in, not a product defect (D-044). QA motion suite: see Motion. axe: 160 scans (10 scenes x normal and reduced x 1440, 1024, 1024-classic and 390, plus whole page), 0 violations. All 8 docs present. |
+| GitHub | BLOCKED | Out of scope for this task. |
+| Deployment | BLOCKED | Out of scope for this task. |
+| Portfolio | BLOCKED | Out of scope for this task. |
+
+## P5.2 Register
+
+### Major (open)
+
+**P01-D-060: 1024x768, S03b LaGuardia step: the dial title enters the band selector and half of it dims under the ledger's ground** (major; a D-047 residual at a required viewport, introduced by FIX-004)
+- **Files:**
+  - `site/src/scenes/S03bCorridors.tsx`: the D-047/D-057 `useLayoutEffect` measures only `.cor-text`.
+  - `site/src/styles/scenes.css`: at D (min-width 1024) `.cor-ledger` has `background: rgb(0 0 0 / 0.9); box-shadow: 0 0 24px 18px rgb(0 0 0 / 0.9)`.
+  - At 1024 the band selector renders as `.cor-bands-m` inside the ledger column (right). The title, centred on the arc at x 500 to 802, therefore:
+    - (a) overlaps that box, which the push-down never measures;
+    - (b) paints under the ledger's feathered ground.
+- **Viewports:** 1024x768, plain and classic, at p 0.8, 0.88 and 0.95. 1280x720, 1366x768, 1440x760 and the other 7 variants are clean.
+- **Actual:**
+  - The title glyph rects overlap the `.cor-bands-m` box by 7 px vertically, covering the PM PEAK and EVENING buttons' padding. No glyph touches button text (`titleink.py`: glyph-on-band-text False).
+  - Per-glyph 95th-percentile ink against black: "r" 3.4:1, "A" 3.7:1, second "r" 4.0:1 at 1024. At 1024-classic the same glyphs are 3.6, 4.1 and 4.1:1. The left half and every other variant read 20.6 to 21:1.
+  - This is above WCAG's 3:1 for large text but below the program's 4.5:1 (L16). The hero title visibly fades out mid-word: `probe/d047-1024x768-corridors-0.88.png`, `d047-1024x768-classic-corridors-0.95.png`, `ink-1024x768-0.88.png`.
+- **Why major:** it fails the exact closure test written for D-047 in pass 3: the `.dial-title` rect must be disjoint from the band selector at every required viewport. The builder's `fix001.spec.ts:88` box list includes `.cor-bands` but not `.cor-bands-m`, which is why FIX-004 shipped green.
+- **Verification test:**
+  - Add `#corridors .cor-bands-m` to the `d001Scenes` box list.
+  - Add a pixel check: the per-glyph ink of the title must be at least 4.5:1 at 1024x768 (plain and classic) for p 0.8, 0.88 and 0.95.
+
+### Minor (open)
+
+- **P01-D-061: a meta.json failure is never announced on a cold arrival at S02 card 4 (desktop).**
+  - Repro: block meta.json, then `jumpTo('anatomy', 0.9)` straight from load.
+  - At 1440, card 3's line (COULD NOT LOAD META.JSON + RETRY) is in view with no `role=alert` anywhere (`alerts: []`) (`scripts/titleink.mjs` output; `probe/meta-cold-anatomy-0.9-1440.png`).
+  - Arriving through card 3 does announce it, once (`remount`). The D-054 fix ties the live region to card 3 being active.
+  - On phones card 3 is off-screen at 0.9, so nothing visible goes unannounced.
+- **P01-D-037 (raised from polish; L16): S04 labels over white extrusions.**
+  - "JFK AIRPORT · 6,247,112" measures 2.06:1 at 1920 and 3.35:1 at 1440 (CSS colour vs the sampled median background, `scripts/l16.py`).
+  - "UPPER EAST SIDE NORTH" also crosses its tower (`probe/tags-1440x900-demand-0.89.png`).
+  - These are the only 2 of 496 sampled chip, caption, label, ticket and body boxes below 4.5:1.
+- **Still open:**
+  - D-016 (data 887 KB gz vs the 400 KB budget, unchanged).
+  - D-044 (test reliability: `l12.spec` count floor, `robust.spec:4` timeout).
+
+### Polish (open)
+
+- **D-022:** DISTANCE_MI / DURATION_S over the card-1 body, 3 to 5 px at every desktop variant.
+- **D-023:** ledger ranges wrap mid-range ("26-" / "64)") at 1280x720 and 1024.
+- **D-024:** OBS LAYERS button on phones (works: 17 radios after a tap).
+- **D-027:** at 1024 the echo chord crosses the S08 footer "MAKES NO" (`probe/geom-1024x768-closing-0.9.png`).
+- **D-040:** under reduced motion the fixed wordmark overlaps CITY card 1's head by 177x14 px at 390, 375 and 360 (`probe/rm-390x844-city.png`).
+- **D-054 residual:** see D-061.
+
+### Closed this pass (measured)
+
+| Id | Evidence |
+|---|---|
+| D-055 RETRY covered | `errors4`: real pointer at the RETRY centre in S07 (390, 768, and daily.json at 1440) and S05 (390), with hits +1 and 0 lines after (`probe/err4-facts.json-evidence-390-retry.png`, `err4-facts.json-pressure-390-retry.png`, `err4-daily.json-evidence-1440-retry.png`). The daily.json line is now dark red with a black RETRY on the cyan card. |
+| D-057 1280x720 title over tickets | `d047`: 0 hits at 1280x720, 1366x768 and 1440x760; worst glyph 5.9:1 ("t", at the ledger ground's edge) (`probe/d047-1280x720-corridors-0.88.png`) |
+| D-053 copy | "96% of rides begin and end in one of 263 known zones." (`numbersText` city@0.5, 0.78 and 0.95) |
+| D-056 silent od_top, network, clusters | `errors4` od_top x rush-hour/observatory, network and clusters x demand@0.99, all OK at 1440 and 390 |
+| D-058 corner vs pill | `l8`: clearance 33 / 25 / 18 px at 390 / 375 / 360, and 172 at 768 |
+| D-059 dagger 11 px floor | `geom` `small`: 0 sub-11 px text nodes in 444 states (aria-hidden and SVG included) |
+| D-051 S07 heading covered | `geom`: 0 heading hits at 768, 768-classic and phones; `probe/geom-360x800-evidence-0.65.png` |
+| D-034 holdout triplets | one line per borough at 360 (`probe/geom-360x800-evidence-0.65.png`) |
+| D-048 OBS tablet rail | `geom` 768 and 768-classic: 0 off-screen controls; everything wraps above the map (`probe/geom-768x1024-observatory-0.png`) |
+| D-046 phone band row | wraps to two rows inside the ledger card; 0 off-screen (`probe/geom-360x800-corridors-0.35.png`) |
+| D-036, D-050 arc and ring through text | painted pixels: strokes fade under the desktop text ground (`probe/geom-1440x900-corridors-0.65.png`, `geom-1440x900-demand-0.35.png`). The geometry probe still reports crossings, as expected. |
+| D-049 | stays closed (0 S02 collisions at 768) |
+
+### Checked and dismissed
+
+- **`errors4` non-OK cases:**
+  - zone_hour_week.json at S05 (x2): S05 draws nothing from it, and the lab works.
+  - clusters.json at S04 p 0.89 (x2): this is the PICKUPS step, where clusters are not drawn; the cluster-step cases at p 0.99 pass.
+  - reconciliation.json at S02 p 0.65, 390: the scroll-driven deck is between cards there and the RETRY is at x = -79; at the card's landing (p 0.5) a tap recovers.
+- **"Occluded" chips in `tags` at S05 and S07.** `elementFromPoint` skips `pointer-events: none` elements (the lab stage and the card stack, by FIX-004 design), so it reports the stage underneath. The frames show the chips clear.
+- **`extra5.mjs` NETWORK `locator.click` did not switch layers.** A real pointer click does: `scripts/net5.mjs` gives NETWORK checked, one alert, RETRY +1, 0 lines after, at 1440 and 390.
+- **The keyboard probe's second cold load** pressed Tab before the intro mounted (load 25 to 37). `extra5.mjs`, with a 2.5 s wait, gives Tab 1 SKIP INTRO, Tab 2 SKIP TO CHAPTERS, Enter on CITY, then ANATOMY.
+- **S03b ledger ellipsis rects, the S03a readout line box, OBS `td` and horizon `<text>`:** same as passes 3 and 4.
+
+## P5.3 QA_LESSONS L1 to L16
+
+| L | Result | Evidence |
+|---|---|---|
+| L1 | PASS | JS = CSS class at all 12 variants (cw 1009 gives D, cw 753 gives T) |
+| L2 | **FAIL** | D-060 at 1024x768. 1280x720, 1366x768 and 1440x760 are clean |
+| L3 | PASS | no `display:none` on chips; 132 tag rows |
+| L4 | PASS (minor D-061) | 73/78 real-pointer RETRY cases recover, the rest dismissed; D-061 cold-arrival announce gap |
+| L5 | PASS | reduced motion: scrollWidth equals the configured width at 360/375/390/768 and all 12 |
+| L6 | PASS (cited) | fonts unchanged; +1.52 KB gz; pass-2 mobile LCP 1.8 s |
+| L7 | PASS | 0 sub-11 px text nodes in 444 geometry states |
+| L8 | PASS | clearance at least 18 px at 360 |
+| L9 / L12 | PASS | 210 real clicks and taps act; l9 hit-test clean; real-pointer RETRY in every error state |
+| L10 | PASS | D-053 closed; no "live", "every one" or "recomputed" in `copy.ts` |
+| L11 | PASS (polish D-040) | phones 360/375/390: 0 collisions in normal motion; under reduced motion only D-040 (wordmark x card head) |
+| L13 | PASS (no canvas text) | no `fillText`, `strokeText` or `TextLayer` anywhere in `src`; canvas marks against DOM text judged by painted pixels (D-036/D-050 closed, D-027 polish, D-037 minor) |
+| L14 | PASS | `geom` 444 rows and `rm`: scrollWidth never exceeds the configured width. Negative control: a 2000 px element at 390 with `isMobile` gives sw 2000 vs configured 390, reported (`scripts/buttons.mjs`) |
+| L15 | PASS | under reduced motion every scene's figure has non-zero size and 1,205 to 23,921 lit pixels per 200x200 sample at all 12 variants (`scripts/l15.py`) |
+| L16 | **FAIL** | D-060 (title glyphs 3.4 to 4.1:1 under the ledger ground at 1024), D-037 (JFK label 2.06 / 3.35:1); every other one of 496 sampled boxes is at least 4.5:1 |
+
+## P5.4 Commands run (uptime recorded)
+
+| Command | Result | Load (1-min) |
+|---|---|---|
+| `npm run typecheck` / `lint` / `test` / `build` | exit 0 / clean / 70 of 70 / OK | 8 to 9 |
+| `RES=results-a.json scripts/run5.sh d047 errors4 remount l12 l8` | `scripts/run-a.log` | 6.4 to 31.7 |
+| `RES=results-b.json scripts/run5.sh geom tags,labels,chip l9 tickets rm nav axe keyboard,numbers` (in parallel with chain A) | `scripts/run-b.log` | 6.4 to 46.6 |
+| `scripts/titleink.mjs` + `titleink.py`, `l16.py`, `l15.py`, `net5.mjs`, `buttons.mjs`, `extra5.mjs`, `l12count.mjs` | see above | 11 to 18 |
+| `npx playwright test --workers 1` | 216 passed, 191 skipped, 1 flaky (`l12.spec:87` 768); `scripts/e2e-run1.log` | 13.6 to 29 |
+| `l12.spec` reruns, serial, `--retries 0` | 768 "every control" fails the count floor (55 vs > 60); every other test passes; `scripts/e2e-rerun.log` | 15 to 28 |
+| `npx playwright test -c playwright.qa.config.ts --workers 1` | 20 passed, 1 failed (timeout), 17 skipped; serial rerun 2 of 2 passed; `scripts/qa-motion-run1.log`, `qa-motion-rerun.log` | 29.7 to 33.6 / 10.9 to 13.9 |
+| Lighthouse, frame pacing | not run: +1.52 KB gz vs pass 2; load above 10 throughout | |
+
+**Evidence layout.**
+- Committed (about 5 MB): `artifacts/evidence/qa-5/`, holding:
+  - `contact-sheets/` (12 sheets)
+  - `probe/` (the cited frames, quantized)
+  - `results-a.json`, `results-b.json` and `titleink.json`
+  - `scripts/`
+- Gitignored: `artifacts/evidence/recordings/qa-5/`. No U+2014/U+2015 in this pass.

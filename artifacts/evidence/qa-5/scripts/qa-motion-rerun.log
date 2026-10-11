@@ -1,0 +1,5 @@
+start 10:18  up 2 days, 12:49, 4 users, load averages: 10.86 20.42 26.03
+  ✓  1 [desktop] › e2e/motion/robust.spec.ts:4:1 › 5. reduced motion: all sections reachable by nav and keyboard, no pin, no canvas-only content (8.4s)
+  ✓  2 [mobile] › e2e/motion/robust.spec.ts:4:1 › 5. reduced motion: all sections reachable by nav and keyboard, no pin, no canvas-only content (8.9s)
+  2 passed (22.0s)
+end 10:19  up 2 days, 12:49, 4 users, load averages: 13.94 20.32 25.83
