@@ -1,0 +1,388 @@
+{
+ "_comment": "P01 Atlas of Human Mobility. Sections are section.track ids from src/app/scenes.ts. Scroll sequences use window.__atlas.jumpTo(id, p) at 4 progress points per scene (the engine jump, not native scroll). Interaction setups run in page.evaluate; React handlers are reached via real click()/KeyboardEvent dispatch.",
+ "scenes": [
+  {
+   "id": "city",
+   "anchorSelector": "section#city"
+  },
+  {
+   "id": "anatomy",
+   "anchorSelector": "section#anatomy"
+  },
+  {
+   "id": "rush-hour",
+   "anchorSelector": "section#rush-hour"
+  },
+  {
+   "id": "corridors",
+   "anchorSelector": "section#corridors"
+  },
+  {
+   "id": "demand",
+   "anchorSelector": "section#demand"
+  },
+  {
+   "id": "pressure",
+   "anchorSelector": "section#pressure"
+  },
+  {
+   "id": "futures",
+   "anchorSelector": "section#futures"
+  },
+  {
+   "id": "evidence",
+   "anchorSelector": "section#evidence"
+  },
+  {
+   "id": "observatory",
+   "anchorSelector": "section#observatory"
+  },
+  {
+   "id": "closing",
+   "anchorSelector": "section#closing"
+  }
+ ],
+ "interactionStates": [],
+ "interactionSequences": [
+  {
+   "id": "scroll-city",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('city',0.05);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('city',0.35);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('city',0.65);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('city',0.95);",
+     "waitMs": 550
+    }
+   ]
+  },
+  {
+   "id": "scroll-anatomy",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('anatomy',0.05);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('anatomy',0.35);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('anatomy',0.65);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('anatomy',0.95);",
+     "waitMs": 550
+    }
+   ]
+  },
+  {
+   "id": "scroll-rush-hour",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour',0.05);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour',0.35);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour',0.65);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour',0.95);",
+     "waitMs": 550
+    }
+   ]
+  },
+  {
+   "id": "scroll-corridors",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('corridors',0.05);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('corridors',0.35);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('corridors',0.65);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('corridors',0.95);",
+     "waitMs": 550
+    }
+   ]
+  },
+  {
+   "id": "scroll-demand",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('demand',0.05);",
+     "waitMs": 900
+    },
+    {
+     "setup": "window.__atlas.jumpTo('demand',0.35);",
+     "waitMs": 900
+    },
+    {
+     "setup": "window.__atlas.jumpTo('demand',0.65);",
+     "waitMs": 900
+    },
+    {
+     "setup": "window.__atlas.jumpTo('demand',0.95);",
+     "waitMs": 900
+    }
+   ]
+  },
+  {
+   "id": "scroll-pressure",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('pressure',0.05);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('pressure',0.35);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('pressure',0.65);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('pressure',0.95);",
+     "waitMs": 550
+    }
+   ]
+  },
+  {
+   "id": "scroll-futures",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('futures',0.05);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('futures',0.35);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('futures',0.65);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('futures',0.95);",
+     "waitMs": 550
+    }
+   ]
+  },
+  {
+   "id": "scroll-evidence",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('evidence',0.05);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('evidence',0.35);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('evidence',0.65);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('evidence',0.95);",
+     "waitMs": 550
+    }
+   ]
+  },
+  {
+   "id": "scroll-observatory",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('observatory',0.05);",
+     "waitMs": 900
+    },
+    {
+     "setup": "window.__atlas.jumpTo('observatory',0.35);",
+     "waitMs": 900
+    },
+    {
+     "setup": "window.__atlas.jumpTo('observatory',0.65);",
+     "waitMs": 900
+    },
+    {
+     "setup": "window.__atlas.jumpTo('observatory',0.95);",
+     "waitMs": 900
+    }
+   ]
+  },
+  {
+   "id": "scroll-closing",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('closing',0.05);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('closing',0.35);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('closing',0.65);",
+     "waitMs": 550
+    },
+    {
+     "setup": "window.__atlas.jumpTo('closing',0.95);",
+     "waitMs": 550
+    }
+   ]
+  },
+  {
+   "id": "s03a-hour-service",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour',0.35);",
+     "waitMs": 900
+    },
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour',0.75);",
+     "waitMs": 700
+    },
+    {
+     "setup": "[...document.querySelectorAll('[role=radiogroup][aria-label=\"Day type\"] [role=radio]')].find(b=>b.textContent.trim()==='WEEKEND')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "[...document.querySelectorAll('[role=radiogroup][aria-label=\"Service\"] [role=radio]')].find(b=>b.textContent.trim()==='GREEN')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "[...document.querySelectorAll('[role=radiogroup][aria-label=\"Service\"] [role=radio]')].find(b=>b.textContent.trim()==='YELLOW')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "[...document.querySelectorAll('[role=radiogroup][aria-label=\"Service\"] [role=radio]')].find(b=>b.textContent.trim()==='APP')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "[...document.querySelectorAll('[role=radiogroup][aria-label=\"Day type\"] [role=radio]')].find(b=>b.textContent.trim()==='WEEKDAY')?.click();[...document.querySelectorAll('[role=radiogroup][aria-label=\"Service\"] [role=radio]')].find(b=>b.textContent.trim()==='ALL')?.click();",
+     "waitMs": 900
+    }
+   ]
+  },
+  {
+   "id": "s03b-dial-keyboard",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('corridors',0.5);",
+     "waitMs": 900
+    },
+    {
+     "setup": "const d=document.querySelector('.cor-hit');d.focus();d.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.cor-hit').dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.cor-hit').dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowLeft',bubbles:true}));",
+     "waitMs": 900
+    },
+    {
+     "setup": "window.__atlas.jumpTo('corridors',0.9);",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.cor-hit')?.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));",
+     "waitMs": 900
+    },
+    {
+     "setup": "[...document.querySelectorAll('.cor-reset')].forEach(b=>b.click());",
+     "waitMs": 700
+    }
+   ]
+  },
+  {
+   "id": "s04-height",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('demand',0.7);",
+     "waitMs": 2500
+    },
+    {
+     "setup": "[...document.querySelectorAll('[role=radiogroup][aria-label=\"Height metric\"] [role=radio]')].find(b=>b.textContent.trim()==='DROPOFFS')?.click();",
+     "waitMs": 1500
+    },
+    {
+     "setup": "[...document.querySelectorAll('[role=radiogroup][aria-label=\"Height metric\"] [role=radio]')].find(b=>b.textContent.trim()==='NET')?.click();",
+     "waitMs": 1500
+    },
+    {
+     "setup": "[...document.querySelectorAll('[role=radiogroup][aria-label=\"Height metric\"] [role=radio]')].find(b=>b.textContent.trim()==='PICKUPS')?.click();",
+     "waitMs": 1500
+    },
+    {
+     "setup": "window.__atlas.jumpTo('demand',0.95);",
+     "waitMs": 1800
+    }
+   ]
+  },
+  {
+   "id": "nav-jumps",
+   "steps": [
+    {
+     "setup": "document.querySelector('.nav__item[href=\"#observatory\"]')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.nav__item[href=\"#corridors\"]')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.nav__item[href=\"#pressure\"]')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.nav__item[href=\"#anatomy\"]')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.nav__item[href=\"#futures\"]')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.nav__item[href=\"#evidence\"]')?.click();",
+     "waitMs": 900
+    },
+    {
+     "setup": "document.querySelector('.nav__item[href=\"#city\"]')?.click();",
+     "waitMs": 900
+    }
+   ]
+  }
+ ],
+ "heavyInteraction": {
+  "label": "Rapid scroll storm across all tracks (jumpTo every 120ms)",
+  "stateCheck": "({y: Math.round(scrollY/200)})",
+  "trigger": "const ids=['city','anatomy','rush-hour','corridors','demand','pressure','futures','evidence','observatory','closing'];let k=0;window.__heavyIntervalId=setInterval(()=>{window.__atlas.jumpTo(ids[k%ids.length],0.2+0.6*((k*0.37)%1));k++},120);",
+  "durationMs": 4000
+ }
+}
