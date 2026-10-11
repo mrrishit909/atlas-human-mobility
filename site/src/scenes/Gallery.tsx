@@ -99,7 +99,7 @@ export default function Gallery() {
           <p className="g-intro__code mono-label">AN AVERAGE WEEKDAY · 23:59</p>
           <WordReveal as="h1" className="hero-title" text="Millions of journeys. One living system." mode={introKey ? { kind: "time", playKey: introKey } : { kind: "value", t: 1 }} />
           <div className="g-intro__foot">
-            <HonestyChip tag="DERIVED" detail={FIXTURE_LABEL} />
+            <span className="g-fixture">{FIXTURE_LABEL}</span>
             <button type="button" className="btn-square" onClick={() => setIntroKey((k) => k + 1)}>PLAY HEADLINE</button>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function Gallery() {
           <RingDemo zoom={zoom} onApi={onApi} />
           <div className="g-ring__ui">
             <Label n="06">GIANT RING · R0 ORBIT TO R1 HORIZON DIAL</Label>
-            <HonestyChip tag="DERIVED" detail={FIXTURE_LABEL} />
+            <span className="g-fixture">{FIXTURE_LABEL}</span>
             <label className="g-range mono-label">
               ZOOM R0 → R1 <span className="tnum">{zoom.toFixed(2)}</span>
               <input type="range" min={0} max={1} step={0.01} value={zoom} onChange={(e) => setZoom(Number(e.target.value))} />

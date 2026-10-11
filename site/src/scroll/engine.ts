@@ -135,16 +135,36 @@ function setupLenis() {
   measured = false;
 }
 
+/** Unclamped offset ratio into the active track, so restoring never yanks the visitor. */
+function rawProgress(id: string) {
+  const t = tracks.get(id);
+  return t ? (scrollY - t.top) / Math.max(1, t.height - vh) : 0;
+}
+/** Silent restore (no fade, no focus, no history): resize and layout changes only. */
+function restore(id: string, raw: number) {
+  const t = tracks.get(id);
+  if (!t) return;
+  setScroll(Math.round(t.top + raw * Math.max(1, t.height - vh)));
+  tick();
+}
+
 let resizeTimer = 0;
+let lastW = typeof innerWidth === "number" ? innerWidth : 0;
+let pending: { id: string; raw: number } | null = null;
 function onResize() {
+  // 6.3: record scene + p before anything moves, then re-measure and restore; nothing animates.
+  if (!pending && active) pending = { id: active, raw: rawProgress(active) };
   clearTimeout(resizeTimer);
   resizeTimer = window.setTimeout(() => {
-    // 6.3: record scene + p, re-measure, restore the same progress, nothing animates.
-    const id = active;
-    const p = id ? getProgress(id) : 0;
-    window.dispatchEvent(new Event("atlas:snap"));
+    const widthChanged = innerWidth !== lastW;
+    lastW = innerWidth;
+    const rec = pending;
+    pending = null;
     measure();
-    if (id) jumpTo(id, p);
+    // Height-only changes (mobile URL bar, content growth) just re-measure.
+    if (!widthChanged || !rec) return;
+    window.dispatchEvent(new Event("atlas:snap"));
+    restore(rec.id, rec.raw);
   }, 150);
 }
 
@@ -159,13 +179,14 @@ export function startEngine() {
     const id = active;
     const p = id ? getProgress(id) : 0;
     setupLenis();
-    // Layout changes (tracks collapse/expand); restore position after it applies.
+    // Tracks collapse/expand: restore the same scene at the same progress, silently.
     measure();
-    if (id) jumpTo(id, p);
+    if (id) restore(id, p);
   });
   addFrame((now) => lenis?.raf(now), 0);
   addFrame(tick, 10);
-  new ResizeObserver(onResize).observe(document.documentElement);
+  let first = true; // ResizeObserver always fires once on observe(): not a resize
+  new ResizeObserver(() => (first ? (first = false) : onResize())).observe(document.documentElement);
   addEventListener("resize", onResize);
   addEventListener("popstate", () => {
     const id = location.hash.slice(1);

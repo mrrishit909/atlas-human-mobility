@@ -69,7 +69,7 @@ export function renderOrb(family: OrbFamily, diameter: number, dpr: number): HTM
 
   // 2. body: two-circle gradient with the focus up-left gives depth; the last
   //    8% of the radius feathers out instead of a hard disc edge.
-  const fx = cx - R * 0.2, fy = cy - R * 0.24;
+  const fx = cx - R * 0.1, fy = cy - R * 0.12;
   const body = ctx.createRadialGradient(fx, fy, R * 0.02, cx, cy, R);
   for (const s of stops) body.addColorStop(s.at * 0.86, s.color);
   body.addColorStop(0.93, mix(edge, mid, 0.12));
@@ -82,7 +82,7 @@ export function renderOrb(family: OrbFamily, diameter: number, dpr: number): HTM
   // 3. terminator: the lower-right falls into shadow (only on the body)
   ctx.globalCompositeOperation = "source-atop";
   const shade = ctx.createRadialGradient(cx + R * 0.55, cy + R * 0.65, R * 0.1, cx + R * 0.2, cy + R * 0.25, R * 1.25);
-  shade.addColorStop(0, "rgba(0,0,0,0.38)");
+  shade.addColorStop(0, "rgba(0,0,0,0.2)");
   shade.addColorStop(1, "rgba(0,0,0,0)");
   ctx.fillStyle = shade;
   ctx.fillRect(0, 0, S, S);

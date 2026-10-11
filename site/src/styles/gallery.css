@@ -46,3 +46,6 @@
 .g-tip-target { padding: 24px; border: 1px dashed var(--line); font: 400 13px / 1 var(--font-mono); letter-spacing: var(--tracking-label); }
 .g-tip-static { position: relative; z-index: auto; }
 .g-live { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+
+/* fixture marker: deliberately NOT an honesty chip (the fixture is not data of any kind) */
+.g-fixture { display: inline-block; padding: 7px 8px; border: 1px dashed rgb(255 255 255 / 0.5); font: 400 13px / 1 var(--font-mono); letter-spacing: var(--tracking-label); color: #fff; }

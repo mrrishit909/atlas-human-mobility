@@ -106,6 +106,23 @@ test("motion toggle switches the whole site to reduced motion and back", async (
   await expect(page.locator("html")).toHaveAttribute("data-motion", "on");
 });
 
+test("resize D -> M keeps the scene and its progress, without errors", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "starts at 1440");
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
+  await open(page);
+  type Atlas = { __atlas: { jumpTo: (id: string, p: number) => void; getProgress: (id: string) => number } };
+  await page.evaluate(() => (window as unknown as Atlas).__atlas.jumpTo("anatomy", 0.5));
+  await page.waitForTimeout(300);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.waitForTimeout(600);
+  const p = await page.evaluate(() => (window as unknown as Atlas).__atlas.getProgress("anatomy"));
+  expect(Math.abs(p - 0.5)).toBeLessThan(0.01);
+  await expect(page.locator(".nav-pill.is-fixed .menu-pill")).toContainText("ANATOMY");
+  expect(errors).toEqual([]);
+});
+
 for (const path of ["", "?gallery"]) {
   test(`axe: no serious or critical violations (${path || "app shell"})`, async ({ page }) => {
     await open(page, path);

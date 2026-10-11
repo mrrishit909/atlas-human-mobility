@@ -14,9 +14,9 @@ import { motionEnabled } from "../state/motion";
  */
 const ANCHORS = [
   { node: 0, title: "Fixture node 000", color: "#58B8E1", outline: false },
-  { node: 66, title: "Fixture node 066", color: "#192CE4", outline: true },
-  { node: 132, title: "Fixture node 132", color: "#690DE2", outline: true },
-  { node: 197, title: "Fixture node 197", color: "#FFFFFF", outline: false },
+  { node: 15, title: "Fixture node 015", color: "#192CE4", outline: true },
+  { node: 30, title: "Fixture node 030", color: "#690DE2", outline: true },
+  { node: 45, title: "Fixture node 045", color: "#FFFFFF", outline: false },
 ];
 const ORBIT_CHORDS = fixtureChords(600);
 
