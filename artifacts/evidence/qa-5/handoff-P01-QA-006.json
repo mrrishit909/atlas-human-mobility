@@ -1,0 +1,23 @@
+{
+  "task_id": "P01-QA-006",
+  "agent": "qa-reviewer",
+  "status": "FAILED",
+  "owned_paths": ["docs/QA_REPORT.md", "artifacts/evidence/qa-5/"],
+  "files_changed": ["docs/QA_REPORT.md", "artifacts/evidence/qa-5/"],
+  "commits": ["ab466cf"],
+  "tests_executed": [
+    {"command": "npm run typecheck && npm run lint && npm test && npm run build", "result": "exit 0, clean, 70/70, OK; +1.52 KB gz vs pass 2 so Lighthouse not rerun (pass-2 mobile LCP 1.8 s cited)"},
+    {"command": "npx playwright test --workers 1", "result": "216 passed, 191 skipped, 1 flaky (l12.spec:87 768 count floor 55 vs >60; replica finds 0 covered controls, OBS controls still fading at 1500 ms: test timing, D-044)"},
+    {"command": "npx playwright test -c playwright.qa.config.ts --workers 1", "result": "20 passed, 1 failed (robust.spec:4 timeout at load 30-34), serial rerun 2/2 passed: load"},
+    {"command": "probe5.mjs d047 (12 variants x 6 anchors) + titleink.mjs/.py", "result": "only 1024x768 plain and classic at p 0.8/0.88/0.95: title in .cor-bands-m box, glyphs 3.4-4.1:1 under ledger ground (D-060); 1280x720 worst glyph 5.9:1 (D-057 closed)"},
+    {"command": "probe5.mjs errors4 (real pointer RETRY)", "result": "73/78 recover with mouse/tap at the RETRY centre; 5 dismissed (not consumers at that step / deck between cards)"},
+    {"command": "probe5.mjs l12, l9, buttons.mjs", "result": "210 real radio/tab clicks act; hit-test clean on every control; PLAY, EXPLORE/EXIT, LAYERS, RESET VIEW, RESET, MENU, motion, REPLAY, closing link act"},
+    {"command": "probe5.mjs geom,tags,labels,chip,tickets,rm,nav,axe,keyboard,numbers,remount,l8 + l15.py, l16.py", "result": "L1/L3/L5/L7/L8/L14/L15 pass; axe 160 scans 0; facts 23/23; L16 fails only D-060 and D-037 (JFK label 2.06/3.35:1); remount: D-061 cold-arrival not announced"}
+  ],
+  "evidence_paths": ["docs/QA_REPORT.md (Pass 5)", "artifacts/evidence/qa-5/contact-sheets/", "artifacts/evidence/qa-5/probe/", "artifacts/evidence/qa-5/results-a.json", "artifacts/evidence/qa-5/results-b.json", "artifacts/evidence/qa-5/titleink.json", "artifacts/evidence/qa-5/scripts/"],
+  "blocking_issues": [
+    "P01-D-060 (major): at 1024x768 (plain and classic) the S03b LaGuardia dial title overlaps the .cor-bands-m band selector box (7 px) and its right half dims to 3.4-4.1:1 under the .cor-ledger 90% black feathered ground; fails the D-047 disjointness test; FIX-004 regression (the push-down measures only .cor-text; fix001.spec box list lacks .cor-bands-m)"
+  ],
+  "open_questions": ["D-060 glyphs meet WCAG large-text 3:1 but not the program L16 4.5:1; rated major because the D-047 closure assertion fails at a required viewport"],
+  "next_action": "P01-FIX-005: at 1024 keep the dial title clear of .cor-bands-m and outside the ledger ground (measure the ledger column too, or drop the ground under the title); add .cor-bands-m and a per-glyph ink >= 4.5:1 check at 1024x768 plain/classic; optionally D-061 (announce meta.json on cold arrival) and D-037 (label backing); then a targeted QA pass 6 on S03b at 1024 plus a regression sweep"
+}
