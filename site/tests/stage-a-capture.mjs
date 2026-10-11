@@ -64,7 +64,7 @@ function throttleProxy(target, port) {
 
 async function run() {
   // In-process `vite preview` of the built dist/ (run `npm run build` first) unless --base points elsewhere.
-  const server = args.base ? null : await preview({ root: join(HERE, ".."), preview: { port: 4301, strictPort: true } });
+  const server = args.base ? null : await preview({ root: join(HERE, ".."), build: { outDir: "dist-gallery" }, preview: { port: 4301, strictPort: true } }); // npm run build:gallery first
   const proxy = await throttleProxy(BASE, 4302);
   const SLOW = BASE.replace(/localhost:\d+|127\.0\.0\.1:\d+/, "127.0.0.1:4302");
   const browser = await chromium.launch();

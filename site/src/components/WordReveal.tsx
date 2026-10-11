@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, type ElementType } from "react";
 import { Reveal } from "../motion/reveal";
 import { useFrame, useProgress } from "../scroll/hooks";
 import { windowed } from "../motion/progress";
+import { getProgress } from "../scroll/engine";
 
 type Mode =
   | { kind: "scrub"; track: string; from?: number; to?: number }
@@ -27,9 +28,15 @@ export function WordReveal({ text, as: Tag = "h2", className = "", mode, blur = 
   const busy = useRef(false);
   const words = text.split(/\s+/);
 
+  const scrubWin = mode.kind === "scrub" ? `${mode.track}:${mode.from ?? 0}:${mode.to ?? 1}` : "";
   useEffect(() => {
     reveal.current = ref.current ? new Reveal(ref.current, blur) : null;
-  }, [text, blur]);
+    // new words (copy arrived / swapped): show the state the current progress implies
+    if (scrubWin) {
+      const [track, a, b] = scrubWin.split(":");
+      reveal.current?.scrub(windowed(getProgress(track!), Number(a), Number(b)));
+    } else if (!busy.current && start.current) reveal.current?.set(1);
+  }, [text, blur, scrubWin]);
   const valueT = mode.kind === "value" ? mode.t : -1;
   useEffect(() => {
     if (valueT >= 0) reveal.current?.scrub(valueT);

@@ -114,6 +114,10 @@ export class ArtifactStore<T> {
     return () => void this.listeners.delete(l);
   };
   getState = () => this.state;
+  /** Start only if never started: prefetch/autoload must not silently retry a failure (RETRY is the visitor's). */
+  prefetch = () => {
+    if (this.state.status === "initial") void this.load();
+  };
   /** Starts the request if idle; retry when in error re-runs the same fetch. */
   load = async () => {
     if (this.state.status === "loading" || this.state.status === "ready" || this.state.status === "empty") return;

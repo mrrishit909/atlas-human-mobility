@@ -1,12 +1,12 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { meta, odRingTop, zonesGeo, zonesIndex } from "./types";
+import { clusters, facts, meta, network, odRingTop, odTop, reconciliation, zoneHourWeek, zoneMonth, zonesGeo, zonesIndex } from "./types";
 import type { ArtifactSpec } from "./loader";
 
 const read = (f: string) => JSON.parse(readFileSync(new URL(`../../public/data/${f}`, import.meta.url), "utf-8"));
 
 describe("guards accept the artifacts the pipeline actually published", () => {
-  for (const spec of [zonesGeo, zonesIndex, odRingTop, meta] as ArtifactSpec<unknown>[]) {
+  for (const spec of [zonesGeo, zonesIndex, odRingTop, meta, facts, zoneHourWeek, zoneMonth, odTop, network, clusters, reconciliation] as ArtifactSpec<unknown>[]) {
     it(spec.file, () => expect(spec.guard(read(spec.file))).toBe(true));
   }
   it("rejects a wrong shape (SCHEMA MISMATCH path)", () => {

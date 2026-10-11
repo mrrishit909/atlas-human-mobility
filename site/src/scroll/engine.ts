@@ -93,6 +93,27 @@ export function onProgress(id: string, fn: ProgressFn) {
 }
 
 export const getProgress = (id: string) => Math.max(0, tracks.get(id)?.p ?? 0);
+
+/**
+ * Which of `ids` (in page order) owns the viewport: the last whose top is at or
+ * above scrollY. Between a pinned stage's end and the next track's top the
+ * outgoing scene holds p = 1, so consecutive scenes must agree at that seam.
+ */
+export function locate(ids: readonly string[]): { id: string; p: number; after: number } | null {
+  let found: Track | null = null;
+  for (const id of ids) {
+    const t = tracks.get(id);
+    if (!t || t.el === document.body) continue;
+    if (t.top <= scrollY + 0.5) found = t;
+  }
+  if (!found) {
+    const first = tracks.get(ids[0]!);
+    return first ? { id: first.id, p: 0, after: 0 } : null;
+  }
+  // `after`: px scrolled beyond the pinned range (stage leaving the viewport)
+  return { id: found.id, p: Math.max(0, found.p), after: Math.max(0, scrollY - (found.top + found.height - vh)) };
+}
+export const viewportH = () => vh;
 export const getActive = () => active;
 export function subscribeActive(fn: () => void) {
   activeSubs.add(fn);
@@ -118,6 +139,7 @@ export function jumpTo(id: string, p?: number, opts: { push?: boolean; focus?: b
   const y = Math.round(t.top + prog * Math.max(0, t.height - vh));
   // push before tick(): tick's scroll-driven replaceState must not overwrite the previous entry
   if (opts.push) history.pushState({ scene: id }, "", `#${id}`);
+  window.dispatchEvent(new CustomEvent("atlas:jump", { detail: { id, p: prog } }));
   setScroll(y);
   tick();
   const stage = t.el.querySelector<HTMLElement>("[data-stage-content]");

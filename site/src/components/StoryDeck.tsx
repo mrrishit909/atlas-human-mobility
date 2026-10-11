@@ -8,7 +8,10 @@ import { windowed } from "../motion/progress";
 import { viewportClass } from "../graphics/ring";
 import { motionEnabled } from "../state/motion";
 
-export type DeckCard = Omit<StoryCardProps, "index" | "count" | "active" | "onSelect">;
+export type DeckCard = Omit<StoryCardProps, "index" | "count" | "active" | "onSelect" | "visual"> & {
+  /** Visual zone; a function receives whether its card is the active one (stepped 800ms entrance). */
+  visual?: StoryCardProps["visual"] | ((active: boolean) => StoryCardProps["visual"]);
+};
 
 const SIZE = { D: [360, 620], T: [320, 600], M: [300, 560] } as const;
 const DECK_A = 0.12, DECK_B = 0.88, PLATEAU = 0.6;
@@ -86,7 +89,7 @@ export function StoryDeck({ track, cards }: { track: string; cards: DeckCard[] }
   return (
     <div className="deck" ref={root}>
       {cards.map((c, i) => (
-        <StoryCard key={i} {...c} index={i} count={n} active={i === active} onSelect={select} />
+        <StoryCard key={i} {...c} visual={typeof c.visual === "function" ? c.visual(i === active || !motionEnabled()) : c.visual} index={i} count={n} active={i === active} onSelect={select} />
       ))}
     </div>
   );

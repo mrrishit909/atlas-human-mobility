@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./tokens.css";
+@import "./scenes.css";
 
 /* Tailwind is used for layout utilities only: its default palette is disabled so
    no colour can bypass the tokens (MOTION_SYSTEM 10). */
@@ -90,7 +91,7 @@ html[data-motion="off"] .stage { position: relative; height: auto; min-height: 1
 html.is-gallery [data-static-track] { display: none; }
 
 /* ---------- word blur reveal: ghost from first paint, never opacity 0 ---------- */
-.wr-word { display: inline-block; filter: blur(var(--blur-reveal)); opacity: 0.32; }
+.wr-word { display: inline-block; filter: blur(var(--blur-reveal)); opacity: 0.55; }
 html[data-motion="off"] .wr-word { filter: none !important; opacity: 1 !important; transform: none !important; }
 
 /* ---------- S01 static hero (LCP) ---------- */
@@ -132,7 +133,9 @@ html[data-motion="off"] .wr-word { filter: none !important; opacity: 1 !importan
 .nav-bar__items li { position: relative; z-index: 1; }
 
 /* ---------- nav: T/M menu pill ---------- */
-.nav-pill { width: 160px; display: flex; flex-direction: column; align-items: stretch; }
+.nav-pill { position: relative; width: 160px; display: flex; flex-direction: column; align-items: stretch; }
+/* the panel sits above the pill (absolute) so the closed menu never blocks content beneath it */
+.nav-pill.is-fixed .menu-panel { position: absolute; left: 0; right: 0; bottom: 32px; }
 .nav-pill.is-fixed { position: fixed; left: 50%; bottom: 16px; z-index: var(--z-nav); translate: -50% 0; transition: transform var(--motion-standard) var(--ease-premium), opacity var(--motion-standard) var(--ease-premium); }
 .menu-pill {
   height: 32px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; background: #fff; color: #000; cursor: pointer;

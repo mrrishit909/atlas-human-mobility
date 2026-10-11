@@ -9,6 +9,8 @@ import { motionEnabled } from "../state/motion";
  * blur 12px) from first paint; this only sharpens.
  */
 export const OVERLAP = 3;
+/** Ghost opacity: the blur does the ghosting, so unrevealed text still passes AA (about 6:1 on black). */
+export const GHOST = 0.55;
 
 /** Scrubbed: word i's eased value at window progress t (0..1) for n words. */
 export function scrubWord(t: number, i: number, n: number, w = OVERLAP) {
@@ -40,7 +42,7 @@ export class Reveal {
       s.willChange = "";
     } else {
       s.filter = q <= 0 ? "" : `blur(${(this.blur * (1 - q)).toFixed(2)}px)`;
-      s.opacity = q <= 0 ? "" : (0.32 + 0.68 * q).toFixed(3);
+      s.opacity = q <= 0 ? "" : (GHOST + (1 - GHOST) * q).toFixed(3);
       s.transform = q <= 0 ? "" : `translateY(${(0.06 * (1 - q)).toFixed(3)}em)`;
       s.willChange = q > 0 ? "filter, opacity" : "";
     }

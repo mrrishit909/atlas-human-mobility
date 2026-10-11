@@ -6,7 +6,7 @@ export function useArtifact<T>(spec: ArtifactSpec<T>, autoload = true): [LoadSta
   const store = getStore(spec);
   const state = useSyncExternalStore(store.subscribe, store.getState, store.getState);
   useEffect(() => {
-    if (autoload) void store.load();
+    if (autoload) store.prefetch();
   }, [store, autoload]);
   return [state, store.load];
 }

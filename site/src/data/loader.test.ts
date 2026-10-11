@@ -93,6 +93,14 @@ describe("ArtifactStore", () => {
     await ok.load();
     expect(ok.state.status).toBe("ready");
   });
+  it("prefetch never silently retries a failure (RETRY belongs to the visitor)", async () => {
+    const f = vi.fn().mockResolvedValue(new Response("x", { status: 503 }));
+    const s = new ArtifactStore(spec, "u", f);
+    s.prefetch();
+    await vi.waitFor(() => expect(s.state.status).toBe("error"));
+    s.prefetch();
+    expect(f).toHaveBeenCalledTimes(1);
+  });
   it("notifies subscribers on every transition", async () => {
     const s = new ArtifactStore(spec, "u", async () => streamResponse('{"n":1}', { "content-length": "7" }));
     const statuses: string[] = [];

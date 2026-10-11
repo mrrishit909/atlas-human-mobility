@@ -76,7 +76,7 @@ test("mobile menu pill: open, Esc closes and returns focus, item jumps", async (
 test("reduced motion: no pinned stages, no blur, page bottom reachable", async ({ browser }) => {
   const ctx = await browser.newContext({ reducedMotion: "reduce", viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();
-  await page.goto("");
+  await page.goto("", { waitUntil: "networkidle" });
   await expect(page.locator("html")).toHaveAttribute("data-motion", "off");
   const sticky = await page.evaluate(() => [...document.querySelectorAll(".stage")].filter((s) => getComputedStyle(s).position === "sticky").length);
   expect(sticky).toBe(0);
@@ -92,7 +92,8 @@ test("reduced motion: no pinned stages, no blur, page bottom reachable", async (
     if (atBottom) break;
   }
   // no traps: at most ~1 wheel per 1000px (+ slack), well under the 10 per 1000px budget
-  expect(wheels).toBeLessThanOrEqual(Math.ceil(height / 1000) + 2);
+  const finalHeight = await page.evaluate(() => document.documentElement.scrollHeight); // data-bound content grows the page
+  expect(wheels).toBeLessThanOrEqual(Math.ceil(Math.max(height, finalHeight) / 1000) + 2);
   await ctx.close();
 });
 
@@ -127,9 +128,6 @@ for (const path of ["", "?gallery"]) {
   test(`axe: no serious or critical violations (${path || "app shell"})`, async ({ page }) => {
     await open(page, path);
     await page.waitForTimeout(400);
-    // Ghost words (opacity .32 + blur) are a transient scroll state; screen readers get the
-    // full text throughout. Contrast is asserted on the revealed text the reader settles on.
-    await page.evaluate(() => document.querySelectorAll<HTMLElement>(".wr-word").forEach((w) => { w.style.filter = "none"; w.style.opacity = "1"; }));
     const results = await new AxeBuilder({ page }).analyze();
     const bad = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
     expect(bad.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).join(", ")}`)).toEqual([]);

@@ -1,9 +1,9 @@
 /**
  * Luminous orb (Solar / Electric / Spectral, stops from tokens.css --orb-*).
- * Rendered once per (family, size, dpr) into an offscreen canvas and cached;
- * components just drawImage the bitmap. Layers: outer glow, a focal-offset
- * body gradient with a feathered edge, a terminator shade, a lighter rim,
- * a specular bloom and fine grain so it reads as a lit volume, not a flat disc.
+ * Flat and fully concentric like the reference: luminous centre, saturated
+ * mid, deep rim, a thin lighter rim band and a soft (not hard) edge, plus a
+ * faint glow and grain. No specular offset, no lighting. Rendered once per
+ * (family, size, dpr) into an offscreen canvas and cached.
  */
 export type OrbFamily = "solar" | "electric" | "spectral";
 interface Stop { color: string; at: number }
@@ -42,7 +42,7 @@ const mix = (h1: string, h2: string, t: number) => {
 
 const cache = new Map<string, HTMLCanvasElement>();
 /** Canvas is PAD x the diameter so the glow has room. */
-export const ORB_PAD = 1.6;
+export const ORB_PAD = 1.5;
 
 export function renderOrb(family: OrbFamily, diameter: number, dpr: number): HTMLCanvasElement {
   const px = Math.min(1024, Math.round(diameter * dpr));
@@ -59,52 +59,32 @@ export function renderOrb(family: OrbFamily, diameter: number, dpr: number): HTM
   const core = stops[0]!.color, edge = stops[stops.length - 1]!.color;
   const mid = stops[Math.floor(stops.length / 2)]!.color;
 
-  // 1. outer glow: light spilling into the black around the volume
-  const glow = ctx.createRadialGradient(cx, cy, R * 0.7, cx, cy, R * ORB_PAD * 0.5);
-  glow.addColorStop(0, rgba(mid, 0.32));
-  glow.addColorStop(0.35, rgba(edge, 0.14));
+  // 1. faint glow spilling into the black
+  const glow = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.22);
+  glow.addColorStop(0, rgba(edge, 0.22));
   glow.addColorStop(1, rgba(edge, 0));
   ctx.fillStyle = glow;
   ctx.fillRect(0, 0, S, S);
 
-  // 2. body: two-circle gradient with the focus up-left gives depth; the last
-  //    8% of the radius feathers out instead of a hard disc edge.
-  const fx = cx - R * 0.1, fy = cy - R * 0.12;
-  const body = ctx.createRadialGradient(fx, fy, R * 0.02, cx, cy, R);
-  for (const s of stops) body.addColorStop(s.at * 0.86, s.color);
-  body.addColorStop(0.93, mix(edge, mid, 0.12));
+  // 2. body: concentric family stops over 0..0.88 of the radius
+  const body = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+  for (const s of stops) body.addColorStop(s.at * 0.88, s.color);
+  // 3. rim band: a thin lighter ring, then a soft 3% edge
+  const rimColor = mix(edge, "#ffffff", 0.28);
+  body.addColorStop(0.93, rimColor);
+  body.addColorStop(0.965, mix(edge, mid, 0.3));
   body.addColorStop(1, rgba(edge, 0));
   ctx.fillStyle = body;
   ctx.beginPath();
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
   ctx.fill();
 
-  // 3. terminator: the lower-right falls into shadow (only on the body)
-  ctx.globalCompositeOperation = "source-atop";
-  const shade = ctx.createRadialGradient(cx + R * 0.55, cy + R * 0.65, R * 0.1, cx + R * 0.2, cy + R * 0.25, R * 1.25);
-  shade.addColorStop(0, "rgba(0,0,0,0.2)");
-  shade.addColorStop(1, "rgba(0,0,0,0)");
-  ctx.fillStyle = shade;
-  ctx.fillRect(0, 0, S, S);
-
-  // 4. rim light: a thin brighter band just inside the edge
-  ctx.globalCompositeOperation = "screen";
-  const rim = ctx.createRadialGradient(cx, cy, R * 0.74, cx, cy, R);
-  rim.addColorStop(0, rgba(core, 0));
-  rim.addColorStop(0.7, rgba(mix(core, "#ffffff", 0.3), 0.14));
-  rim.addColorStop(0.9, rgba(mix(mid, "#ffffff", 0.25), 0.06));
-  rim.addColorStop(1, rgba(core, 0));
-  ctx.fillStyle = rim;
-  ctx.beginPath();
-  ctx.arc(cx, cy, R, 0, Math.PI * 2);
-  ctx.fill();
-
-  // 5. specular bloom near the focus
+  // 4. luminous core: additive bloom at the exact centre
   ctx.globalCompositeOperation = "lighter";
-  const bloom = ctx.createRadialGradient(fx, fy, 0, fx, fy, R * 0.55);
-  bloom.addColorStop(0, rgba(mix(core, "#ffffff", 0.5), 0.35));
-  bloom.addColorStop(1, rgba(core, 0));
-  ctx.fillStyle = bloom;
+  const core2 = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 0.42);
+  core2.addColorStop(0, rgba(mix(core, "#ffffff", 0.35), 0.28));
+  core2.addColorStop(1, rgba(core, 0));
+  ctx.fillStyle = core2;
   ctx.beginPath();
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
   ctx.fill();
