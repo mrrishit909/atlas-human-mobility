@@ -26,10 +26,10 @@ test("S05: the lab output in the DOM equals the Python BPR vector (Manhattan, WE
   for (let i = 0; i < 4; i++) await page.keyboard.press("ArrowRight"); // 1.00 -> 1.20
   await expect(page.locator(".lab-range", { hasText: "DEMAND" })).toContainText("x1.20");
   await expect(page.locator(".lab-range", { hasText: "HOUR" })).toContainText("WED 23:00");
-  // The function is exact (Vitest: 143 vectors at 1e-9). The page feeds it bpr_fit.json's baseline, which the
-  // pipeline rounds (v to 0.01 trips, speed to 0.01 mph), so the DOM matches the vector to display precision.
+  // bpr_fit.json now publishes the unrounded baseline, so the page matches the Python vector at 1e-9
   const got = Number(await sim.getAttribute("data-value"));
-  expect(Math.abs(got - vec.expected.scenario_speed_mph) / vec.expected.scenario_speed_mph).toBeLessThan(1e-3);
+  expect(Math.abs(got - vec.expected.scenario_speed_mph) / vec.expected.scenario_speed_mph).toBeLessThan(1e-9);
+  expect(Number(await sim.getAttribute("data-obs"))).toBe(vec.inputs.obs_speed_mph);
   await expect(sim).toHaveText((Math.round(vec.expected.scenario_speed_mph * 10) / 10).toFixed(1));
   await expect(page.locator(".lab-stage .chip--simulated")).toBeVisible();
   await expect(page.locator(".lab-hatch")).toBeVisible();
@@ -203,4 +203,51 @@ test("EXPLORE on touch: tap EXPLORE, tap EXIT, scroll is released (M)", async ({
   await page.getByRole("button", { name: "EXIT ✕" }).tap();
   await expect(page.locator("html")).not.toHaveCSS("overflow", "hidden");
   expect(Math.abs((await page.evaluate(() => scrollY)) - y)).toBeLessThan(2);
+});
+
+type R = { left: number; top: number; right: number; bottom: number };
+const overlap = (a: R, b: R) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+
+test("S06: the split ring never intersects a text block (bbox)", async ({ page }) => {
+  await open(page);
+  await jump(page, "futures", 0.5);
+  await page.waitForTimeout(1200);
+  for (const future of [/A BUSIER YEAR/, /A LANE LOST/, /A QUIETER CITY/]) {
+    await page.locator(".fut-select").getByRole("radio", { name: future }).click();
+    await page.waitForTimeout(900);
+    const bb = JSON.parse((await page.locator(".fut-canvas").getAttribute("data-bbox"))!) as number[];
+    const ring = { left: bb[0]!, top: bb[1]!, right: bb[2]!, bottom: bb[3]! };
+    for (const sel of [".fut-text", ".fut-deltas", ".fut-select"]) {
+      const r = await page.locator(sel).evaluate((e) => { const x = e.getBoundingClientRect(); return { left: x.left, top: x.top, right: x.right, bottom: x.bottom }; });
+      expect(overlap(ring, r), `${String(future)} ring ${JSON.stringify(ring)} vs ${sel} ${JSON.stringify(r)}`).toBe(false);
+    }
+  }
+});
+
+test("S05: chart labels never overlap each other or the stage header (bbox)", async ({ page }) => {
+  await open(page);
+  await jump(page, "pressure", 0.5);
+  await expect(page.locator(".bpr-axis").first()).toBeVisible({ timeout: 15000 });
+  for (const b of ["Manhattan", "Queens", "Staten Island"]) {
+    await page.evaluate((b) => (window as unknown as { __atlas: { setLab: (p: object) => void } }).__atlas.setLab({ borough: b }), b);
+    await page.waitForTimeout(800);
+    const rects = await page.locator(".bpr-axis").evaluateAll((els) => els.map((e) => { const x = e.getBoundingClientRect(); return { left: x.left, top: x.top, right: x.right, bottom: x.bottom, t: e.textContent }; }));
+    const head = await page.locator(".lab-stage__head").evaluate((e) => { const x = e.getBoundingClientRect(); return { left: x.left, top: x.top, right: x.right, bottom: x.bottom }; });
+    for (let i = 0; i < rects.length; i++) {
+      expect(overlap(rects[i]!, head), `${rects[i]!.t} vs header`).toBe(false);
+      for (let j = i + 1; j < rects.length; j++) expect(overlap(rects[i]!, rects[j]!), `${rects[i]!.t} vs ${rects[j]!.t}`).toBe(false);
+    }
+  }
+});
+
+test("M OBS inspector clears the MENU pill", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "M");
+  await open(page);
+  await jump(page, "observatory", 0);
+  await page.evaluate(() => (window as unknown as Atlas).__atlas.setObs({ selectedZone: 138 }));
+  // wait for the sheet's entrance animation (software WebGL can stall frames in headless runs)
+  await page.waitForFunction(() => document.querySelector(".inspector")?.getAnimations().every((a) => a.playState !== "running"), null, { timeout: 10000 });
+  const insp = await page.locator(".inspector").evaluate((e) => e.getBoundingClientRect().bottom);
+  const pill = await page.locator(".nav-pill.is-fixed .menu-pill").evaluate((e) => e.getBoundingClientRect().top);
+  expect(insp).toBeLessThanOrEqual(pill - 16);
 });

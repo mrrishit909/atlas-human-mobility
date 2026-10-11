@@ -124,7 +124,7 @@ function pressureFrame(p: number, w: number, h: number): MapFrame | null {
     fill: (loc) => { const c = speedStep(ratio(loc)); return c ? [...c, 255] : [41, 41, 41, 200]; },
   };
   // observed pressure readable at 60%; the lab keeps the map as a 22% background behind the BPR stage
-  const dim = lerp(lerp(1, 0.6, windowed(p, 0, 0.12)), 0.22, windowed(p, 0.33, 0.4));
+  const dim = lerp(lerp(1, 0.6, windowed(p, 0, 0.12)), 0.08, windowed(p, 0.33, 0.4)); // lab: at most 0.1, the curve is the light
   // M: the map is hidden in the lab (GPU budget), the pressure glow remains
   const opacity = cls === "M" ? dim * (1 - windowed(p, 0.33, 0.38)) : dim;
   return { view, style, opacity };

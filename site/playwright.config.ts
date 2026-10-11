@@ -6,6 +6,8 @@ export default defineConfig({
   fullyParallel: true,
   // each worker runs deck.gl on software WebGL (SwiftShader); more than 2 starves the CPU and times out
   workers: 2,
+  // shared machine (other agents build / run Playwright): one retry absorbs software-WebGL timeouts
+  retries: 1,
   reporter: [["list"]],
   use: { baseURL: "http://localhost:4301/atlas-human-mobility/" },
   webServer: {

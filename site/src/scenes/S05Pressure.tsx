@@ -64,8 +64,8 @@ function BprStage({ fit, dm, cm, how }: { fit: BoroughFit; dm: number; cm: numbe
   const pressure = clamp(opY - 1, 0, 2);
   return (
     <div className="bpr-stage" ref={box}>
-      <div className="bpr-glow" style={{ left: X(xop), top: Y(opY), transform: `translate(-50%, -50%) scale(${(0.6 + 0.4 * pressure).toFixed(3)})`, opacity: (0.15 + 0.35 * pressure).toFixed(3) }} aria-hidden="true">
-        <Orb family="solar" size={120} />
+      <div className="bpr-glow" style={{ left: X(xop), top: Y(opY), transform: `translate(-50%, -50%) scale(${(0.6 + 0.4 * pressure).toFixed(3)})`, opacity: (0.1 + 0.2 * pressure).toFixed(3) }} aria-hidden="true">
+        <Orb family="solar" size={64} />
       </div>
       <svg width={w} height={h} role="img" aria-label="BPR travel-time index against volume over capacity, with the observed binned points, the fitted curve and the scenario operating point">
         {[0.25, 0.5, 0.75].map((f) => <line key={f} x1={L} x2={w - R} y1={Y(1 + f * (ymax - 1))} y2={Y(1 + f * (ymax - 1))} className="bpr-hair" />)}
@@ -78,7 +78,9 @@ function BprStage({ fit, dm, cm, how }: { fit: BoroughFit; dm: number; cm: numbe
         <text x={L} y={h - 8} className="bpr-axis">V/C 0</text>
         <text x={w - R} y={h - 8} className="bpr-axis" textAnchor="end">{XMAX.toFixed(1)}</text>
         <text x={L} y={T - 10} className="bpr-axis">TRAVEL-TIME INDEX {ymax.toFixed(1)}</text>
-        <text x={X(Math.min(XMAX, xMaxObs))} y={T - 10} className="bpr-axis" textAnchor="middle">MAX OBSERVED</text>
+        <line x1={X(Math.min(XMAX, xMaxObs))} x2={X(Math.min(XMAX, xMaxObs))} y1={T} y2={h - B} className="bpr-maxobs" />
+        {/* label sits on the x-axis row, clamped between the end labels, never in the header row */}
+        <text x={clamp(X(Math.min(XMAX, xMaxObs)), L + 70, w - R - 70)} y={h - 8} className="bpr-axis bpr-axis--max" textAnchor="middle">MAX OBSERVED</text>
       </svg>
     </div>
   );

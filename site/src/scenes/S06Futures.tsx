@@ -39,13 +39,36 @@ export function boroughDeltas(fits: Record<string, BoroughFit>, how: number, dm:
   return { rows, city };
 }
 
-/** R2 split-ring geometry (VISUAL_DESIGN 3.3): D/T side by side, M rotated (observed top, simulated bottom). */
-function halves(w: number, h: number, cls: ViewportClass, gap: number) {
-  // M: a smaller rotated split so the text above and the delta card below both clear it
-  if (cls === "M") { const r = w * (138 / 390), cy = h * (390 / 844); return { r, obs: { cx: w / 2, cy: cy - gap / 2 }, sim: { cx: w / 2, cy: cy + gap / 2 }, rotated: true }; }
-  // T: smaller than the design's r 280 so the delta block and selector fit beneath it
-  const r = cls === "D" ? h * (340 / 900) : w * (240 / 768);
-  const cx = cls === "D" ? w * (720 / 1440) : w / 2, cy = cls === "D" ? h * (470 / 900) : h * (440 / 1024);
+/** Max drawn outward swell (px) = 40 px x 1.2 TTI; larger deltas are drawn at the limit (noted on screen). */
+export const SWELL = 48;
+type Box = { x0: number; y0: number; x1: number; y1: number };
+
+/**
+ * The ring is fitted into the space the text leaves free (measured from the DOM, in canvas
+ * coordinates), so at no viewport does it cross a text block. D: between the left column and the
+ * minutes list. T/M: between the text above and the minutes list / selector below.
+ */
+function freeBox(canvas: HTMLCanvasElement, cls: ViewportClass, motion: boolean): Box {
+  const c = canvas.getBoundingClientRect();
+  const full = { x0: 16, y0: 16, x1: c.width - 16, y1: c.height - 16 };
+  if (!motion) return full;
+  const stage = canvas.parentElement!;
+  const r = (sel: string) => { const e = stage.querySelector(sel)?.getBoundingClientRect(); return e ? { l: e.left - c.left, t: e.top - c.top, r: e.right - c.left, b: e.bottom - c.top } : null; };
+  const text = r(".fut-text"), deltas = r(".fut-deltas"), select = r(".fut-select");
+  if (cls === "D") return { x0: (text?.r ?? 0) + 32, x1: (deltas?.l ?? c.width) - 32, y0: 48, y1: (select?.t ?? c.height) - 24 };
+  return { x0: 16, x1: c.width - 16, y0: (text?.b ?? 0) + 20, y1: Math.min(deltas?.t ?? c.height, select?.t ?? c.height) - 16 };
+}
+
+/** R2 split ring inside the free box: D/T side by side, M rotated (observed top, simulated bottom). */
+function halves(box: Box, cls: ViewportClass, gap: number) {
+  const bw = box.x1 - box.x0, bh = box.y1 - box.y0;
+  if (cls === "M") {
+    const r = Math.max(40, Math.min((bw - 2 * SWELL) / 2, (bh - gap - SWELL) / 2));
+    const cx = (box.x0 + box.x1) / 2, cy = box.y0 + r + gap / 2;
+    return { r, obs: { cx, cy: cy - gap / 2 }, sim: { cx, cy: cy + gap / 2 }, rotated: true };
+  }
+  const r = Math.max(60, Math.min((bw - gap - SWELL) / 2, (bh - 2 * SWELL) / 2, cls === "D" ? 340 : 280));
+  const cx = box.x0 + (bw - SWELL) / 2, cy = (box.y0 + box.y1) / 2;
   return { r, obs: { cx: cx - gap / 2, cy }, sim: { cx: cx + gap / 2, cy }, rotated: false };
 }
 /** Zone angle on each half: mirrored so a zone sits at the same height on both sides. */
@@ -109,6 +132,7 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
   }, [fits, how]);
   const zones = useMemo(() => (m && deltas ? zoneDeltas(m, how, (b) => deltas.rows.find((r) => r.borough === b)?.ratio ?? 1) : []), [m, deltas, how]);
   const excluded = zones.filter((z) => z === null).length;
+  const clipped = zones.filter((z) => z !== null && z.delta * 40 > SWELL).length;
   const copy = copyS06();
 
   // keyed 600ms tween of each zone's radial offset when the future / hour changes
@@ -123,6 +147,14 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
     dirty.current = true;
   }, [zones]);
   useProgress(id, (p) => { prog.current = p; dirty.current = true; });
+  // the ring is fitted around the text, so any layout change re-fits it
+  useEffect(() => {
+    const mark = () => { dirty.current = true; };
+    addEventListener("resize", mark);
+    void document.fonts?.ready.then(mark);
+    return () => removeEventListener("resize", mark);
+  }, []);
+  useEffect(() => { dirty.current = true; });
 
   useFrame((now) => {
     const c = canvas.current;
@@ -137,10 +169,10 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
     const p = motion ? prog.current : 0.5;
     const open = motion ? easeSymmetric(windowed(p, 0, 0.15)) : 1;
     const exit = motion ? easeSymmetric(windowed(p, 0.9, 1)) : 0;
-    const geo = halves(w, h, cls, 40 * open + 160 * exit);
+    const geo = halves(freeBox(c, cls, motion), cls, 40 * open + 160 * exit);
     ctx.globalAlpha = 1 - exit;
     const e = easeSmooth(clamp((now - b.at) / 600));
-    const off = (i: number) => lerp(b.from[i] ?? 0, b.to[i] ?? 0, e) * 40;
+    const off = (i: number) => Math.min(SWELL, lerp(b.from[i] ?? 0, b.to[i] ?? 0, e) * 40);
     // observed half: light-blue arc + solid nodes at the base radius
     ctx.strokeStyle = "rgba(88,184,225,0.9)";
     ctx.lineWidth = 1;
@@ -181,6 +213,12 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
       if (zones[i]) { ctx.fillStyle = "#FF4C25"; ctx.fillRect(q.x - sz / 2, q.y - sz / 2, sz, sz); }
       else { ctx.strokeStyle = "rgba(255,76,37,0.7)"; ctx.strokeRect(q.x - 1.5, q.y - 1.5, 3, 3); }
     }
+    // drawn extent in viewport coordinates (Playwright: the ring never intersects a text block)
+    const cr = c.getBoundingClientRect();
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const q of [...swell, ...base]) { x0 = Math.min(x0, q.x); y0 = Math.min(y0, q.y); x1 = Math.max(x1, q.x); y1 = Math.max(y1, q.y); }
+    for (let k = 0; k <= 90; k++) { const q = pt(geo.obs, geo.r, angleOn((k / 90) * 360, "obs", geo.rotated)); x0 = Math.min(x0, q.x); y0 = Math.min(y0, q.y); x1 = Math.max(x1, q.x); y1 = Math.max(y1, q.y); }
+    c.dataset.bbox = JSON.stringify([x0 + cr.left - 3, y0 + cr.top - 3, x1 + cr.left + 3, y1 + cr.top + 3].map(Math.round));
     if (tip.i >= 0) {
       const q = pt(geo.sim, geo.r + off(tip.i), angleOn(m.angles[tip.i]!, "sim", geo.rotated));
       ctx.strokeStyle = "#fff"; ctx.lineWidth = 1; ctx.strokeRect(q.x - 6, q.y - 6, 12, 12);
@@ -192,12 +230,12 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
     if (!m) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left, y = e.clientY - rect.top;
-    const w = rect.width, h = rect.height;
-    const geo = halves(w, h, viewportClass(motion ? stageW() : w), 40);
+    const w = rect.width;
+    const geo = halves(freeBox(e.currentTarget, viewportClass(motion ? stageW() : w), motion), viewportClass(motion ? stageW() : w), 40);
     let best = -1, bd = 14;
     for (let i = 0; i < m.n; i++) {
       for (const side of ["obs", "sim"] as const) {
-        const q = pt(geo[side], geo.r + (side === "sim" ? (blend.current.to[i] ?? 0) * 40 : 0), angleOn(m.angles[i]!, side, geo.rotated));
+        const q = pt(geo[side], geo.r + (side === "sim" ? Math.min(SWELL, (blend.current.to[i] ?? 0) * 40) : 0), angleOn(m.angles[i]!, side, geo.rotated));
         const d = Math.hypot(q.x - x, q.y - y);
         if (d < bd) { bd = d; best = i; }
       }
@@ -224,6 +262,8 @@ export function S06Futures({ id, height, landing }: { id: string; height: string
           <HonestyChip tag="OBSERVED" detail="LEFT HALF" />
           <HonestyChip tag="SIMULATED" detail={copy.chip} />
         </div>
+        <p className="mono-label fut-caption">{copy.caption}</p>
+        {clipped > 0 && <p className="scene-note">{clipped} ZONES SLOW BY MORE THAN +1.2 TRAVEL-TIME INDEX; DRAWN AT THE RIM LIMIT.</p>}
         <div className="fut-hour">
           <button type="button" className="btn-square" aria-expanded={hourOpen} onClick={() => setHourOpen((o) => !o)}>{howLabel(how)}</button>
           {hourOpen && <span className="mono-label">THE HOUR IS SET IN THE PRESSURE LAB</span>}

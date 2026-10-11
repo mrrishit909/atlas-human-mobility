@@ -238,6 +238,8 @@ html.is-gallery .map-stage { display: none; }
 .bpr-fit--beyond { stroke-dasharray: 2 4; }
 .bpr-scenario { fill: none; stroke: var(--accent-orange); stroke-width: 2; stroke-dasharray: 6 4; }
 .bpr-op { fill: var(--accent-orange); stroke: #fff; stroke-width: 1; }
+.bpr-maxobs { stroke: rgb(255 255 255 / 0.35); stroke-dasharray: 1 4; }
+.fut-caption { margin: 0; color: rgb(255 255 255 / 0.7); max-width: 34em; }
 .bpr-tick { stroke: rgb(255 255 255 / 0.8); stroke-width: 1; stroke-dasharray: 2 3; }
 .bpr-axis { fill: rgb(255 255 255 / 0.7); font: 400 13px var(--font-mono); letter-spacing: var(--tracking-label); }
 .bpr-glow { position: absolute; pointer-events: none; transition: opacity var(--motion-card) var(--ease-smooth); }
@@ -441,7 +443,7 @@ html[data-motion="off"] .end-canvas { position: relative !important; height: 50v
   .obs-rail { left: 16px; right: 16px; top: auto; bottom: calc(var(--nav-clear) + 230px); flex-direction: row; overflow-x: auto; align-items: center; scroll-snap-type: x mandatory; }
   .obs-rail > * { flex: none; scroll-snap-align: start; }
   .obs-region { bottom: calc(var(--nav-clear) + 280px); }
-  .inspector { left: 0; right: 0; top: auto; bottom: 0; width: auto; max-height: 50dvh; border-radius: var(--radius-card) var(--radius-card) 0 0; animation-name: sheet-in; }
+  .inspector { left: 0; right: 0; top: auto; bottom: var(--nav-clear); width: auto; max-height: calc(50dvh - var(--nav-clear)); border-radius: var(--radius-card) var(--radius-card) 0 0; animation-name: sheet-in; }
   @keyframes sheet-in { from { transform: translateY(100%); } }
 }
 @media (max-width: 767px) {
@@ -458,7 +460,7 @@ html[data-motion="off"] .end-canvas { position: relative !important; height: 50v
   .obs-actions { left: 16px; top: 256px; bottom: auto; }
   .obs-title .cor-chips .chip:nth-child(n + 2) { display: none; }
   .obs-table { display: none; }
-  .inspector { max-height: 80dvh; }
+  .inspector { max-height: calc(80dvh - var(--nav-clear)); }
 }
 html[data-motion="off"] .scene-obs .obs > * { position: absolute !important; }
 html[data-motion="off"] .scene-obs .stage-content { padding: 0; }

@@ -105,7 +105,8 @@ export function copyS06() {
   return {
     statement: "Three futures, one curve.",
     callout: "Adding 15% costs more than removing 15% saves.",
-    chip: "NOT A FORECAST · NO ROUTING OR MODE SHIFT",
+    chip: "NOT A FORECAST",
+    caption: "THE MODEL HAS NO ROUTING AND NO MODE SHIFT: ONLY SPEED CHANGES.",
   };
 }
 
@@ -128,8 +129,8 @@ export function copyS07(f: Facts, x: {
     { q: "DO THE NUMBERS ADD UP?", a: `${int(f.raw_rows_total)} RAW ROWS = ${int(f.trips_kept_total)} KEPT + ${int(f.excluded_total)} EXCLUDED, BY REASON, PER FLEET AND MONTH. A TEST FAILS THE BUILD IF THEY DON'T.`, tag: "OBSERVED", receipt: "reconciliation.json" },
     { q: "THOSE LINES LOOK LIKE ROUTES.", a: "THEY AREN'T. SINCE 2016 THE CITY PUBLISHES ZONES, NOT COORDINATES. EVERY LINE JOINS TWO ZONE CENTERS. MOVING PULSES ARE PLACED ON ZONE-TO-ZONE LINES WITH FIXED, SEEDED TIMING.", tag: null, receipt: "od_top.json" },
     { q: "DOES RAIN CHANGE HOW MANY RIDES THERE ARE?", a: spansZero
-      ? `CONTROLLING FOR WEEKDAY AND MONTH, WE FIND NO CLEAR ASSOCIATION BETWEEN RAIN AND DAILY RIDES (95% CI ${signed(w.ci_low_pct)}% TO ${signed(w.ci_high_pct)}%). ONE STATION, CENTRAL PARK.`
-      : `WE CAN'T SAY "CAUSE". CONTROLLING FOR WEEKDAY AND MONTH, EACH 10 MM OF RAIN IS ASSOCIATED WITH A ${signed(w.pct)}% CHANGE IN DAILY RIDES (95% CI ${signed(w.ci_low_pct)}% TO ${signed(w.ci_high_pct)}%). ONE STATION, CENTRAL PARK. ASSOCIATION, NOT CAUSE.`, tag: "DERIVED", receipt: "weather_model.json" },
+      ? `CONTROLLING FOR WEEKDAY, MONTH, TEMPERATURE, SNOW AND HOLIDAYS, WE FIND NO CLEAR ASSOCIATION BETWEEN RAIN AND DAILY RIDES (95% CI ${signed(w.ci_low_pct)}% TO ${signed(w.ci_high_pct)}%). ONE STATION, CENTRAL PARK.`
+      : `WE CAN'T SAY "CAUSE". CONTROLLING FOR WEEKDAY, MONTH, TEMPERATURE, SNOW AND HOLIDAYS, EACH 10 MM OF RAIN IS ASSOCIATED WITH A ${signed(w.pct)}% CHANGE IN DAILY RIDES (95% CI ${signed(w.ci_low_pct)}% TO ${signed(w.ci_high_pct)}%). ONE STATION, CENTRAL PARK. ASSOCIATION, NOT CAUSE.`, tag: "DERIVED", receipt: "weather_model.json" },
     { q: "HOW GOOD IS THE CONGESTION CURVE?", a: `FITTED PER BOROUGH ON OBSERVED HOURLY VOLUME AND SPEED. FIT ERROR (RMSE, TRAVEL-TIME INDEX): ${rmse}.${mn ? ` FIT ON JAN-SEP AND SCORED ON OCT-DEC, MANHATTAN'S ERROR IS ${mn.rmse.toFixed(2)}, AGAINST ${mn.rmse_const_train_mean.toFixed(2)} FOR A CONSTANT AND ${mn.rmse_freeflow_const.toFixed(2)} FOR "ALWAYS FREE-FLOW".` : ""} AT 1.0x DEMAND IT REPRODUCES THE OBSERVED CITY EXACTLY, BY CONSTRUCTION.`, tag: "DERIVED", receipt: "bpr_fit.json" },
     { q: "WHO GETS HIDDEN?", a: `ANY ZONE-TO-ZONE CELL WITH FEWER THAN 11 TRIPS: ${int(f.suppressed_cells_total)} CELLS, ${int(f.suppressed_trips_total)} TRIPS. THEY STAY IN THE TOTALS. THEY'RE ONLY REMOVED FROM THE CORRIDOR VIEWS.`, tag: "OBSERVED", receipt: "reconciliation.json" },
     { q: "ARE THE NEIGHBORHOOD TYPES REAL?", a: `WEAKLY. K = ${x.clusters.k} WAS CHOSEN BY SILHOUETTE OVER 3 TO 8 (${x.clusters.silhouette.toFixed(2)}${k4 !== undefined ? `; ${k4.toFixed(2)} AT K = 4` : ""}). RANDOM LABELS SCORE ${x.clusters.random_label_silhouette.max.toFixed(2)} AT BEST, AND THE TYPES HOLD ACROSS ${x.clusters.stability_ari.n_seeds} SEEDS (ADJUSTED RAND ${x.clusters.stability_ari.ari_min.toFixed(2)} OR MORE). READ THEM AS TENDENCIES.`, tag: "DERIVED", receipt: "clusters.json" },
