@@ -1,0 +1,36 @@
+{
+  "task_id": "P01-QA-005",
+  "agent": "qa-reviewer",
+  "status": "FAILED",
+  "owned_paths": ["docs/QA_REPORT.md", "artifacts/evidence/qa-4/"],
+  "files_changed": ["docs/QA_REPORT.md", "artifacts/evidence/qa-4/"],
+  "commits": ["835169f"],
+  "tests_executed": [
+    {"command": "npm run typecheck && npm run lint && npm test", "result": "clean, clean, 70/70 (load 14.3)"},
+    {"command": "npm run build", "result": "OK; main JS 109.13 KB gz, CSS 13.21 KB gz (+1.04 KB gz vs pass 2, Lighthouse not rerun; pass-2 mobile LCP 1.8 s cited)"},
+    {"command": "npx playwright test --workers 1", "result": "96 passed, 71 skipped, 1 failed (b2.spec.ts:195 30 s timeout at load 24-33); serial rerun passed in 11 s: load, not product"},
+    {"command": "npx playwright test -c playwright.qa.config.ts --workers 1", "result": "21 passed, 17 skipped, 0 failed (load 30)"},
+    {"command": "node artifacts/evidence/qa-4/scripts/probe4.mjs d047", "result": "54 states (9 variants x 6 anchors), 0 dial-title hits: D-047 closed"},
+    {"command": "VPS=1280x720,1280x800,1366x768,1440x760,1536x864,1180x820 node scripts/p4x.mjs d047", "result": "1280x720: title over ticket row at p 0.8/0.88/0.95 (D-057); others clean"},
+    {"command": "node probe4.mjs errors4", "result": "70 route-block cases, 52 pass; D-042/D-052 cases all pass; 11 RETRY covered (D-055), 7 silent (D-056)"},
+    {"command": "node probe4.mjs remount", "result": "66 transition steps, every visible error line is the single in-view alert"},
+    {"command": "node scripts/d055b.mjs", "result": "real tap/click on RETRY re-fetches 0 in S07 (390, 768, daily.json at 1440) and S05 (390)"},
+    {"command": "node probe4.mjs geom,tags,labels,chip,l8,l9,tickets,rm,nav,axe,keyboard,numbers", "result": "L1 JS=CSS everywhere; 0 RM overflow; 126 ticket states 0 defects; 40 nav jumps 0 ghosts; axe 160 scans 0 violations; facts 23/23; L7 dagger 8.8-10.4 px (D-059); L8 pill overlap (D-058)"}
+  ],
+  "evidence_paths": [
+    "docs/QA_REPORT.md (Pass 4)",
+    "artifacts/evidence/qa-4/contact-sheets/",
+    "artifacts/evidence/qa-4/probe/",
+    "artifacts/evidence/qa-4/probe-results.json",
+    "artifacts/evidence/qa-4/probe-x-results.json",
+    "artifacts/evidence/qa-4/scripts/"
+  ],
+  "blocking_issues": [
+    "P01-D-055 (major): RETRY covered by .ev-stack / stacked .ev-a cards in S07 (phones, 768, and daily.json at 1440) and by .bpr-stage--skeleton in S05 on phones; a real tap re-fetches nothing (keyboard Enter works)",
+    "P01-D-057 (major): at 1280x720 the S03b LaGuardia dial title, pushed below the text column by the D-047 fix, is struck through by the destination ticket row at p 0.8/0.88/0.95"
+  ],
+  "open_questions": [
+    "D-057 viewport 1280x720 is outside the task's 7 viewports but named by QA_LESSONS L2; rated major for consistency with D-047"
+  ],
+  "next_action": "P01-FIX-004: fix D-055 (make stage overlays and hidden stacked cards pointer-events:none or move RETRY above them; test with elementFromPoint + mouse/touch, not locator.click) and D-057 (title must also clear .ticket; add 1280x720 to the S03b box check); also minors D-053, D-056, D-058, D-059, D-051; then QA pass 5"
+}
