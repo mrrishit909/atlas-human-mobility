@@ -1,0 +1,212 @@
+{
+ "_comment": "P01-QA-002 config for the Atlas of Human Mobility (scene ids from site/src/app/scenes.ts; window.__atlas.jumpTo is the nav's instant-jump path).",
+ "scenes": [],
+ "interactionStates": [],
+ "interactionSequences": [
+  {
+   "id": "city",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('city', 0.05);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('city', 0.5);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('city', 0.78);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('city', 0.97);",
+     "waitMs": 1100
+    }
+   ]
+  },
+  {
+   "id": "anatomy",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('anatomy', 0.14);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('anatomy', 0.4);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('anatomy', 0.65);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('anatomy', 0.9);",
+     "waitMs": 1100
+    }
+   ]
+  },
+  {
+   "id": "rush-hour",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour', 0.1);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour', 0.35);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour', 0.6);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('rush-hour', 0.9);",
+     "waitMs": 1100
+    }
+   ]
+  },
+  {
+   "id": "corridors",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('corridors', 0.05);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('corridors', 0.3);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('corridors', 0.55);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('corridors', 0.8);",
+     "waitMs": 1100
+    }
+   ]
+  },
+  {
+   "id": "demand",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('demand', 0.1);",
+     "waitMs": 3000
+    },
+    {
+     "setup": "window.__atlas.jumpTo('demand', 0.4);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('demand', 0.65);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('demand', 0.89);",
+     "waitMs": 1100
+    }
+   ]
+  },
+  {
+   "id": "pressure",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('pressure', 0.15);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('pressure', 0.4);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.setLab({dm:1.3,cm:0.8});",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.setLab({dm:1.5,cm:0.7,borough:'Queens'});",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.setLab({dm:1,cm:1,borough:'Manhattan'});",
+     "waitMs": 800
+    }
+   ]
+  },
+  {
+   "id": "futures",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('futures', 0.1);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('futures', 0.5);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('futures', 0.9);",
+     "waitMs": 1100
+    }
+   ]
+  },
+  {
+   "id": "evidence",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('evidence', 0.05);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('evidence', 0.3);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('evidence', 0.55);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('evidence', 0.8);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('evidence', 0.98);",
+     "waitMs": 1100
+    }
+   ]
+  },
+  {
+   "id": "observatory",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('observatory', 0);",
+     "waitMs": 1100
+    }
+   ]
+  },
+  {
+   "id": "closing",
+   "steps": [
+    {
+     "setup": "window.__atlas.jumpTo('closing', 0.3);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('closing', 0.6);",
+     "waitMs": 1100
+    },
+    {
+     "setup": "window.__atlas.jumpTo('closing', 0.95);",
+     "waitMs": 1100
+    }
+   ]
+  }
+ ],
+ "scrollSteps": 120,
+ "heavyInteraction": {
+  "label": "Corridors -> Demand scroll scrub (ring dial + Canvas2D-to-deck morph), rapid and repeated",
+  "trigger": "window.__atlas.jumpTo('corridors', 0.5); const a = document.getElementById('corridors'), b = document.getElementById('demand'); const start = window.scrollY, end = b.offsetTop + b.offsetHeight - innerHeight; let dir = 1; window.__heavy = setInterval(() => { window.scrollBy(0, dir * 60); if (window.scrollY >= end) dir = -1; if (window.scrollY <= start) dir = 1; }, 16);",
+  "stateCheck": "window.scrollY",
+  "durationMs": 6000
+ }
+}

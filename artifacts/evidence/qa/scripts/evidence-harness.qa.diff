@@ -1,0 +1,41 @@
+26c26
+< import ffmpegPath from "ffmpeg-static";
+---
+> const ffmpegPath = "/private/tmp/claude-501/-Users-rishitmathurrishit-data-frontier/2345476d-71fe-4b13-9b7d-12d3e947ff61/scratchpad/ff/node_modules/ffmpeg-static/ffmpeg"; // QA: read-only use of the sibling worktree binary
+33,34c33,35
+< const ROOT = join(HERE, "..", "..");
+< const ARTIFACTS = join(ROOT, "artifacts", "evidence");
+---
+> const PROJ = "/Users/rishitmathurrishit/data-frontier/projects/01-atlas-human-mobility";
+> const ARTIFACTS = join(PROJ, "artifacts", "evidence", "qa"); // QA P01-QA-002 output root
+> const REC = join(PROJ, "artifacts", "evidence", "recordings", "qa"); // gitignored heavy files
+55c56
+<   ensureDir(join(ARTIFACTS, "recordings"));
+---
+>   ensureDir(REC);
+59c60
+<     recordVideo: { dir: join(ARTIFACTS, "recordings", `tmp-${width}`), size: { width: vp.width, height: vp.height } },
+---
+>     recordVideo: { dir: join(REC, `tmp-${width}`), size: { width: vp.width, height: vp.height } },
+98c99
+<     renameSync(savedPath, join(ARTIFACTS, "recordings", `${width}.webm`));
+---
+>     renameSync(savedPath, join(REC, `${width}.webm`));
+104,106c105,107
+<   const input = join(ARTIFACTS, "recordings", `${width}.webm`);
+<   const framesGlob = join(ARTIFACTS, "contact-sheets", `${width}-frame-%03d.png`);
+<   execFileSync(ffmpegPath, ["-y", "-i", input, "-vf", "fps=1,scale=-2:240", framesGlob], { stdio: "inherit" });
+---
+>   const input = join(REC, `${width}.webm`);
+>   ensureDir(join(REC, "frames")); const framesGlob = join(REC, "frames", `${width}-frame-%03d.png`);
+>   execFileSync(ffmpegPath, ["-y", "-i", input, "-vf", "fps=2", framesGlob], { stdio: "inherit" });
+108c109
+<   const n = readdirSync(join(ARTIFACTS, "contact-sheets")).filter((f) => f.startsWith(`${width}-frame-`)).length;
+---
+>   const n = readdirSync(join(REC, "frames")).filter((f) => f.startsWith(`${width}-frame-`)).length;
+111,112c112,113
+<     "-y", "-pattern_type", "glob", "-i", join(ARTIFACTS, "contact-sheets", `${width}-frame-*.png`),
+<     "-filter_complex", `tile=${cols}x${rows}:margin=4:padding=4`, "-frames:v", "1", "-update", "1", montage,
+---
+>     "-y", "-pattern_type", "glob", "-i", join(REC, "frames", `${width}-frame-*.png`),
+>     "-filter_complex", `${parseInt(width) > 480 ? "scale=480:-2," : ""}tile=${cols}x${rows}:margin=4:padding=4`, "-frames:v", "1", "-update", "1", montage,
